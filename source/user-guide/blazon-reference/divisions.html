@@ -1,0 +1,67 @@
+---
+layout: sidemenu
+sidemenu: user-guide-menu
+pageTitle: Divisions
+prevLink: arrangements.html
+upLink: index.html
+nextLink: edges.html
+group00: true
+g00menu01: active
+combobox: true
+---
+<!-- /blazon-reference/divisions.ejs starts -->
+<p>Divisions are partitions of the field into separately
+coloured sections. Some times the larger ordinaries or other charges are
+also coloured using one of the simpler divisions, such as <span class="example">a roundel
+per pale azure and or</span>. DrawShield supports the following
+divisions.</p>
+
+<h2>Divisions of Two Tinctures</h2>
+
+<p>&quot;Large&quot; divisions - <span class="keyword">per pale, per fess, per bend,
+per chevron, quarterly, per pile, per saltire</span></p>
+
+<p>More &quot;pattern like&quot; divisions - <span class="keyword">barry, bendy, paly,
+pily, fusily, chevronny, gyronny</span>, with most of these you can
+also specify the number of &quot;bars&quot; e.g. <span class="example">barry of 8</span>,
+<span class="example">gyronny of 12</span> etc.</p>
+
+<p>There are also variants of the above, but with a fixed number of
+&quot;bars&quot; - <span class="keyword">barry-bendy, barry-pily, fusily-bendy,
+paly-bendy, pily-bendy, barry-indented-one-in-the-other</span>.</p>
+
+<p>&quot;Smaller&quot; divisions - <span class="keyword">chape, chausse</span></p>
+
+<p>Some authorities regard <span class="keyword">lozengy</span> as a division.
+DrawShield handles lozengy as a <a href="treatments.html"
+title="Treatments">treatment</a>, however the end result
+appears identical when drawn.</p>
+
+<h2>Divisions of Three Tinctures</h2>
+
+<p>The following divisions need three tinctures to be provided, the
+tinctures are typically given in the order top right and "clockwise"
+around the shield - <span class="keyword">per pall, tierced-in-bend, tierced-in-fess,
+tierced-in-pale, tierced-in-chevron</span></p>
+
+<p>The division <span class="keyword">per pile</span> is rather special, as it can take
+either two tinctures (in which the pile itself takes the 2nd tincture); or three
+tinctures (in which the three parts are coloured from left to right).</p>
+
+{% include finddiv.html skipadd = true %}
+
+<h2>Edge Types</h2>
+
+<p>All of the "larger" divisions may be drawn with a pattern along the
+lines of separation, instead of a straight line. See the page on <a href="edges.html" title="Edges">edges</a> for more details. In
+addition, there are two special divisions which have pattern edges only
+along the named edge - <span class="keyword">quarterly-per-pale,
+quarterly-per-fess</span></p>
+
+<h2>Two Divisions</h2>
+
+<p>It is also possible to have two different divisions on the same
+shield, as long as the second division is described as
+<span class="keyword">counterchanged</span>. The second division will overlay the
+first, but with the colours reversed.</p> 
+<!-- /blazon-reference/divisions.ejs ends -->

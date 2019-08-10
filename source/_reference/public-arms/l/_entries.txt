@@ -1,0 +1,169 @@
+land/LAND.
+labrador/LABRADOR.
+labuan/LABUAN.
+labuan-(2)/LABUAN.
+labuan-and-sarawak/LABUAN AND SARAWAK, See of.
+ladybank/LADYBANK.
+lagos/LAGOS.
+lahore/LAHORE, See of.
+lambeth/LAMBETH, Borough of (London).
+lampeter/LAMPETER (Cardiganshire).
+lanark/LANARK, The Commissioners of Supply for the County of 
+lanark-(2)/LANARK (Lanarkshire).
+lancashire/LANCASHIRE (The County Council of the County Palatine of Lancaster).
+lancaster/LANCASTER, Borough of (Lancashire).
+lancaster-(2)/LANCASTER, Duchy of.
+lancaster-herald/LANCASTER HERALD.
+landaff/LANDAFF.
+langholm/LANGHOLM, Police Borough of (Dumfriesshire).
+largs/LARGS (Ayrshire).
+lasswade/LASSWADE.
+lauder/LAUDER (Berwickshire).
+lauenborg/LAUENBORG.
+launceston/LAUNCESTON or DUNHEVED ("The Swelling Hill"), 
+laurencekirk/LAURENCEKIRK (Co. Kincardine).
+law/LAW, College of Professors of Civil and Canon.
+law-school-of-cambridge/LAW SCHOOL OF CAMBRIDGE.
+law-society/LAW SOCIETY.
+leamington/LEAMINGTON (Warwickshire)," Borough of Royal Leamington Spa.
+leathersellers/LEATHERSELLERS, The Worshipful Company of, London, 
+lebombo/LEBOMBO, See of.
+leeds/LEEDS (Yorkshire).
+leeds-grammar-school/LEEDS GRAMMAR SCHOOL.
+leeds-(2)/LEEDS, University of Refer to University of Leeds.
+leeward-islands/LEEWARD ISLANDS.
+leghorn/LEGHORN.
+leicestershire/LEICESTERSHIRE.
+leicester/LEICESTER (Leicestershire).
+leicester-(2)/LEICESTER, Bishop of.
+leicester-college/LEICESTER COLLEGE (Newark, Co.
+leigh/LEIGH, Borough of (Lancashire).
+leighlin/LEIGHLIN, 
+leinster/LEINSTER, Province of (Ireland).
+leipzig/LEIPZIG (Saxony).
+leith/LEITH (Edinburghshire).
+leitrim/LEITRIM, County.
+lemberg/LEMBERG (Austria).
+leominster/LEOMINSTER (Herefordshire).
+leon/LEON (Kingdom of).
+lerwick/LERWICK, Burgh of Barony of (Shetland).
+leslie/LESLIE (Fifeshire).
+levant-or-turkey-merchants-company/LEVANT, OR TURKEY MERCHANTS, COMPANY.
+leven/LEVEN (Fifeshire).
+lewes/LEWES (Sussex).
+lewisham/LEWISHAM, Borough of (London).
+leyden/LEYDEN (Holland).
+leys-school/LEYS SCHOOL (Cambridge), The Governing Body of.
+liberia/LIBERIA.
+lichfield/LICHFIELD (Staffordshire).
+lichfield-(2)/LICHFIELD, See of.
+lichfield-(3)/LICHFIELD, Dean of 
+lidd/LIDD.
+liechtenstein/LIECHTENSTEIN.
+liege/LIEGE (Belgium).
+liege-(2)/LIEGE, Bishopric of.
+lieutenant-lords-/LIEUTENANT, LORDS-.
+life-assurance-companies/LIFE ASSURANCE COMPANIES.
+lightermens-company/LIGHTERMEN'S COMPANY.
+lille/LILLE (FRANCE).
+limerick/LIMERICK, City of (Co. Limerick).
+limerick-(2)/LIMERICK, See of.
+limerick-ardfertand-aghadoe/LIMERICK, ARDFERT,AND AGHADOE, Bishop of.
+linacre/LINACRE.
+lincolnshire/LINCOLNSHIRE.
+lincoln/LINCOLN, City of (Lincolnshire).
+lincoln-(2)/LINCOLN, See of.
+lincoln-(3)/LINCOLN, Dean of.
+lincoln-college/LINCOLN COLLEGE (Co. Oxford).
+lincolns-inn/LINCOLN'S INN, The Honourable Society of.
+linen-manufacturers-in-scotland/LINEN MANUFACTURERS IN SCOTLAND, The Company of Azure,
+linlithgowshire/LINLITHGOWSHIRE.
+linlithgow/LINLITHGOW (Linlithgowshire).
+linnean-society/LINNEAN SOCIETY (London).
+linz/LINZ (Austria).
+lions-inn/LION'S INN (London).
+lippe/LIPPE, Principality of.
+lisbon/LISBON (Portugal).
+liskeard/LISKEARD (Cornwall).
+lismore/LISMORE.
+lismore-(2)/LISMORE.
+literary-fund/LITERARY FUND.
+lithuania/LITHUANIA.
+liverpool/LIVERPOOL (Lancashire).
+liverpool-(2)/LIVERPOOL, See of.
+liverpool-(3)/LIVERPOOL, University of Refer to University of Liverpool.
+liverpool-college/LIVERPOOL COLLEGE.
+livorno/LIVORNO (Italy).
+llandaff/LLANDAFF (Glamorganshire).
+llandaff-(2)/LLANDAFF, See of.
+llandaff-priory/LLANDAFF PRIORY (Glamorganshire).
+llandovery/LLANDOVERY (Carmarthenshire).
+llanelly/LLANELLY (Co. Carmarthen).
+llanfyllin/LLANFYLLIN (Montgomeryshire).
+llanidloes/LLANIDLOES (Montgomeryshire).
+loanhead/LOANHEAD.
+lochgelly/LOCHGELLY.
+lochgilphead/LOCHGILPHEAD (Argyllshire).
+lochmaben/LOCHMABEN (Dumfriesshire).
+lockerbie/LOCKERBIE (Dumfriesshire.
+lodomiria/LODOMIRIA.
+loe/LOE.
+logic-school/LOGIC SCHOOL (Cambridge).
+london/LONDON (City of).
+london-county-council/LONDON COUNTY COUNCIL.
+london-institution/LONDON INSTITUTION.
+london-(2)/LONDON, See of.
+london-(3)/LONDON, Dean of 
+london-(4)/LONDON, The Guild of Freemen of the City of.
+london-(5)/LONDON.
+london-(6)/LONDON, University of.
+londonderry/LONDONDERRY, County.
+londonderry-(2)/LONDONDERRY (Co. Londonderry).
+londonderry-port-and-harbour-commissioners/LONDONDERRY, PORT AND HARBOUR COMMISSIONERS.
+longford/LONGFORD, County.
+longford-(2)/LONGFORD, Town.
+long-bow-string-makers-company/LONG BOW-STRING MAKERS' COMPANY (London).
+longton/LONGTON (Staffordshire).
+looz/LOOZ.
+lord-chamberlain-of-the-household-in-england/LORD CHAMBERLAIN OF THE HOUSEHOLD IN ENGLAND.
+lord-chancellor-of-england/LORD CHANCELLOR OF ENGLAND.
+lord-great-chamberlain-of-england/LORD GREAT CHAMBERLAIN OF ENGLAND.
+lord-high-chamberlain-of-scotland/LORD HIGH CHAMBERLAIN OF SCOTLAND.
+lord-high-constable-of-england/LORD HIGH CONSTABLE OF ENGLAND.
+lord-high-constable-of-scotland/LORD HIGH CONSTABLE OF SCOTLAND.
+lord-justice-general-of-scotland/LORD JUSTICE-GENERAL OF SCOTLAND.
+lord-lieutenant-of-ireland/LORD-LIEUTENANT OF IRELAND.
+lords-lieutenant-of-counties/LORDS-LIEUTENANT OF COUNTIES.
+loriners/LORINERS, The Worshipful Company of, London.
+lorne/LORNE, Lordship of.
+lorraine/LORRAINE.
+lossiemouth-and-branderburgh/LOSSIEMOUTH AND BRANDERBURGH.
+lostwithiel/LOSTWITHIEL (Cornwall).
+loughborough/LOUGHBOROUGH (Leicestershire).
+louth/LOUTH (Lincolnshire).
+louth-and-drogheda/LOUTH AND DROGHEDA, County.
+louth-(2)/LOUTH, Town of (Co. Louth).
+louvain/LOUVAIN (Belgium).
+lowestoft/LOWESTOFT (Suffolk).
+lubeck/LUBECK (Germany).
+lubeck-(2)/LUBECK (Bishopric of).
+lucca/LUCCA (Italy).
+lucern/LUCERN, Canton (Switzerland).
+lucknow/LUCKNOW, See of.
+ludlow/LUDLOW (Shropshire).
+luggershall/LUGGERSHALL (Wiltshire).
+lurgan/LURGAN (Co. Armagh).
+lusatia-lower/LUSATIA, LOWER, Markgravate of.
+lusatia-upper/LUSATIA, UPPER, Markgravate of.
+luton/LUTON (Bedfordshire).
+lutestrings/LUTESTRINGS, 
+luxemburg/LUXEMBURG (Germany).
+luxemburg-(2)/LUXEMBURG, Grand Duchy of.
+lydd/LYDD (Kent).
+lyme-regis/LYME REGIS (Dorsetshire).
+lymington/LYMINGTON (Hampshire).
+lynn-regis/LYNN REGIS, or KING'S LYNN.
+lyon-court/LYON COURT, or LYON OFFICE, being the Office of Arms for Scotland
+lyon-king-of-arms/LYON KING OF ARMS.
+lyons/LYONS (France).
+lyons-inn/LYON'S INN.

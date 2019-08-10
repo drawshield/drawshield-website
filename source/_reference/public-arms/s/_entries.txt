@@ -1,0 +1,262 @@
+sawyers/SAWYERS, Company of (Durham).
+sabah/SABAH, Governor of.
+saddlers/SADDLERS, The Worshipful Company of, London.
+saddlers-(2)/SADDLERS (Gateshead).
+saffron-walden/SAFFRON WALDEN (Essex).
+st-albans/ST. ALBANS (Hertfordshire).
+st-albans-(2)/ST.
+st-andrews/ST. ANDREWS, Archiepiscopal See of (Scotland).
+st-andrews-dunkeld-and-dunblane/ST. ANDREWS, DUNKELD, AND DUNBLANE, Bishop of.
+st-andrews-(2)/ST. ANDREWS, City of (Fifeshire.
+st-andrews-(3)/ST. ANDREWS, University of.
+st-asaph/ST. ASAPH (Cornwall).
+st-asaph-(2)/ST. ASAPH, See of (Wales).
+st-bartholomews-hospital/ST. BARTHOLOMEW'S HOSPITAL.
+st-catherines-college/ST. CATHERINE'S COLLEGE, Cambridge.
+st-catherines-hospital/ST. CATHERINE'S HOSPITAL (London).
+st-cross-hospital/ST. CROSS HOSPITAL (Winchester).
+st-christopher/ST. CHRISTOPHER.
+st-davids/ST. DAVIDS, (Pembrokeshire).
+st-davids-(2)/ST. DAVID'S, See of (Wales).
+st-davids-(3)/ST. DAVID'S, Dean of.
+st-davids-(4)/ST. DAVID'S, College of.
+st-edmunds-hall/ST. EDMUND'S HALL (Oxford).
+st-edmundsbury/ST. EDMUNDSBURY (St Edmund's).
+st-etienne/ST. ETIENNE (France).
+st-gallen/ST. GALLEN (Switzerland).
+st-georges-chapel/ST. GEORGE'S CHAPEL (Windsor).
+st-georges-hospital/ST. GEORGE'S HOSPITAL (London).
+st-germans/ST. GERMANS, Bishop of.
+st-germans-(2)/ST. GERMANS (Cornwall).
+st-helena/ST. HELENA.
+st-helena-(2)/ST. HELENA, See of.
+st-helens/ST. HELENS (Lancashire).
+st-heliers/ST. HELIERS (Jersey).
+st-ives/ST. IVES (Cornwall).
+st-ives-(2)/ST. IVES (Huntingdonshire).
+st-james/ST. JAMES, Guild of.
+st-john-baptist-college/ST. JOHN BAPTIST COLLEGE (Oxford).
+st-johns-college/ST. JOHN'S COLLEGE (Cambridge).
+st-john-of-jerusalem-hospital/ST. JOHN OF JERUSALEM HOSPITAL (London).
+st-johns-kaffraria/ST. JOHN'S, KAFFRARIA, See of.
+st-katharine/ST. KATHARINE, The Royal Hospital of, Regent's Park.
+st-kitts/ST. KITTS, otherwise ST.
+st-lucia/ST. LUCIA.
+st-mary-hall/ST. MARY HALL (Oxford).
+st-marylebone/ST. MARYLEBONE.
+st-marys-collegiate-church/ST. MARY'S COLLEGIATE CHURCH, Port Elizabeth (S.
+st-mawes/ST. MAWES (Cornwall).
+st-pancras/ST. PANCRAS, Borough of (London).
+st-pauls-school-kensington/ST. PAUL'S SCHOOL, KENSINGTON (London).
+st-petersburg/ST. PETERSBURG or PETROGRAD (Russia).
+st-peters-college/ST. PETER'S COLLEGE (Radley).
+st-saviours-collegiate-church/ST. SAVIOUR'S COLLEGIATE CHURCH (Southwark).
+st-thomas-of-acons-hospital/ST. THOMAS OF ACONS' HOSPITAL ( London).
+st-thomass-hospital/ST. THOMAS'S HOSPITAL (London).
+st-vincent/ST. VINCENT.
+salford/SALFORD (Lancashire).
+salisbury/SALISBURY (Wiltshire).
+salisbury-(2)/SALISBURY, See of.
+salisbury-(3)/SALISBURY, Dean of.
+salop/SALOP.
+saltash/SALTASH (Cornwall).
+saltcoats/SALTCOATS (Ayrshire).
+salters/SALTERS, The Worshipful Company of (London).
+salt-fishmongers-company/SALT FISHMONGERS' COMPANY.
+salzburg/SALZBURG.
+salzburg-(2)/SALZBURG (Austria).
+salzburg-(3)/SALZBURG, Duchy of.
+samos/SAMOS.
+sandwich/SANDWICH (Kent).
+sanquhar/SANQUHAR (Dumfriesshire).
+san-marino/SAN MARINO, Republic of.
+saragossa/SARAGOSSA (Spain).
+saratoff/SARATOFF (Russia).
+sarawak/SARAWAK.
+sarawak-(2)/SARAWAK.
+sark/SARK.
+saskatchewan/SASKATCHEWAN, Province of (Dominion of Canada).
+saskatchewan-(2)/SASKATCHEWAN, See of (Canada).
+savoy-the-master-of-the/SAVOY, THE MASTER OF THE 
+saxe-altenburg/SAXE-ALTENBURG, Duchy of 
+saxe-coburg-and-gotha/SAXE-COBURG AND GOTHA, Duchy of.
+saxe-meiningen-hildburghausen/SAXE-MEININGEN-HILDBURGHAUSEN, Duchy of Quarterly:
+saxe-weimar-eisenach/SAXE-WEIMAR EISENACH, Grand Duchy of.
+saxony/SAXONY, Kingdom of.
+saxony-(2)/SAXONY, Province of (Prussia).
+scandinavia/SCANDINAVIA.
+scarborough/SCARBOROUGH (Yorkshire).
+schaffhausen/SCHAFFHAUSEN, Canton (Switzerland).
+schaffhausen-(2)/SCHAFFHAUSEN, Town of (Canton of Schaffhausen, Switzerland).
+schaumburg-lippe/SCHAUMBURG-LIPPE, Principality of.
+schegedin/SCHEGEDIN (Hungary).
+schleswig/SCHLESWIG.
+schleswig-holstein/SCHLESWIG-HOLSTEIN, Province of (Prussia).
+schwarzburg-sonderhausen/SCHWARZBURG-SONDERHAUSEN, Principality of.
+schweiz/SCHWEIZ, Canton (Switzerland).
+schwerin/SCHWERIN (Germany).
+science-and-technology/SCIENCE AND TECHNOLOGY.
+scotland/SCOTLAND.
+scotland-(2)/SCOTLAND.
+scotland-(3)/SCOTLAND, Heritable Usher for.
+scotland-(4)/SCOTLAND, Company of, trading to Africa and the Indies.
+scots-corporation/SCOTS CORPORATION.
+scriveners/SCRIVENERS, The Worshipful Company of, London.
+sculptors-company/SCULPTORS' COMPANY (Gateshead).
+seaford/SEAFORD (Sussex).
+secretaries-chartered-institute-of/SECRETARIES, CHARTERED INSTITUTE OF (London).
+sedbergh-school/SEDBERGH SCHOOL (Sedbergh, Yorkshire).
+sekfords-almshouse/SEKFORD'S ALMSHOUSE (Woodbridge, Suffolk).
+selkirk/SELKIRK (County of).
+selkirk-(2)/SELKIRK (Selkirkshire).
+selkirk-(3)/SELKIRK, See of (Canada).
+selywn-college/SELYWN COLLEGE (Cambridge).
+seneschall-of-ireland/SENESCHALL OF IRELAND.
+serampore-college/SERAMPORE COLLEGE (Bengal).
+serjeants-inn/SERJEANTS' INN (Fleet Street, London).
+serjeants-inn-old/SERJEANTS' INN, OLD (Chancery Lane, London).
+servia/SERVIA.
+servia-(2)/SERVIA, Kingdom of.
+seville/SEVILLE (Spain).
+seychelles-islands/SEYCHELLES ISLANDS.
+shaftesbury/SHAFTESBURY (Dorsetshire).
+shantung/SHANTUNG, See of (China).
+sheermen/SHEERMEN, Fraternity of.
+sheffield/SHEFFIELD, See of.
+sheffield-(2)/SHEFFIELD (Yorkshire).
+sheffield-university/SHEFFIELD UNIVERSITY.
+sherborne-school/SHERBORNE SCHOOL.
+shields/SHIELDS.
+ship-carpenters/SHIP CARPENTERS.
+shipwrights/SHIPWRIGHTS, The Worshipful Company of, London.
+shoemakers/SHOEMAKERS, The Craft and Incorporation of (Aberdeen).
+shoemakers-company/SHOEMAKERS' COMPANY (London).
+shoemakers-(2)/SHOEMAKERS.
+shoemakers-guild/SHOEMAKERS' GUILD.
+shoreditch/SHOREDITCH, Borough of (London).
+shoreham/SHOREHAM (Sussex).
+shrewsbury/SHREWSBURY, Otherwise SALOP.
+shrewsbury-school/SHREWSBURY SCHOOL.
+shropshire/SHROPSHIRE.
+siam/SIAM, Kingdom of.
+siberia/SIBERIA.
+sicily/SICILY.
+sidney-and-sussex-college/SIDNEY AND SUSSEX COLLEGE (Cambridge).
+sierra-leone/SIERRA LEONE.
+sierra-leone-(2)/SIERRA LEONE, See ol.
+signet/SIGNET, Society of Writers to.
+silesia/SILESIA.
+silesia-(2)/SILESIA, Province of (Prussia).
+silk-throwsters-company/SILK-THROWSTERS' COMPANY, London.
+silkmen/SILKMEN, Company of, London.
+singapore/SINGAPORE.
+singapore-(2)/SINGAPORE, See of.
+singapore-labuan-and-sarawak/SINGAPORE, LABUAN, AND SARAWAK, See of.
+sion-college/SION COLLEGE (London).
+six-clerks-office/SIX CLERKS' OFFICE.
+skinners/SKINNERS, United Company of Glovers and (Exeter).
+skinners-(2)/SKINNERS, The Worshipful Company of (London).
+skinners-(3)/SKINNERS (Edinburgh).
+slesvig/SLESVIG.
+sligo/SLIGO (County).
+sligo-(2)/SLIGO, City of (Co. Sligo).
+smiths/SMITHS.
+smiths-company/SMITH'S COMPANY (Exeter).
+soap-boilers-company/SOAP BOILERS' COMPANY (London).
+sodbury/SODBURY.
+sodor-and-man/SODOR AND MAN, See of.
+solicitors-society/SOLICITORS' SOCIETY.
+solothurn/SOLOTHURN, Canton (Switzerland).
+somaliland/SOMALILAND.
+somerset-county-council/SOMERSET COUNTY COUNCIL.
+somers-islands/SOMERS ISLANDS, otherwise the BERMUDAS.
+sonnenburg/SONNENBURG, County of 
+sons-of-the-clergy-corporation/SONS OF THE CLERGY CORPORATION.
+sorbano/SORBANO, Province of (Florence).
+south-africa/SOUTH AFRICA, Union of.
+south-africa-(2)/SOUTH AFRICA.
+south-australia/SOUTH AUSTRALIA, State of (Commonwealth of Australia).
+south-molton/SOUTH MOLTON (Devonshire).
+south-sea-company/SOUTH SEA COMPANY.
+south-shields/SOUTH SHIELDS.
+south-tokyo/SOUTH TOKYO, See of 
+southampton/SOUTHAMPTON, Bishop of.
+southampton-(2)/SOUTHAMPTON, County of, otherwise Hampshire.
+southampton-(3)/SOUTHAMPTON (Hants).
+southend-on-sea/SOUTHEND-ON-SEA (Essex).
+southport/SOUTHPORT (Lancashire).
+southwark/SOUTHWARK, Borough of (London).
+southwark-(2)/SOUTHWARK, See of.
+southwark-(3)/SOUTHWARK, St Saviour's Collegiate Church.
+southwell/SOUTHWELL, See of.
+southwold/SOUTHWOLD (Suffolk).
+spain/SPAIN, Kingdom of 
+spanish-merchants/SPANISH MERCHANTS, Company of.
+spar/SPAR.
+spectacle-makers/SPECTACLE-MAKERS, The Worshipful Company of, London.
+spurriers/SPURRIERS.
+staffordshire/STAFFORDSHIRE .
+stafford/STAFFORD (Staffordshire).
+staffords-inn/STAFFORD'S INN (Office of the King's Remembrancer of the Exchequer).
+stalybridge/STALYBRIDGE (Cheshire).
+stamford/STAMFORD (Lincolnshire).
+staple-inn/STAPLE INN.
+staple-merchants-of-london/STAPLE MERCHANTS OF LONDON.
+starch-makers-company/STARCH MAKERS' COMPANY (London).
+stationers/STATIONERS, The Worshipful Company of (London).
+stationers-(2)/STATIONERS (Dublin).
+stepney/STEPNEY, Borough of (London).
+stepney-(2)/STEPNEY, Bishop of 
+stettin/STETTIN (Prussia).
+stewarton/STEWARTON (Ayrshire).
+stewarts-college/STEWART'S COLLEGE (Edinburgh).
+stirling/STIRLING, Council of the County of.
+stirling-(2)/STIRLING (Stirlingshire).
+stirling-high-school-of/STIRLING, HIGH SCHOOL OF.
+stockbridge/STOCKBRIDGE (Hampshire).
+stock-fishmongers-company/STOCK-FISHMONGERS' COMPANY.
+stockholm/STOCKHOLM (Sweden).
+stockport/STOCKPORT (Cheshire).
+stockton-on-tees/STOCKTON-ON-TEES (Durham).
+stoke-newington/STOKE NEWINGTON, Borough of (London).
+stoke-upon-trent/STOKE-UPON-TRENT (Staffordshire).
+stonehaven/STONEHAVEN (Co. Kincardine).
+stonyhurst-college/STONYHURST COLLEGE 
+stormarn/STORMARN.
+stornoway/STORNOWAY (Island of Lewis).
+stornoway-(2)/STORNOWAY, Incorporated Trades of.
+strabane/STRABANE (Co. Tyrone).
+straits-settlements/STRAITS SETTLEMENTS, The Colony of the.
+strand-inn/STRAND INN.
+stranraer/STRANRAER (Wigtonshire).
+strassburg/STRASSBURG (Germany).
+strassburg-(2)/STRASSBURG, Bishopric of.
+stratford-upon-avon/STRATFORD-UPON-AVON (Warwickshire).
+stroud-inn/STROUD INN.
+stuttgart/STUTTGART (Germany).
+stuttgart-literary-union/STUTTGART LITERARY UNION.
+styria/STYRIA.
+suburbs-about-london/SUBURBS ABOUT LONDON.
+sudbury/SUDBURY (Suffolk).
+suffolk/SUFFOLK.
+summer-islands/SUMMER ISLANDS.
+sunderland/SUNDERLAND (Durham).
+surgeons/SURGEONS, Royal College of Veterinary.
+surgeons-(2)/SURGEONS.
+surgeons-company/SURGEONS' COMPANY.
+surgeons-the-royal-college-of/SURGEONS, THE ROYAL COLLEGE OF, of the City of Edinburgh.
+surgeons-(3)/SURGEONS, Royal College of (London).
+sussex/SUSSEX.
+sutherlandshire/SUTHERLANDSHIRE.
+sutton-coldfield/SUTTON COLDFIELD (Warwickshire).
+suttons-hospital/SUTTON'S HOSPITAL or CHARTER HOUSE.
+swabia/SWABIA.
+swansea/SWANSEA, Bishop of.
+swansea-(2)/SWANSEA (Glamorganshire).
+swaziland/SWAZILAND 
+sweden/SWEDEN, Kingdom of 
+swindon/SWINDON, Borough of (Wilts).
+switzerland/SWITZERLAND.
+sydney/SYDNEY (New South Wales).
+sydney-(2)/SYDNEY, See of (Australia).
+sydney-university/SYDNEY UNIVERSITY.

@@ -1,0 +1,31 @@
+<div class="float-right">
+	<form id="quickShield">
+		<table style="width:260px;border-width:1px;border-style:solid;border-color:#050505;text-align:center">
+    		<tr>
+    			<td style="margin:auto;"><h2>Try Out a Blazon<h2></td>
+    		</tr>
+			<tr>
+				<td style="margin:auto;">
+					<img id="quickImage" src="/img/yourshieldhere.png" width="250px" height="300px" alt="shield"/>
+				</td>
+			</tr>
+			<tr>
+				<td style="margin:auto;">
+					<textarea id="quickBlazon" name="quickBlazon" rows="4" cols="31"></textarea>
+				</td>
+			</tr>
+    		<tr>
+    			<td style="margin:auto;">
+    				<input type="button" title="Update" class="btn btn-primary" value="Draw This Shield!" onclick="quickshield('quickImage','quickBlazon');"/>
+    			</td>
+    		</tr>
+		</table>
+	</form>
+</div>
+<script>
+     function quickshield(target,blazon) {
+       var thisimg = document.getElementById(target);
+       var thisblazon = document.getElementById(blazon);
+       thisimg.src = 'http://drawshield.net/include/quickimage.php?size=250&outputformat=png&blazon=' + encodeURIComponent(thisblazon.value) + '&dummy=file.png';
+     }
+ </script>

@@ -1,0 +1,91 @@
+---
+pageTitle: Drawing Flags
+prevLink: post-9992.html
+date: June 06, 2019
+summary: Changes to Support Drawing of Flags
+upLink: index.html
+---
+
+<h2>Drawing Flags</h2>
+
+<p>A while ago I experimented with an offshoot of DrawShield that was optimised for drawing rectangular flags with flexible aspect ratios, and put this
+    on its own, little-known website while I tried it out. After a while I realised that with the many "shape" options already available under "Drawing options" 
+    in DrawShield you creative folk were broadening the scope
+    of what DrawShield could be used for - and I wasn't really finding the time to maintain two different websites anyway.</p>
+    <p>Hence, I have decided to incorporate the flag drawing code back into the mainstream DrawShield program.</p>
+
+<h2>Selecting the Flag Shape</h2>
+
+<p>Open the "Drawing Options" dialog by clicking the button below the shield image on the main "create" page. 
+    I have added <strong>Flag</strong> to the list of available shapes. By default, the flag will have proportions
+     (width to height) of 1:2, i.e. it will be twice as wide as it is high. You can change this (within
+some sensible limits by putting your own aspect ratio into the text field near the shield shape. There is no particular "standard" for flag proportions, although 1:2 and 2:3 are quite common. Books listing flags
+of the world usually include the proportions of each, as does Wikipedia.</p>
+
+<p>You can enter a decimal value - the closer this to 1 the "squarer" your flag will be, the nearer to 
+    zero the longer your flag will be. So 0.9 is nearly square, but 0.3 is very rectangular. The decimal value will be constrained to be in 
+    the range 1.2 to 0.25 inclusive.
+</p>
+
+<p>Alternatively, you can enter a ratio, of height to width, in the format X:Y where both X and Y are integer values.
+    For example the ratio 1:2 is the same as the default decimal value of 0.5. Similarly, 9:10 is the almost square
+    decimal value of 0.9 and 1:4 is the minimum allowed value of 0.25.
+</p>
+
+<p>Finally, you can also append the propotions to the blazon itself using the construction <em>drawn in the flag shape using the proportions of N:M</em>. Proportions given in this way will override any set in the drawing options.</p>
+
+<h2>Additional Features for Flags</h2>
+
+<h3>The Nordic Cross</h3>
+
+<p>If the flag shape is chosen then the <em>Nordic Cross</em> becomes available as an ordinary. A Nordic cross has arms
+of a width that is 1/7th of the height of the flag, and it is constructed such that the area enclosed between the upper
+edge of the left arm and the left edge of the upper arm (i.e. the top right hand "quarter") is square. All the other
+dimensions flow from this.</p>
+
+<p>The Nordic Cross may be <em>fimbriated</em> (edged) of a different tincture, have variant edge types (e.g. <em>wavy</em>)
+applied to it and have a cottice, which itself may be off a different tincture and have a different variant edge type.</p>
+
+<h3>Automatically Adjusting Ordinaries, Divisions and Placements</h3>
+
+<p><strong>Some</strong> (but by no means all) ordinaries and divisions will
+adjust themselves to take account of the aspect ratio of the flag. I'm working to
+fix as many as I can but for the moment you will just have to try them out
+and see if they work!</p>
+
+<p>Similarly, some of the arrangements and positions that you place charges in
+    will also shuffle themselves about to appear more evenly spread on a rectangular space. Others will not.
+</p>
+
+<h3>Ripples Effect</h3>
+
+<p>I have added a new "effect", also selectable from the Drawing Options
+    panel which makes the flag appear to be rippling in the wind. (The effect can in fact be used on any shape, but makes the most sense with the flag shape.)
+</p>
+
+<h3>Additional Colours</h3>
+
+<p>There is a wider variety of colours to be found on flags than the restricted
+    range of tinctures used in heraldry. To enable this, if <em>and only if</em> the
+    flag shape is chosen then an additional set of colour names are enabled. To make
+    things simpler I have just used the 300+ "named" web colours, specifically I used
+    those described at <a href="https://www.computerhope.com/htmcolor.htm">. https://www.computerhope.com/htmcolor.htm
+    </a>. Note that the hexadecimal colour values are fixed and do not
+    change if you change the colour scheme that is also found in the
+    drawing options dialog.
+</p>
+
+<p>It is possible that I will be causing immense confusion by
+    making certain colours only available with certain shapes
+but I wanted to keep the "heraldic" parts of DrawShield fairly
+close to standard heraldic practice, but still allow a wider range
+of colour choices to be used in flags. We'll see how it goes... </p>
+
+<h2>Feedback (and Donations) Welcome</h2>
+
+<p>Please let me know if you find this useful, think you have come
+    across a bug, or have any suggestions or ideas. Tweet me @Drawshield or
+    use the "Reply" button on the contact page from the menu above. 
+</p>
+
+<p>If you would like to help pay for running costs of Drawshield and fund future developments please <a href="http://paypal.me/drawshield/10USD">make a donation</a>. </p>

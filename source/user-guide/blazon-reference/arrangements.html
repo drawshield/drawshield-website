@@ -1,0 +1,67 @@
+---
+layout: sidemenu
+sidemenu: user-guide-menu
+pageTitle: Arrangements
+upLink: index.html
+nextLink: divisions.html
+group00: true
+g00menu00: active
+---
+<!-- /blazon-reference/arrangements.ejs starts -->
+
+<p>If you simply specify a number of charges then these will be arranged
+automatically across the field of the shield. They will all be the same
+size and be evenly spaced out. The precise layout depends on a number of
+factors, (all of which DrawShield takes into account automatically - or
+will do eventually!) These factors include:</p>
+
+<ul> 
+	<li>Whether the shield has a <span class="example">chief</span> present</li> 
+	<li>What
+shape area is available for the charges (e.g. for <span class="example">quartered</span> or
+<span class="example">dimidiated</span> shields)</li> 
+	<li>For certain numbers of charges,
+whether the field is divided (e.g. two charges on a field <span class="example">per
+bend</span></li> 
+</ul>
+
+<h2>Arrangements in Relation to Other Charges</h2>
+
+<p>It is possible to arrange one charge <span class="keyword">between</span> two or
+more other charges; this makes most sense with two or four charges and
+there are special arrangements for four charges around one of the four
+armed crosses.</p>
+
+<p>One or more charges may also be placed <span class="keyword">on</span> another
+charge. Some charges also have modifiers such as <span class="example">holding in it's
+hand a</span>. DrawShield will recognise many of these modifiers but does
+not yet have the ability to draw many of them properly.</p>
+
+<h2>In Specific Arrangements</h2>
+
+<p>It is also possible to specify a specific arrangement. Obviously
+there must be more one than one charge present, but in some cases only
+certain numbers of charges make sense. Warnings are displayed if this
+situation occurs. The following arrangements are supported:</p>
+
+<span class="keyword">In pale, in pale throughout, in pall, in fess, in fess
+throughout, in bend, in bend sinister, in chevron, in pile, in orle, in
+saltire, in cross, counter-passant, pilewise, in bar,  in chief
+throughout, in a quadrangle, chevronwise, in a triangle, respecting each
+other, counter rampant, confronty, addorsed</span>
+
+<p>With some arrangements it is also possible to say that the charges
+should be touching by using the term <span class="keyword">conjoined</span>. Note
+that this is implemented by calculating the size of the enclosing "box"
+leaving no gaps, but if the charge does not extend to all sides of the
+box then the charges may not actually touch. Arrangements that are
+<span class="example">conjoined</span> work best with the simple geometric shapes.</p>
+
+
+<h2>Notes</h2>
+
+<p>Some blazons use the terms <span class="keyword">above, below, with</span> and
+these terms are recognised but their use is discouraged as it is not
+always obvious exactly what is meant. Use specific locations in
+preference.</p>
+<!-- /blazon-reference/arrangements.ejs ends -->

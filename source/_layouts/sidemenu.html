@@ -1,0 +1,17 @@
+{% include upper.html %}
+<div class="sidemenu-wrapper">
+
+    <!-- Sidebar -->
+   <nav id="sidemenu">
+   	{% assign menuContent = page.sidemenu | append: '.html' %}
+	{% include {{ menuContent }} %}
+    </nav>
+    <!-- Page Content -->
+    <div id="sidemenu-content">
+		{% if page.upLink   %}{% include navigation.html prev = page.prevLink   next = page.nextLink   up = page.upLink   %}{% endif %}
+                                 {{ content }}
+		{% if page.upLink   %}{% include navigation.html prev = page.prevLink   next = page.nextLink   up = page.upLink   %}{% endif %}
+    </div>
+
+</div>
+{% include lower.html %}

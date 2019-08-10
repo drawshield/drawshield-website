@@ -1,0 +1,38 @@
+# I = in Progress
+# C = Completed
+# P = Planned
+# B = Bug to be checked
+# N (or anything else) = Not Started
+I/Clean up data handling for charges that can flex to fit space/largely internal
+N/Chevron rompu needs custom code for cotticing
+N/Piles from the dexter & sinister (and base?) as new ordinaries
+N/Make treatments symmetrical (to match seme de)
+N/Complete shape design for fillet saltire
+N/Implement above & below modifiers?/Might not do this, hard to be precise about meaning, poor practice
+N/Chevron Raguly needs to be hand-drawn
+P/Add a bordure compony + engrailed etc.
+N/Investigate hatching as a palette option
+P/Add positions for charges on the pallium + proper fringing 
+P/Add vairy bendwise (+ other treatments & furs???)/Also make vairy the same size as vair!
+P/Enlarge sizes of checky (and other treatments?)/Double the size?
+N/border around label?
+P/Add a saltire parted fretty as a new ordinary
+C/Find a better image of the heraldic tiger (in different poses?)
+P/Orientations (bendwise etc.) generating spurious error message
+N/Tower conjoined to a wall
+/Add charge "thimble" - user suggestion
+N/Charges "issuant" from base? (and other ordinaries) - user suggestion
+P/An inescutcheon should be another (sub)shield, not a simple charge - user suggestion
+P/Add the arrangement "in annulo" - user suggestion
+P/Add placement for charge between two bars / bar between 2 charges
+N/Allow 24 charges in orle -user suggestion
+P/Add charge double tressure - user suggestion
+P/Remove version number from shield/Place in the notes section instead?
+B/Should [tincture] [division] [tincture] be valid?/e.g. gules barry or, azure per bend gules
+I/Regression tests/Using Postman API test suite
+C/Add charge squirrel with nuts/user suggestion
+B/ducally crowned and langued of the second/Crown not given correct colour
+P/Add ordinary piles from dexter and sinister chief/user suggestion
+C/Add ordinary pile throughout (like per pile)
+P/Hand drawn pall dancetty/user suggestion
+N/Investigate ajoure for castles/user suggestion

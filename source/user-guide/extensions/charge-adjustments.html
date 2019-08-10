@@ -1,0 +1,82 @@
+---
+group02: true
+g02menu00: active
+layout: sidemenu
+sidemenu: user-guide-menu
+pageTitle: Charge Adjustments
+upLink: index.html
+nextLink: playing-cards.html
+prevLink: text-effects.html
+---
+<p>In an ideal world your expert Herald would consider your blazon and use their skill and judgement to size and place charges for the best clarity, impact and overall balance. Sadly, you don't have an expert Herald, just 15,000 lines of PHP code!</p>
+
+<p>For those occasions when DrawShield just doesn't get it right I have created a small extension introduced by the keyword <span class="keyword">shown</span> (or, if you prefer your language more archaic, <span class="keyword">shewn somewhat</span>). Any charge may be described by this keyword (which  <em>must come after</em> the charge), followed by any number of the following phrases:</p>
+
+
+	<p class="lead">To make charges smaller: </p>
+<ul>
+			<li><span class="keyword">smaller</span> - the charge will be shown about 80% of the normal size</li>
+			<li><span class="keyword">much smaller</span> - the charge will be shown about 60% of the normal size</li>
+			<li><span class="keyword">very much smaller</span> - the charge will be shown about 40% of the normal size</li>
+
+</ul>
+<p class="lead">To make charges larger: </p>
+<ul>
+		<li><span class="keyword">larger</span> - the charge will be shown about 20% larger than usual</li>
+		<li><span class="keyword">much larger</span> - the charge will be shown about 40% larger than usual</li>
+		<li><span class="keyword">very much larger</span> - the charge will be shown about 60% larger than usual</li>
+
+</ul>		
+<p class="lead">To move the charge upwards:</p>
+<ul>	<li><span class="keyword">raised</span> - the charge will be moved about 1/20th of the shield height upwards</li>
+	<li><span class="keyword">much raised</span> - the charge will be moved about 1/10th of the shield height upwards</li>
+	<li><span class="keyword">very much raised</span> - the charge will be moved about 1/5th of the shield height upwards</li></ul>
+    <p class="lead">To move the charge downwards:</p>
+		<ul>	<li><span class="keyword">lowered</span> - the charge will be moved about 1/20th of the shield height downwards</li>
+	<li><span class="keyword">much lowered</span> - the charge will be moved about 1/10th of the shield height downwards</li>
+	<li><span class="keyword">very much lowered</span> - the charge will be moved about 1/5th of the shield height downwards</li></ul>
+	<p class="lead">To move the charge sideways:</p>
+	<ul>	<li><span class="keyword">to the sinister</span> - the charge will be moved about 1/20th of the shield weight to the sinister side of the shield</li>
+	<li><span class="keyword">much to the sinister</span> - the charge will be moved about 1/10th of the shield weight to the sinister side of the shield</li>
+	<li><span class="keyword">very much to the sinister</span> - the charge will be moved about 1/5th of the shield weight to the sinister side of the shield</li>
+	<li><span class="keyword">to the dexter</span> - the charge will be moved about 1/20th of the shield width to the dexter side of the shield</li>
+	<li><span class="keyword">much to the dexter</span> - the charge will be moved about 1/10th of the shield width to the dexter side of the shield</li>
+	<li><span class="keyword">very much to the dexter</span> - the charge will be moved about 1/5th of the shield width to the dexter side of the shield</li></ul>
+	<p class="lead">Repitition:</p>
+	<ul>	<li><span class="keyword">shown likewise</span> - the same set of adjustments that were applied most recently will also be applied to this charge</li>
+</ul>
+
+<p class="lead">To adjust spacing between multiple charges you can use the largely self-explanatory terms: </p>
+<ul>
+			<li><span class="keyword">closer together</span></li>
+			<li><span class="keyword">much closer together</span></li>
+			<li><span class="keyword">very much closer together</span> - In some cases charges may overlap</li>
+			<li><span class="keyword">further apart</span></li>
+			<li><span class="keyword">much further apart</span></li>
+			<li><span class="keyword">very much further apart</span> - In some cases charges may extend beyond the edge of the shield</li>
+</ul>
+
+<p>Note you should avoid using <em>closer together</em> when you really mean <em>conjoined</em>, which is a true heraldic term.</p>
+
+<p>You may also additional words and phrases like <span class="keyword">than the usual</span> or <span class="keyword">than is normal</span>, which don't have any effect but might make your blazon clearer.</p>
+
+<h2>Examples</h2>
+
+<p><span class="example">Argent a mullet vert shown somewhat larger than the normal</span> (or, more concisely) <span class="example">Argent a mullet vert shown larger</span></p>
+
+<p><span class="example">Argent a crescent gules shown much smaller and above the usual</span></p>
+
+<p>You can also do non-heraldic but interesting things like stacking multiple charges neatly: <span class="example">Argent a mullet vert shown somewhat larger than the normal a mullet or a mullet gules shown smaller a mullet azure shown much smaller</span></p>
+
+<h2>Fine control</h2>
+
+<p>It is possible to repeat these adjustments and each will applied in turn, <strong>however</strong> it is strongly recommended to use the <span class="keyword">much</span> modifiers rather than repeating the adjustment. Not only does this look grammatically nicer, the "effect" of a <span class="keyword">much</span> is actually greater than repeating the "basic" modifier. Consider the following examples:</p>
+
+<dl>
+	<dt>A roundel or smaller smaller smaller</dt><dd>size multiplier = 0.8 * 0.8 * 0.8 = 0.512</dd>
+	<dt>A roundel or very much smaller</dt><dd>size multiplier = 0.4</dd>
+	<dt>A roundel or to the sinister to the sinister to the sinister</dt><dd>Movement = 1/20th + 1/20th + 1/20th = 3/20th (0.15)</dd>
+	<dt>A roundel or very much to the sinister</dt><dd>Movement = 1/5th (0.2)</dd>
+</dl>
+
+<p>However, if you want absolutely fine control and don't mind how ugly your blazon you can do things like: <span class="example">a roundel or very much smaller larger</span>, which will use a size multiplier of 0.4 * 1.2 = 0.48, a value not achievable directly.</p>

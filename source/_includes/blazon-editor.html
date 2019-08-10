@@ -1,0 +1,172 @@
+ <!-- blazonEditor partial starts -->
+    <script src="/js/codemirror.js"></script>
+    <script src="/js/addon/display/placeholder.js"></script>
+    <script src="/js/addon/display/fullscreen.js"></script>
+    <script src="/js/addon/display/panel.js"></script>
+    <script src="/js/addon/display/buttons.js"></script>
+    <script src="/js/addon/dialog/dialog.js"></script>
+    <script src="/js/addon/search/searchcursor.js"></script>
+    <script src="/js/addon/search/search.js"></script>
+    <script src="/js/addon/scroll/annotatescrollbar.js"></script>
+    <script src="/js/addon/search/matchesonscrollbar.js"></script>
+    <script src="/js/addon/search/jump-to-line.js"></script>
+    <script src="/js/addon/mode/simple.js"></script>
+    <script src="/js/addon/dialog/dialog.js"></script>
+    <script src="/js/addon/hint/show-hint.js"></script>
+    <script src="/js/keymap/sublime.js"></script>
+    <script src="/js/blazon-hint.js"></script>
+    <script>
+        CodeMirror.defineSimpleMode("blazonry", {
+          // The start state contains the rules that are initially used
+          start: [
+            // The regex matches the token, the token property contains the type
+            {regex: /"(?:[^\\]|\\.)*?(?:"|$)/, token: "string"},
+            {regex: /\((?:[^\\]|\\.)*?(?:\)|$)/, token: "comment"},
+            {regex: /\[(?:[^\\]|\\.)*?(?:\]|$)/, token: "comment"},
+            {regex: /(sinister|reversed|dexter|inverted|enhanced|abased|rompu|fracted)'/i, token: "orientation"},
+            // Colours (individually)
+            {regex: /azure/i, token: "azure"},
+            {regex: /sable/i, token: "sable"},
+            {regex: /[a-z]+or[a-z]*/ }, // not words with "or" in them
+            {regex: /(?:or)\b/i, token: "or"},
+            {regex: /vert/i, token: "vert"},
+            {regex: /argent/i, token: "argent"},
+            {regex: /gules/i, token: "gules"},
+            {regex: /brunatre/i, token: "brunatre"},
+            {regex: /purpure/i, token: "purpure"},
+            {regex: /murrey/i, token: "murrey"},
+            {regex: /sanguine/i, token: "sanguine"},
+            {regex: /carnation/i, token: "carnation"},
+            {regex: /[a-z]+rose[a-z]*/ }, // not words with "rose" in them
+            {regex: /(?:rose)\b/i, token: "rose"},
+            // Furs
+            {regex: /ermin(e|es|ites)/i, token: "black-white"},
+            {regex: /counter\s+ermine/i, token: "black-white"},
+            {regex: /[a-z]+pean[a-z]*/ }, // not words with "pean" in them
+            {regex: /(?:erminois|pean)\b/i, token: "black-yellow"},
+            {regex: /[a-z]+(potent|vair)[a-z]*/ }, // not words with "potent" or "vair" in them
+            {regex: /(?:potent|vair)\b/i, token: "blue-white"},
+            {regex: /counter\s+(potent|vair)/i, token: "blue-white"},
+            {regex: /vair\s+(in|en)\s+(pale|point)/i, token: "blue-white"},
+            {regex: /\potent\s+counter\s+potent/i, token: "blue-white"},
+           // {regex: /(bend|fess|pale|chief|saltire|cross|bordure)/i, token: "ordinary"},
+            {regex: /tierced\s+in/i, token: "division", next: "division"},
+            // don't match per in proper
+            {regex: /proper/i, token: "none" },
+            {regex: /(per|parted)/i, token: "division", next: "division"},
+            {regex: /quarterly\s*(of)?\s+[0-9]*/i, token: "quarterly"},
+            {regex: /[^\(]\w+\)/i, token: "quarterly"},
+            {regex: /[0-9]+/, token: "number"},
+            {regex: /\/\/.*/, token: "comment"},
+            {regex: /#.*/, token: "comment"},
+            // A next property will cause the mode to move to a different state
+            {regex: /\/\*/, token: "comment", next: "comment"},
+            {regex: /(shown|shewn|moved|somewhat)/i, token: "extra1", next: "extra1" },
+            {regex: /drawn\s+(with|in|using)?\s*(a|an|the)?\s*\w+\s*(appearance|style|effect|tinctures|colou?rs|shape)/i, token: "extra2"},
+          ],
+          // The multi-line comment state.
+          comment: [
+            {regex: /.*?\*\//, token: "comment", next: "start"},
+            {regex: /.*/, token: "comment"}
+          ], // Divisions
+          division: [
+            {regex: /\w+/i, token: "division", next: "start"}
+          ], // Non standard charge modifications
+          extra1: [
+            {regex: /\b(somewhat|much)\b/i, token: "extra1" },
+            {regex: /\ba\s+lot\b/i, token: "extra1" },
+            {regex: /\bto\s*(the)?\b/i, token: "extra1" },
+            {regex: /\blikewise\b/i, token: "extra1", next: "start" },
+            {regex: /\b(in)?\s*the\s+same\s+(way|fashion|manner)\b/i, token: "extra1", next: "start" },
+            {regex: /\b(dexter|sinister|larger|bigger|smaller|above|raised|lifted|higher|below|lower|lowered|dropped)\s*(from|to|of|than)?\s*(the)?\s*(normal|usual)?\s*(position|location|place)?s?/i, token: "extra1", next: "start"},
+          ]
+        });
+        var blazonEditor = CodeMirror.fromTextArea(document.getElementById('blazon'), {
+        mode: "blazonry",
+        theme: "default",
+        keymap: "sublime",
+        lineNumbers: true,
+        lineWrapping: true,
+        viewportMargin: Infinity,
+        extraKeys: {
+            "Ctrl-Space": "autocomplete",
+            "Esc": function(cm) {
+                if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+            }
+        },
+        buttons: [
+            {
+                hotkey: 'Ctrl-H',
+                class: 'btn-light',
+                label: 'Hilite',
+                callback: function (cm) {
+                    if (cm.getOption('mode') != 'blazonry') {
+                        cm.setOption('mode','blazonry');
+                    } else {
+                        cm.setOption('mode','none');
+                    }
+                }
+            },
+            {
+                class: 'btn-light',
+                label: 'Find',
+                callback: function (cm) {
+                    cm.execCommand("find");
+                }
+            },
+            {
+                class: 'btn-light',
+                label: 'Replace',
+                callback: function (cm) {
+                    cm.execCommand("replace");
+                }
+            },
+            {
+                class: 'btn-light',
+                label: 'Goto',
+                callback: function (cm) {
+                    cm.execCommand("jumpToLine");
+                }
+            },
+            {
+                hotkey: 'F11',
+                class: 'btn-light',
+                label: 'Max',
+                callback: function (cm) {
+                    if (cm.getOption("fullScreen")) {
+                        cm.setOption("fullScreen", false);
+                    } else {
+                        alert("Press Esc to restore original screen");
+                        cm.setOption("fullScreen", true);
+                    }
+                }
+            },
+            {
+                class: 'btn-light',
+                label: 'Copy',
+                callback: function (cm) {
+                    cm.execCommand("selectAll");
+                    document.execCommand("Copy");
+                    cm.setSelection({line: 0, ch: 0});
+                }
+            },
+            {
+                class: 'btn-light',
+                label: 'Clear',
+                callback: function (cm) {
+                    blazonEditor.setValue('');
+                }
+            },
+            {
+                class: 'btn-light',
+                label: 'Save',
+                callback: function (cm) {
+                    saveBlazon(blazonEditor.getValue());
+                }
+            }]
+        });
+        if (editorLoad != null) { 
+            loadEditor(editorLoad);
+        }
+    </script>
+<!-- blazonEditor partial ends -->

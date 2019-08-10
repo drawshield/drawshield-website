@@ -1,0 +1,29 @@
+<!-- _includes/navigation.ejs starts -->
+<div>
+    <nav class="text-center" aria-label="Page navigation">
+        {% assign prevState="disabled" %}
+        {% assign nextState="disabled" %}
+        {% assign upState="disabled" %}
+        {% if include.prev %} {% assign prevState="" %} {% endif %}
+        {% if include.next %} {% assign nextState="" %} {% endif %}
+        {% if include.up %} {% assign upState="" %} {% endif %}
+        <ul class="pagination">
+            <li class="page-item {{ prevState }}"> 
+                <a class="page-link" href="{{ include.prev }}">Previous</a>
+            </li>
+            <li class="page-item  {{ upState }}">
+                <a class="page-link" href="{{ include.up }}">Up</a>
+            </li>
+            <li class="page-item {{ nextState }}">
+                <a class="page-link" href="{{ include.next }}">Next</a>
+            </li>
+            {% if include.galleryRandom %}
+            <li class="page-item enabled">
+                <a class="page-link" href="/gallery/random">Random</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
+
+<!-- _includes/navigation.ejs ends -->

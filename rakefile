@@ -1,0 +1,42 @@
+task :default do
+  Rake::Task[:jekyll].invoke
+  Rake::Task[:bump].invoke
+end
+
+desc 'Jekyll Build'
+task :jekyll do
+  sh %{ bundle exec jekyll build }
+  # Jekyll doesn't seem to like building into the windows FS, so do it locally and copy across
+  # sh %{ cp -R /home/karl/sites/drawshield.net/* /mnt/c/Users/karl/Sites/drawshield.net }
+  # sh %{ cmd.exe /C mklink /d "c:\\Users\\karl\\Sites\\drawshield.net\\include" "c:\\Users\\karl\\gdrive\\Projects\\draw-code\\include" }
+  sh %{ ln -s /home/karl/projects/draw-code/include /home/karl/Sites/drawshield.net }
+  sh %{ chgrp -R www-data /home/karl/Sites/drawshield.net }
+end
+
+desc 'Bump build number'
+task :bump do
+  content = File.read('_config.yml')
+
+  version_pattern = /buildNum: ([0-9]+)/
+  current_version = content.match(version_pattern)[1]
+  next_version    = current_version.to_i + 1
+
+  File.write('_config.yml', content.gsub(version_pattern, "buildNum: #{next_version}"))
+
+  puts "Successfully bumped build number from #{current_version} to #{next_version}!"
+end
+
+desc 'Copy over include code'
+task :copyinc do
+  sh %{ cmd.exe /C mklink /d "c:\\Users\\karl\\Sites\\drawshield.net\\include" "c:\\Users\\karl\\gdrive\\Projects\\draw-code\\include" }
+end
+
+# desc 'Change group to www-data'
+# task :chggrp do
+#   sh %{chgrp -R www-data /home/karl/Sites/drawshield.net }
+# end
+#
+# desc 'Create charge finder'
+# task :mkchg do
+#   sh %{ getchgs }
+# end

@@ -1,0 +1,1 @@
+<span style="color: red;">armed</span>, <span style="color: blue;">jelloped</span>, <span style="color: green;">langued</span>

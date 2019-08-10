@@ -1,0 +1,42 @@
+ <!-- _includes/head.ejs starts -->
+    <head> 
+        <!-- Required meta tags always come first --> 
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+        <meta http-equiv="x-ua-compatible" content="ie=edge"> 
+        <link href="https://plus.google.com/110593577831754313389" rel="publisher" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/manifest.json">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="theme-color" content="#ffffff">
+        <title>{{ include.title | default: page.pageTitle | default: "Heraldry Creation Tools" }} | {{  site.siteTitle }}</title> 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        {% if page.includeSocial == true %}
+        <link rel="stylesheet" href="/css/social-share-kit.css" type="text/css">
+        {% endif %}
+        {% if page.lightbox %} 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
+        {% endif %}
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        {% if page.editor == true %}
+        <link rel="stylesheet" href="/css/codemirror.css">
+        <link rel="stylesheet" href="/js/addon/dialog/dialog.css">
+        <link rel="stylesheet" href="/js/addon/display/fullscreen.css">
+        <link rel="stylesheet" href="/js/addon/hint/show-hint.css">
+        {% endif %}
+        {%if page.combobox %}
+        <script src="/js/bootstrap-combobox.js"></script>
+        <link href="/css/bootstrap-combobox.css" rel="stylesheet">
+        {% endif %}
+        <!-- My theme can override everything else -->
+        <link rel="stylesheet" href="/css/ds-theme.css"> 
+        <!--[if lt IE 9]>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+        <![endif]-->
+    </head> 
+ <!-- _includes/head.ejs ends -->
+
+

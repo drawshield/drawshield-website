@@ -1,0 +1,231 @@
+bacup/BACUP (Lancashire).
+baden/BADEN, Grand Duchy of.
+bahamas/BAHAMAS, The.
+bakers/BAKERS, Worshipful Company of (London).
+bakers-(2)/BAKERS, The Craft and Incorporation of (Aberdeen).
+bakers-company/BAKERS COMPANY (Exeter).
+bakers-(3)/BAKERS.
+bakers-guild/BAKERS' GUILD (Li^ge).
+baliol-college/BALIOL COLLEGE (Oxford).
+ballarat/BALLARAT, See of (Australia).
+ballater/BALLATER.
+ballymena/BALLYMENA (Co. Antrim).
+banbridge/BANBRIDGE (Co. Down).
+banbury/BANBURY (Oxfordshire).
+banchory/BANCHORY (Co. Kincardine).
+ban-don/BAN DON (Co. Cork).
+banff/BANFF, County of.
+banff-(2)/BANFF, Town of (Banffshire).
+bangor/BANGOR (Carnarvonshire).
+bangor-(2)/BANGOR, See of.
+bangor-(3)/BANGOR, Dean of.
+bank/BANK.
+bank-of-england/BANK OF ENGLAND.
+bank-of-scotland/BANK OF SCOTLAND, Governor and Company of.
+bar/BAR.
+baratonga/BARATONGA.
+barbados/BARBADOS.
+barbados-(2)/BARBADOS, See of.
+barbers-and-surgeons/BARBERS AND SURGEONS, The Worshipful Company of (London).
+barber-surgeons/BARBER-SURGEONS (Exeter).
+barber-surgeons-(2)/BARBER-SURGEONS, Company of (Dublin).
+barcelona/BARCELONA (Spain).
+barking/BARKING, Bishop of.
+barnards-inn/BARNARD'S INN (London).
+barnsley/BARNSLEY (Yorkshire).
+barnstaple/BARNSTAPLE (Devonshire).
+barrhead/BARRHEAD.
+barrow-in-furness/BARROW-IN-FURNESS (Lancashire).
+barrow-in-furness-(2)/BARROW-IN-FURNESS, Bishop of.
+basingstoke/BASINGSTOKE (Hampshire).
+basket-makers/BASKET MAKERS, Worshipful Company of (London).
+basle/BASLE, (Switzerland).
+basle-(2)/BASLE, Canton (Switzerland).
+basutoland/BASUTOLAND.
+bath/BATH, City of (Somersetshire).
+bath-abbey/BATH ABBEY.
+bath-king-of-arms/BATH KING OF ARMS.
+bath-college/BATH COLLEGE.
+bath-and-wells/BATH AND WELLS, See of 
+bathgate/BATHGATE (Co. Linlithgow).
+bathurst/BATHURST, See of (Australia).
+batley/BATLEY (Yorkshire).
+battersea/BATTERSEA, Borough of (London).
+battery-works/BATTERY-WORKS.
+bavaria/BAVARIA, Kingdom of.
+baxters/BAXTERS (Bakers).
+beaumaris/BEAUMARIS (Angflesea).
+beccles/BECCLES (Suffolk).
+bechuanaland-protectorate/BECHUANALAND PROTECTORATE.
+bedford/BEDFORD, County of.
+bedford-(2)/BEDFORD (Bedfordshire).
+bedford-college-for-women/BEDFORD COLLEGE FOR WOMEN (London).
+bedlam/BEDLAM.
+bedwin-great/BEDWIN, GREAT.
+belfast/BELFAST (Co. Antrim).
+belfast-(2)/BELFAST, Queen's University of.
+belgium/BELGIUM, Kingdom of.
+belturbet/BELTURBET (Co. Cavan).
+bendigo/BENDIGO, See of.
+bergen/BERGEN (Norway).
+berkhamstead/BERKHAMSTEAD (Hertfordshire).
+berkhamsted-school/BERKHAMSTED SCHOOL.
+berkshire/BERKSHIRE, County of.
+berlin/BERLIN (Prussia).
+bermondsey/BERMONDSEY, Borough of (London).
+bermudas/BERMUDAS, The (or Somers Islands, otherwise the Summer Islands).
+bermudas-company/BERMUDAS COMPANY (The Company of Merchants of the Summer Islands).
+bernards-inn/BERNARD'S INN.
+berne/BERNE, Canton (Switzerland).
+berne-(2)/BERNE (Switzerland).
+bervie/BERVIE (Kincardineshire).
+berwick-north/BERWICK, NORTH.
+berwick/BERWICK, Council of the County of.
+berwick-upon-tweed/BERWICK-UPON-TWEED (Northumberland).
+besancon/BESANCON (France).
+bethlehem-hospital/BETHLEHEM HOSPITAL.
+bethnal-green/BETHNAL GREEN (London).
+beverley/BEVERLEY, Bishop of.
+beverley-(2)/BEVERLEY (Yorkshire).
+bewdley/BEWDLEY (Worcestershire).
+bexhill-on-sea/BEXHILL-ON-SEA, Borough of (Sussex).
+bideford/BIDEFORD (Devonshire).
+biggar/BIGGAR (Lanarkshire).
+birkenhead/BIRKENHEAD (Cheshire).
+birmingham/BIRMINGHAM (Warwickshire).
+birmingham-(2)/BIRMINGHAM, See of.
+birmingham-university/BIRMINGHAM UNIVERSITY.
+birmingham-(3)/BIRMINGHAM.
+bishops-castle/BISHOPS CASTLE (Shropshire).
+bit-makers-company/BIT MAKERS' COMPANY.
+blackburn/BLACKBURN (Lancashire).
+blackpool/BLACKPOOL, Borough of (Lancashire).
+blacksmiths/BLACKSMITHS, Worshipful Company of (London).
+blacksmiths-(2)/BLACKSMITHS and SPURRIERS.
+blacksmiths-of-dublin/BLACKSMITHS OF DUBLIN, Corporation of.
+blairgowrie/BLAIRGOWRIE (Perthshire).
+blandford/BLANDFORD (Dorsetshire).
+bloemfontein/BLOEMFONTEIN, See of (South Africa).
+blue-coat-school/BLUE-COAT SCHOOL.
+bluemantle-pursuivant-of-arms/BLUEMANTLE PURSUIVANT OF ARMS.
+blundells-school/BLUNDELL'S SCHOOL (Tiverton).
+board-of-ordnance/BOARD OF ORDNANCE.
+bodmin/BODMIN (Cornwall).
+body-guard-for-scotland/BODY GUARD FOR SCOTLAND, The King's.
+bohemia/BOHEMIA.
+bolivia/BOLIVIA.
+bologna/BOLOGNA (Italy).
+bolton/BOLTON (Lancashire).
+bombay/BOMBAY, Presidency of.
+bombay-(2)/BOMBAY, City of 
+bombay-(3)/BOMBAY, See of 
+bombay-university/BOMBAY UNIVERSITY.
+boness/BO'NESS.
+bonnet-makers/BONNET MAKERS, Incorporated Trade (Edinburgh).
+bookbinders-guild/BOOKBINDERS' GUILD (Germany).
+bootle-cum-linacre/BOOTLE-CUM-LINACRE (Lancashire).
+bordeaux/BORDEAUX (France).
+borneo/BORNEO.
+borrowstounness/BORROWSTOUNNESS.
+bosney/BOSNEY (Cornwall).
+bosnia/BOSNIA.
+boston/BOSTON (Lincolnshire).
+boston-school/BOSTON SCHOOL (Boston, Lincolnshire).
+bottlemakers-and-horners-company/BOTTLEMAKERS' AND HORNERS' COMPANY.
+bouillon/BOUILLON.
+boulogne-sur-mer/BOULOGNE SUR MER (France).
+bournemouth/BOURNEMOUTH (Hants).
+bow-string-makers/BOW-STRING MAKERS.
+bowyers/BOWYERS, Worshipful Company of (London).
+bozen/BOZEN (Tyrol, Austria).
+brabant/BRABANT, Province of (Belgium).
+brabant-merchants/BRABANT MERCHANTS.
+brackley/BRACKLEY (Northamptonshire).
+bradfield-college/BRADFIELD COLLEGE.
+bradford/BRADFORD (Yorkshire).
+bradford-grammar-school/BRADFORD GRAMMAR SCHOOL (Bradford, Yorks).
+brandenburg/BRANDENBURG, Province of (Prussia).
+braunschweig/BRAUNSCHWEIG.
+brazenose-college/BRAZENOSE COLLEGE, Oxford.
+braziers-company/BRAZIERS' COMPANY.
+brazil/BRAZIL, United Republic of.
+brechin/BRECHIN (Forfarshire).
+brechin-(2)/BRECHIN, Lordship of 
+brechin-(3)/BRECHIN, Bishop of 
+brecknockshire/BRECKNOCKSHIRE.
+brecknock/BRECKNOCK or BRECON, Borough of (Brecknockshire).
+bregenz/BREGENZ, County of.
+bremen/BREMEN (Germany).
+brentford/BRENTFORD (Middlesex).
+breslau/BRESLAU (Province of Silesia, Prussia).
+brewers/BREWERS, Worshipful Company of London.
+brewers-corporation-of-dublin/BREWERS' CORPORATION OF DUBLIN.
+brewers-(2)/BREWERS (Exeter).
+bricklayers-company/BRICKLAYERS' COMPANY.
+bricklayers-and-plasterers/BRICKLAYERS AND PLASTERERS, Company of, of the City of
+bricklayers-and-tilers/BRICKLAYERS AND TILERS (Gateshead).
+brickmakers-company/BRICKMAKERS' COMPANY (London).
+bridewell-hospital/BRIDEWELL HOSPITAL (London).
+bridge-of-allan/BRIDGE OF ALLAN.
+bridgnorth/BRIDGNORTH (Shropshire).
+bridgwater/BRIDGWATER (Somersetshire).
+bridport/BRIDPORT (Dorsetshire).
+brighouse/BRIGHOUSE (Yorkshire).
+brighton/BRIGHTON, Borough of (Sussex).
+brisbane/BRISBANE, See of (Australia).
+brisbane-(2)/BRISBANE.
+bristol/BRISTOL (Gloucestershire).
+bristol-(2)/BRISTOL, See of.
+bristol-(3)/BRISTOL, Dean of.
+bristol-(4)/BRISTOL, University of.
+bristol-(5)/BRISTOL, Queen Elizabeth's Hospital.
+bristol-merchants-adventurers/BRISTOL MERCHANTS ADVENTURERS, Society of.
+british-american-land-company/BRITISH AMERICAN LAND COMPANY.
+british-central-africa-protectorate/BRITISH CENTRAL AFRICA PROTECTORATE.
+british-columbia/BRITISH COLUMBIA, Province of (Dominion of Canada).
+british-east-africa/BRITISH EAST AFRICA.
+british-guiana/BRITISH GUIANA.
+british-honduras/BRITISH HONDURAS.
+british-new-guinea/BRITISH NEW GUINEA.
+british-north-borneo-company/BRITISH NORTH BORNEO COMPANY.
+british-south-africa-company/BRITISH SOUTH AFRICA COMPANY.
+british-west-africa/BRITISH WEST AFRICA.
+brixen/BRIXEN, Principality of 
+broderers/BRODERERS, Worshipful Company of (London).
+broderers-(2)/BRODERERS.
+bromley/BROMLEY, Borough of (Kent).
+bromsgrove-school/BROMSGROVE SCHOOL.
+broughty-ferry/BROUGHTY FERRY (Co. Forfar).
+brown-bakers-company/BROWN-BAKERS COMPANY (London).
+bruges/BRUGES (Belgium).
+brunswick/BRUNSWICK (Germany).
+brunswick-(2)/BRUNSWICK, Duchy of 
+brussels/BRUSSELS (Belgium).
+buccleuch/BUCCLEUCH, Duke of.
+bucharest/BUCHAREST (Roumania).
+buckhaven/BUCKHAVEN.
+buckie/BUCKIE (Banffshire).
+buckinghamshire/BUCKINGHAMSHIRE.
+buckingham/BUCKINGHAM (Buckinghamshire).
+buda-pest/BUDA-PEST (Hungary).
+bulgaria/BULGARIA.
+bulgaria-(2)/BULGARIA, Kingdom of.
+bunbury/BUNBURY, See of.
+burford/BURFORD (Oxfordshire).
+burghead/BURGHEAD.
+burma/BURMA.
+burnley/BURNLEY (Lancashire).
+burnley-(2)/BURNLEY, Bishop of.
+burntisland/BURNTISLAND (Fifeshire).
+burslem/BURSLEM (Staffordshire).
+burton-on-trent/BURTON-ON-TRENT (Staffordshire).
+bury/BURY (Lancashire).
+bury-(2)/BURY, Accountants' Institute of.
+bury-st-edmunds/BURY-ST-EDMUNDS (Suffolk).
+butchers/BUTCHERS, Worshipful Company of (London).
+butchers-(2)/BUTCHERS, Incorporation of (Aberdeen).
+butchers-corporation-of/BUTCHERS, CORPORATION OF (Dublin).
+butchers-(3)/BUTCHERS (Exeter).
+butchers-(4)/BUTCHERS.
+buteshire/BUTESHIRE.
+berg/BERG,

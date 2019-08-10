@@ -1,0 +1,41 @@
+---
+pageTitle: "Test Your Knowledge"
+---
+
+<!-- ./quiz.ejs starts -->
+<div class="container">
+    <p class="text-center">Study the shield then click on the matching blazon from the choices below</p>
+    <div class="row">
+        <div class="col-4 offset-2 mx-auto text-center d-flex justify-content-center flex-wrap">
+            <img id="quickImage" src="/img/quizblank.png" width="300px" height="360px" alt="shield"/>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-4 mx-auto text-center d-flex justify-content-center flex-wrap" onclick="checkanswer(0)">
+            <img id="I0" src="img/question.png" height="120" width="120" alt="question mark"><br> 
+            <p id="Q0">&nbsp;</p>
+        </div>
+        <div class="col-4 mx-auto text-center d-flex justify-content-center flex-wrap" onclick="checkanswer(1)">
+            <img id="I1" src="img/question.png" height="120" width="120" alt="question mark"><br>
+            <p id="Q1">&nbsp;</p>
+        </div>
+        <div class="col-4 mx-auto text-center d-flex justify-content-center flex-wrap" onclick="checkanswer(2)">
+            <img id="I2" src="img/question.png" height="120" width="120" alt="question mark"><br>
+            <p id="Q2">&nbsp;</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 offset-1 mx-auto text-center d-flex justify-content-center flex-wrap">
+            <p class="text-center">You have correctly identified <span id="correct-score" class="text-danger lead">0</span> out of <span id="total-questions" class="text-danger lead">0</span> blazons</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 offset-2 mx-auto text-center d-flex justify-content-center flex-wrap">
+            <button class="align-self-center btn btn-primary" onclick="newquestion();">Ask me another...</button>
+        </div>
+    </div>
+</div>
+
+<script src="/create/randomshield.js" ></script>
+<script src="testshield.js" ></script>
+<!-- ./quiz.ejs ends -->

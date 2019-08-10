@@ -1,0 +1,31 @@
+---
+layout: sidemenu
+sidemenu: user-guide-menu
+pageTitle: Punctuation and Numbers
+prevLink: positions.html
+upLink: index.html
+nextLink: quarterings.html
+group00: true
+g00menu10: active
+---
+<!-- /blazon-reference/punctuation.ejs starts -->
+
+<h2>Punctuation</h2>
+
+<p>After careful study of many blazons I have been able to determine that all punctuation can be safely ignored, except for when it can't! By this I mean that it is used so inconsistently between blazons that it is almost useless to treat punctuation characters in any consistent and meaningful way. For this reason, DrawShield ignores all punctuation except in the following situations:</p>
+
+<p><span class="keyword">'('</span> and <span class="keyword">')'</span> (round brackets) cause the enclosing words to be completely ignored (but they are displayed in the blazon below the shield)</p>
+
+<p><span class="keyword">'-'</span> (hyphen) hyphens within words are treated exactly like spaces (so for example <span class="example">seme-de-lys</span> and <span class="keyword">seme de lys</span> are exactly equivalent. Any word that starts with a hyphen (or a hyphen on its own) will cause DrawShield to ignore everything after it. This is typically used to give the name of the arms holder, after the blazon itself.</p>
+
+<p><span class="keyword">'"'</span> Double quotation marks cause the enclosed items to be treated as a single word. This is useful for mottoes and other words.</p>
+
+<p><span class="keyword">';'</span> (semi-colon) The idea of the semi-colon is to help distinguish between separate items (and separate shields in a marshalled set of shields), for example <span class="example">3 mugs inverted; on a chief or a roundel vert</span> should ensure that the roundel goes on the chief, not the mugs. Unfortunately, this doesn't always work and a better mechanism is perhaps required for very complex blazons.</p>
+
+<p><span class="keyword">'[' ']'</span> (Square brackets) These also cause the content to be ignored, however I would not recommend their use in a blazon as they are used in error messages to indicate which words DrawShield has itself decided to ignore as it doesn't understand them.</p>
+
+<h2>Numbers</h2>
+
+<p>Drawshield can recognise numbers, either in words or numerals. It can count up to 60 but numbers above 12 are actually very rare in heraldry. The program also recognises words such as <span class="keyword">the, a, an, and</span> as implying a particular number. Heralds dislike repeating information and so the phrase <span class="keyword">as many</span> can be used to the most recently mentioned number.</p>
+
+<!-- /blazon-reference/punctuation.ejs ends -->

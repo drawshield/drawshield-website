@@ -1,0 +1,27 @@
+source: ./source
+# destination: /mnt/c/Users/karlw/Sites/drawshield.net
+destination: /home/karl/Sites/drawshield.net
+
+
+# Directory
+include: [ .htaccess ]
+
+defaults:
+    -
+      scope:
+        path: ""
+      values:
+        layout: "default"
+
+siteURL: https://drawshield.net
+siteTitle: DrawShield
+
+buildNum: 555
+
+latestGallery: 9296
+
+collections:
+  catalog:
+    output: true
+  reference:
+    output: true

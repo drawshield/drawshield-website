@@ -1,0 +1,1 @@
+<span style="color: red;">combed</span>, <span style="color: blue;">beaked</span>, <span style="color: green;">jelloped</span>, <span style="color: purple;">legged</span>

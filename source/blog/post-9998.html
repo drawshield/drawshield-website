@@ -1,0 +1,33 @@
+---
+pageTitle: Choosing Charges
+prevLink: post-9999.html
+nextLink: post-9997.html
+date: December 11, 2017
+summary: In which we discuss how to choose which charge to draw when faced with many modifiers
+upLink: index.html
+---
+<p>Many charges, especially animals, can be followed additional words describing, for example, the body posture, the position of the head, arrangement of the tail and so on. DrawShield refers to these additional words as "modifiers" and recognises several hundred different ones.</p>
+<p>When we come to actually drawing charges with these modifiers there are two main approaches:</p>
+<ol>
+	<li>Assemble the charge from component parts (e.g. bodies, heads, tails etc.)</li>
+	<li>Have available pre-drawn examples of all possible combinations</li>
+</ol>
+<p>The first option gives maximum flexibility but is very hard to make work from an artistic point of view (it is hard to effecitively "hide the joins"). This approach is however used in limited circumstances - it is used to add crowns to animals for example.</p>
+<p>The second option gives the best artistic result as we can tailor each example to look at its best, and there are many such examples available from sources such as Wikimedia commons. However, the question arises, what to do if we cannot find an image that has the modifiers we need, or has all those that we need but some extra?</p>
+<p>Drawhshield makes the decision by assigning a "score" to each of the possible pre-drawn examples, and then uses the example with the lowest total score. Points are added to the score as follows:</p>
+<ul>
+	<li>10 points for a modifier that is shown on the image, but was NOT requested</li>
+	<li>20 points for a modifier that WAS requested, but is not shown in the image</li>
+	<ul>
+		<li>However, this score is reduced by 2 points for each position the modifier is down the requested list</li>
+	</ul>
+	<li>Each time a penalty is assigned an appropriate error message or warning is generated</li>
+</ul>
+<p>The overall result of this is:</p>
+<ol>
+	<li>A perfect match is preferred over all others</li>
+	<li>It is more important to match requested modifiers, even if there are some unwanted ones as well</li>
+	<li>If a modifier is important to you, put it early in the "list" of modifiers</li>
+</ol>
+<p>In short, DrawShield does the best it can to meet your request, and is kind enough to warn you when it hasn't quite managed perfection.</p>
+<p>And you thought drawing heraldry was easy!</p>

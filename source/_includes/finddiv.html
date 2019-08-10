@@ -1,0 +1,58 @@
+<div class="card">
+<p class="card-text">Division finder:&nbsp;
+<select id="d-combo-dropdown">
+<option disabled="disabled" selected="selected" value="">Enter text</option>
+<option class="division" value="barry.png">barry *</option>
+<option class="division" value="barry-bendy.png">barry bendy</option>
+<option class="division" value="barry-indented-one-in-the-other.png">barry indented one in the other</option>
+<option class="division" value="barry-pily.png">barry pily</option>
+<option class="division" value="bendy.png">bendy *</option>
+<option class="division" value="chape.png">chape</option>
+<option class="division" value="chausse.png">chausse</option>
+<option class="division" value="chevronny.png">chevronny *</option>
+<option class="division" value="fusily.png">fusily</option>
+<option class="division" value="fusily-bendy.png">fusily bendy</option>
+<option class="division" value="gyronny-of-10.png">gyronny of 10</option>
+<option class="division" value="gyronny-of-12.png">gyronny of 12</option>
+<option class="division" value="gyronny-of-14.png">gyronny of 14</option>
+<option class="division" value="gyronny-of-16.png">gyronny of 16</option>
+<option class="division" value="gyronny-of-6.png">gyronny of 6</option>
+<option class="division" value="gyronny-of-8.png">gyronny of 8</option>
+<option class="division" value="paly.png">paly *</option>
+<option class="division" value="paly-bendy.png">paly bendy</option>
+<option class="division" value="per-bend.png">per bend *</option>
+<option class="division" value="per-chevron.png">per chevron *</option>
+<option class="division" value="per-fess.png">per fess *</option>
+<option class="division" value="per-pale.png">per pale *</option>
+<option class="division" value="per-pall.png">per pall</option>
+<option class="division" value="per-pall-arrondi.png">per pall arrondi</option>
+<option class="division" value="per-pile.png">per pile</option>
+<option class="division" value="per-saltire.png">per saltire *</option>
+<option class="division" value="pily.png">pily</option>
+<option class="division" value="pily-bendy.png">pily bendy</option>
+<option class="division" value="quarterly.png">quarterly *</option>
+<option class="division" value="tierced-in-bend.png">tierced in bend *</option>
+<option class="division" value="tierced-in-chevron.png">tierced in chevron *</option>
+<option class="division" value="tierced-in-fess.png">tierced in fess *</option>
+<option class="division" value="tierced-in-pale.png">tierced in pale *</option>
+</select>&nbsp;
+<button type="button" class="btn-danger btn-sm" onclick="showDivImg();">Show</button>&nbsp;
+{% unless include.skipadd %}
+<button type="button" class="btn-danger btn-sm" onclick="addDiv();">Add</button>&nbsp;
+{% endunless %}
+<button type="button" class="btn-danger btn-sm" onclick="clearDivImg();">Clear</button>
+</p>
+</div>
+<div id="DivImg" style="display:none" class="card text-center">
+<div class="card-block">
+<img src="#" id="d-thumbnail" alt="division"/>
+</div>
+<h4 class="card-title" id="d-description"></h4>
+<p class="card-text" id="d-category"></p>
+</div>
+<script>
+jQuery('#d-combo-dropdown').combobox({
+    bsVersion:'4'
+})
+</script>
+

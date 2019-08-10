@@ -1,0 +1,38 @@
+<!-- _includes/foot.ejs starts -->
+        <!-- <script>window.Tether = {};</script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+        <script>
+            var titles = new Array(
+                "Large Latte",
+                "Lemon Muffin",
+                "Chocolate Tiffin",
+                "Millionaire's Shortbread",
+                "Bakewell Tart",
+                "Grande Americano",
+                "Carrot Cake",
+                "Cappucino Cake"
+            );
+            var donateTitle = document.getElementById("donateTitle");
+            if (donateTitle != null) {
+                donateTitle.firstChild.innerHTML = titles[parseInt(Math.random()*titles.length)];
+            }
+        </script>
+        {% if page.lightbox %} 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
+        <script>$(document).on('click', '[data-toggle="lightbox"]', function(event) {
+                event.preventDefault();
+                $(this).ekkoLightbox({wrapping: false});
+            });</script>
+        {% endif %}
+        {% if page.includeSocial %}
+        <script type="text/javascript" src="/js/social-share-kit.js"></script>
+        <script type="text/javascript">SocialShareKit.init();</script>
+        {% endif %}
+        {% if page.editor %}
+            {% include blazon-editor.html %}
+        {% endif %}
+        {% if page.combobox %}
+        <script src="/catalog/parts-finder.js"></script>
+        {% endif %}
+<!-- _includes/foot.ejs ends -->

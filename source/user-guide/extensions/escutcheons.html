@@ -1,0 +1,65 @@
+---
+group02: true
+g02menu07: active
+layout: sidemenu
+sidemenu: user-guide-menu
+pageTitle: Improved Escutcheons
+upLink: index.html
+nextLink: drawing-options.html
+prevLink: gradients.html
+---
+
+<h2>WARNING - EXPERIMENTAL</h2>
+
+<p>And possibly likely to break things, including previously working shields. Sorry about that.</p>
+
+<h2>Previous Escutcheons</h2>
+
+<p>The escutcheon is a charge shaped a bit like a shield. In previous versions of DrawShield it was treated like any other charge,
+    you could give it a simple tincture, or a fur, treatment or division and then say <span class="example">charged with [some other charge]</span>. This gave the impression that it might be a full shield but it wasn't really, just an ordinary charge that was shaped like one.
+</p>
+
+<h2>Improvements</h2>
+
+<p>This, experimental, extension treats the escutcheon as if it were an entire "sub-shield". So now, in addition to a tincture and a charge you can add ordinaries; position charges on the subshield, have a marshalled escutcheon (e.g. quarterly), in fact truly treat like a completely separate shield that is placed on the main shield like any other charge.</p>
+
+<p>An obvious question arises, how do we know when the description of the escutcheon "sub-shield" ends? As per the usual convention,
+    we must indicate this with a semi-colon. See the worked example below for more details. This applies even for a simple escutcheon with a plain colour, you <strong>must</strong> put a semi-colon after the colour, otherwise any following items will be placed on the escutcheon and not on the main shield.
+</p>
+
+<p>In addition, I have added a (probably non-heraldic) additional feature in that you can also specify the shape that the escutcheon
+     should be. These are the same shield shapes that are available for DrawShield overall, and the available shapes are: 
+     <span class="keyword">swiss, french, oval, lozenge, square english, italian, polish, spanish, german and heater</span> (the last of these is the default shape). If you want to use a shape other than the default use, for example <span class="example">a french shaped escutcheon or</span>.</p>
+
+     <p>The escutcheon can be placed anywhere on the main shield, rotated, re-sized etc. in exactly the same way as any other charge - the only difference being that these modifications must go <em>after</em> the ending semi-colon (otherwise they will apply to the
+    last item on the escutcheon sub-shield.</p>
+
+<h2>Worked Example</h2>
+
+<pre>
+    // a green field on the main shield
+    vert                            
+      // with a centrally placed escutcheon
+      a polish shaped escutcheon 
+        // the escucheon itself quarterly   
+        quarterly      
+          // as described here             
+          1st and 4th               
+            or on a bend gules 
+              3 roundels azure 
+          2nd and 3rd 
+            ermine 
+              with a cross purpure
+      // marks the end of the escutcheon
+      ;         
+      // modifies the attitude of the whole escutheon         
+      bendwise sinister, 
+      // a secondary charge on the MAIN shield           
+      a canton azure                
+</pre>
+
+<h2>Notes</h2>
+
+<p>This extension may break earlier blazons that included escutcheons. They can however be easily fixed by putting
+    a semi-colon after the escutcheon tincture.
+</p>

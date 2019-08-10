@@ -1,0 +1,50 @@
+---
+layout: sidemenu
+sidemenu: user-guide-menu
+pageTitle: Edges
+prevLink: divisions.html
+upLink: index.html
+nextLink: features.html
+group00: true
+g00menu02: active
+combobox: true
+---
+<!-- /blazon-reference/edges.ejs starts -->
+
+<p>Instead of using straight edges to construct <a href="ordinaries.html" title="Ordinaries"
+target="">ordinaries</a> or <a href="divisions.html" title="Divisions">divisions</a>, drawshield supports lines
+with various patterns along them, for example <span class="example">a bend indented
+or</span> draws a bend with small steps along each edge. The following
+edge types can be drawn, most of which are shown in the accompanying
+diagrams.</p> 
+
+<img src="../img/Linetypes.png" alt=" Examples of Linetypes" class="img-fluid"/>
+
+<p> <span class="keyword">Angled, dovetailed, escartelly, indented, invected, nowy,
+potenty, raguly, embattled, embattled-arrondi, battled-embattled,
+battled-brettesse, battled-counter-embattled, arched, double-arched
+bevilled, dancetty, dancetty-floretty, nebuly, engrailed, rayonny, wavy,
+urdy, twigged</span></p>
+
+{% include findedge.html skipadd = true %}
+
+<h2>Bars and Cotticing</h2>
+
+<p>Ordinaries may also be cotticed, (surrounded with narrow bars), and
+those cottices may also have an edge type, which may be different from
+that of its "parent" ordinary.</p>
+
+<p>Similarly, if you draw a number of bars, palets or bendlets, these
+may also have their edge types specified. Indeed, you can use phrases
+such as <span class="example">four bars gules, the outer ones wavy</span> to specify exactly
+which bars should have which edge type.</p>
+
+<h2>Notes</h2>
+
+<p>The word <span class="example">potenty</span> can indicate either an edge type or a
+treatment of two colours. DrawShield tries to choose between these
+bylooking at the number of colours, thus <span class="example">a chief potenty or</span> is
+a yellow chief with a edge made of "potent" shapes, while <span class="example">a chief
+potenty azure and or</span> is a chief with a straight edge but coloured
+in with a pattern of blue and yellow potent shapes.</p>
+<!-- /blazon-reference/edges.ejs ends -->

@@ -1,0 +1,34 @@
+---
+pageTitle: Labelling Labels
+prevLink: post-9997.html
+prevLink: post-9995.html
+date: October 9, 2018
+summary: Changes to the handling of labels
+upLink: index.html
+---
+
+<p>During the history of DrawShield the handling of labels has gone through several stages. Originally I treated it like any other geometric charge, so it could be placed anywhere on the shield. Later, I saw examples in which the label was placed towards the chief of the shield and stretching the full width, so I changed it to work like an ordinary, i.e. there could only be one of them, and it would be in a fixed position.</p>
+
+<p>Reading further (e.g. <a href="https://drawshield.net/reference/parker/l/label.html">Parker's Dictionary - Label</a>) it became clear that my confusion really reflected the different ways that labels have been used in heraldry, and that examples of both approaches can be found.</p>
+
+<p>Hence, to cater for this new understanding I have decided to adopt the following approach to handling labels.</p>
+
+<h2>Label Variations</h2>
+
+<p>Firstly, I have increased the options for drawing labels. A plain "label" will have straight (rectangular) points, but you can also use modifiers <em>dovetailed</em> and <em>pattee</em> to produce differently shaped points (you can also use <em>straight</em> to emphasis the default variant).</p>
+
+<p>Additionally, you can specify that the label be <em>of <strong>N</strong> points</em> where <strong>N</strong> can be 3, 5 or 7. Entering another number will result in it being silently changed to the nearest available. (I am aware that there are examples of labels of 11 points but this is not currently supported, and each point would be kind of small...)</p>
+
+<h2>Labels like Charges</h2>
+
+<p>From now on, a simple "label" will be handled like a charge - you can place it anywhere you wish on the field, using any of the modifiers listed above. You can even have multiple labels if you want to.</p>
+
+<h2>Labels like an Ordinary</h2>
+
+<p>If you want to have a label extending across the whole width of the field, in the fixed position near the chief then use the modifier <em>entire</em>. This will cause the label to be treated like an ordinary. You can also use any of the other modifiers as described above</p>
+
+<p>Finally, it should also be noted that <em>file</em> is accepted as a synonym of <em>label</em>.</p>
+
+<h2>Comments</h2>
+
+<p>I am aware that this change may "break" existing shield designs (although the previous behaviour can be restored by adding the <em>entire</em> modifier). If this causes you significant heartache or you fundamentally disagree with what I have done here then please let me know through the comments!</p>

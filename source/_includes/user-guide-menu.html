@@ -1,0 +1,85 @@
+<!-- Sidebar Header -->
+<div class="sidemenu-header">
+    <h3>User Guide</h3>
+</div>
+<!-- Sidebar Links -->
+<ul class="list-unstyled components">
+    <li class="{{ page.menu00 }}"><a href="/user-guide/index.html">Contents</a></li>    
+    <li class="{{ page.menu01 }}"><a href="/user-guide/glossary.html">Glossary</a></li>
+     <li>
+        <a href="#usingPages" data-toggle="collapse" aria-expanded="{{ page.group03 | default: false }}">Using the Website</a>
+        <ul class="collapse list-unstyled {% if page.group03 %}show{% endif %}" id="usingPages">
+            <li class="{{ page.g03menu01 }}"><a href="/user-guide/website-use/01-overview.html">Overview</a></li>
+            <li class="{{ page.g03menu02 }}"><a href="/user-guide/website-use/02-enter-blazon.html">Enter a Blazon</a></li>
+            <li class="{{ page.g03menu03 }}"><a href="/user-guide/website-use/03-create-parts.html">Create From Parts</a></li>
+            <li class="{{ page.g03menu04 }}"><a href="/user-guide/website-use/04-gallery.html">The Gallery</a></li>
+            <li class="{{ page.g03menu05 }}"><a href="/user-guide/website-use/05-quiz.html">Test Your Knowledge</a></li>
+            <li class="{{ page.g03menu06 }}"><a href="/user-guide/website-use/06-reference.html">Reference Pages</a></li>
+            <li class="{{ page.g03menu07 }}"><a href="/user-guide/website-use/07-other.html">Other Features</a></li>
+            <li class="{{ page.g03menu08 }}"><a href="/user-guide/website-use/08-random-blazon.html">Random Blazons</a></li>
+        </ul>
+    </li>
+     <li>
+        <a href="#advancedUse" data-toggle="collapse" aria-expanded="{{ page.group04 | default: false }}">The Create Page - Advanced</a>
+        <ul class="collapse list-unstyled {% if page.group04 %}show{% endif %}" id="advancedUse">
+            <li class="{{ page.g04menu01 }}"><a href="/user-guide/create-page/01-options.html">Setting Options</a></li>
+            <li class="{{ page.g04menu02 }}"><a href="/user-guide/create-page/02-find-parts.html">Finding Parts</a></li>
+            <li class="{{ page.g04menu03 }}"><a href="/user-guide/create-page/03-editor.html">Using the Editor</a></li>
+            <li class="{{ page.g04menu04 }}"><a href="/user-guide/create-page/04-files.html">Working With Files</a></li>
+            <li class="{{ page.g04menu05 }}"><a href="/user-guide/create-page/05-sharing.html">Sharing Your Work</a></li>
+         </ul>
+    </li>
+    <li>
+        <a href="#blazonReference" data-toggle="collapse" aria-expanded="{{ page.group00 | default: false }}">Blazon Reference</a>
+        <ul class="collapse list-unstyled {% if page.group00 %}show{% endif %}" id="blazonReference">
+            <li class="{{ page.g00menu00 }}"><a href="/user-guide/blazon-reference/arrangements.html">Arrangements</a></li>
+            <li class="{{ page.g00menu01 }}"><a href="/user-guide/blazon-reference/divisions.html">Divisions</a></li>
+            <li class="{{ page.g00menu02 }}"><a href="/user-guide/blazon-reference/edges.html">Edges</a></li>
+            <li class="{{ page.g00menu03 }}"><a href="/user-guide/blazon-reference/features.html">Features</a></li>
+            <li class="{{ page.g00menu04 }}"><a href="/user-guide/blazon-reference/furs.html">Furs</a></li>
+            <li class="{{ page.g00menu05 }}"><a href="/user-guide/blazon-reference/marshalling.html">Marshalling of Shields</a></li>
+            <li class="{{ page.g00menu06 }}"><a href="/user-guide/blazon-reference/modifiers.html">Modifiers</a></li>
+            <li class="{{ page.g00menu07 }}"><a href="/user-guide/blazon-reference/ordinaries.html">Ordinaries</a></li>
+            <li class="{{ page.g00menu08 }}"><a href="/user-guide/blazon-reference/orientation.html">Orientation</a></li>
+            <li class="{{ page.g00menu09 }}"><a href="/user-guide/blazon-reference/positions.html">Positions</a></li>
+            <li class="{{ page.g00menu10 }}"><a href="/user-guide/blazon-reference/punctuation.html">Punctuation and Numbers</a></li>
+            <li class="{{ page.g00menu11 }}"><a href="/user-guide/blazon-reference/quarterings.html">Complex Quarterings</a></li>
+            <li class="{{ page.g00menu12 }}"><a href="/user-guide/blazon-reference/tinctures.html">Tinctures</a></li>
+            <li class="{{ page.g00menu13 }}"><a href="/user-guide/blazon-reference/treatments.html">Treatments</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#chargeList" data-toggle="collapse" aria-expanded="{{ page.group01 | default: false }}">List of Charges</a>
+        <ul class="collapse list-unstyled {% if page.group01 %}show{% endif %}" id="chargeList">
+            <li class="{{ page.g01menu000 }}"><a href="/user-guide/blazon-reference/charges/index.html">Charge Finder</a></li>
+            <li class="{{ page.g01menu00 }}"><a href="/user-guide/blazon-reference/charges/animal.html">Animal</a></li>
+            <li class="{{ page.g01menu01 }}"><a href="/user-guide/blazon-reference/charges/armour-and-clothing.html">Armour and Clothing</a></li>
+            <li class="{{ page.g01menu02 }}"><a href="/user-guide/blazon-reference/charges/birds-and-insects.html">Birds and Insects</a></li>
+            <li class="{{ page.g01menu03 }}"><a href="/user-guide/blazon-reference/charges/buildings-ships.html">Buildings, Ships, Large Objects</a></li>
+            <li class="{{ page.g01menu04 }}"><a href="/user-guide/blazon-reference/charges/crosses.html">Crosses and Christian Symbols</a></li>
+            <li class="{{ page.g01menu05 }}"><a href="/user-guide/blazon-reference/charges/crowns-and-jewels.html">Crowns and Jewellery</a></li>
+            <li class="{{ page.g01menu06 }}"><a href="/user-guide/blazon-reference/charges/farming-and-tools.html">Farming and Tools</a></li>
+            <li class="{{ page.g01menu07 }}"><a href="/user-guide/blazon-reference/charges/household-items.html">Household Items</a></li>
+            <li class="{{ page.g01menu08 }}"><a href="/user-guide/blazon-reference/charges/humans.html">Humans</a></li>
+            <li class="{{ page.g01menu09 }}"><a href="/user-guide/blazon-reference/charges/mythical-creatures.html">Mythical Creatures</a></li>
+            <li class="{{ page.g01menu10 }}"><a href="/user-guide/blazon-reference/charges/plants-trees-and-flowers.html">Trees, Flowers and other Plants</a></li>
+            <li class="{{ page.g01menu11 }}"><a href="/user-guide/blazon-reference/charges/shapes-and-symbols.html">Shapes and Symbols</a></li>
+            <li class="{{ page.g01menu12 }}"><a href="/user-guide/blazon-reference/charges/the-natural-world.html">The Natural World</a></li>
+            <li class="{{ page.g01menu13 }}"><a href="/user-guide/blazon-reference/charges/weapons.html">Weapons</a></li>
+            <li class="{{ page.g01menu14 }}"><a href="/user-guide/blazon-reference/charges/words-and-letters.html">Words and Letters</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#extensions" data-toggle="collapse" aria-expanded="{{ page.group02 | default: false }}">Extensions</a>
+        <ul class="collapse list-unstyled {% if page.group02 %}show{% endif %}" id="extensions">
+            <li class="{{ page.g02menu00 }}"><a href="/user-guide/extensions/charge-adjustments.html">Charge Adjustments</a></li>
+            <li class="{{ page.g02menu02 }}"><a href="/user-guide/extensions/playing-cards.html">Playing Cards and Games Theme Pack</a></li>
+            <li class="{{ page.g02menu03 }}"><a href="/user-guide/extensions/retro-sci-fi.html">Retro Science Fiction Theme Pack</a></li>
+            <li class="{{ page.g02menu04 }}"><a href="/user-guide/extensions/sports.html">Sports Theme Pack</a></li>
+            <li class="{{ page.g02menu05 }}"><a href="/user-guide/extensions/text-effects.html">Text Effects Theme Pack</a></li>
+            <li class="{{ page.g02menu06 }}"><a href="/user-guide/extensions/gradients.html">Gradient Treatments</a></li>
+            <li class="{{ page.g02menu07 }}"><a href="/user-guide/extensions/escutcheons.html">Improved Escutcheons</a></li>
+            <li class="{{ page.g02menu08 }}"><a href="/user-guide/extensions/drawing-options.html">Drawing Options</a></li>
+        </ul>
+    </li>
+</ul>

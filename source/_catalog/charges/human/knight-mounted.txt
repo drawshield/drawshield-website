@@ -1,0 +1,1 @@
+<span style="color: red;">armoured</span>, <span style="color: blue;">caparisoned</span>, <span style="color: green;">plumed</span>, <span style="color: purple;">maned</span>, <span style="color: brown;">stirruped</span>, <span style="color: orange;">unguled</span>

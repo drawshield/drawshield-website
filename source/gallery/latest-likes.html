@@ -1,0 +1,11 @@
+---
+pageTitle: Recently Liked Gallery Images
+---
+
+<p>These are the twenty most recently "liked" gallery entries. You can add your own vote, or search the <a href="/gallery/index.html">entire gallery</a> for ones you particularly like.</p>
+<script src="/js/voting.js"></script>
+
+<div class="container">
+    <div id="liked" class="row"><p>Loading...</p></div>
+</div>
+<script>jQuery('#liked').load("/gallery/likes-list.php");</script>

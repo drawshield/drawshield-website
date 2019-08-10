@@ -1,0 +1,92 @@
+---
+group02: true
+g02menu05: active
+layout: sidemenu
+sidemenu: user-guide-menu
+pageTitle: Text Effects Theme Pack
+upLink: index.html
+nextLink: gradient.html
+prevLink: sports.html
+---
+<!-- /user-guide/extensions/text-effects.ejs starts -->
+
+<p>The ability to control the appearance of any words placed on the shield as charges is a useful feature, however we should really avoid modern terminology and use appropriate heraldic wording. I make no apologies for the user having to learn these new terms, but the language is in keeping with existing blazonry! (There is a handy conversion table at the end of this page).</p>
+
+<h2>Textual Charges</h2>
+
+<p>Here is an example of a charge containing some arbitrary text:</p>
+
+<p><span class="example">the words "Fidus et Audax" gules</span></p>
+
+<p>Note that it is followed by a tincture, just like any other charge, and it may be described as <span class="example">proper</span>, in which case it will tinctured sable. It is important to enclose the words in quotation marks to group them as a single item. You can also include any punctuation characters required - if you want to include quotation marks in the text itself precede it with a backslash. I am sorry, but at present accented characters are replaced by their non-accented equivalents but I am working to correct this.</p>
+
+<p>There is no in-built limit to the length of the text, it will simply be displayed at progressively smaller sizes.</p>
+
+<p>Text charges are treated just like any other charge and may be positioned and arranged like any other charge.</p>
+
+<h2>Arrangement of Words within the Charge</h2>
+
+<p>By default, DrawShield will try to break the words into lines such that the final result is more or less square. (In most cases, square charges make the best use of the available space). You can change this by using one of the following modifiers after the text:</p>
+
+<ul>
+<li><span class="keyword">disposed in fess</span> - words are arranged in a single horizontal line</li>
+<li><span class="keyword">disposed in pale</span> - words are stacked vertically</li>
+<li><span class="keyword">disposed in a block</span> - the default</li>
+<li><span class="keyword">enarched</span> - words are placed along an upward curve</li>
+<li><span class="keyword">embowed</span> - words are placed along a downward curve</li>
+<li><span class="keyword">wavy</span> - words run along an upward then a downward curve</li>
+<li><span class="keyword">encircled</span> - words are arranged in a complete circle, starting from the "9 o'clock" position</li>
+</ul>
+
+<p><span class="keyword">Arranged</span> is a synonym for <span class="example">disposed</span>. You can also use <span class="keyword">disposed in a circle</span> instead of <span class="example">encircled</span>.</p>
+
+<h2>Alignment of Words</h2>
+
+<p>By default words are placed in the middle of each arrangement. This can be changed by using any of the following modifiers after the text:</p>
+
+<ul>
+<li><span class="keyword">laying to the dexter</span> - butting up to the left hand side</li>
+<li><span class="keyword">laying to the sinister</span> - butting up to the right hand side</li>
+<li><span class="keyword">laying to the middle</span> - same as the default</li>
+</ul>
+
+<h2>Appearance of Words</h2>
+
+<p>You may alter the appearance of the words by using any combination of the following modifiers after the text:</p>
+
+<ul>
+<li><span class="keyword">(en)faced of X</span> - this changes the font. "X" may be one of <span class="keyword">serif, "sans serif", cursive, fantasy, monospace, times, baskerville, verdana, symbol</span></li>
+<li><span class="keyword">enlarged</span> - like bold</li>
+<li><span class="keyword">aslant(ed)</span> - like italic</li>
+</ul>
+
+<p>Note the quotation marks around "sans serif", these are required. You may also use <span class="keyword">underlined</span> but this is discouraged until I can think of an appropriate heraldic equivalent...</p>
+
+<!-- <h2>Special Charge Modifier</h2>
+
+<p>ANY charge may be given a modifier like that in the following example:</p>
+
+<p><span class="example">a lion gules encircled by the words "By Appointment to her Majesty" or</span></p>
+
+<p>The charge will be drawn within a circle of the given words. You can also use the appearance modifiers above to change how the encircling text appears.</p> -->
+
+<h2>Notes</h2>
+
+<p>The various modifiers above may be used in any combination or order, but must all come after the text.</p>
+
+<p>The display of fonts, character sets, character sizes and so on is all handled by your browser so precise results may vary between browsers and devices. I am aware that the selection of fonts is a bit limited and some of them seem to have no effect - there is a mechanism to use native fonts from within SVG but I haven't learned how to use this yet. If you find display problems, for example your words don't fit into the circle, try adding a few spaces - they will not appear in the final circle but will have the effect of making your text appear longer to the program.</p>
+
+<h3>Conversion Table</h3>
+
+<table>
+<tr><th>Modern Term</th><th>Heraldic Equivalent</th></tr>
+<tr><td>font-family</td><td>(en)faced of</td></tr>
+<tr><td>bold</td><td>enlarged</td></tr>
+<tr><td>italic</td><td>aslant(ed)</td></tr>
+<tr><td>align-left</td><td>laying to the dexter</td></tr>
+<tr><td>align-right</td><td>laying to the sinister</td></tr>
+<tr><td>align-center</td><td>laying to the middle</td></tr>
+</table>
+
+
+<!-- /user-guide/extensions/text-effects.ejs ends -->

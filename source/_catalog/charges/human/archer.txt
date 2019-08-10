@@ -1,0 +1,1 @@
+<span style="color: red;">armed</span>, <span style="color: blue;">belted</span>, <span style="color: green;">booted</span>, <span style="color: purple;">hatted</span>, <span style="color: brown;">trousered</span>

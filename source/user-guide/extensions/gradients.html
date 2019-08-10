@@ -1,0 +1,58 @@
+---
+group02: true
+g02menu06: active
+layout: sidemenu
+sidemenu: user-guide-menu
+pageTitle: Gradient Treatments
+upLink: index.html
+nextLink: escutcheons.html
+prevLink: text-effects.html
+---
+
+<p>In heraldry, a <em>treatment</em> is a regular, repeating pattern of two plain colours. 
+    For your viewing pleasure we present the following extension, which allows us to use
+gradients of two colours instead.</p>
+
+<h2>Gradients</h2>
+
+<p>This extension adds the following (very non-standard!) terms to the list of supported treatments:</p>
+
+<ul>
+<li><span class="keyword">grady in fess [colour] and [colour]</span> - A gradual transition from left to right</li>
+<li><span class="keyword">grady in pale [colour] and [colour]</span> - A gradual transition from top to bottom</li>
+<li><span class="keyword">grady in bend [colour] and [colour]</span> - A gradual transition from top left to bottom right</li>
+<li><span class="keyword">grady in bend sinister [colour] and [colour]</span> - A gradual transition from top right to bottom left</li>
+<li><span class="keyword">grady in annulo [colour] and [colour]</span> - A gradual transition from the outer edge to the inside</li>
+</ul>
+
+<p><span class="keyword">graded</span> is a synonym for grady, and in common with other treatments, the first colour may 
+come before the treatment name (e.g. <span class="keyword">azure grady in pale argent</span>).</p>
+
+<h2>Grady on Major Ordinaries</h2>
+
+<p>For the sake of brevity, with the major ordinaries such as <span class="keyword">fess, pale, bend</span> etc. you
+can just the construction <span class="keyword">grady [colour] and [colour]</span> and the gradient will follow
+the direction of the ordinary. If this is not the behaviour that you want then you can still specify the
+gradient direction, for example <span class="keyword">a pale grady in fess gules and or</span>.</p>
+
+<p>You can actually use <span class="keyword">grady [colour] and [colour]</span> anywhere, and if it is
+<strong>NOT</strong> used on an ordinary then it will take the default valued of <span class="keyword">grady in pale</span>,
+however users are discouraged from taking advantage of this construction. Unless you are shading a major ordinary
+then I recommend always using a specific direction for clarity.</p>
+
+<h2>Grady of a Single Colour</h2>
+
+<p>Heraldry has a rather limited palette of colours so it might be difficult to get a pair of colours to 
+    create a pleasing gradient. For this reason, you can also specify <span class="keyword">grady [direction] [colour]</span>,
+in which a gradient will be created that runs from a lighter shade of the given colour to a darker shade, in the given direction. The
+actual colour will be the middle value. You can also use <span class="keyword">grady [direction] inverted 
+    [colour]</span> to make the gradient run from a darker shade to a lighter shade in the given direction.</p>
+
+<h2>Notes</h2>
+
+<p>These gradients work best on large simple shapes, such as the field, major ordinaries and simple geometric charges.
+    They do not work as intended on charges made up of many individual parts (such as lions) but the effect is not displeasing -
+    try it out!
+</p>
+
+<p>I am very grateful to Luke B. for inspiring this extension.</p>

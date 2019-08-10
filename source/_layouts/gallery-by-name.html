@@ -1,0 +1,49 @@
+{% include upper.html %}
+<!-- gallery-by-name template starts -->
+{{ content }}
+{% assign unsorted = site.pages | where:"layout","gallery-entry" %}
+{% assign entries = unsorted | sort: "pageTitle" %}
+{% assign prevInitial = "" %}
+<a id="top"/>
+<p>
+    <a href="#A">A</a>&nbsp;
+    <a href="#B">B</a>&nbsp;
+    <a href="#C">C</a>&nbsp;
+    <a href="#D">D</a>&nbsp;
+    <a href="#E">E</a>&nbsp;
+    <a href="#F">F</a>&nbsp;
+    <a href="#G">G</a>&nbsp;
+    <a href="#H">H</a>&nbsp;
+    <a href="#I">I</a>&nbsp;
+    <a href="#J">J</a>&nbsp;
+    <a href="#K">K</a>&nbsp;
+    <a href="#L">L</a>&nbsp;
+    <a href="#M">M</a>&nbsp;
+    <a href="#N">N</a>&nbsp;
+    <a href="#O">O</a>&nbsp;
+    <a href="#P">P</a>&nbsp;
+    <a href="#Q">Q</a>&nbsp;
+    <a href="#R">R</a>&nbsp;
+    <a href="#S">S</a>&nbsp;
+    <a href="#T">T</a>&nbsp;
+    <a href="#U">U</a>&nbsp;
+    <a href="#V">V</a>&nbsp;
+    <a href="#W">W</a>&nbsp;
+    <a href="#X">X</a>&nbsp;
+    <a href="#Y">Y</a>&nbsp;
+    <a href="#Z">Z</a>&nbsp;
+</p>
+<ul class="list-group">
+    {% for entry in entries %}
+        {% assign initial = entry.pageTitle | truncate: 1, "" | upcase %}
+        {% if prevInitial != initial %}
+            {% assign prevInitial = initial %}
+    <li class="list-group-item list-group-item-dark"><a id="{{ initial }}">>>> {{ initial }} <<<</a> <a href="#top">(back to top)</a></li>
+        {% endif %}
+    <li class="list-group-item"><a href="{{ entry.url }}">{{ entry.pageTitle }}</a>
+    (Ref. No. {{ entry.entryNum }})</li>
+    {% endfor %}
+</ul>
+{% include navigation.html next = page.nextIndex  prev = page.prevIndex up = page.upIndex %}
+<!-- gallery-by-name template ends -->
+{% include lower.html %}

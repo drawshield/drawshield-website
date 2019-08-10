@@ -1,0 +1,71 @@
+{%- assign collection = include.collection -%}
+
+{%- assign pathParts = doc.url | replace: topDir, '' | split: '/' -%}
+{%- comment -%}two parts means in the current directory{%- endcomment -%}
+{%- if pathParts.size == 2 -%}
+    <p>**{{ doc.url }} is in the current directory**</p>
+{%- endif %-}
+
+{%- assign startDepth = page.url | split: '/' | size | minus: 1 -%}
+<p>{{ startDepth }}</p>
+{%- for doc in collection.docs -%}
+{%- assign pathParts = doc.url | replace: topDir, '' | split: '/' -%}
+<p>{{ pathParts | join: '+'}}</p>
+{%- assign pathParts = pathParts | pop -%}
+<p>{{ pathParts | join: '+'}}</p>
+{%- assign thisDepth = doc.url | replace: topDir, '' | split: '/' | size | minus: startDepth -%}
+<p>{{ thisDepth }} - {{ doc.url }}</p>
+{%- endfor -%}
+<ul class="list-group">
+        {%- for doc in collection.docs -%}
+            {%- assign thisDepth = doc.url | split: '/' | size | minus: startDepth -%}
+            {%- assign depth = doc.url | split: '/' | size -%}
+            {%- if depth == 4 %}
+                {%- assign currentPath = doc.url | replace: '/index.html', '' -%}
+                <li class="parent list-group-item">
+                    <a href="{{ page.url }}">{{ doc.pageTitle | default:currentPath }}</a>
+                    <ul class="subtree list-group">
+                        {%- for subDoc in collection.docs -%}
+                        {%- assign thisDir = subDoc.url | replace: topDir, '' | replace: '/index.html', '' -%}
+                            {%- assign subPath = subDoc.url | replace: '/index.html', '' -%}
+                            {%- if subPath contains currentPath -%}
+                                <li class="list-group-item"><a href="{{ subDoc.url }}">({{ thisDir }} / {{ thisDepth }}){{ subDoc.pageTitle | default: subPath }}</a></li>
+                            {%- endif -%}
+                        {%- endfor -%}
+                    </ul>
+                </li>
+             {%-endif -%}
+        {%- endfor -%}
+    </ul>
+    
+
+    <ul class="list-group {{ ulClass }}">
+            {%- for doc in collection.docs -%}
+                {%- if doc.url contains thisPath -%}
+                    {%- assign pathParts = doc.url | replace: thisPath, '' | split: '/' -%}
+                    {%- assign fileName = pathParts | last -%}
+                    {%- assign pathParts = pathParts| pop -%}
+                    {%- assign depth = pathParts | size -%}
+                    {%- case depth -%}
+                        {%- when 0 -%}
+                        <!-- found 0 level entry {{ doc.url }} -->
+                            {%- if fileName != 'index.html' -%}
+            <li class="list-group-item">Link to local file {{ doc.url }}</li>
+                            {%- endif -%}
+                        {%- when 1 -%}
+                        <!-- found 1 level entry {{ doc.url }} -->
+                        {%- if fileName == 'index.html' -%}
+                            {%- assign nextURL = doc.url | replace: '/index.html', '' -%}
+                <li class="parent list-group-item">Link to sub-folder {{ doc.url }}
+                                {% include navtree.html collection = include.collection ulClass = "subtree" pageURL = nextURL %} 
+            </li>
+                            {%- endif -%}       
+                    {%- endcase -%}
+                {%- endif -%}
+            {%- endfor -%}
+        </ul>
+        
+
+        {%- if subDoc contains subPath -%}
+        <li class="list-group-item">Link to {{ subDoc.url }} </li>    
+                    {%- endif -%}

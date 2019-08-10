@@ -1,0 +1,41 @@
+{% include upper.html %}
+{% capture atoz %}
+<div class="text-center az-list">
+<span class="atoz">
+<a href="/reference/elvin/index.html">Elvin Contents</a>&nbsp;
+<a href="/reference/elvin/a/index.html">A</a>&nbsp;
+<a href="/reference/elvin/b/index.html">B</a>&nbsp;
+<a href="/reference/elvin/c/index.html">C</a>&nbsp;
+<a href="/reference/elvin/d/index.html">D</a>&nbsp;
+<a href="/reference/elvin/e/index.html">E</a>&nbsp;
+<a href="/reference/elvin/f/index.html">F</a>&nbsp;
+<a href="/reference/elvin/g/index.html">G</a>&nbsp;
+<a href="/reference/elvin/h/index.html">H</a>&nbsp;
+<a href="/reference/elvin/i/index.html">I</a>&nbsp;
+<a href="/reference/elvin/j/index.html">J</a>&nbsp;
+<a href="/reference/elvin/k/index.html">K</a>&nbsp;
+<a href="/reference/elvin/l/index.html">L</a>&nbsp;
+<a href="/reference/elvin/m/index.html">M</a>&nbsp;
+<a href="/reference/elvin/n/index.html">N</a>&nbsp;
+<a href="/reference/elvin/o/index.html">O</a>&nbsp;
+<a href="/reference/elvin/p/index.html">P</a>&nbsp;
+<a href="/reference/elvin/q/index.html">Q</a>&nbsp;
+<a href="/reference/elvin/r/index.html">R</a>&nbsp;
+<a href="/reference/elvin/s/index.html">S</a>&nbsp;
+<a href="/reference/elvin/t/index.html">T</a>&nbsp;
+<a href="/reference/elvin/u/index.html">U</a>&nbsp;
+<a href="/reference/elvin/v/index.html">V</a>&nbsp;
+<a href="/reference/elvin/w/index.html">W</a>&nbsp;
+X&nbsp;
+<a href="/reference/elvin/y/index.html">Y</a>&nbsp;
+<a href="/reference/elvin/z/index.html">Z</a>&nbsp;
+<a href="/reference/elvin/search.html"><button type="button" class="btn-danger btn-sm" >Search</button></a>
+</span>
+</div>
+{% endcapture %}
+{{ atoz }}
+{% if page.upLink   %}{% include navigation.html prev = page.prevLink   next = page.nextLink   up = page.upLink   %}{% endif %}
+                        {{ content }}
+{% if page.upLink   %}{% include navigation.html prev = page.prevLink   next = page.nextLink   up = page.upLink   %}{% endif %}
+{{ atoz }}
+{% include lower.html %}

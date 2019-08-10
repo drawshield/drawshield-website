@@ -1,0 +1,25 @@
+---
+layout: parker
+---
+<h1>Change Log</h1>
+<p>My intention has been to leave the actual <em>content</em> of Parker's work untouched but to make it easier to navigate and find entries. Simple changes were made by global search and replace, more complex changes by PHP scripts and a small number of changes edited by hand. The complete set of changes are as follows:</p>
+<p>Front Page - Jim Trigg's version had links to &quot;Derived Objects&quot;, all of which were broken, so I removed them.</p>
+<p>The original (extremely large) pages were broken up into individual entries and additional navigational links added.</p>
+<p>The original &quot;GALLERY&quot; was a set of thumbnail pages ordered by filename, I have replaced it with a &quot;LIST OF ILLUSTRATIONS&quot; sorted alphabetically by caption.</p>
+<p>All GIF files were converted to 8 bit PNG files</p>
+<p>Deprecated and non-standard html attributes were removed. Specifically:</p>
+<ul>
+	<li><strong>Name</strong> attributes were replaced by <strong>id</strong></li>
+	<li>All internal <strong>href</strong> attributes were re-written to match the new WordPress structure</li>
+	<li>All image <strong>src</strong> attributes were re-written to match the new locations and file types</li>
+	<li>The following attributes were removed completely: <strong>indepth</strong>, <strong>onfocus</strong></li>
+	<li><strong>Align</strong> attributes were replaced by an approprate class membership</li>
+</ul>
+<p>Also, all multi-byte accented characters were replaced by XHTML entities. This was because I populated the WordPress pages using <em>xmlrpc</em> and somewhere in the transfer mutli-byte characters were being corrupted, despite the appropriate character set being indicated. There is a WordPress bug report about <em>xmlrpc</em> character handling which may be the cause</p>
+<p>Where I have made very minor changes to the content or to the html I have noted this in the comments for that page.</p>
+<h2>A Note on the &quot;Cross&quot; Entry</h2>
+<p>The cross entry was over 10,000 words and included 35 numbered sections, followed by an index to terms used in the entry. Instead of one long entry I have created a &quot;Cross&quot; top level entry that includes the introductory paragraph and the original index, then 35 separate entries, one for each numbered section. Most links point to the top level entry, I am in the process of refining these to point to a sub-entry if appropriate.</p>
+<h2>A Note on Entry Ordering</h2>
+<p>The original version of Parkers I assume was a reasonable facsimile of the print version. This has entry orderings such as <strong>Barre, Barrel, Barry, Barberry</strong> , later followed by <strong>Barrow, Barrulet, Barry (see under Bar)</strong>, and several other examples. Ordering in this version is determined by a PHP array defined in a template file called <code>entries.php</code>, which at the moment is strictly alphabetical (i.e. character code order), so the first few entries are <strong>A, A-la-quise, Abacot</strong>. Entries can be reorded by editing this file as required. What do folks think? It is always possible to jump to a specific entry anyway, using the <em>Jump to Entry</em> form.</p>
+<h1>Acknowledgements</h1>
+<p>First of all I must pay my thanks to &quot;Saitou&quot; and Jim Trigg - without their excellent and consistent html code my global edit and replaces would have been much more error prone!</p>

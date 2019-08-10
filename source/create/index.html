@@ -1,0 +1,119 @@
+---
+pageTitle: Create a Shield from a Blazon
+editor: true
+combobox: true
+includeSocial: true
+---
+<!-- ./create.ejs starts -->
+<div class="row">
+    <div class="col-12">
+        <p>Enter a <strong>blazon</strong> then click the <strong>Draw Shield</strong> 
+        button. There are also <a href="/create/hints-tips1.html">hints and tips</a> on getting the image that you want. Click <strong>Random Blazon</strong> to get some inspiration, or check out the  <a href="/catalog/index.html">visual catalog of charges</a>. The buttons below the shield image let you set options for the shield appearance; view a catalogue of available parts; and if you are especially proud of your creation, offer it for inclusion in the gallery. <span style="color: red;">Jun 2019: </span> (New 
+        flexible "Flag" shape under drawing options).</p>    
+    </div>
+</div>
+<form id="blazonForm" method="post" enctype="multipart/form-data">   
+    <div class="row">
+        <div class="col-sm-12 col-lg-8">
+            <fieldset class="form-group">                
+                <textarea class="form-control" placeholder="Enter a blazon" id="blazon" name="blazon" spellcheck="false"></textarea>
+                <small id="fileHelp" class="form-text text-muted">Type or paste your blazon above or upload it in a plain text file.</small>
+                <input type="file" class="form-control-file  btn-primary d-inline" id="blazonInputFile" aria-describedby="fileHelp" name="blazonfile">
+                <button class="btn-light d-inline-block" type="button" onclick="uploadFile()">Upload</button>
+                <button class="btn-danger d-inline-block" type="button" onclick="drawFile()">Draw</button>
+                <input type="hidden" name="asfile" value="0"/>
+                <input type="hidden" name="size" value="500"/>
+                <input type="hidden" name="palette" value="drawshield"/>
+                <input type="hidden" name="shape" value="default"/>
+                <input type="hidden" name="effect" value="shiny"/>
+                <input type="hidden" name="saveformat" value="png"/>
+                <input type="hidden" name="ar" value="0.5"/>
+            </fieldset>
+        </div>
+        <div class="col-sm-12 col-lg-4">
+            <div class="d-flex flex-lg-column flex-row">
+                <div class="p-1"><button type="button" class="btn-block btn-danger" onclick="drawshield();">Draw Shield</button></div>
+                <div class="p-1"><button type="button" class="btn-block btn-primary" onclick="window.location.href='/random/index.html';">Random Blazon</button></div>
+                <div class="p-1"><button type="button" class="btn-block btn-primary" onclick="saveshield(event);">Save as File</button></div>
+                <div class="p-1"><button type="button" class="btn-block btn-primary" onclick="newTab();">Open in New Tab</button></div>
+            </div>
+        </div> 
+    </div>
+</form>
+<div class="row">
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-sm-12" id="shieldimg"></div>
+    <div class="col-lg-8 offset-lg-2  col-md-10 offset-md-1 col-sm-12 text-center"><a href="/create/index.html" id="shieldcaption">Your shield here</a></div>
+</div>
+<div class="row" id="messageDiv" style="display: none;">
+    <div class="col-lg-10 offset-lg-1 col-sm-12 card p-1">
+        <form class="contact-form" method="post" action="/contact/reply-form.php" role="form">
+            <div class="form-group">
+                <label for="messageList" style="color: red;">Error Reported:</label>
+                <textarea name="message" id="messageList" class="form-control"></textarea>
+                <textarea name="error-blazon" id="error-blazon" readonly  class="form-control" style="display: none;"></textarea>
+            </div>
+            <p class="pt-3">
+                <input type="submit" class="btn btn-danger btn-send" value="Report This Error">&nbsp; (If you think that it should work!)
+                <button type="button" class="btn-primary btn-sm float-right" onclick="document.getElementById('messageDiv').style.display = 'none';" >Clear</button>
+                <input type="hidden" name="reference" value="Error Report">
+            </p>
+            <p>Edit the field above if you need to give more information. See "Contact->View Responses" or follow @drawshield on Twitter for feedback.</p>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div  class="col-lg-8 offset-lg-1 col-sm-12 p-1">
+        {% include social.html message = "Take a look at this shield design" %}
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-8 offset-lg-1 col-sm-12 p-1">
+        <div class="row">
+            <div class="col-lg-4 col-sm-6 p-1">
+                <a class="btn btn-primary" onclick="toggleDrawOptions()">Drawing Options... </a>
+            </div>
+            <div class="col-lg-4 col-sm-6 p-1">                
+                <a class="btn btn-primary" onclick="togglePartsFinder()">Parts Finder...</a>
+            </div>
+            <div class="col-lg-4 col-sm-6 p-1">
+                <a class="btn btn-primary" onclick="setupSuggestion()">Submit to Gallery...</a>&nbsp;
+            </div>
+        </div>
+    </div>
+</div>
+<div id="optionsPanel" class="panel" style="display: none;"></div>
+<div id="partsPanel" class="panel"  style="display: none;"></div>
+<div class="row panel" id="galleryPanel" style="display: none;">
+    <div class="col-lg-8 offset-lg-2 col-sm-12 card p-1">
+        <form class="contact-form" method="post" action="/contact/reply-form.php" role="form">
+            <div class="form-group">
+                <label for="suggestion" style="color: red;">Your Suggestion:</label>
+                <textarea name="suggestion" id="suggestion" readonly class="form-control" placeholder="(Enter a blazon into the text area at the top of the page)"></textarea>
+                <label for="title" style="color: red;">A Title?</label>
+                <input type="text" name="title" id="title" class="form-control" placeholder="(optional)">
+                <label for="additional" style="color: red;">Anything you wish to add:</label>
+                <textarea name="additional" id="additional" class="form-control"></textarea>
+            </div>
+            <p class="pt-3">
+                <input type="submit" class="btn btn-danger btn-send" value="Submit this blazon" id="suggestButton">
+                <button type="button" class="btn-primary btn-sm float-right" onclick="document.getElementById('galleryPanel').style.display = 'none';" >Clear</button>
+                <input type="hidden" name="reference" value="Gallery Suggestion">
+                <input type="hidden" name="options" id="suggestion-options" value="default">
+            </p>
+            <p>Thanks for your suggestion! I don't have room to include all of them but all of your ideas are appreciated.</p>
+        </form>
+    </div>
+</div>
+<div id="notes"></div>
+<div id="credits"></div>
+<div id="links"></div>
+
+<!-- JavaScript bits for shield drawing -->
+<script src="/js/shieldcommon.js"></script>
+<script src="/js/contact.js"></script>
+<script src="randomshield.js"></script>
+<script src="createshield.js"></script>
+<script src="parts-finder.js"></script>
+
+
+<!-- ./create.ejs ends -->

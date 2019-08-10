@@ -1,0 +1,173 @@
+---
+pageTitle: Change Log
+---
+
+
+<p>This page provides details on the current release of the DrawShield image creation program. Minor bugfixes and updates can be found on the <a href="/contact/tweets.html">Error Reports page</a>.</p>
+
+<h2 id="2.7a">Release 2.7a / Create Page build 535 and above, July 2019</h2>
+
+<p>New Charges</p>
+
+<ul>
+    <li>Dandelion Leaf</li>
+    <li>Fig tree</li>
+    <li>Conker</li>
+    <li>Nightingale</li>
+    <li>Polar Bear</li>
+    <li>Vulture</li>
+    <li>Porcupine</li>
+    <li>Toad</li>
+    <li>(Golden) Fleece</li>
+    <li>Barber Pole</li>
+    <li>Rock</li>
+    <li>Chain</li>
+    <li>Feather (Now has the correct orientation)</li>
+</ul>
+
+<p>Other Changes</p>
+
+<ul>
+    <li>Bars (and other thin things) Dancetty improved</li>
+    <li>Engrailed edge type tweaks for smaller items</li>
+    <li>Accent characters should now work correctly (i.e. ignored everywhere except in "Words")</li>
+    <li>If there are more than one charges they may be <em>shown further apart</em> or <em>
+        shown closer together</em>.</li>
+    <li>The terms <em>grand quarterly</em>, <em>cantonned</em> and <em>over all</em>
+    should now be recognised and handled correctly</li>
+    <li>The fur like pattern <em>tapisse (of wheat)</em> has been added. It is always <em>or</em> and is intended to
+    represent closely packed wheat kernels.</li>
+</ul>
+
+<p>Website Changes</p>
+
+<ul>
+    <li>The menu bar is now fixed to the top of the window.</li>
+    <li>The Visual Catalog is now available as part of the top menu from all pages, and should be
+        up to date with all recent changes. Furs have now been added as well.
+    </li>
+    <li>Some internal changes to how the menu pages are constructed in the "Refer" section - let me know if
+        there are any problems.
+	</li>
+</ul>
+
+
+<h2 id="2.7">Release 2.7 / Create Page build 531 and above, June 2019</h2>
+<p>This release bundles all the minor fixes over the Last year and incorporates the "draw flag" functionality from a separate website.</p>
+<p>Changes include:</p>
+<ul>
+	<li>Added charges: owl, bundle of wheat, double headed axe, thimble, squirrel variants, trident, mounted knight, archer, blacksmith, lotus flower, dragon variants, +200 others from Traceable Heraldic Art </li>
+	<li>Added ordinary: pile throughout, label entire, enty</li>
+	<li>Added edge type: Meander, improvements to size of several others</li>
+	<li>Added treatment: grady (non-heraldic)</li>
+	<li></li>
+</ul>
+<p>For complete details please consult the Github change log.</p>
+
+<h2 id="2.6r">Release 2.6r / Website Build 340 and above, May 2018</h2>
+<p>The website is now created using the Jekyll static site generator. There shouldn't be much visible difference, however the "contents" pages in the reference and user guide sections have improved formatting.</p>
+<p>Changes to the drawshield code include:</p>
+<ul>
+	<li>Charges can be placed "on" the Cross quarter pierced</li>
+	<li>The word "the" is allowed when specifying locations, e.g. "in the fess point"</li>
+	<li>New variations of the bend, fess, pale and cross - "nowy", "[nowy] quadrate" and "nowy lozengy"</li>
+	<li>You can now place up to 7 charges on a chevron</li>
+	<li>"haurient" of fish is now handled correctly</li>
+	<li>Removed some spurious warnings about orientation not being correct</li>
+	<li>Added the rather lovely tripartite division "per pall arrondi"</li>
+	<li>Added the charges "pair of wings", "reindeer", "reindeer head", "reindeer salient", "tritons trumpet" ("tritons shell")</li>
+	<li>Added the ordinaries "point dexter" "point sinister" and "point in point" (with thanks to Gold Dragon), fess rompu, pale rompu, saltire parted fretty</li>
+	<li>I have re-defined some of the chevron variations to match illustrations 1 to 5 of plate 16 in Elvin's Heraldic Dictionary, these are:</li>
+	<ul>
+		<li>Chevron rompu / downset</li>
+		<li>Chevron debruised / fracted</li>
+		<li>Chevron burst / eclate /split</li>
+		<li>chevron disjointed / brisse</li>
+		<li>chevron removed</li>
+	</ul>
+	<li>A single symmetrical charges, like four armed crosses, roundels etc. are now placed to match the centre of divisions such as quarterly.</li>
+</ul>
+<h2 id="2.6q">Release 2.6q / Website Build 335 and above</h2>
+<p>This release is largely concerned with the website rather than the program. There was a bit of confusion between buttons and options so I have tried to tidy things up. I have also tried to make the blazon editor component more useful. Changes are:</p>
+<ul>
+	<li>The previous "Printable" option has now become a new action button "Open in a new Tab"</li>
+	<li>You can now either upload a file into the editor, or draw it immediately</li>
+	<li>Both "Open in a new tab" and "Save as File" will carry out their action on the most recently drawn shield (in the case that there is both an uploaded file and a blazon in the edit area)</li>
+	<li>Options have been tidied up and you can now choose the width of the image for "Save as File"</li>
+	<li>The shield shape may now be selected in the options dialog</li>
+	<li>Options are now stored in cookies so persist between sessions</li>
+	<li>(Options stated in the blazon itself, e.g. "drawn in an oval shape" always override the stored options)</li>
+	<li>The blazon component has improved (or at least different!) syntax colouring.</li>
+	<li>The blazon editor has ctrl-space completion for many common heraldic terms (more still to add)</li>
+	<li>You can save the content of the blazon editor, it will be downloaded as a file called "blazon.txt".</li>
+</ul>
+<h2 id="2.6p">Release 2.6p / Website Build 325 and above</h2>
+<p>Quarterings of 4, 5, 6, 9, 16, 25, 36, 49 and 64 are now supported. You don’t have to specify the number if you don’t want to; the program will count your quarters and repeat them as necessary to fill up to the nearest size. You can use ordinal numbers, cardinal numbers, words, roman numerals or letters (‘a’ to ‘z’, then ‘aa’ to ‘zz’ then ‘aaa’ to ‘fff’) but remember to mark all your quarter numberings with a trailing closing bracket ‘)’.</p>
+
+<p>The other big change is to the website page. Recognising that entering lots of quarterings is a major exercise I have made the following changes:</p>
+
+<ul>
+<li>You can upload a text file containing a blazon and have that drawn</li>
+<li>The blazon entry text area is now a full fledged editor and will grow as required to show all of your blazon</li>
+<li>Primitive syntax highlighting has been added, I hope to improve this further soon. (You can also turn it off if you don’t like it.)</li>
+<li>The program is now “line aware” and will report most errors by reference to the line number</li>
+<li>The program now supports various commenting styles both in files and in the blazon entry area, namely:</li>
+	<ul>
+		<li>‘C’ style in-line comments /* this is a comment */</li>
+		<li>‘C++’ style comments // comment to end of line</li>
+		<li>Hash comments # comment to end of line</li>
+		<li>(Also, everything enclosed in any matching brackets is currently ignored THIS MAY CHANGE IN FUTURE)</li>
+	</ul>
+</ul>
+<p>Additional things that I would like to add soon are:</p>
+<ul>
+<p>Further syntax highlighting</p>
+<p>ctrl-space keyword completion</p>
+<p>Possibly a “shield by e-mail” interface?</p>
+<p>Wondering whether to add a database of common arms for use in quarterings so that you can say things like quarterly 1st) and 4th) {Edward III of England} 2nd) and 3rd) {France} - I realise that curly braces are not really heraldic canon but I think I need them to avoid doing a database lookup for every combination of words</p>
+</ul>
+<h2 id="2.6o">Release 2.6o</h2>
+<p>Significant changes to quarterings - see <a href="/user-guide/blazon-reference/quarterings.html">the user guide page.</p>
+<ul>
+	<li>You can now say "N more" to repeat a charge elsewhere</li>
+	<li>Added the charges "seagull volant", "seagull", "crystal" </li>
+	<li>Shield shapes!</li>
+</ul>
+<h2 id="2.6n">Release 2.6n / Website Build 310 and above</h2>
+<ul>
+<li>The <a href="/gallery/index.html">gallery page</a> has been completely re-written and submissions are sought - just use the "Submit to gallery" button for consideration.</li>
+<li>Added the two tincture treatment "pied"</li>
+<li>Made the image credits more prominent, to better acknowledge the many who have artistic skills way beyond mine. Also did the same with links into the Heraldic Dictionary.</li>
+<li>Additional pictures of cake</li>
+</ul>
+<h2 id="2.6m">Release 2.6m / Website Build 303 and above</h2>
+<ul>
+	<li>Improved handling of charges with lots of modifiers. You are now warned if a modifier (such as "guardant", "dormant" etc.) cannot be drawn. The program will do its best to find a similar charge with as many of the requested modifiers as it can.</li>
+	<li>Many internal code changes to bring source file names in line with the functionality they now provide.</li>
+	<li>You can now modify the blazon when reporting errors.</li>
+	<li>I have added another button to allow you submit your creations in the "gallery", which I will be updating and making more prominent.</li>
+	<li>More charges have been added, and those that were only used as "component parts" have been removed from the parts finder to avoid confusion. New charges include alphyn, plough, ploughshare, wing, badger's head and various poses of the bear.</li>
+</ul>
+<h2 id="2.6l">Release 2.6l / Website Build 253 and above</h2>
+<ul>
+	<li>The parts finder contains a lot of data so is now loaded on demand. Added an "add" button which appends the current selection to the blazon. Not guaranteed to be valid.</li>
+	<li>The Drawing Options are also loaded on demand and the available colour schemes have been updated to cover a subset of those now available.</li>
+	<li>Drawing options can now be selected in the blazon itself (overriding whatever is set in the options dropdown). For more details see <a href="/user-guide/create-page/01-options.html">the options page in the user guide</a></li>
+	<li>Added ordinaries crancelin and trimount</li>
+	<li>Added charges alchemical symbols, kangaroo, flail and annulets interlaced interlaced</li>
+	<li>Added the tinctures iron, bronze, copper, lead, steel, white, buff, red-ochre yellow-ochre and crimson. Depending on the colour scheme that you chose these may or may not be identical to existing tinctures.</li>
+	<li>Various other bug fixes and new variant spellings</li>
+</ul>
+<h2 id="2.6k">Release 2.6k</h2>
+<p>Added the ability to "tweak" the size and position of charges through the keyword 'shown'. Explained further in the user guide section on Charge Adjustments</p>
+<h2 id="2.6j">Release 2.6j</h2>
+<p>Added quarterings of quarterings, see the marshalling page in the user guide for full details</p>
+<h2 id="2.6i">Release 2.6i</h2>
+<ul>
+<li>A number of additional spellings have been added and minor bugs in charges fixed, see the error reports / twitter feed for details</li>
+<li>The <em>Playing Card</em> theme pack has been added.</li>
+</ul>
+<h2 id="2.6h">Release 2.6h</h2>
+<ul>
+<li>Many charges have been added, see the Parts Finder on the create page.</li>
+</ul>

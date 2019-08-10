@@ -1,0 +1,58 @@
+Link to single image:
+
+<a data-toggle="lightbox" href="img/XXXXX.png" data-title="XXXXX" >REFERENCE</a>
+
+Link to multi-image:
+
+<a data-toggle="lightbox" href="img/XXXXX.png" data-gallery="GROUP" data-title="XXXXX">REFERENCES</a><div data-toggle="lightbox" data-gallery="GROUP" data-remote="img/YYYYY.png" data-title="YYYYY" ></div>
+
+Add anchors to entries:
+
+Find - id=""><span class="emphasise">(.*)</span>
+Replace - id="\L$1"><span class="emphasise">\1</span>
+
+Set translator notes
+
+Find - [
+Replace - <span class="translator-note">
+Find - ]
+Replace - </span>
+
+Emphasis - <span class="emphasise">XXXXX</span>
+
+Identify single images:
+
+Find -
+Replace - <a href="img/$1-$2.png" data-toggle="lightbox" data-title="$1-$2">$0</a>
+
+
+Translation Offering
+
+<%- partial("../../partial/_reply.ejs", {reference: "WORD", caption: "Translation", prompt: "English translation"}); %>
+
+set IDs (partially)
+
+find - id=""><span-class="emphasise">(.*?)<
+
+replace -  id="\L$1\E"><span-class="emphasise">$1<
+
+replace accents in ids
+
+Find - id="(.*?)é(.*?)"
+Replace - id="$1e$2"
+
+HTML5 Template
+
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>The HTML5 Herald</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+</head>
+<body>
+  
+</body>
+</html>

@@ -1,0 +1,447 @@
+---
+pageTitle: Create a Random Shield
+---
+<!-- ./random.html starts -->
+<div class="row">
+    <div class="col-12">
+        <p>Click the <strong>Random</strong> button to generate a random, but valid blazon. Scroll down to modify lots of options that control exactly what you might see in your blazon. If you are happy with your generated blazon and want to work with it further click on the <strong>Transfer</strong> button to open the create page with your new blazon. The options are explained in more detail in the <a href="/user-guide/website-use/08-random-blazon.html">User Guide</a>.
+</p>    
+    </div>
+</div>
+<form id="blazonForm" method="post" action="/include/randomblazon.php">   
+    <div class="row">
+        <div class="col-sm-12 col-lg-8">
+            <fieldset class="form-group">                
+                <textarea readonly class="form-control" placeholder="Blazon will appear here" id="blazon" name="blazon" spellcheck="false"></textarea>
+            </fieldset>
+        </div>
+        <div class="col-sm-12 col-lg-4">
+            <div class="d-flex flex-lg-column flex-row">
+                <div class="p-1"><input name="submit" type="submit" class="btn-block btn-danger" value="Random Blazon"></div>
+                <div class="p-1"><button type="button" class="btn-block btn-primary" onclick="transfer(event);">Transfer</button></div>
+            </div>
+        </div> 
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-sm-12" id="shieldimg"></div>
+        <div class="col-lg-8 offset-lg-2  col-md-10 offset-md-1 col-sm-12 text-center"><span id="shieldcaption">Random shield here</span></div>
+    </div>
+
+    <div class="form-group">
+
+        <!-- Tincture Card starts -->
+        <div class="col-lg-10 offset-lg-1 col-md-10 col-sm-12 card  p-1">
+            <div class="row">
+                <div class="col-12 mx-auto">
+                    <p class="lead text-danger">Tincture Choices</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2 mx-auto col-sm-6 offset-lg-1 pl-1 pr-1">
+                    <label for="tinc-common">
+                        <div class="mx-auto text-center">
+                            <span>Common</span>
+                        </div>
+                        <div class="mx-auto">
+                            <img alt="Common Tinctures" src="img/tinc-common.png" class="mx-auto d-block">
+                        </div>
+                    </label>
+                    <div class="mx-auto text-center">
+                        <input type="checkbox" class="mx-auto" name="tinc-common" id="tinc-common" value="on" checked>
+                    </div>
+                </div>
+                <div class="col-lg-2 mx-auto col-sm-6 pl-1 pr-1">
+                    <label for="tinc-second">
+                        <div class="mx-auto text-center">
+                            <span>Secondary</span>
+                        </div>
+                        <div class="mx-auto">
+                            <img alt="Secondary tinctures" src="img/tinc-second.png" class="mx-auto d-block">
+                        </div>
+                    </label>
+                    <div class="mx-auto text-center">
+                        <input type="hidden" name="tinc-second" value="off">
+                        <input type="checkbox" class="mx-auto" name="tinc-second" id="tinc-second"
+                                value="on" checked>
+                    </div>
+                </div>
+                <div class="col-lg-2 mx-auto col-sm-6 pl-1 pr-1">
+                    <label for="tinc-modern">
+                        <div class="mx-auto text-center">
+                            <span>Modern</span>
+                        </div>
+                        <div class="mx-auto">
+                            <img alt="More recent tinctures" src="img/tinc-modern.png" class="mx-auto d-block">
+                        </div>
+                    </label>
+                    <div class="mx-auto text-center">
+                            <input type="hidden" name="tinc-modern" value="off">
+                            <input type="checkbox" class="mx-auto" name="tinc-modern" id="tinc-modern"
+                                value="on" >
+                    </div>
+                </div>
+                <div class="col-lg-2 mx-auto col-sm-6 pl-1 pr-1">
+                    <label for="tinc-furs">
+                        <div class="mx-auto text-center">
+                            <span>Furs</span>
+                        </div>
+                        <div class="mx-auto">
+                            <img alt="furs" src="img/tinc-furs.png" class="mx-auto d-block">
+                        </div>
+                    </label>
+                    <div class="mx-auto text-center">
+                            <input type="hidden" name="tinc-furs" value="off">
+                            <input type="checkbox" class="mx-auto" name="tinc-furs" id="tinc-furs"
+                                value="on" checked>
+                    </div>
+                </div>
+                <div class="col-lg-2 mx-auto col-sm-6 offset-lg-1 pl-1 pr-1">
+                    <label for="tinc-treatments">
+                        <div class="mx-auto text-center">
+                            <span>Treatments</span>
+                        </div>
+                        <div class="mx-auto">
+                            <img alt="treatments" src="img/tinc-treat.png" class="mx-auto d-block">
+                        </div>
+                    </label>
+                    <div class="mx-auto text-center">
+                            <input type="hidden" name="tinc-treatments" value="off">
+                            <input type="checkbox" class="mx-auto" name="tinc-treatments" id="tinc-treatments"
+                                value="on" checked>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Tincture Card ends -->
+    <!-- Field Divisions Card starts -->
+        <div class="col-lg-10 offset-lg-1 col-md-10 col-sm-12 card p-1">
+            <div class="row">
+                <div class="col-12">
+                    <p class="lead text-danger">Field Divisions</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <span>0%</span>
+                </div>
+                <div class="col-8 mx-auto text-center">
+                    <span>Chance of a Divided Field</span>
+                </div>
+                <div class="col-2 text-right">
+                    <span>100%</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <input name="div-chance" id="div-chance" type="range" class="form-control-range" min="0" max="100" step="1" value="60" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2 mx-auto col-sm-6 offset-lg-1 pl-1 pr-1">
+                    <label for="div-2parts">
+                        <div class="mx-auto text-center">
+                            <span>Two Parts</span>
+                        </div>
+                        <div class="mx-auto">
+                            <img alt="Two part fields" src="img/div-2part.png" class="mx-auto d-block">
+                        </div>
+                    </label>
+                    <div class="mx-auto text-center">
+                        <input type="hidden" name="div-2parts" value="off">
+                        <input type="checkbox" class="mx-auto" name="div-2parts" id="div-2parts" value="on" checked>
+                    </div>
+                </div>
+                <div class="col-lg-2 mx-auto col-sm-6 pl-1 pr-1">
+                    <label for="div-3parts">
+                        <div class="mx-auto text-center">
+                            <span>Three Parts</span>
+                        </div>
+                        <div class="mx-auto">
+                            <img alt="Three Part Fields" src="img/div-3part.png" class="mx-auto d-block">
+                        </div>
+                    </label>
+                    <div class="mx-auto text-center">
+                            <input type="hidden" name="div-3parts" value="off">
+                            <input type="checkbox" class="mx-auto" name="div-3parts" id="div-3parts"
+                                value="on" checked>
+                    </div>
+                </div>
+                <div class="col-lg-2 mx-auto col-sm-6 pl-1 pr-1">
+                    <label for="div-bars">
+                        <div class="mx-auto text-center">
+                            <span>Bars</span>
+                        </div>
+                        <div class="mx-auto">
+                            <img alt="Divisions of bars" src="img/div-bars.png" class="mx-auto d-block">
+                        </div>
+                    </label>
+                    <div class="mx-auto text-center">
+                            <input type="hidden" name="div-bars" value="off">
+                            <input type="checkbox" class="mx-auto" name="div-bars" id="div-bars"
+                                value="on" checked>
+                    </div>
+                </div>
+                <div class="col-lg-2 mx-auto col-sm-6 pl-1 pr-1">
+                    <label for="div-patterns">
+                        <div class="mx-auto text-center">
+                            <span>Patterned</span>
+                        </div>
+                        <div class="mx-auto">
+                            <img alt="pattern-like divisions" src="img/div-pattern.png" class="mx-auto d-block">
+                        </div>
+                    </label>
+                    <div class="mx-auto text-center">
+                            <input type="hidden" name="div-patterns" value="off">
+                            <input type="checkbox" class="mx-auto" name="div-patterns" id="div-patterns"
+                                value="on" checked>
+                    </div>
+                </div>
+                <div class="col-lg-2 mx-auto col-sm-6 pl-1 pr-1">
+                    <label for="div-counter">
+                        <div class="mx-auto text-center">
+                            <span>Counter</span>
+                        </div>
+                        <div class="mx-auto">
+                            <img alt="Counterchanged Divisions" src="img/div-counter.png" class="mx-auto d-block">
+                        </div>
+                    </label>
+                    <div class="mx-auto text-center">
+                            <input type="hidden" name="div-counter" value="off">
+                            <input type="checkbox" class="mx-auto" name="div-counter" id="div-counter"
+                                value="on" checked>
+                    </div>
+                </div>
+            </div> 
+            <div class="row">
+                <div class="col-6">
+                    <label for="div-edges">Allow patterned edges?</label>
+                    <input type="hidden" name="div-edges" value="off">
+                    <input type="checkbox" name="div-edges" id="div-edges" value="on" checked>
+                </div>
+                <div class="col6">&nbsp;</div>
+            </div>
+        </div>
+    <!-- Field Divisions Card ends -->
+    <!-- Ordinaries Card starts -->
+        <div class="col-lg-10 offset-lg-1 col-md-10 col-sm-12 card p-1">
+            <div class="row">
+                <div class="col-12">
+                    <p class="lead text-danger">Ordinaries</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <span>0%</span>
+                </div>
+                <div class="col-8 mx-auto text-center">
+                    <span>Chance of Ordinary Appearing</span>
+                </div>
+                <div class="col-2 text-right">
+                    <span>100%</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <input name="chg-chance" id="chg-chance" type="range" class="form-control-range" min="0" max="100" step="1" value="60" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2 mx-auto col-sm-6 offset-lg-1 pl-1 pr-1">
+                    <label for="ord-common">
+                        <div class="mx-auto text-center">
+                            <span>Common</span>
+                        </div>
+                        <div class="mx-auto">
+                            <img alt="Common ordinaries" src="img/ord-common.png" class="mx-auto d-block">
+                        </div>
+                    </label>
+                    <div class="mx-auto text-center">
+                        <input type="hidden" name="ord-common" value="off">
+                        <input type="checkbox" class="mx-auto" name="ord-common" id="ord-common" value="on" checked>
+                    </div>
+                </div>
+                <div class="col-lg-2 mx-auto col-sm-6 pl-1 pr-1">
+                    <label for="ord-multi">
+                        <div class="mx-auto text-center">
+                            <span>Multi Bars</span>
+                        </div>
+                        <div class="mx-auto">
+                            <img alt="Multiple Bars" src="img/ord-multi.png" class="mx-auto d-block">
+                        </div>
+                    </label>
+                    <div class="mx-auto text-center">
+                            <input type="hidden" name="ord-multi" value="off">
+                            <input type="checkbox" class="mx-auto" name="ord-multi" id="ord-multi"
+                                value="on" checked>
+                    </div>
+                </div>
+                <div class="col-lg-2 mx-auto col-sm-6 pl-1 pr-1">
+                    <label for="ord-minor">
+                        <div class="mx-auto text-center">
+                            <span>Subordinarys</span>
+                        </div>
+                        <div class="mx-auto">
+                            <img alt="Smaller versions of common ordinaries" src="img/ord-minor.png" class="mx-auto d-block">
+                        </div>
+                    </label>
+                    <div class="mx-auto text-center">
+                            <input type="hidden" name="ord-minor" value="off">
+                            <input type="checkbox" class="mx-auto" name="ord-minor" id="ord-minor"
+                                value="on" checked>
+                    </div>
+                </div>
+                <div class="col-lg-2 mx-auto col-sm-6 pl-1 pr-1">
+                    <label for="ord-rare">
+                        <div class="mx-auto text-center">
+                            <span>Rare</span>
+                        </div>
+                        <div class="mx-auto">
+                            <img alt="Less common ordinaries" src="img/ord-rare.png" class="mx-auto d-block">
+                        </div>
+                    </label>
+                    <div class="mx-auto text-center">
+                            <input type="hidden" name="ord-rare" value="off">
+                            <input type="checkbox" class="mx-auto" name="ord-rare" id="ord-rare"
+                                value="on" checked>
+                    </div>
+                </div>
+                <div class="col-lg-2 mx-auto col-sm-6 pl-1 pr-1">
+                    <label for="ord-mods">
+                        <div class="mx-auto text-center">
+                            <span>Cottices</span>
+                        </div>
+                        <div class="mx-auto">
+                            <img alt="Vary edges, cottices" src="img/ord-mods.png" class="mx-auto d-block">
+                        </div>
+                    </label>
+                    <div class="mx-auto text-center">
+                            <input type="hidden" name="ord-mods" value="off">
+                            <input type="checkbox" class="mx-auto" name="ord-mods" id="ord-mods"
+                                value="on" checked>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <!-- Ordinaries Card ends -->
+        <!-- Charges Card starts -->
+        <div class="col-lg-10 offset-lg-1 col-md-10 col-sm-12 card p-1">
+            <div class="row">
+                <div class="col-12">
+                    <p class="lead text-danger">Charge Selection</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <span>0%</span>
+                </div>
+                <div class="col-8 mx-auto text-center">
+                    <span>Chance of Charges Appearing</span>
+                </div>
+                <div class="col-2 text-right">
+                    <span>100%</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <input name="chg-chance" id="chg-chance" type="range" class="form-control-range" min="0" max="100" step="1" value="60" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 offset-lg-1 col-sm-12 pl-1 pr-1">
+                    <label for="chg-lion">
+                        <span>Lions in various poses</span>
+                    </label>
+                    <input type="hidden" name="chg-lion" value="off">
+                    <input type="checkbox" name="chg-lion" id="chg-lion" value="on" checked>
+                </div>
+                <div class="col-lg-5 col-sm-12 pl-1 pr-1">
+                    <label for="chg-geom">
+                        <span>Geometric and simple shapes</span>
+                    </label>
+                    <input type="hidden" name="chg-geom" value="off">
+                    <input type="checkbox" name="chg-geom" id="chg-geom"
+                        value="on" checked>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 offset-lg-1 col-sm-12 pl-1 pr-1">
+                    <label for="chg-cross">
+                        <div class="mx-auto text-center">
+                            <span>Assorted variations of the Cross</span>
+                        </div>
+                    </label>
+                    <input type="hidden" name="chg-cross" value="off">
+                    <input type="checkbox" name="chg-cross" id="chg-cross" value="on" checked>
+                </div>
+                <div class="col-lg-5 col-sm-12 pl-1 pr-1">
+                    <label for="chg-bird">
+                        <span>Eagles and other birds</span>
+                    </label>
+                    <input type="hidden" name="chg-bird" value="off">
+                    <input type="checkbox" name="chg-bird" id="chg-bird"
+                        value="on" checked>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 offset-lg-1 col-sm-12 pl-1 pr-1">
+                    <label for="chg-crown">
+                        <span>Crowns and Jewels</span>
+                    </label>
+                    <input type="hidden" name="chg-crown" value="off">
+                    <input type="checkbox" name="chg-crown" id="chg-crown" value="on"  checked>
+                </div>
+                <div class="col-lg-5 col-sm-12 pl-1 pr-1">
+                    <label for="chg-animal">
+                        <span>Animals, Fish and Insects</span>
+                    </label>
+                    <input type="hidden" name="chg-animal" value="off">
+                    <input type="checkbox" name="chg-animal" id="chg-animal"
+                        value="on" checked>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <span>(More charge groups on the way soon...)</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <span>0%</span>
+                </div>
+                <div class="col-8 mx-auto text-center">
+                    <span>Chance of Changed Location</span>
+                </div>
+                <div class="col-2 text-right">
+                    <span>100%</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <input name="loc-chance" id="loc-chance" type="range" class="form-control-range" min="0" max="100" step="1" value="10" />
+                </div>
+            </div>
+        </div>
+        <!-- Charges Card ends -->
+        <!-- Overall buttons start -->
+        <div class="col-lg-10 offset-lg-1 col-md-10 col-sm-12 card p-1">
+            <div class="row">
+                <div class="col-3"><button type="button" class="btn-block btn-primary" 
+                    onclick="selectAll();">Select All</button></div>
+                <div class="col-3"><button type="button" class="btn-block btn-primary" 
+                    onclick="clearAll();">Select None</button></div>
+                <div class="col-3"><span>&nbsp;</span></div>
+                <div class="col-3"><button type="button" class="btn-block btn-primary" 
+                    onclick="defaults();">Reset to Default</button></div>
+            </div>
+        </div>
+        <!-- Overall buttons end -->
+    </form>
+</div>
+    
+
+<!-- JavaScript bits for shield drawing -->
+<script src="/js/shieldcommon.js"></script>
+<script src="random.js"></script>
+
+<!-- ./random.html ends -->

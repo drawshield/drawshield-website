@@ -1,0 +1,77 @@
+---
+layout: sidemenu
+sidemenu: user-guide-menu
+pageTitle: Complex Quarterings
+prevLink: punctuation.html
+nextLink: tinctures.html
+upLink: index.html
+group00: true
+g00menu11: active
+---
+<p>Drawshield supports very complex quartertings, although there are shortcomings in some areas of charge placement, and in particular proper support for bordures and tressures within quartertings. Nevertheless, some of the resulting shields can be quite impressive.</p>
+
+<h2>Supported Quarterings</h2>
+
+<p>In addition to the quartering of four parts, DrawShield  supports the following additional arrangements:</p>
+
+<ul>
+	<li>5 - (rows of 3 and 2)</li>
+	<li>6 - (rows of 3 and 3)</li>
+	<li>8 - (rows of 3, 3 and 2)</li>
+	<li>9 - (3 rows of 3)</li>
+	<li>16 - (4 rows of 4)</li>
+	<li>25 - (5 rows of 5)</li>
+	<li>36 - (6 rows of 6)</li>
+	<li>49 - (7 rows of 7)</li>
+	<li>64 - (8 rows of 8) </li>
+</ul>
+
+<p>(If you really want even more quarters you can nest quarterings, 9 quarterings of 9 for example).</p>
+
+<p>Quarterings are always introduced by the key word <span class="keyword">quartered</span>. This can be followed by <span class="keyword">of N</span>, where N is any number, but this optional; DrawShield will count the number of quarters given.</p>
+
+<h2>Quarter Identification</h2>
+
+<p>Quarters may be identified by any of the following methods:</p>
+
+<ul>
+	<li>Ordinal numerals: 1st, 2nd, 2rd, 4th...</li>
+	<li>Ordinal words: first, second, third, fourth...</li>
+	<li>Roman numerals: I, II, III, IV.... (can be in upper or lower case)</li>
+	<li>Cardinal numbers (*): 1), 2), 3), 4)...</li>
+	<li>Alphabetic characters (*): a), b), c)...z), aa)...zz), aaa)...lll)</li>
+	<li>Numbers in words (*): one), two), three), four)...</li>
+</ul>
+
+<p>Note that in those cases with the asterisk the identifier <strong>MUST</strong> be followed by a closing bracket. (It can be used with the other identification schemes but in those cases is optional.) You can mix and match these schemes but I would not advise it.</p>
+
+<p>Multiple quarters with the same contents are supported, e.g. <span class="example">1st and 4th gules</span>.</p>
+
+<h2>How Quarterings are Managed</h2>
+
+<p>You may supply any number of quarterings, in any order, and it is <strong>NOT</strong> an error to leave gaps in the numbering, or to provide insufficient quarters. DrawShield operates as follows:</p>
+
+<ul>
+	<li>Find the highest numbered quarter supplied, (or the "of N" number if this is given, and is higher)</li>
+	<li>Round this number UP to the nearest of the supported quarterings listed above</li>
+	<li>If there are any gaps in the supplied quarterings, or if additional quarterings are needed to fill the arrangement:</li>
+	<li>&nbsp;&nbsp; - The existing quarterings are repeated until the arrangement is full.</li>
+</ul>
+
+<p>This may seem complicated, but in reality you don't really need to worry about it. You can simply supply as many quarterings as you have available, DrawShield will chose the "best fit" arrangement and repeat from the beginning if it needs to. For example, if you list 13 quarters, DrawShield will create an arrangement of 16 sub-shields and repeat the sub-shields 1, 2 and 3 in positions 14, 15 and 16.</p>
+
+<h2>Nested Quarterings</h2>
+
+<p>Quarterings may be nested to any depth, however the nested quartering <em>MUST</em> be ended by a the characters <span class="keyword">;;</span> (double semi-colon). This indicates the end of the nested shield and the remaining quarters will be applied to the "outer" quartering. The double colons may be immediately followed by the phrase <span class="keyword">over all the quarters</span> and followed by an ordinary or charge that will be place overall to that quartering.</p>
+
+<p>If you want to place an ordinary (such as a fillet cross) overall your quarterings I recommend using quarterings of 4, and then sub-dividing each of those quarterings. This is because only the quartering of 4 lines up with these ordinaries.</p>
+
+<h2>Error Messages</h2>
+
+<p>There are only two error messages that are specific to quarterings:</p>
+
+<ul>
+	<li>It is an error to repeat a quarter identifier (duplicates will be ignored).</li>
+	<li>It is an erorr to provide more quarters than you specify, e.g. provide a quarter identified as 5) when you stated <span class="example">quartered of 4</span></li>
+</ul>
+

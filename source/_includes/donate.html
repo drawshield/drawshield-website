@@ -1,0 +1,28 @@
+<!-- _includes/donate.ejs starts -->
+{% include aside_header.html title="Large Latte" divId="donateTitle"  %}
+<div id="donate">
+    <p class="card-text mb-0">DrawShield.net development is entirely powered by coffee and cake.</p>  
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="5000">
+		<div class="carousel-inner" role="listbox">
+			{% assign first = true %}
+			{% for i in (1..5) %}
+			  {% if first == true %}
+		    <div class="carousel-item active">
+		    	{% assign first = false %}
+		      {% else %}
+	    	<div class="carousel-item">
+              {% endif %}
+				<a href="http://paypal.me/drawshield/10USD">
+		      		<img class="d-block img-fluid" src="/img/coffee_cake/cc{{ i }}.jpg" alt="Coffee and cake">
+				</a>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+
+    <p>Please help make sure supplies never run low.</p> 
+    <p><a href="http://paypal.me/drawshield/10USD">paypal.me/drawshield</a> </p>
+</div>   
+{% include aside_footer.html %}
+
+<!-- _includes/donate.ejs ends -->

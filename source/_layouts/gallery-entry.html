@@ -1,0 +1,20 @@
+{% include upper.html %}
+{% capture prevEntry %}/gallery/gallery-{{ page.entryNum | minus: 1 }}.html{% endcapture %}
+{% capture nextEntry %}/gallery/gallery-{{ page.entryNum | plus: 1 }}.html{% endcapture %}
+{% if page.entryNum == '9999' %}
+	{% assign nextEntry = "" %}
+{% endif %}
+{% capture upEntry %}/gallery/index{{ page.entryNum | divided_by: 20 }}.html{% endcapture %}
+<script src="/js/voting.js"></script>
+{% include navigation.html prev = prevEntry next = nextEntry up = upEntry galleryRandom = true %}
+<button id="button-{{ page.entryNum }}" type="button" class="btn btn-danger btn-lg" onclick="voteFor('{{ page.entryNum }}');">
+    Like <span data-num="{{ page.entryNum }}" class="badge badge-light votecounter">0</span>
+  </button><script>fillBadges();</script>
+                        {{ content }}
+                        <div id="comment-target"></div>
+                        <script>jQuery('#comment-target').load('/gallery/comments.php?refnum={{ page.entryNum }}');</script>
+                        <p>If you have some helpful feedback or would like to comment on this shield design please click on the button below. Your comment will be moderated and added to this page.</p>
+{% capture thisRef %}gallery-{{ page.entryNum }}{% endcapture %}
+{% include reply.html reference = thisRef caption = "Comment" prompt = "Some helpful feedback..." noemail = true %}    
+{% include navigation.html prev = prevEntry next = nextEntry up = upEntry  galleryRandom = true %}
+{% include lower.html %}

@@ -1,0 +1,10 @@
+{%- assign category = page.url | replace: 'index.html', '' | remove_first: '/catalog/' -%}
+
+
+
+<div class="container">
+    <div class="row" id="imgs"></div>
+</div>
+
+<script>jQuery('#imgs').load('/catalog/getimgs.php?category={{ category }}');</script> 
+

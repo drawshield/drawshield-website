@@ -1,0 +1,66 @@
+---
+pageTitle: Error Report Responses
+prevLink: post-9994.html
+date: February 6, 2019
+summary: Too Long to Tweet!
+upLink: index.html
+---
+
+<h2>Responses to Error Reports</h2>
+
+<p>As I have had a flood of error reports recently (much appreciated, honestly!) I have decided that it is easier to deal with them in bulk in a blog post than in the form of many separate tweets. Some of the issues raised are a more complex so this longer form is more suitable anyway.</p>
+
+<h3>Quick Hits</h3>
+
+<p>But first, some easy ones...</p>
+
+<p><strong>Bleu celeste, [cranes] in chevron or</strong> you <em>must</em> supply a quantity (even if it can be implied that there are probably two)</p>
+
+<p><strong>No proper colour for peacock</strong> This is true, what is the proper colour for a peacock? Answers on a tweet please...</p>
+
+<p><strong> a [man] gules...</strong> There's no generic "man", choose a particular human figure from <a href="https://drawshield.net/catalog/charges/human/index.html"> available human charges</a></p>
+
+<p><strong>a [haystack] or</strong> there is a <em>garb</em> or <em>corn sheaf</em>, but get in touch if you were thinking of a more modern haystack</p>
+
+<p><strong>a [leviathan] sable</strong> there are various types of <em>whale</em> but you probably want something more like a <em>biscione</em>, which is already in the TODO list</p>
+
+<p><strong>vert a bordure embattled gules
+... Bordure edge doesn't render</strong> True! This needs an "override" where instead of trying to generate fancy edge in code the whole ordinary is replaced by a "hand drawn" version. Such "hand drawing" is tedious and time consuming, but it is on the TODO list (and needs to be drawn separetely for every shield shape - sob!)</p>
+
+<p><strong>An eagle displayed gules armed and wings charged with trefoils or</strong> firstly you need to supply a field tincture, secondly charges on the wings of eagles are not supported (although you could probably fudge it with two trefoils positioned using the <a href="https://drawshield.net/user-guide/extensions/charge-adjustments.html">Charge Adjustments</a> non-standard extension)</p>
+
+<p><strong>Gules, a Griffin [with] [dragon] [wings] [tail] [and] [tongue] rampant Or armed beaked langued and membered Azure</strong> Not supported, the drawshield Griffin has eagles wings, unlikely to add this to be honest, too obscure; but if someone wants to draw one in SVG then let me know.</p>
+
+<p><strong>...head affronte or [upon] [a] [chevron] [azure]...</strong> use <span class="keyword">on a chevron azure a head affronte or</span></p>
+
+<h3>Requests to Add Charges</h3>
+
+<p>Many error reports boil down to using charges that DrawShield does not yet support. You can check the <a href="https://drawshield.net/catalog/charges/index.html"> current set of charges</a>, and I will add the following as soon as I find a good, appropriately licenced SVG image for each of them.</p>
+
+<ul>
+    <li>Nightingale</li>
+    <li>Polar Bear</li>
+    <li>Scottish Maple Leaf</li>
+    <li>Porcupine</li>
+    <li>Vulture</li>
+    <li>Mockingbird</li>
+    <li>Toad (although there is a frog currently available)</li>
+</ul>
+
+<h3>A Complex Blazon</h3>
+
+<p><em>Quarterly 1st and 4th Sable a lion rampant on a canton Argent a cross Gules;
+2nd and 3rd quarterly Argent and Gules in the 2nd and 3rd quarters a fret Or overall
+on a bend Sable three escallops of the first and as an augmentation in chief an
+inescutcheon, Argent a cross Gules and thereon an inescutcheon Azure, three
+fleurs-de-lis Or</em></p> 
+
+<p>It will probably be possible to draw this but you will need to help drawshield by giving it hints - for example does "in the 2nd and 3rd quarters" refer to the whole shield or to the most recently mentioned quarters? "As an augmentation" is not currently supported (but does it actually change anything?) For more information see the section here on <a href="https://drawshield.net/user-guide/blazon-reference/quarterings.html">Nested Quarterings</a></p>
+
+<h3>Charges on Divided Fields</h3>
+
+<p>Comment received: <em>...chevron [*] sable , [division] vert , two maple [leafs]...  Your generator does not allow for placement descriptions, or specified designs.  For instance the maple leafs i wanted was the scottish maple leaf, which does exist in heraldry, and they were meant to be placed at the top in the Sable field, while the harp was meant to be smaller in size and placed in the Vert field.  Also your descriptors are incorrect.  The accurate description for all of this would be Sable two Scottish Maple leafs or, per chevron vert a harp or. </em></p>
+
+<p>I've added the Scottish Maple Leaf to the list of charges to add, and also added the (grammatically incorrect) "leafs" as an alternate spelling of "leaves". DrawShield <strong>does</strong> support some placement descriptions but you need to be explicit, only in very rare cases does the underlying division affect placement. To get the shield you want I suggest:</p>
+
+<p><span class="keyword">Per chevron sable and vert, in chief two maple leaves or, in base a harp or</span></p>

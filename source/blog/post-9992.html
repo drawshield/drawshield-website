@@ -1,0 +1,53 @@
+---
+pageTitle: Error Report Responses - 2
+prevLink: post-9993.html
+nextLink: post-9991.html
+date: February 26, 2019
+summary: Still Too Long to Tweet!
+upLink: index.html
+---
+
+<h2>Responses to Error Reports</h2>
+
+<p>As I have had a flood of error reports recently (much appreciated, honestly!) I have decided that it is easier to deal with them in bulk in some blog posts than in the form of many separate tweets. Some of the issues raised are a more complex so this longer form is more suitable anyway. This is the second of these posts, click the "Previous" button for the first.</p>
+
+<h3>Quick Hits</h3>
+
+<p>But first, the easy(ish) ones...</p>
+
+<p><strong>..., a base of [sand] or ,</strong> "of sand" not supported (and not needed either)</p>
+
+<p><strong>....gules , a lion rampant [cheque] [forchee] argent armed ,...</strong> In most cases DrawShield only supports British heraldry terms, unless there is no British equivalent. In this case use <em>tail forked</em>.</p>
+
+<p><strong>[Party] Bleu Celeste and Sable [doubled] Argent</strong> This one looks like it is in French almost, "party" is per-pale but I don't understand what "doubled" means here...?</p>
+
+<p><strong>...Or , [surrounded] [by] eight mullets Argent...</strong> I'll add this as a  synonym for "between", although at the moment I've only done the layouts for x between 4 y's so I need to add more of those as well.</p>
+
+<p><strong>Barry wavy vert, argent, and or</strong> Although this sounds sensible, DrawShield only supports treatments of two alternating colours. I might add this as a future extension if someone can point to an original heraldic source.</p>
+
+<p><strong>Brunatre, on a pale wavy argent head caboshed proper</strong> There are lots of heads, you need to say "man's head". Also, "proper" for humans is "carnation" as I've gone for historical accuracy, no offence is intended.</p>
+
+<p><strong>...leopard rampant Or spotted sable [bearing] an axe...</strong> In general, DrawShield is not very good at charges combined with other charges, there are just too many possible combinations of things to arrange. You can fudge this using the charge adjustment extension if you are determined enough!</p>
+
+<p><strong>Or three lions passant sable pale, langued gules</strong> You need to say "<strong>in</strong> pale"</p>
+
+<p><strong>Tenne, [beneath] a chevron inverted a sun-in-splendour argent</strong> I have found that "beneath" is used too inconsistently and vaguely to be much use (same for "above") so they are not supported in DrawShield, use explicit placements instead, e.g. <span class="keyword">Tenne, a chevron inverted abased and a sun in splendour in base all argent</span> (Yes, I know the "abased" should be "enhanced", it looks like the inverted modifier is being applied last, which is wrong - I've added this to the bug list)</p>
+
+<h3>Requests to Add Charges</h3>
+
+<p>Many error reports boil down to using charges that DrawShield does not yet support. You can check the <a href="https://drawshield.net/catalog/charges/index.html"> current set of charges</a>, and I will add the following as soon as I find a good, appropriately licenced SVG image for each of them.</p>
+
+<ul>
+    <li>Swordfish</li>
+    <li>Fleece</li>
+</ul>
+
+<h3>More Complex Blazons</h3>
+
+<p><strong>Quarterly, azure and gules on a pale argent three Lymphads sable, between in the first quarter four mullets in cross gules, fimbriated argent, in the second a fleece; in the third a garb, and in the last two mining hammers in saltire, all or</strong></p>
+
+<p>This one is much better as a quartered shield (and I've substituted sheep for fleece):</p>
+
+<p><em>Quartered first azure 4 mullets in cross gules; second gules a sheep or; third gules a garb or; fourth azure two hammers in saltire or; over all the quarters on a pale argent three Lymphads sable</em></p>
+
+<p><strong>Per pale, bendy sinister of five Azure and Argent;  a palmtree and two mountains in the distance, all proper; and on a chief under a rising sun a strait closed by a golden key, all proper</strong> Way too descriptive and complicated. Drawshield is unlikely to ever support blazons of this type, sorry.</p>

@@ -1,0 +1,1 @@
+<span style="color: red;">clasped</span>, <span style="color: blue;">garnished</span>, <span style="color: green;">leaved</span>

@@ -1,0 +1,94 @@
+<!-- _includes/header.ejs starts -->
+<header>
+    <nav class="navbar fixed-top navbar-expand-lg">
+        <a href="/index.html"><img class="navbar-brand p-0" src="/img/shop-logo.png" height="58" width="48" alt="Shop Logo Image"></a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">=</span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <!-- <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li> -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle lead" href="/create/index.html" id="dropDownLinks1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Create
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropDownLinks1">
+                        <a class="dropdown-item" href="/create/index.html">Create from a Blazon</a>
+                        <a class="dropdown-item" href="/build/index.html">Create from Parts</a>
+                        <a class="dropdown-item" href="/random/index.html">Create Random Blazon</a>
+                        <a class="dropdown-item" href="/gallery/index.html">View the Gallery</a>
+                        <a class="dropdown-item" href="/catalog/index.html">Visual Catalog</a>
+                        <a class="dropdown-item" href="/translate/index.html">French to English Translation</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown lead">
+                    <a class="nav-link dropdown-toggle" href="/tutorial/index.html" id="dropDownLinks2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Learn
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropDownLinks2">
+                        <a class="dropdown-item" href="/user-guide/index.html">User Guide</a>
+                        <a class="dropdown-item" href="/tutorial/index.html">Blazonry Tutorial</a>
+                        <a class="dropdown-item" href="/resources/identify.html">Identifying Shields</a>
+                        <a class="dropdown-item" href="/quiz/index.html">Pick the Blazon Quiz</a>
+                        <a class="dropdown-item" href="/resources/poster.html">Buy a Poster</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown lead">
+                    <a class="nav-link dropdown-toggle" href="/tutorial/index.html" id="dropDownLinks3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Refer
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropDownLinks3">
+                        <a class="dropdown-item" href="/reference/index.html">Heraldry Reference Books</a>
+                        <a class="dropdown-item" href="/reference/random.php">Random Reference Entry</a>
+                        <a class="dropdown-item" href="/reference/parker/index.html">Parker's Heraldic Dictionary</a>
+                        <a class="dropdown-item" href="/reference/elvin/index.html">Elvin's Heraldic Dictionary</a>
+                        <a class="dropdown-item" href="/reference/public-arms/index.html">Book of Public Arms</a>
+                        <a class="dropdown-item" href="/reference/rietstap/index.html">Rietstap French/English</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown lead">
+                    <a class="nav-link dropdown-toggle" href="/reference/index.html" id="dropDownLinks4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Resources
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropDownLinks4">
+                        <a class="dropdown-item" href="/resources/index.html">Useful Resources</a>
+                        <a class="dropdown-item" href="/resources/reference-api.html">API Documentation</a>
+                        <a class="dropdown-item" href="/resources/colouring.html">Colouring Books</a>
+                        <a class="dropdown-item" href="/resources/font.html">DrawShield Font</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown lead">
+                    <a class="nav-link dropdown-toggle" href="/contact/index.html" id="dropDownLinks5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Contact
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropDownLinks5">
+                        <a class="dropdown-item" href="/contact/tweets.html">View Responses</a>
+                        <a class="dropdown-item" href="/news/todo-list.html">View To Do List</a>
+                        <a class="dropdown-item" href="/news/change-log.html">View Change Log</a>
+                        <a class="dropdown-item" href="/blog/index.html">View Blog Posts</a>
+                        <a class="dropdown-item" href="/contact/index.html">Contact the Author</a>
+                    </div>
+                </li>     
+            </ul>
+        </div>
+        <span class="navbar-text">
+            <div aria-label="breadcrumb">
+                <ol class="breadcrumb" style="float: right;">
+                    <li class="breadcrumb-item"><a href="/index.html">Home</a></li>
+                        {% assign crumbs = page.url | split: '/' %}
+                        {% assign crumbs_total = crumbs | size | minus: 1 %}
+                        {% for crumb in crumbs offset: 1 %}
+                        {% if forloop.index == crumbs_total %}
+                    <li class="breadcrumb-item active">{{ crumb | replace:'-',' ' }}</li>
+                        {% else %}
+                    <li class="breadcrumb-item"><a href="{% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}">{{ crumb | replace:'-',' ' }}</a>
+                        {% endif %}
+                        {% endfor %}
+                </ol>                
+            </div>
+        </span>
+    </nav>
+</header>
+<!-- _includes/header.ejs ends -->

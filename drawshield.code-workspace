@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true
+	},
+	"files.watcherExclude": {
+		"**/.git/**": true,
+		"resources/**": true,
+		"tools/**": true
+	}
+}

@@ -1,0 +1,36 @@
+---
+pageTitle: Mine's a Half
+prevLink: post-9998.html
+nextLink: post-9996.html
+date: June 8, 2018
+summary: A method to simulate split coats of arms
+upLink: index.html
+---
+
+<p>One of the major shortcomings of Drawshield is its ability to draw two shields side by side. The heraldic description of these differs between British Heraldry and the continental European tradition, where the style is much more common.</p>
+
+<p>In the British tradition we can say "[Arms #1] impaled with [Arms #2]". Drawshield does recognise this construction but it most cases doesn't draw it very well. Almost every ordinary, division and arrangement of charges needs to be redesigned to fit into a tall, narrow region and I just haven't had the time to do this for the relatively small number of cases present in British Heraldry.</p>
+
+<p>The European tradition, for example in Reitstap, has many arms which translate into English as "per pale, a) [Arms #1] b) [Arms #2]", and, less frequently we also see splits "per fess" and "per bend (sinister)". We also sometimes find one portion further divided, usually in the opposite sense, so "per pale a) per fess 1) [Arms #1] 2) [Arms #2] b) [Arms #3]". At present, Drawshield does not recognise, or attempt to draw any of these constructions.</p>
+
+<p>While the parsing (recognition) of these constructions is not difficult (and is in the "To do" list), it still requires all the division, ordinary and arrangement redesign work to be done as well.</p>
+
+<p>As a temporary fix until I have a better solution I have added some new "locations" to Drawshield. In Drawshield, locations are places that one or more charges can be moved to, instead of the normal position in the centre of the shield, for example <em>3 bezants in base</em> will arrange the bezants in the usual 2, 1 arrangement but then move and scale them to fit down at the base of the shield. You can also specify the arrangement, so we could alternatively have said <em>3 bezants 1, 2 in base</em> to have them arranged the other way up. We can also use modifiers such as <em>reversed</em> to describe the charges as well.</p>
+
+<p>So the new positions are <em>in sinister side</em>, <em>in dexter side</em>, <em>in the upper half</em>, <em>in the lower half</em> (in fact, "half" and "side" can actually be used interchangeably but the examples here make the most sense). I must stress that these constructions are not at all "heraldic", they don't really appear in "proper" heraldry but they will be useful to DrawShield artists trying to reproduce some continental coats of arms. We can't use the blazons directly as DrawShield does not understand and so will have to make some adaptations.</p>
+
+<p>First, specify the two background fields using <em>per pale</em> or <em>per fess</em> as required (you can also specify a variant line type if you wish, so for example <em>per pale wavy checky argent and sable; gules...</em>. (The semicolon is necessary to indicate that we have finished specifying the checky colours and moved on to the other side of the pale).</p>
+
+<p>Now we can place the charges, for example <em>... in dexter side a dragon reversed or, in sinister side a lion argent.</em></p>
+
+<h2>Shortcomings</h2>
+
+<p>Unfortunately, we cannot use this trick for ordinaries (for example, placing a fess in the upper half of a shield), and I don't propose to extend this non-standard terminology any further to support ordinaries as really I should work on a proper solution to support these arms using their "native" (and correct) heraldic descriptions.</p>
+
+<p>Similarly, you can't further "subdivide" one of these half shields with further divisions (except by means of cheating by using a quartered shield in which two adjacent quarters are the same tincture!).</p>
+
+<p>Finally, some charges will fill the available space better than others, especially in the tall, narrow regions created from dexter and sinister sides. This is due to an internal property of DrawShield charges that I refer to in the code as "flex". The program calculates a rectangular region into which a charge should be placed (technically, a "bounding box") and the appropriate charge is placed into this box, scaled up until one dimension extends across the bounding box. Now, <i>some</i> charges are allowed to "flex", which means that they can stretch horizontally or vertically in order to try and fill more of the bounding box. Flex values can be different for the two directions, for example the cartouche is allowed to stretch upwards, but not sideways (otherwise it might just end up as a rounded square!). Lions and mythical creatures are allowed to flex up to twice their normal ratios (since they aren't very anatomically correct anyway), other animals are allowed to flex a bit, and some charges, such as roundels aren't allowed to flex at all.</p>
+
+<p>If you want to see the size of the calculated bounding box for yourself you can use the special charge <em>box</em> or <em>bounding box</em> which is a square with an upward pointing arrow in it that is allowed to flex infinitely in any direction and thus will fill all the space available to it.</p>
+
+<p>I hope this will only be a short term measure, but also that it is useful to you in the meantime. Comments, as always are very welcome!</p>

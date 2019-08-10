@@ -1,0 +1,91 @@
+<div class="card">
+<p class="card-text">Ordinary finder:&nbsp;
+<select id="o-combo-dropdown">
+<option disabled="disabled" selected="selected" value="">Enter text</option>
+<option class="ordinary" value="bar.png">bar *</option>
+<option class="ordinary" value="bar-gemel.png">bar gemel</option>
+<option class="ordinary" value="base.png">base *</option>
+<option class="ordinary" value="bend.png">bend *</option>
+<option class="ordinary" value="bend-couped.png">bend couped *</option>
+<option class="ordinary" value="bend-voided.png">bend voided *</option>
+<option class="ordinary" value="bendlet.png">bendlet *</option>
+<option class="ordinary" value="bordure.png">bordure</option>
+<option class="ordinary" value="canadian-pale.png">canadian pale *</option>
+<option class="ordinary" value="canton.png">canton *</option>
+<option class="ordinary" value="chevron.png">chevron *</option>
+<option class="ordinary" value="chevron-burst.png">chevron burst</option>
+<option class="ordinary" value="chevron-couched.png">chevron couched *</option>
+<option class="ordinary" value="chevron-disjointed.png">chevron disjointed</option>
+<option class="ordinary" value="chevron-fracted.png">chevron fracted</option>
+<option class="ordinary" value="chevron-removed.png">chevron removed</option>
+<option class="ordinary" value="chevron-rompu.png">chevron rompu *</option>
+<option class="ordinary" value="chevronel.png">chevronel</option>
+<option class="ordinary" value="chief.png">chief *</option>
+<option class="ordinary" value="chief-couped.png">chief couped *</option>
+<option class="ordinary" value="closet.png">closet *</option>
+<option class="ordinary" value="crancelin.png">crancelin</option>
+<option class="ordinary" value="cross-formy.png">cross formy</option>
+<option class="ordinary" value="cross-parted-fretty.png">cross parted fretty</option>
+<option class="ordinary" value="cross-pierced.png">cross pierced</option>
+<option class="ordinary" value="cross-tripartite-fretty.png">cross tripartite fretty</option>
+<option class="ordinary" value="dance.png">dance</option>
+<option class="ordinary" value="endorse.png">endorse *</option>
+<option class="ordinary" value="enty-in-point.png">enty in point</option>
+<option class="ordinary" value="fess.png">fess *</option>
+<option class="ordinary" value="fess-between-2-chevrons.png">fess between 2 chevrons</option>
+<option class="ordinary" value="fess-couped.png">fess couped *</option>
+<option class="ordinary" value="fess-voided.png">fess voided *</option>
+<option class="ordinary" value="fillet-cross.png">fillet cross *</option>
+<option class="ordinary" value="flaunch.png">flaunch</option>
+<option class="ordinary" value="ford.png">ford</option>
+<option class="ordinary" value="fret.png">fret</option>
+<option class="ordinary" value="fret-couped.png">fret couped</option>
+<option class="ordinary" value="gore.png">gore</option>
+<option class="ordinary" value="gorge.png">gorge</option>
+<option class="ordinary" value="graft.png">graft *</option>
+<option class="ordinary" value="gusset.png">gusset *</option>
+<option class="ordinary" value="gyron.png">gyron *</option>
+<option class="ordinary" value="humet.png">humet *</option>
+<option class="ordinary" value="inescutcheon.png">inescutcheon</option>
+<option class="ordinary" value="label-entire.png">label entire</option>
+<option class="ordinary" value="orle.png">orle</option>
+<option class="ordinary" value="pale.png">pale *</option>
+<option class="ordinary" value="pale-voided.png">pale voided *</option>
+<option class="ordinary" value="palet.png">palet *</option>
+<option class="ordinary" value="pall.png">pall *</option>
+<option class="ordinary" value="pile.png">pile</option>
+<option class="ordinary" value="pile-embowed.png">pile embowed</option>
+<option class="ordinary" value="pile-throughout.png">pile throughout</option>
+<option class="ordinary" value="plain-cross.png">plain cross *</option>
+<option class="ordinary" value="point-dexter.png">point dexter *</option>
+<option class="ordinary" value="point-in-point.png">point in point *</option>
+<option class="ordinary" value="point-sinister.png">point sinister *</option>
+<option class="ordinary" value="quarter.png">quarter *</option>
+<option class="ordinary" value="ribbon.png">ribbon *</option>
+<option class="ordinary" value="saltire.png">saltire *</option>
+<option class="ordinary" value="shakefork.png">shakefork *</option>
+<option class="ordinary" value="square-flaunch.png">square flaunch</option>
+<option class="ordinary" value="tierce.png">tierce *</option>
+<option class="ordinary" value="tressure.png">tressure</option>
+<option class="ordinary" value="trimount.png">trimount</option>
+<option class="ordinary" value="vetu.png">vetu</option>
+</select>&nbsp;
+<button type="button" class="btn-danger btn-sm" onclick="showOrdImg();">Show</button>&nbsp;
+{% unless include.skippadd %}
+<button type="button" class="btn-danger btn-sm" onclick="addOrd();">Add</button>&nbsp;
+{% endunless %}
+<button type="button" class="btn-danger btn-sm" onclick="clearOrdImg();">Clear</button>
+</p>
+</div>
+<div id="ordImg" style="display:none" class="card text-center">
+<div class="card-block">
+<img src="#" id="o-thumbnail" alt="ordinary"/>
+</div>
+<h4 class="card-title" id="o-description"></h4>
+<p class="card-text" id="o-category"></p>
+</div>
+<script>
+jQuery('#o-combo-dropdown').combobox({
+    bsVersion:'4'
+})
+</script>

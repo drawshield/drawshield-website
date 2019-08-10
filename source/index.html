@@ -1,0 +1,68 @@
+---
+title: Shield Creation Tools
+skipTitle: true
+---
+
+
+<!-- ./index.ejs starts -->
+<div class="row"> 
+    <div class="jumbotron-fluid"> 
+        <h1>Welcome to DrawShield</h1>
+        <hr class="m-y-2">
+        <h2>Create shields, learn blazonry, study heraldry</h2>
+        <hr class="m-y-2">
+
+    </div>
+</div> 
+<div class="row">
+    <div class="col-12" style="padding-left: 0px;  padding-right: 0px;">
+        <img src="img/jumbotron.png" class="img-fluid rounded" alt="Lots of shields">
+    </div>
+</div>
+<div class="row"> 
+    <div class="col-12"> 
+        <h3 class="mt-4">Welcome to the DrawShield Suite of Heraldry Programs and Resources.</h3>
+
+        <p>On these pages you will find tools to help you understand Heraldry and Blazonry and create heraldic images. Some of the things that you can do on this site are:</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-8 col-sm-12">
+        <div class="list-group">
+            <a href="/create/index.html" class="list-group-item list-group-item-action">Create and share your own shields by entering a blazon</a>
+            <a href="/build/index.html" class="list-group-item list-group-item-action">Create a shield by choosing from a menu</a>
+            <a href="/random/index.html" class="list-group-item list-group-item-action">Generate a random blazon (New algorithm!)</a>
+            <a href="/tutorial/index.html" class="list-group-item list-group-item-action">Learn about Blazonry with an interactive tutorial</a>
+            <a href="/gallery/index.html" class="list-group-item list-group-item-action">View 400 user contributions in the Gallery <span style="color:red">New!</span>"Like" your favourites </a>
+            <a href="/reference/index.html" class="list-group-item list-group-item-action">Consult Heraldry Reference Books</a>
+            <a href="/resources/index.html" class="list-group-item list-group-item-action ">Download a printable Heraldry colouring book</a>
+            <a href="/translate/index.html" class="list-group-item list-group-item-action">Translate Blazons from French to English</a>
+            <a href="/resources/index.html" class="list-group-item disabled">...and more! Use the menu above to explore the site</a>
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-12">
+        <h3>Gallery Image of the Day</h3>
+        <div id="giotd-here"></div>
+        <script>jQuery('#giotd-here').load("/api-bin/api.php?action=giotd&arg=html");</script>
+        <p class="small text-center">Click on the image for full details</p>
+    </div>
+</div>
+<div class="row">    
+    <div class="col-12">
+        <p><em>Blazonry</em> is a special language, part English, part French, used to precisely describe the colours, shapes and objects that appear on a heraldic shield.</p>
+
+        <h2>Enjoy Your Blazoning!</h2>
+
+        <p>But don't forget, DrawShield is provided for education and information only. The use of heraldic devices is restricted in many countries, independently of copyright. The granting of a Coat of Arms is solely the right of the appropriate Heraldic Authority for your nationality and country of residence.</p>
+
+        <h2>Looking For Your Family Coat of Arms?</h2>
+
+        <p>Sorry, this is not a database of coats of arms, try <a href="https://coadb.com">coadb.com</a>. (Disclosure: this author provides consultancy and website support services to coadb.com).</p>
+
+        <h2>Requests, Comments and Feedback</h2>
+
+        <p>Finally, if you would like to help improve DrawShield or have suggestions for new features please go to the <a href="/contact/index.html">Contacts page</a>.</p>
+    </div>
+</div>
+
+<!-- ./index.ejs ends -->

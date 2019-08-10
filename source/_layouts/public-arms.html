@@ -1,0 +1,41 @@
+{% include upper.html %}
+{% capture atoz %}
+<div class="text-center az-list"
+<span class="atoz">
+<a href="/reference/public-arms/index.html">Contents</a>&nbsp;
+<a href="/reference/public-arms/a/index.html">A</a>&nbsp;
+<a href="/reference/public-arms/b/index.html">B</a>&nbsp;
+<a href="/reference/public-arms/c/index.html">C</a>&nbsp;
+<a href="/reference/public-arms/d/index.html">D</a>&nbsp;
+<a href="/reference/public-arms/e/index.html">E</a>&nbsp;
+<a href="/reference/public-arms/f/index.html">F</a>&nbsp;
+<a href="/reference/public-arms/g/index.html">G</a>&nbsp;
+<a href="/reference/public-arms/h/index.html">H</a>&nbsp;
+<a href="/reference/public-arms/i/index.html">I</a>&nbsp;
+<a href="/reference/public-arms/j/index.html">J</a>&nbsp;
+<a href="/reference/public-arms/k/index.html">K</a>&nbsp;
+<a href="/reference/public-arms/l/index.html">L</a>&nbsp;
+<a href="/reference/public-arms/m/index.html">M</a>&nbsp;
+<a href="/reference/public-arms/n/index.html">N</a>&nbsp;
+<a href="/reference/public-arms/o/index.html">O</a>&nbsp;
+<a href="/reference/public-arms/p/index.html">P</a>&nbsp;
+<a href="/reference/public-arms/q/index.html">Q</a>&nbsp;
+<a href="/reference/public-arms/r/index.html">R</a>&nbsp;
+<a href="/reference/public-arms/s/index.html">S</a>&nbsp;
+<a href="/reference/public-arms/t/index.html">T</a>&nbsp;
+<a href="/reference/public-arms/u/index.html">U</a>&nbsp;
+<a href="/reference/public-arms/v/index.html">V</a>&nbsp;
+<a href="/reference/public-arms/w/index.html">W</a>&nbsp;
+X&nbsp;
+<a href="/reference/public-arms/y/index.html">Y</a>&nbsp;
+<a href="/reference/public-arms/z/index.html">Z</a>&nbsp;
+<a href="/reference/public-arms/search.html"><button type="button" class="btn-danger btn-sm" >Search</button></a>
+</span>
+</div>
+{% endcapture %}
+{{ atoz }}
+{% if page.upLink   %}{% include navigation.html prev = page.prevLink   next = page.nextLink   up = page.upLink   %}{% endif %}
+                        {{ content }}
+{% if page.upLink   %}{% include navigation.html prev = page.prevLink   next = page.nextLink   up = page.upLink   %}{% endif %}
+{{ atoz }}
+{% include lower.html %}

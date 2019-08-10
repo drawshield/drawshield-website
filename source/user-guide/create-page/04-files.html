@@ -1,0 +1,42 @@
+---
+group04: true
+g04menu04: active
+layout: sidemenu
+sidemenu: user-guide-menu
+pageTitle: Working With Files
+prevLink: 03-editor.html
+nextLink: 05-sharing.html
+upLink: ../index.html
+---
+
+<p>If you are working with simple blazons then typing them into the edit area is the way to go. If, however, your blazon starts to get longer, more complicated, or you want to store it and return to it later you probably need some help.</p>
+
+<h3>Saving the Blazon to a File</h3>
+
+<p>At any time you can click on the "Save" button at the top of the edit area, your blazon does have to be complete, or correct. This will cause a file to be created containing whatever is in the edit area, including new line characters, comments and whitespace. The file is automatically downloaded to your default download folder and will be called "blazon.txt". Depending on your browser, you may be given the opportunity to rename this. Again, depending on the browser, if there is already a file with that name in your downloads folder then the new file will be called "blazon1.txt", and so on. Hence you can keep a series of your changes just be clicking on the "Save" button every so often.</p>
+
+<h3>Loading the Blazon from a File</h3>
+
+<p>The Create Page also allows you upload files by clicking on the "Choose File" button below the edit area. At this point you have two options:</p>
+
+<dl>
+	<dt>Upload</dt>
+	<dd>Clicking on the "Upload" button will upload the file and copy the contents into the edit area, overwriting whatever was there before. (If you did this by accident, put the cursor into the text area and use ctrl-Z / cmd-Z to restore the previous content).</dd>
+	<dt>Draw</dt>
+	<dd>Clicking on the "Draw" button will cause the file to be uploaded and drawn immediately. Note that contents of the edit area will <em>NOT</em> be changed. Because the blazon does not go through the edit area the URL link below the shield does <em>NOT</em> link to your drawing. If you need this URL, upload your file into the edit area (as above) and then use the "Draw Shield" button instead.</dd>
+</dl>
+
+<h3>Saving the Image to a File</h3>
+
+<p>If you want to save the blazon image to a file (instead of the blazon) then use the "Save as File" button to the right of the edit area. This will automatically cause the image file to be saved to your default download folder with the name "shield.[ext]" where [ext] depends on the options discussed below. As usual, your browser is likely to automatically rename the file "shield1.[ext]" and so on if there are files with that name already present.</p>
+
+<p>By clicking on the "Drawing Options" button you can chose options for the saved file. It can be saved in one of three image formats:</p>
+
+<dl>
+	<dt>SVG</dt>
+	<dd>This is the recommended format if you want to edit the image further as it is resolution independent. The size option is not really relevant but is used to set the "height" and "width" attributes of the top level SVG element. The actual SVG image is drawn within a viewbox 1000 units across and 1200 units high.</dd>
+	<dt>PNG</dt>
+	<dd>The image will be saved as PNG file, with a transparent background with the width in pixels as specified in the options (default 750) and the height being 1.2 times the width (and hence defaults to 900 pixels). This is the recommended format for use in documents or incorporation into other images.</dd>
+	<dt>JPG</dt>
+	<dd>This is similar to PNG, but does not support transparency. It is not recommended to use this format unless your intended application does not support PNG.</dd>
+</dl>

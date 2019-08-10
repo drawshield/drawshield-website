@@ -1,0 +1,43 @@
+{%- assign collection = site.collections | where: 'label', page.collection | first -%}
+{%- assign thisPath = page.url | split: '/' -%}
+{%- assign thisPath = thisPath | pop -%}
+{%- assign thisPath = thisPath | join: '/' | append: '/' -%}
+<!-- navtree called  -->
+<ul class="list-group {{ ulClass }}">
+    {%- for doc in collection.docs -%}
+        {%- if doc.url contains thisPath -%}
+            {%- assign pathParts = doc.url | replace: thisPath, '' | split: '/' -%}
+            {%- assign fileName = pathParts | last -%}
+            {%- assign pathParts = pathParts| pop -%}
+            {%- assign depth = pathParts | size -%}
+            {%- case depth -%}
+                {%- when 0 -%}
+                <!-- found 0 level entry {{ doc.url }} -->
+                    {%- if fileName != 'index.html' -%}
+    <li class="list-group-item"><a href="{{ doc.url }}">{{ doc.pageTitle }}</a></li>
+                    {%- endif -%}
+                {%- when 1 -%}
+                <!-- found 1 level entry {{ doc.url }} -->
+                {%- if fileName == 'index.html' -%}
+                    {%- assign suffix = pathParts | join: '/' | append: '/' -%}
+    <li class="parent list-group-item"><a href="{{ doc.url }}">{{ doc.pageTitle }}</a> 
+                    {%- unless include.foldersOnly -%}
+        <ul class="subtree list-group">
+                        {%- assign subPath = thisPath | append: suffix -%}
+                        {%- assign skipFile = suffix | append: 'index.html' -%}
+                        {%- for subDoc in collection.docs -%}
+                            {%- if subDoc.url contains subPath -%}
+                                {%- unless subDoc.url contains skipFile -%}
+        <li class="list-group-item"><a href="{{ subDoc.url }}">{{ subDoc.pageTitle }}</a></li>  
+                                {%- endunless -%}
+                            {%- endif -%}
+                        {%- endfor -%}
+                    {%- endunless -%}
+        </ul>
+    </li>
+                {%- endif -%}       
+            {%- endcase -%}
+        {%- endif -%}
+    {%- endfor -%}
+</ul>
+<!-- navtree exits -->

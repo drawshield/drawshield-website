@@ -1,0 +1,10 @@
+{% if include.title %}
+  {% assign include.title = "DrawShield" %}
+{% endif %}
+{% if include.divId %}
+  {% capture idAtt %}{{ ' id="' | append: include.divId | append: '"'}}{% endcapture %}
+{% endif %}
+
+<div {{ idAtt }} class="card text-center  w-100 p-1 m-2"  style="background: #EACB8E;">
+    <h3 class="card-header" style="background: #FCF4DB;">{{ include.title }}</h3>
+    <div class="card-block {{ blockClass }}">

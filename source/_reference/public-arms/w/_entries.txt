@@ -1,0 +1,142 @@
+waadt/WAADT (Switzerland).
+wadham-college/WADHAM COLLEGE (Oxford).
+waiapu/WAIAPU, See of (New Zealand).
+wakefield/WAKEFIELD (Yorkshire).
+wakefield-(2)/WAKEFIELD, See of.
+wakefield-grammar-school/WAKEFIELD GRAMMAR SCHOOL.
+wakers/WAKERS.
+waldeck-pyrmont/WALDECK-PYRMONT, Principality of.
+walden-saffron/WALDEN, SAFFRON.
+wales/WALES (Principality of).
+wales-university-of/WALES, UNIVERSITY OF.
+walker-trustees/WALKER TRUSTEES.
+wallachia/WALLACHIA.
+wallasey/WALLASEY, Borough of (Cheshire).
+wallingford/WALLINGFORD (Berkshire).
+wallis/WALLIS (Switzerland).
+walsall/WALSALL (Staffordshire).
+wallsend/WALLSEND, Borough of (Northumberland).
+wandsworth/WANDSWORTH, Borough of (London).
+wangaratta/WANGARATTA, See of (Australia).
+wareham/WAREHAM (Dorset).
+warrington/WARRINGTON, Borough of (Lancashire).
+warsaw/WARSAW (Poland).
+warwickshire/WARWICKSHIRE.
+warwick/WARWICK (Warwickshire).
+waterford/WATERFORD (County of).
+waterford-(2)/WATERFORD, City of (Co. Waterford).
+waterford-(3)/WATERFORD, See of.
+waterford-(4)/WATERFORD.
+watermen-and-lightermen/WATERMEN AND LIGHTERMEN, The Worshipful Company of, London.
+watsons-college-george/WATSON'S COLLEGE, GEORGE (Edinburgh).
+waulkers/WAULKERS, Incorporated Trade (Edinburgh).
+wax-chandlers/WAX-CHANDLERS, The Worshipful Company of, London.
+weavers/WEAVERS, Worshipful Company of, London.
+weavers-(2)/WEAVERS, The Craft and Incorporation of (Aberdeen).
+weavers-(3)/WEAVERS (Edinburgh).
+weavers-company/WEAVERS' COMPANY (Exeter).
+weavers-company-(2)/WEAVERS' COMPANY (Worcester).
+websters/WEBSTERS, Incorporated Trade (Edinburgh).
+wednesbury/WEDNESBURY (Staffordshire).
+wei-hei-wei/WEI-HEI-WEI.
+weimar/WEIMAR (Germany).
+wellington/WELLINGTON, See of (New Zealand).
+wellington-college/WELLINGTON COLLEGE.
+wells/WELLS (Somersetshire).
+wells-(2)/WELLS.
+wells-(3)/WELLS, Dean of.
+welshpool/WELSHPOOL (Montgomeryshire).
+wenlock/WENLOCK.
+west-africa/WEST AFRICA.
+west-bromwich/WEST BROMWICH (Staffordshire), .
+west-ham/WEST HAM (Essex).
+west-hartlepool/WEST HARTLEPOOL (Durham).
+west-india-merchants/WEST INDIA MERCHANTS, Society of.
+west-indies/WEST INDIES.
+west-meath/WEST MEATH (County).
+west-riding/WEST RIDING of the County of Yorkshire.
+west-suffolk/WEST SUFFOLK.
+west-sussex/WEST SUSSEX.
+westbury/WESTBURY (Wiltshire).
+westchester/WESTCHESTER, See of.
+western-australia/WESTERN AUSTRALIA, State of (Commonwealth of Australia).
+western-china/WESTERN CHINA, See of.
+western-equatorial-africa/WESTERN EQUATORIAL AFRICA, See of.
+westminster/WESTMINSTER (City of).
+westminster-(2)/WESTMINSTER, Marquessate of.
+westminster-school/WESTMINSTER SCHOOL.
+westminster-abbey/WESTMINSTER ABBEY (The Abbey Church of St Peter).
+westminster-(3)/WESTMINSTER, See of.
+westminster-(4)/WESTMINSTER, New (Canada).
+westmoreland/WESTMORELAND.
+westphalia/WESTPHALIA, Province of (Prussia).
+westphalia-(2)/WESTPHALIA.
+wexford/WEXFORD (County of).
+wexford-(2)/WEXFORD, Town of (Co. Wexford).
+weymouth/WEYMOUTH and MELCOMBE REGIS, United Towns of (Dorsetshire).
+wheelwrights/WHEELWRIGHTS, The Worshipful Company of, London.
+whitburn/WHITBURN (Linlithgow).
+whitby/WHITBY (Yorkshire).
+white-bakers-company/WHITE BAKERS' COMPANY.
+whitehaven/WHITEHAVEN (Cumberland).
+whithorn/WHITHORN (Wigtownshire).
+whittington-college/WHITTINGTON COLLEGE.
+wick/WICK, County of.
+wick-(2)/WICK (Co. Wick).
+wickham/WICKHAM.
+wicklow/WICKLOW, County.
+wicklow-(2)/WICKLOW (Co. Wicklow).
+widnes/WIDNES (Lancashire).
+widows-and-orphans/WIDOWS AND ORPHANS.
+wiesbaden/WIESBADEN (Germany).
+wigan/WIGAN (Lancashire).
+wight/WIGHT, Isle of.
+wigstons-hospital/WIGSTON'S HOSPITAL.
+wigtown/WIGTOWN, County of.
+wigtown-(2)/WIGTOWN (Wigtownshire).
+wilna/WILNA (Russia).
+wilton/WILTON (Wiltshire).
+wiltshire/WILTSHIRE.
+wimbledon/WIMBLEDON, Borough of (Surrey).
+winchelsea/WINCHELSEA (Sussex).
+winchester/WINCHESTER (Sussex).
+winchester-(2)/WINCHESTER (Hants).
+winchester-(3)/WINCHESTER, See of.
+winchester-(4)/WINCHESTER, Dean of.
+winchester-college/WINCHESTER COLLEGE.
+windische-mark/WINDISCHE-MARK.
+windsor/WINDSOR (Berkshire).
+windsor-the-royal-free-chapel-of-st-george/WINDSOR, THE ROYAL FREE CHAPEL OF ST GEORGE.
+windsor-herald/WINDSOR HERALD.
+windward-islands/WINDWARD ISLANDS.
+windward-islands-(2)/WINDWARD ISLANDS, See of 
+wire-workers-company/WIRE WORKERS' COMPANY.
+wisbech/WISBECH (Cambridgeshire).
+wishaw/WISHAW (Lanarkshire).
+witney/WITNEY (Oxford).
+wokingham/WOKINGHAM (Berkshire).
+wolverhampton/WOLVERHAMPTON, Borough of (Staffordshire).
+wolverhampton-school/WOLVERHAMPTON SCHOOL.
+woodmongers-company/WOODMONGERS' COMPANY, London.
+woodstock/WOODSTOCK (Oxfordshire).
+woodstock-(2)/WOODSTOCK, the Honour and Manor of.
+woolmen/WOOLMEN, or WOOL-PACKERS, The Worshipful Company of, London.
+woolwich/WOOLWICH, Borough of (London).
+woolwich-(2)/WOOLWICH, Bishop of.
+worcestershire/WORCESTERSHIRE.
+worcester/WORCESTER (Worcestershire).
+worcester-(2)/WORCESTER, See of.
+worcester-(3)/WORCESTER, Dean of.
+worcester-college-oxford/WORCESTER COLLEGE, OXFORD.
+workington/WORKINGTON (Cumberland).
+worthing/WORTHING (Sussex).
+wotton-bassett/WOTTON-BASSETT (Wiltshire).
+wotton-wawen-college/WOTTON-WAWEN COLLEGE.
+wrexham/WREXHAM (Denbighshire).
+wrights/WRIGHTS, Incorporated Trade (Edinburgh).
+wrights-(2)/WRIGHTS.
+wrights-and-coopers/WRIGHTS AND COOPERS, The Craft and Incorporation of (Aberdeen).
+writers-to-the-signet/WRITERS TO THE SIGNET (Society of Writers to His Majesty's Signet).
+wurtemberg/WURTEMBERG, Kingdom of.
+wurzburg/WURZBURG (Germany).
+wycombe/WYCOMBE (Buckinghamshire).
