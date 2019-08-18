@@ -9,7 +9,7 @@ task :jekyll do
   # Jekyll doesn't seem to like building into the windows FS, so do it locally and copy across
   # sh %{ cp -R /home/karl/sites/drawshield.net/* /mnt/c/Users/karl/Sites/drawshield.net }
   # sh %{ cmd.exe /C mklink /d "c:\\Users\\karl\\Sites\\drawshield.net\\include" "c:\\Users\\karl\\gdrive\\Projects\\draw-code\\include" }
-  sh %{ ln -s /home/karl/projects/draw-code/include /home/karl/Sites/drawshield.net }
+  sh %{ ln -s /media/sf_gdrive/Projects/draw-code/include /home/karl/Sites/drawshield.net }
   sh %{ chgrp -R www-data /home/karl/Sites/drawshield.net }
 end
 

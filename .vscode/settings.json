@@ -1,0 +1,12 @@
+{
+  "git.ignoreLimitWarning": true,
+  "files.exclude": {
+    "__error": "Not found",
+    "source/*.DS_Store": true,
+    "source/*.DS_Store.*": true,
+    "source/*.git": true,
+    "source/*.git.*": true,
+    "source/*.gitignore": true,
+    "source/*.gitignore.*": true,
+  }
+}
