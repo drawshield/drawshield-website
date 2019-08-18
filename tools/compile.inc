@@ -117,7 +117,7 @@ function charges($folder) {
     **	Delete any in target dir NOT in source dir
     */
 
-    foreach ($targets as $targetItem) {
+   /* foreach ($targets as $targetItem) {
         if ($targetItem[0] == '.' || $targetItem == "index.html") continue;
         $toFind = mapping($folder, null, substr($targetItem,0,-4)) . ".svg";
         if (!in_array($toFind, $sources)) {
@@ -125,7 +125,7 @@ function charges($folder) {
             echo "Removing $doomedFile\n";
             unlink ($doomedFile);
         }
-    }
+    } */
 
     /*
     **	Create anything in source dir NOT in target dir
@@ -134,9 +134,11 @@ function charges($folder) {
     foreach ($sources as $sourceItem) {
         if ($sourceItem[0] == '.' || substr($sourceItem,-4) != '.svg') continue;
         $toFind = mapping($folder, substr($sourceItem,0,-4), null);
-        if (!in_array($toFind, $targets) ||
+        // echo $toFind . '.png ' . (in_array($toFind  . '.png', $targets) ? 'found ' : 'not found ') .  filemtime("$sourceDir/charges/$folder/$sourceItem") . ' ' .
+            //filemtime("$targetDir/charges/$folder/$toFind.png") . PHP_EOL;
+        if (!in_array($toFind . '.png', $targets) /*||
                 filemtime("$sourceDir/charges/$folder/$sourceItem") >
-                filemtime("$targetDir/charges/$folder/$toFind.png")) {
+                filemtime("$targetDir/charges/$folder/$toFind.png") */ ) {
             $features = getFeatures("$sourceDir/charges/$folder/$sourceItem", "$targetDir/charges/$folder/$toFind.txt");
             $specifier = is_numeric($toFind[0]) ? ' ' : ' a ';
             $blazon = "argent $specifier " .
@@ -148,8 +150,9 @@ function charges($folder) {
             $execString = 'wget -q -O ' . "$targetDir/charges/$folder/$toFind.png" .
             ' "http://drawshield.home/include/quickimage.php?blazon=' . $blazon .
             '&outputformat=png&size=400&effect=none&nomask=1"';
-            echo "Executing $execString\n";
+           // echo "Executing $execString\n";
             exec($execString);
+
 /*            $execString = 'wget -q -O ' . "$tempDir/$sourceItem" .
             ' "http://drawshield.home/include/quickimage.php?blazon=' . $blazon .
             '&outputformat=svg&size=400&effect=none&nomask=1&raw=1"';
@@ -163,7 +166,7 @@ function charges($folder) {
         }
     }
 }
-
+/*
 function ordinaries() {
     global $ordList, $keep;
     global $targetDir, $sourceDir, $tempDir;
@@ -266,7 +269,7 @@ function edges() {
         if (!$keep) unlink("$tempDir/edge.svg");
     }
 }
-
+*/
 function compile($argc, $argv) {
     global $sourceDir, $targetDir, $tempDir, $ignoreFolders, $action;
 
