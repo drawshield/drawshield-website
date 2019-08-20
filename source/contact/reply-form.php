@@ -67,6 +67,31 @@ $errorMessage = false;
 // if you are not debugging and don't need error reporting, turn this off by error_reporting(0);
 error_reporting(E_ALL & ~E_NOTICE);
 
+
+function lineBreak($string, $breakAfter = 40) {
+    $return = '';
+    $count = 0;
+    for ($i = 0; $i < strlen($string); $i++) {
+        switch ($string[$i]) {
+            case "\n":
+                $count = 0;
+                break;
+            case ' ':
+                if ($count >= $breakAfter) {
+                    $return .= PHP_EOL;
+                    $count = 0;
+                }
+                break;
+            default:
+                break;
+        }
+        $return .= $string[$i];
+        $count++;
+    }
+    return $return;
+}
+
+
 try
 {
 
@@ -108,6 +133,7 @@ try
    if ($gallery) {
        $title = $_POST['title'] ?? 'TITLE';
        $plainBlazon = $_POST['suggestion'] ?? 'argent';
+       $plainBlazon = lineBreak($plainBlazon,50);
        $addIntro = '.';
        $additional = $_POST['additional'] ?? false;
        if ($additional) {
