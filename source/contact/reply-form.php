@@ -142,7 +142,7 @@ try
        }
        $options = $_POST['options'] ?? 'shape=heater,effect=shiny,palette=drawshield';
        $createURL = "http://drawshield.net/create/index.html?blazon=" . rawurlencode($plainBlazon);
-       $wgetURL = 'num=NNNN; wget -O wget -O /media/sf_gdrive/projects/drawshield/source/gallery/${num:0:2}/img/gallery-$num.png ' . "'http://drawshield.net/include/drawshield.php?asfile=1&size=750&saveformat=png&blazon=" . rawurlencode($plainBlazon) . '&' . str_replace(',','&',$options) . "'";
+       $wgetURL = 'num=NNNN; wget -O wget -O /home/karl/Nextcloud/drawshield/source/gallery/${num:0:2}/img/gallery-$num.png ' . "'http://drawshield.net/include/drawshield.php?asfile=1&size=750&saveformat=png&blazon=" . rawurlencode($plainBlazon) . '&' . str_replace(',','&',$options) . "'";
        $emailText = preg_replace(
             array('/%plainBlazon%/', '/%addIntro%/', '/%addData%/', '/%createURL%/', '/%wgetURL%/', '/%title%/' ),
             array($plainBlazon, $addIntro, $addData, $createURL, $wgetURL, $title),
