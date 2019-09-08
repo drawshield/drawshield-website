@@ -1,8 +1,8 @@
 <!-- /_includes/gallery starts -->
 <div class="container">
     <div class="row">
-    {%- assign initial = {{include.startImg}} | truncate: 2, "" -%}
     {%- for counter in ({{include.startImg}}..{{include.endImg}}) -%}
+      {%- assign initial = {{counter}} | truncate: 2, "" -%}
       {%- assign image = initial | append: '/img/gallery-' | append: counter | append: '.png' -%}
       {%- assign pageURL = 'gallery-' | append: counter | append: '.html' -%}
       {%- assign thisPage = site.pages | where:"name", pageURL -%}

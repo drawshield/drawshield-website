@@ -2,24 +2,38 @@
 <div>
     <nav class="text-center" aria-label="Page navigation">
         {% assign prevState="disabled" %}
+        {% assign firstState="disabled" %}
         {% assign nextState="disabled" %}
         {% assign upState="disabled" %}
+        {% assign lastState="disabled" %}
         {% if include.prev %} {% assign prevState="" %} {% endif %}
+        {% if include.first %} {% assign firstState="" %} {% endif %}
         {% if include.next %} {% assign nextState="" %} {% endif %}
+        {% if include.last %} {% assign lastState="" %} {% endif %}
         {% if include.up %} {% assign upState="" %} {% endif %}
         <ul class="pagination">
+            {% if include.showLimits %}
+            <li class="page-item {{ firstState }}"> 
+                <a class="page-link first-link" href="{{ include.first}}">First</a>
+            </li>
+            {% endif %}
             <li class="page-item {{ prevState }}"> 
-                <a class="page-link" href="{{ include.prev }}">Previous</a>
+                <a class="page-link prev-link" href="{{ include.prev }}">Previous</a>
             </li>
             <li class="page-item  {{ upState }}">
-                <a class="page-link" href="{{ include.up }}">Up</a>
+                <a class="page-link up-link" href="{{ include.up }}">Up</a>
             </li>
             <li class="page-item {{ nextState }}">
-                <a class="page-link" href="{{ include.next }}">Next</a>
+                <a class="page-link next-link" href="{{ include.next }}">Next</a>
             </li>
+            {% if include.showLimits %}
+            <li class="page-item {{ lastState }}"> 
+                <a class="page-link last-link" href="{{ include.last}}">Last</a>
+            </li>
+            {% endif %}
             {% if include.galleryRandom %}
             <li class="page-item enabled">
-                <a class="page-link" href="/gallery/random">Random</a>
+                <a class="page-link random-link" href="/gallery/random">Random</a>
             </li>
             {% endif %}
         </ul>
