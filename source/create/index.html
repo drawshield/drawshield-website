@@ -53,11 +53,26 @@ includeSocial: true
                 <textarea name="error-blazon" id="error-blazon" readonly  class="form-control" style="display: none;"></textarea>
             </div>
             <p class="pt-3">
-                <input type="submit" class="btn btn-danger btn-send" value="Report This Error">&nbsp; (If you think that it should work!)
+                <input type="submit" class="btn btn-danger btn-send" value="Report This Error">&nbsp; (But please check the hints below first!)
                 <button type="button" class="btn-primary btn-sm float-right" onclick="document.getElementById('messageDiv').style.display = 'none';" >Clear</button>
                 <input type="hidden" name="reference" value="Error Report">
             </p>
             <p>Edit the field above if you need to give more information. See "Contact->View Responses" or follow @drawshield on Twitter for feedback.</p>
+            <h2>Common Problems</h2>
+                <dl>
+                    <dt>Not a complete blazon</dt>
+                    <dd>Drawshield looks for a complete blazon and will generate an error message if it doesn’t find one. In particular there must always be a <span class="blazon">“field”</span> (background), if you want something plain just use <span class="blazon">“argent”</span> then any ordinaries and charges.</dd>
+                    <dt>Missing number</dt>
+                    <dd>DrawShield requires there to be number preceding charges and ordinaries, even if that number is <span class="blazon">“one”</span> (you can use <span class="blazon">“a”, “an”</span> or <span class="blazon">“the”</span> as a synonym for <span class="blazon">“one”</span>), e.g. <span class="blazon">“argent a bend or”</span>.</dd>
+                    <dt>Missing Tincture</dt>
+                    <dd>Just like numbers, DrawShield always requires the correct number of tinctures (colour) after a charge, ordinary, division or treatment - charges and ordinaries usually require one colour, treatments one or two and divisions two or three. With charges or ordinaries  <strong>only</strong>, if there is no colour DrawShield will try to find a previous charge or ordinary and use the same colour.</dd>
+                    <dt>Too Complicated</dt>
+                    <dd>The blazon <span class="blazon">“vert a bridge of 3 spans brunatre the middle span larger the parapets festooned with banners gules flying to the dexter over a raging river azure topped with waves argent with severed heads floating in it”</span> will not work. Nor is it ever likely to. Keep it simple!</dd>
+                    <dt>Spelling Errors</dt>
+                    <dd>DrawShield matches words exactly so spelling errors are not recognised, “glues” will never be interpreted as “gules” even if it was obvious to you what was meant. That said, I do try to include variant but genuine spellings like “fess” and “fesse”.</dd>
+                    <dt>Advice</dt>
+                    <dd>Probably the most helpful thing that you can do is to start simple and build up your shield one item at a time.</dd>
+                </dl>
         </form>
     </div>
 </div>
