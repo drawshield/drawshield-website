@@ -17,7 +17,7 @@ features that always appear in the same position on the shield.
 Ordinaries have a colour and, as we saw with divisions earlier, the
 colour in blazonry almost always comes AFTER the object.</p>
 
-<img src="img/chevron.png" alt="chevron" class="img-fluid" />
+<img src="img/chevron.png" alt="chevron" class="img-fluid float-md-left" />
 
 <p>Let's look at one example, the <strong>chevron</strong>. We already have
 a clue about what it might look like from the previous page, where we
@@ -28,33 +28,55 @@ indeed this is the case. Using some of our newly found colours we can
 create the image above. Can you work out what its blazon would
 be?</p>
 
-<p>Recall that the field comes first, in this case, plain white, or
-<em>argent</em>, then we have a black chevron, so that is a
-<strong>chevron sable</strong>, giving us another complete blazon:</p>
 
-<blockquote><em>Argent, a chevron sable</em></blockquote>
+<p>
+        <a class="btn btn-primary" data-toggle="collapse" href="#blazon1" role="button" aria-expanded="false" aria-controls="blazon1">
+          Reveal Answer
+        </a>
+      </p>
+    
 
-<p>Note that we have a put a comma in there, and made things easier to say
-by adding 'a'. In most cases, we can add punctuation to the blazon
-wherever we think it will help, but we don't have to do it.</p>
-
-<p>Again, this is your chance to try a few things out. Based on what you
-already know of <em>divisions</em>, you might have guessed that there
-are ordinaries called <strong>a fess</strong>, <strong>a pale</strong>
-and <strong>a bend</strong>. Try using these as part of a blazon in the
-box to the right and see what appears. Don't forget that you can also
-have a divided field AND an ordinary, just remember to ensure that you
-provide enough different colours.</p>
-
-{% include quickimage.html %}
-
-<p>There is one other ordinary that is very important and this is the
-<strong>chief</strong>. It appears as a thick bar across the top of the
-shield and is very common. It has a special feature in that all of the
-other things on the shield get scrunched down to make room for it. We
-will see an example of this on the next page, when we talk about
-<em>charges</em></p>
+      <div class="collapse" id="blazon1">
+            <div class="card card-body">
+                    <p>Recall that the field comes first, in this case, plain white, or
+                            <em>argent</em>, then we have a black chevron, so that is a
+                            <strong>chevron sable</strong>, giving us another complete blazon:</p>
+                            
+                            <p><em>Argent, a chevron sable</em></p>
+            </div>
+        </div>
 
 
+
+<p>Note that in this blazon we have a put a in comma in there, which makes it
+    easier to say when read outline, but there is no need to do this. In most cases,
+as long as the comma is in a sensible place, DrawShield will just ignore it.</p>
+
+<p>We now enough blazonry to start describing shields that we find in the real world. Which of
+    the mounted knights below is holding a shield which could be described by the blazon below?
+</p>
+
+<p><em>Or, a chevron azure</em></p>
+
+<table style="width: 502px;">
+    <tr>
+        <td colspan="4" style="max-height: 334px; position: relative; left: 0; top: 0;">
+            <img src="img/mounted-knights.png" alt="Mounted Knights" style="position: relative; left: 0; top: 0;" />
+            <img src="img/mounted-knights-answer.png" alt="Mounted Knights" id="answer1"
+            style="position: absolute; top: 0px; right: 0px; display: none;" /></td>
+    </tr>
+    <tr>
+        <td class="text-center"><input style="width: 25%" type="radio" name="mountedknight" value="1"/></td>
+        <td class="text-center"><input style="width: 25%" type="radio" name="mountedknight" value="2"/></td>
+        <td class="text-center"><input style="width: 25%" type="radio" name="mountedknight" value="3" id="correct1"/></td>
+        <td class="text-center"><input style="width: 25%" type="radio" name="mountedknight" value="4"/></td>
+    </tr>
+</table>
+
+<p class="small">Image credit: <a href="https://www.grippingbeast.co.uk/CRC04\_Mounted\_Knights\_Three\_4--product--4956.html">grippingbeast.co.uk</a></p>
+
+<p><a class="btn btn-primary" onclick="$('#answer1').toggle(); $('#correct1').prop('checked',true);">Reveal Answer</a></p>
+
+<p>Good work! When you are ready, move to learning about <em>charges</em> on the next page.</p>
 
 <!-- tutorial/03-adding-ordinaries.ejs ends -->
