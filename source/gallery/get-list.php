@@ -1,6 +1,6 @@
 <?php
 
-$history = array_reverse(file('/home/karlwilc/etc/giotd-list.txt'));
+$history = array_reverse(file('/var/www/etc/giotd-list.txt'));
 
 $day = 0;
 $output = '';

@@ -18,7 +18,7 @@ function getUserIpAddr(){
 $response = "No reference number";
 if (array_key_exists("refnum",$_GET)) {
     $refnum = $_GET['refnum'];
-    include('/home/karlwilc/etc/credentials.inc');
+    include('/var/www/etc/credentials.inc');
     $database = mysqli_connect($db_addr,$db_user,$db_password,$db_database);
     $sourceIP = getUserIpAddr();
     if (array_key_exists('votable', $_SESSION) && in_array($refnum, $_SESSION['votable'])) {

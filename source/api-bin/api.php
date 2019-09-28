@@ -156,7 +156,7 @@ function doDefine($term) {
 function doGiotd($arg) {
     global $success, $error, $format, $imgFormat;
 
-    $giotdFile = '/home/karlwilc/etc/giotd.txt';
+    $giotdFile = '/var/www/etc/giotd.txt';
 
         $number = '9999';
     if (file_exists($giotdFile)) {
@@ -173,7 +173,7 @@ function doGiotd($arg) {
         case 'img':
             $format = 'img';
             $imgFormat = 'png';
-            $success = "/home/karlwilc/drawshield.net/gallery/$prefix/img/gallery-$number.png";
+            $success = "/var/www/html/gallery/$prefix/img/gallery-$number.png";
             break;
         case 'href':
             $format = 'text';

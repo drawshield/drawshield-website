@@ -148,7 +148,7 @@ try
             array($plainBlazon, $addIntro, $addData, $createURL, $wgetURL, $title),
             $galleryTemplate);
     } elseif ($comment) {
-        include('/home/karlwilc/etc/credentials.inc');
+        include('/var/www/etc/credentials.inc');
         $database = mysqli_connect($db_addr,$db_user,$db_password,$db_database);
         if ($database === false) {
             $errorMessage = "Could not open database";

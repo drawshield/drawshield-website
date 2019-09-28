@@ -57,9 +57,9 @@ function RandomFile($folder='', $extensions='.*'){
  
 }
 
-$giotd = substr(RandomFile('/home/karlwilc/drawshield.net/gallery/img/','png'),-8,4);
+$giotd = substr(RandomFile('/var/www/drawshield.net/gallery/img/','png'),-8,4);
 
-file_put_contents('/home/karlwilc/etc/giotd.txt', $giotd);
-file_put_contents('/home/karlwilc/etc/giotd-list.txt', $giotd, FILE_APPEND);
+file_put_contents('/var/www/etc/giotd.txt', $giotd);
+file_put_contents('/var/www/etc/giotd-list.txt', $giotd, FILE_APPEND);
 
 echo "Gallery Image of the Day is number $giotd\n";
