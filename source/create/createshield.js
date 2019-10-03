@@ -429,6 +429,9 @@ function displayMessages(svg) {
             case'legal':
                 remarksHTML += "<li>" + message + "</li>";
                 break;                
+            case'alert':
+                remarksHTML += "<li><span style='color:red'>" + message + "</span></li>";
+                break;                
             default:
                 messageText += message + ' ';
         }
