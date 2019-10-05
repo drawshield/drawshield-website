@@ -1,4 +1,5 @@
 task :default do
+  Rake::Task[:gallery].invoke
   Rake::Task[:jekyll].invoke
   Rake::Task[:bump].invoke
 end
@@ -6,12 +7,9 @@ end
 desc 'Jekyll Build'
 task :jekyll do
   sh %{ bundle exec jekyll build }
-  # Jekyll doesn't seem to like building into the windows FS, so do it locally and copy across
-  # sh %{ cp -R /home/karl/sites/drawshield.net/* /mnt/c/Users/karl/Sites/drawshield.net }
-  # sh %{ cmd.exe /C mklink /d "c:\\Users\\karl\\Sites\\drawshield.net\\include" "c:\\Users\\karl\\gdrive\\Projects\\draw-code\\include" }
   sh %{ ln -s /home/karl/Nextcloud/draw-code/include /home/karl/Sites/drawshield.home }
   sh %{ chgrp -R www-data /home/karl/Sites/drawshield.home }
- # sh %{ chmod -R g+r /home/karl/Sites/drawshield.home }
+  sh %{ chmod -R g+rw /home/karl/Sites/drawshield.home }
 end
 
 desc 'Bump build number'
@@ -27,17 +25,16 @@ task :bump do
   puts "Successfully bumped build number from #{current_version} to #{next_version}!"
 end
 
-desc 'Copy over include code'
-task :copyinc do
-  sh %{ cmd.exe /C mklink /d "c:\\Users\\karl\\Sites\\drawshield.net\\include" "c:\\Users\\karl\\gdrive\\Projects\\draw-code\\include" }
+desc 'Gallery Build'
+task :gallery do
+  Dir.chdir('tools') do
+    sh %{ php mkgallery.php }
+  end
 end
 
-# desc 'Change group to www-data'
-# task :chggrp do
-#   sh %{chgrp -R www-data /home/karl/Sites/drawshield.net }
-# end
-#
-# desc 'Create charge finder'
-# task :mkchg do
-#   sh %{ getchgs }
-# end
+desc 'Catalog Images'
+task :catalog do
+  Dir.chdir('tools') do
+    sh %{ php compile.php }
+  end
+end
