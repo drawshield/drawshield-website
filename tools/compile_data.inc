@@ -311,6 +311,7 @@ $ordList = [
     "chevrons/chevron-removed",
     "chevrons/chevron-rompu-+",
     "chevrons/chevronel",
+    "chevrons/chevron-ploye",
     "cross/cross-formy",
     "cross/cross-parted-fretty",
     "cross/saltire-parted-fretty",

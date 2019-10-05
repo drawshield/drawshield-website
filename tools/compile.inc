@@ -166,7 +166,7 @@ function charges($folder) {
         }
     }
 }
-/*
+
 function ordinaries() {
     global $ordList, $keep;
     global $targetDir, $sourceDir, $tempDir;
@@ -191,6 +191,7 @@ function ordinaries() {
         // if (!$keep) unlink("$tempDir/ordinary.svg");
     }
 }
+
 
 function divisions() {
     global $divList, $keep;
@@ -269,7 +270,7 @@ function edges() {
         if (!$keep) unlink("$tempDir/edge.svg");
     }
 }
-*/
+
 function compile($argc, $argv) {
     global $sourceDir, $targetDir, $tempDir, $ignoreFolders, $action;
 
