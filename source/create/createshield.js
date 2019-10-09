@@ -417,7 +417,11 @@ function displayMessages(svg) {
     for ( var i = 0; i < errorList.length; i++ ) {
         var errorItem = errorList[i];
         var category = errorItem.getAttribute('category');
+        var context = errorItem.getAttribute('context');
+        var lineno = errorItem.getAttribute('linerange');
         var message = errorItem.innerHTML;
+        if (context != null) message += ' ' + context;
+        if (lineno != null) message += ' near ' + lineno;
         switch (category) {
             case 'licence':
                 creditHTML += "<li>" + message + "</li>"; 
