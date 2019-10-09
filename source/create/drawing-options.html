@@ -6,13 +6,12 @@ layout: null
         <div class="col-lg-10 offset-lg-1 col-md-10 col-sm-12 card">
             <div class="row">
                 <div class="col-12">
-                    <p class="lead">Save Format</p>
+                    <p class="lead">File Save Options</p>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-sm-6 offset-lg-1 pl-1 pr-1">
-                    <p>Image File Format</p>
-                    <div class="input-group">
+                <div class="col-sm-6 col-lg-4 offset-lg-1 pl-1 pr-1">
+                    <div class="input-group"><span>Format: </span>
                         <select class="custom-select" data-style="btn-primary" id="formatSelect">
                             <option selected value="png">PNG</option>
                             <option value="jpg">JPEG</option>
@@ -20,10 +19,10 @@ layout: null
                         </select>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6 pl-1 pr-1">
-                    <label for="sizeInput">Image Width (px)</label>
-                    <input type="text" class="form-control" id="sizeInput" aria-describedby="sizeHelp" placeholder="1000">
-                    <small id="sizeHelp" class="form-text text-muted">100 <-> 2500 pixels</small>
+                <div class="col-sm-6 col-lg-4 offset-lg-1 pl-1 pr-1">
+                    <div class="input-group"><span>Width (px): </span>
+                        <input type="text" class="form-control" id="sizeInput" placeholder="1000">
+                    </div>
                 </div>
             </div>
         </div>
