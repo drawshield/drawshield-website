@@ -1,0 +1,97 @@
+---
+layout: sidemenu
+sidemenu: user-guide-menu
+pageTitle: Achievement of Arms
+upLink: index.html
+nextLink: arrangements.html
+group00: true
+g00menuZZ: active
+---
+<div class="card card-body">
+    <p style="color:red">IMPORTANT!</p>
+    <p>Drawing the full achievement of arms should be considered as a "beta-test". Both the syntax 
+        (form of words) and the implementation (visual appearance) may change in response to user
+        feedback. Please let me know your own thoughts and ideas using the contact link in the 
+        menu above.
+    </p>
+</div>
+<h2>Background</h2>
+<p>Blazonry has a long history of precision in describing the shield itself (known as the escutcheon when 
+    we come to talk the full achievement). This means that when it comes to tinctures, ordinaries, 
+    divisions and all the component parts of the escutcheon there is widespread agreement on what
+    everything means, and this is backed by a large body of evidence.
+</p>
+<p>Sadly, the same does not seem to be true for the rest of the component parts of the full
+    achievement of arms. How should we describe the colours of the mantling, style of helmet
+    and so on? I have tried where possible to follow similar practice to that found on the
+    escutcheon but there is little actual precedence for this style of language, and hence it is 
+    subject to change and further discussion!
+</p>
+<h2>Overall Organisation</h2>
+<p>To keep things simple I am requiring that <strong>all</strong> of the escutcheon description comes
+first and the achievement description comes afterwards. To make this even clearer you can if you wish
+use the word <strong>achievement</strong> to mark the start of the achievement description. See the 
+examples below.</p>
+<p>You can specify as many, or as few of the mantling parts as you wish and the others will take
+    a default appearance. (Except for the motto, which will only appear if it is specified).
+</p>
+<h2>Helmet</h2>
+<p>At present there are four styles of helmet available, selected using one of the phrases:</p>
+<ul>
+    <li>A Royal helmet</li>
+    <li>A peer's helmet / a lord's helmet</li>
+    <li>A baronet's helmet</li>
+    <li>An esquire's helmet / a gentleman's helmet</li>
+</ul>
+<p>If you do not specify a helmet type then an esquire's helmet will be shown.</p>
+<p>At present the helmet colour is fixed, I intend to add a helmet colour option soon.</p>
+<h2>Mantling</h2>
+<p>At present there is one type of mantling available, in the form of ribbons, however I
+    hope to add other types soon. It is selected using either of the phrases:
+</p>
+<ul>
+    <li>mantling</li>
+    <li>lambrequin</li>
+</ul>
+<p>The phrase can be followed by <em>of ribbons</em> if you want to insulate yourself from
+future additional mantling types.</p>
+<h3>Ribbon Mantling Colours</h3>
+<p>By default the ribbon mantling will be drawn gray and white, however up to four colours
+    can be applied. If one colour is given it will replace the white, if two colours are
+    given then they will replace the white and gray respectively. However, you can give
+    different colours to each side of the mantling using:
+</p>
+<ul>
+    <li>to the dexter colour (and colour)</li>
+    <li>to the sinister colour (and colour)</li>
+</ul>
+<p>In which case the above rules apply but to each side of the mantling separately.</p>
+<h2>Motto</h2>
+<p>You may also add a motto, which if given will be shown in a scroll at the bottom of the
+    shield. If the motto is longer than one word then you <strong>MUST</strong> enclose it
+    in double quotes, <em>"like this"</em>. An attempt is made to adjust the font size to
+    fit in all the text, strings up to about 30 characters in length can be accommodated.
+</p>
+<p>Using the motto to hold a family name will incure the wrath of Heraldic purists. You have been
+    warned.
+</p>
+<h2>Some examples</h2>
+<dl>
+    <dt>Per bend azure and or</dt>
+    <dd>Works the normal way, the escutcheon only will occupy the whole of the image</dd>
+    <dt>Per bend azure and or achievement</dt>
+    <dd>Will produce a basic achievement, with plain mantling and an esquire's helmet</dd>
+    <dt>Per bend azure and or mantling or and gules</dt>
+    <dd>An achievement with coloured mantling and an esquire's helmet</dd>
+    <dt>Per bend azure and or mantling to the sinister or to the dexter azure a royal helmet</dt>
+    <dd>An achievement with mantling different each side and a Roayl helmet</dd>
+    <dt>Per bend azure and or motto "Drawshield Est"</dt>
+    <dd>An achievement with plain mantling, an esquire's helmet and a scroll containing the
+        motto
+    </dd>
+</dl>
+<p>And if you want to go all the way you can use constructions like:</p>
+<p><strong>Per bend azure and or achievement with a royal helmet mantling of ribbons to the dexter azure and argent to the sinister or and argent motto "Drawshield Est"</strong></p>
+<h2>Effects</h2>
+<p>For artistic reasons the <em>shiny</em> effect is applied only to the escutcheon, all the other effects are 
+applied to the entire achievement.</p>
