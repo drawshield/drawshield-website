@@ -25,10 +25,11 @@ task :bump do
   puts "Successfully bumped build number from #{current_version} to #{next_version}!"
 end
 
-desc 'Gallery Build'
+desc 'Gallery & catalog Build'
 task :gallery do
   Dir.chdir('tools') do
     sh %{ php mkgallery.php }
+    sh %{ php mkcatalog.php }
   end
 end
 

@@ -1,24 +1,22 @@
 ---
 pageTitle: Create a Shield from a Blazon
 editor: true
-combobox: true
 includeSocial: true
 ---
 <!-- ./create.ejs starts -->
 <div class="row">
     <div class="col-12">
         <p>Enter a <strong>blazon</strong> then click the <strong>Draw Shield</strong> 
-        button. There are also <a href="/create/hints-tips1.html">hints and tips</a> on getting the image that you want. Click <strong>Random Blazon</strong> to get some inspiration, or check out the  <a href="/catalog/index.html">visual catalog of charges</a>. The buttons below the shield image let you set options for the shield appearance; view a catalogue of available parts; and if you are especially proud of your creation, offer it for inclusion in the gallery. <span style="color:red">Important</span>Oct '19 - DrawShield.net has moved to an AWS Lightsail server, please let
-        me know if you have any problems.</p>    
+        button. There is also a comprehensive <a href="/user-guide"">User Guide</a>, a <a href="/catalog">Visual Catalog</a> of available parts, and a <a href="/tutorial">tutorial on blazonry</a>.  For inspiration look at the <a href="/gallery">gallery</a> or have a <a href="/random">random blazon</a> created for you. Please <a href="/contact">get in touch</a> if you would like some help or have any suggestions!</p>    
     </div>
 </div>
 <form id="blazonForm" method="post" enctype="multipart/form-data">   
     <div class="row">
         <div class="col-sm-12 col-lg-8">
             <fieldset class="form-group">                
-                <textarea class="form-control" placeholder="Enter a blazon" id="blazon" name="blazon" spellcheck="false"></textarea>
+                <textarea class="form-control" placeholder="Enter a blazon" id="blazon" name="blazon" spellcheck="false" rows="2"></textarea>
                 <small id="fileHelp" class="form-text text-muted">Type or paste your blazon above or upload it in a plain text file.</small>
-                <input type="file" class="form-control-file  btn-primary d-inline" id="blazonInputFile" aria-describedby="fileHelp" name="blazonfile">
+                <input style="width: 400px;" type="file" class="form-control-file  btn-primary d-inline-block" id="blazonInputFile" aria-describedby="fileHelp" name="blazonfile">
                 <button class="btn-light d-inline-block" type="button" onclick="uploadFile()">Upload</button>
                 <button class="btn-danger d-inline-block" type="button" onclick="drawFile()">Draw</button>
                 <input type="hidden" name="asfile" value="0"/>
@@ -33,13 +31,14 @@ includeSocial: true
         <div class="col-sm-12 col-lg-4">
             <div class="d-flex flex-lg-column flex-row">
                 <div class="p-1"><button type="button" class="btn-block btn-danger" onclick="drawshield();">Draw Shield</button></div>
-                <div class="p-1"><button type="button" class="btn-block btn-primary" onclick="window.location.href='/random/index.html';">Random Blazon</button></div>
                 <div class="p-1"><button type="button" class="btn-block btn-primary" onclick="saveshield(event);">Save as File</button></div>
-                <div class="p-1"><button type="button" class="btn-block btn-primary" onclick="newTab();">Open in New Tab</button></div>
+                <div class="p-1"><button type="button" class="btn-block btn-primary" onclick="newTab();">Print Shield</button></div>
+                <div class="p-1"><button type="button" class="btn-block btn-primary" onclick="toggleDrawOptions()">Preferences</button></div>
             </div>
         </div> 
     </div>
 </form>
+<div id="optionsPanel" class="panel" style="display: none;"></div>
 <div class="row">
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-sm-12" id="shieldimg"></div>
     <div class="col-lg-8 offset-lg-2  col-md-10 offset-md-1 col-sm-12 text-center"><a href="/create/index.html" id="shieldcaption">Your shield here</a></div>
@@ -77,27 +76,13 @@ includeSocial: true
     </div>
 </div>
 <div class="row">
-    <div  class="col-lg-8 offset-lg-1 col-sm-12 p-1">
+    <div  class="col-lg-7 col-sm-12 p-1">
         {% include social.html message = "Take a look at this shield design" %}
     </div>
-</div>
-<div class="row">
-    <div class="col-lg-8 offset-lg-1 col-sm-12 p-1">
-        <div class="row">
-            <div class="col-lg-4 col-sm-6 p-1">
-                <a class="btn btn-primary" onclick="toggleDrawOptions()">Drawing Options... </a>
-            </div>
-            <div class="col-lg-4 col-sm-6 p-1">                
-                <a class="btn btn-primary" onclick="togglePartsFinder()">Parts Finder...</a>
-            </div>
-            <div class="col-lg-4 col-sm-6 p-1">
-                <a class="btn btn-primary" onclick="setupSuggestion()">Submit to Gallery...</a>&nbsp;
-            </div>
-        </div>
+    <div class="col-lg-5 col-sm-12 p-1">
+        <a class="btn btn-primary" onclick="setupSuggestion()">Submit to Gallery...</a>&nbsp;
     </div>
 </div>
-<div id="optionsPanel" class="panel" style="display: none;"></div>
-<div id="partsPanel" class="panel"  style="display: none;"></div>
 <div class="row panel" id="galleryPanel" style="display: none;">
     <div class="col-lg-8 offset-lg-2 col-sm-12 card p-1">
         <form class="contact-form" method="post" action="/contact/reply-form.php" role="form">
@@ -128,7 +113,6 @@ includeSocial: true
 <script src="/js/contact.js"></script>
 <script src="randomshield.js"></script>
 <script src="createshield.js"></script>
-<script src="parts-finder.js"></script>
 
 
 <!-- ./create.ejs ends -->

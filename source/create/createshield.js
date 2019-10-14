@@ -364,6 +364,7 @@ function newTab() {
     form.elements["effect"].value = effect;
     form.elements["palette"].value = palette;
     form.elements["ar"].value = aspectRatio;
+    window.alert("The shield will be drawn in a new tab. Please use your browser menu to print it");
     form.submit();
 }
 
