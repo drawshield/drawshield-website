@@ -78,7 +78,7 @@
             {regex: /\bto\s*(the)?\b/i, token: "extra1" },
             {regex: /\blikewise\b/i, token: "extra1", next: "start" },
             {regex: /\b(in)?\s*the\s+same\s+(way|fashion|manner)\b/i, token: "extra1", next: "start" },
-            {regex: /\b(dexter|sinister|larger|bigger|smaller|above|raised|lifted|higher|below|lower|lowered|dropped)\s*(from|to|of|than)?\s*(the)?\s*(normal|usual)?\s*(position|location|place)?s?/i, token: "extra1", next: "start"},
+            {regex: /\b(dexter|sinister|larger|bigger|smaller|above|raised|lifted|slightly|a\slittle|higher|below|lower|lowered|dropped)\s*(from|to|of|than)?\s*(the)?\s*(normal|usual)?\s*(position|location|place)?s?/i, token: "extra1", next: "start"},
           ]
         });
         var blazonEditor = CodeMirror.fromTextArea(document.getElementById('blazon'), {
