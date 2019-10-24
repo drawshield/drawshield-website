@@ -2,5 +2,6 @@ resources/
 temp/
 Videos/
 Gemfile.lock
+source/gallery/index*.html
 
-
+source/gallery/index.html
