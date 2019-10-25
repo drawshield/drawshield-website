@@ -13,8 +13,8 @@ foreach ($fullFilelist as $fileName) {
 }
 unset($fullFilelist);
 
-$start = 0;
-$limit = 1;
+$start = 99;
+$limit = 300;
 
 $indexHeader = <<< INDEXEND
 ---
