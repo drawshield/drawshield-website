@@ -76,6 +76,7 @@
         "cross-formy-pierced", "crosslet-formy-pierced",
         "scissors-pair-2", "pair-of-scissors",
         "shears-pair-2", "pair-of-shears",
+        "cross-jerusalem", "jerusalem-cross",
         "calvary-1", "cross-calvary-on-1-step",
         "calvary-2", "cross-calvary-on-2-steps",
         "calvary-3", "cross-calvary-on-3-steps",
