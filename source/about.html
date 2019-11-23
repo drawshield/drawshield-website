@@ -2,16 +2,26 @@
 title: About This Website
 ---
 
+<h2>Site Information</h2>
+<dl>
+    <dt>Build:</dt>
+    <dd>{{ site.buildNum }}</dd>
+    <dt>Date:</dt>
+    <dd>{{ "now" | date: "%Y-%m-%d %H:%M" }}</dd>
+    <dt>URL:</dt>
+    <dd>{{ site.url }}</dd>
+    <dt>Pages:</dt>
+    <dd>{{ site.pages.size }}</dd>
+</dl>
 <h2>Who</h2>
 <p>My name is Karl Wilcox. I am an educator, web developer and programmer living in Lincolnshire, in the East of England. You can find out much more about my background on <a href="http://www.linkedin.com/in/karlwilcox">Linked In</a> so I won't repeat it here.</p>
 <h2>Why</h2>
 <p>I looked at Heraldry and blazonry as a programming language, and wrote a compiler for it. The original idea belongs to my group project supervisor for my undergraduate degree, which we implemented in UCSD Pascal on an Apple ][. About 20 years later, looking for a project to test my programming skills I re-implemented it and massively expanded it in PHP and SVG.</p>
 <p>While researching blazonry I found many good resource on archive.org but found the multi-megabyte PDFs a difficult medium to use comfortably. Hence, I started another project to convert these into cleaner, searchable web pages.</p>
 <h2>How</h2>
-<p>The source files for this website are HTML5 and CSS with Embedded JavaScript ("ejs files") and are edited where necessary using <a href="http://sublimetext.com">Sublime Text 3</a>. I use <a href="http://harpjs.com">Harp</a> to compile these files into pure HTML5 and CSS. The page layouts make use of <a href="http://getbootstrap.com">Bootstrap 4</a> design elements with a custom theme designed by me.</p>
-<p>The interactive parts of the pages are written in JavaScript, and the server-side programs such as the main DrawShield engine are written in PHP, again edited with Sublime Text 3.</p>
-<p>Bitmapped images and photographs are manipulated using Serif <a href="http://affinity.serif.com">Affinity Photo</a>. Vector images and other design elements were created using Serif <a href="http://affinity.serif.com">Affinity Designer</a></p>
-<p>Most development work is done on a 27" Retina iMac under Mac OS, with 16GB of RAM and 1TB fusion drive. This desktop system has a daily backup to a Network Storage device using <a href="http://bombich.com">Carbon Copy Cloner</a> and a continuous incremental backup to a separate external drive using Time Machine. I also have a MacBook Pro available for offsite editing, the two Apple devices are synchronised via iCloud document sharing. </p>
-<p>The test system is a Linux Mint Virtual Machine image running the Apache Web Server. The virtual machine is hosted by VirtualBox, itself running under Linux Mint natively on a headless 2008 MacMini server. <a href="http://filezilla.com">Filezilla</a> is used to synchronise the development version and the test system.</p>
-<p>The live pages are served from a shared Linux server running Apache and provided by <a href="http://ukhost4u.com">UKHost4U</a>, again Filezilla is used to upload the pages.</p>    
+<p>The source files for this website are HTML5 and CSS with Embedded Liquid tags and are edited  using <a href="https://code.visualstudio.com/">Visual Studio Code</a>. I use <a href="https://jekyllrb.com/">Jekyll</a> to compile these files into pure HTML5 and CSS. The page layouts make use of <a href="http://getbootstrap.com">Bootstrap 4</a> design elements with a custom theme designed by me.</p>
+<p>The interactive parts of the pages are written in JavaScript, and the server-side programs such as the main DrawShield engine are written in PHP, again edited with Visual Studio Code.</p>
+<p>All of the website source files can be found on Github at <a href="https://github.com/karlwilcox/drawshield-website">https://github.com/karlwilcox/drawshield-website</a>.</p>
+<p>All development work is done on a Dell Alienware R7 desktop, with 16GB of RAM running Ubuntu 18.04 and driving 2 27" Samsung Ultra HD displays.</p>
+<p>The live pages are served from an AWS Lightsail instance, also running Ubuntu 18.04. <a href="http://filezilla.com">Filezilla</a> is used to synchronise the development version and the live system.</p>   
 <img src="img/Karl-at-work.jpg" class="img-fluid">
