@@ -6,13 +6,6 @@
                 $(this).ekkoLightbox({wrapping: false});
             });</script>
         {% endif %}
-        {% if page.includeSocial %}
-        <script type="text/javascript" src="/js/social-share-kit.js"></script>
-        <script type="text/javascript">SocialShareKit.init();</script>
-        {% endif %}
-        {% if page.editor %}
-            {% include blazon-editor.html %}
-        {% endif %}
         {% if page.combobox %}
         <script src="/catalog/parts-finder.js"></script>
         {% endif %}

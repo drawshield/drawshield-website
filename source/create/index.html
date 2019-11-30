@@ -1,7 +1,6 @@
 ---
 pageTitle: Create a Shield from a Blazon
 editor: true
-includeSocial: true
 ---
 <!-- ./create.ejs starts -->
 <div class="row">
@@ -13,7 +12,7 @@ includeSocial: true
 <form id="blazonForm" method="post" enctype="multipart/form-data">   
     <div class="row">
         <div class="col-sm-12 col-lg-8">
-            <fieldset class="form-group">                
+            <fieldset class="form-group">
                 <textarea class="form-control" placeholder="Enter a blazon" id="blazon" name="blazon" spellcheck="false" rows="2"></textarea>
                 <small id="fileHelp" class="form-text text-muted">Type or paste your blazon above or upload it in a plain text file.</small>
                 <input style="width: 400px;" type="file" class="form-control-file  btn-primary d-inline-block" id="blazonInputFile" aria-describedby="fileHelp" name="blazonfile">
@@ -26,13 +25,12 @@ includeSocial: true
                 <input type="hidden" name="effect" value="shiny"/>
                 <input type="hidden" name="saveformat" value="png"/>
                 <input type="hidden" name="ar" value="0.5"/>
+                <input type="hidden" name="editor" value="on"/>
             </fieldset>
         </div>
         <div class="col-sm-12 col-lg-4">
             <div class="d-flex flex-lg-column flex-row">
                 <div class="p-1"><button type="button" class="btn-block btn-danger" onclick="drawshield();">Draw Shield</button></div>
-                <div class="p-1"><button type="button" class="btn-block btn-primary" onclick="saveshield(event);">Save as File</button></div>
-                <div class="p-1"><button type="button" class="btn-block btn-primary" onclick="newTab();">Print Shield</button></div>
                 <div class="p-1"><button type="button" class="btn-block btn-primary" onclick="toggleDrawOptions()">Preferences</button></div>
             </div>
         </div> 
@@ -76,11 +74,14 @@ includeSocial: true
     </div>
 </div>
 <div class="row">
-    <div  class="col-lg-7 col-sm-12 p-1">
-        {% include social.html message = "Take a look at this shield design" %}
+    <div class="col-lg-4 col-sm-12 p-1">
+        <button type="button" class="btn-block btn-primary" onclick="setupSuggestion();">Submit to Gallery</button>
     </div>
-    <div class="col-lg-5 col-sm-12 p-1">
-        <a class="btn btn-primary" onclick="setupSuggestion()">Submit to Gallery...</a>&nbsp;
+    <div class="col-lg-4 col-sm-12 p-1">
+        <button type="button" class="btn-block btn-primary" onclick="saveshield(event);">Save as File</button>
+    </div>
+    <div class="col-lg-4 col-sm-12 p-1">
+        <button type="button" class="btn-block btn-primary" onclick="newTab();">Print Shield</button>
     </div>
 </div>
 <div class="row panel" id="galleryPanel" style="display: none;">
