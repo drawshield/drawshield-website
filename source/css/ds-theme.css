@@ -302,14 +302,16 @@ a.list-group-item-action {
 .cm-s-default .cm-black-white {color: white;  background-color: black;}
 .cm-s-default .cm-black-yellow {color: #EFD807;  background-color: black;}
 .cm-s-default .cm-blue-white {color: white;  background-color: blue;}
-/* Major components */
-.cm-s-default .cm-quarterly {color: #708; text-decoration: underline;}
-.cm-s-default .cm-division {color: #a50;}
+/* Numbers */
 .cm-s-default .cm-number {color: #085;}
 /* Non-standard extensions */
 .cm-s-default .cm-string {color: #4b8458;}
-.cm-s-default .cm-extra1 {color: #c08785;}
-.cm-s-default .cm-extra2 {color: #b67e64;}
+.cm-s-default .cm-charge-adjustment {color: #dc07e4;}
+.cm-s-default .cm-drawing-instructions {color: #a50;}
 
 .cm-s-default .cm-comment {color: #d0166d; background-color: #ffeaf4}
+.cm-s-default .cm-square-brackets {color: #050505; background-color: lightgrey; 
+                        text-decoration: underline; text-decoration-style: wavy;}
+.cm-s-default .cm-round-brackets {color: #050505; 
+                        font-style: italic;}
 

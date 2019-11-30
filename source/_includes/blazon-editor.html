@@ -16,72 +16,164 @@
     <script src="/js/keymap/sublime.js"></script>
     <script src="/js/blazon-hint.js"></script>
     <script>
-        CodeMirror.defineSimpleMode("blazonry", {
-          // The start state contains the rules that are initially used
-          start: [
-            // The regex matches the token, the token property contains the type
-            {regex: /"(?:[^\\]|\\.)*?(?:"|$)/, token: "string"},
-            {regex: /\((?:[^\\]|\\.)*?(?:\)|$)/, token: "comment"},
-            {regex: /\[(?:[^\\]|\\.)*?(?:\]|$)/, token: "comment"},
-            {regex: /(sinister|reversed|dexter|inverted|enhanced|abased|rompu|fracted)'/i, token: "orientation"},
-            // Colours (individually)
-            {regex: /azure/i, token: "azure"},
-            {regex: /sable/i, token: "sable"},
-            {regex: /[a-z]+or[a-z]*/ }, // not words with "or" in them
-            {regex: /(?:or)\b/i, token: "or"},
-            {regex: /vert/i, token: "vert"},
-            {regex: /argent/i, token: "argent"},
-            {regex: /gules/i, token: "gules"},
-            {regex: /brunatre/i, token: "brunatre"},
-            {regex: /purpure/i, token: "purpure"},
-            {regex: /murrey/i, token: "murrey"},
-            {regex: /sanguine/i, token: "sanguine"},
-            {regex: /carnation/i, token: "carnation"},
-            {regex: /[a-z]+rose[a-z]*/ }, // not words with "rose" in them
-            {regex: /(?:rose)\b/i, token: "rose"},
-            // Furs
-            {regex: /ermin(e|es|ites)/i, token: "black-white"},
-            {regex: /counter\s+ermine/i, token: "black-white"},
-            {regex: /[a-z]+pean[a-z]*/ }, // not words with "pean" in them
-            {regex: /(?:erminois|pean)\b/i, token: "black-yellow"},
-            {regex: /[a-z]+(potent|vair)[a-z]*/ }, // not words with "potent" or "vair" in them
-            {regex: /(?:potent|vair)\b/i, token: "blue-white"},
-            {regex: /counter\s+(potent|vair)/i, token: "blue-white"},
-            {regex: /vair\s+(in|en)\s+(pale|point)/i, token: "blue-white"},
-            {regex: /\potent\s+counter\s+potent/i, token: "blue-white"},
-           // {regex: /(bend|fess|pale|chief|saltire|cross|bordure)/i, token: "ordinary"},
-            {regex: /tierced\s+in/i, token: "division", next: "division"},
-            // don't match per in proper
-            {regex: /proper/i, token: "none" },
-            {regex: /(per|parted)/i, token: "division", next: "division"},
-            {regex: /quarterly\s*(of)?\s+[0-9]*/i, token: "quarterly"},
-            {regex: /[^\(]\w+\)/i, token: "quarterly"},
-            {regex: /[0-9]+/, token: "number"},
-            {regex: /\/\/.*/, token: "comment"},
-            {regex: /#.*/, token: "comment"},
-            // A next property will cause the mode to move to a different state
-            {regex: /\/\*/, token: "comment", next: "comment"},
-            {regex: /(shown|shewn|moved|somewhat)/i, token: "extra1", next: "extra1" },
-            {regex: /drawn\s+(with|in|using)?\s*(a|an|the)?\s*\w+\s*(appearance|style|effect|tinctures|colou?rs|shape)/i, token: "extra2"},
-          ],
-          // The multi-line comment state.
-          comment: [
-            {regex: /.*?\*\//, token: "comment", next: "start"},
-            {regex: /.*/, token: "comment"}
-          ], // Divisions
-          division: [
-            {regex: /\w+/i, token: "division", next: "start"}
-          ], // Non standard charge modifications
-          extra1: [
-            {regex: /\b(somewhat|much)\b/i, token: "extra1" },
-            {regex: /\ba\s+lot\b/i, token: "extra1" },
-            {regex: /\bto\s*(the)?\b/i, token: "extra1" },
-            {regex: /\blikewise\b/i, token: "extra1", next: "start" },
-            {regex: /\b(in)?\s*the\s+same\s+(way|fashion|manner)\b/i, token: "extra1", next: "start" },
-            {regex: /\b(dexter|sinister|larger|bigger|smaller|above|raised|lifted|slightly|a\slittle|higher|below|lower|lowered|dropped)\s*(from|to|of|than)?\s*(the)?\s*(normal|usual)?\s*(position|location|place)?s?/i, token: "extra1", next: "start"},
-          ]
+        CodeMirror.defineMode("blazonry", function() {
+            return {
+                startState: function() {return {inString: false,
+                                                squareBrackets: false,
+                                                roundBrackets: false,
+                                                drawingInstructions: false,
+                                                chargeAdjustment: false,
+                                                inComment: false
+                                            };},
+                token: function(stream, state) {
+                    // single line comments always win
+                    if (stream.peek() == '#') {
+                        stream.skipToEnd();
+                        return 'comment';
+                    }
+                    slash = false;
+                    if (stream.peek() == '/') {
+                        stream.next(); // move on
+                        if (stream.peek() == '/') {
+                            stream.skipToEnd();
+                            return 'comment';
+                        } else {
+                            slash = true;
+                        }
+                    }
+                    // then multi-line (delimited) comments
+                    if (!inComment && slash && stream.peek() == '*') {
+                        state.inComment = true;
+                        return 'comment';
+                    }
+                    if (state.inComment && stream.peek() == '*') {
+                        stream.next();
+                        if (stream.peek() == '/') {
+                            state.inComment = false;
+                        }
+                        return 'comment';
+                    }
+                    // then strings
+                    if (!state.inString && stream.peek() == '"') {
+                        stream.next();            // Skip quote
+                        state.inString = true;    // Update state
+                    }
+                    if (state.inString) {
+                        if (stream.skipTo('"')) { // Quote found on this line
+                            // but ignore if preceded by backslash
+                            stream.backUp(1);
+                            if (stream.peek() == '\\') {
+                                stream.next();
+                                stream.next();
+                                return "string"; // still in a string
+                            } // else
+                            stream.next();          // undo the backUp
+                            stream.next();          // Skip quote
+                            state.inString = false; // Clear flag
+                        } else {
+                            stream.skipToEnd();    // Rest of line is string
+                        }
+                        return "string";          // Token style
+                    }
+                    // Brackets next
+                    if (!state.squareBrackets && stream.peek() == '[') {
+                        stream.next();
+                        state.squareBrackets = true;
+                    }
+                    if (state.squareBrackets) {
+                        if (stream.skipTo(']')) {
+                            stream.next();
+                            state.squareBrackets = false;
+                        } else {
+                            stream.skipToEnd();
+                        }
+                        return 'square-brackets';
+                    }
+                    if (!state.roundBrackets && stream.peek() == '(') {
+                        stream.next();
+                        state.roundBrackets = true;
+                    }
+                    if (state.roundBrackets) {
+                        if (stream.skipTo(')')) {
+                            stream.next();
+                            state.roundBrackets = false;
+                        } else {
+                            stream.skipToEnd();
+                        }
+                        return 'round-brackets';
+                    }
+                    // All other spaces are not significant
+                    if (stream.eatSpace()) return; // no token
+                    // so must have a non-space, gather up a whole word
+                    var word = '';
+                    while((found = stream.eat(/[A-Za-z-]/)) != undefined)
+                        word += found;
+                    // is the word a tincture?
+                    var tinctures = ['azure','or','vert','argent','sable','gules',
+                            'brunatre','purpure','murrey','sanguine','carnation',
+                            'rose'];
+                    if (tinctures.includes(word)) return word;
+                    // is the word a fur?
+                    switch (word.toLowerCase()) {
+                        case 'ermine':
+                        case 'counter-ermine':
+                        case 'ermines':
+                        case 'erminites':
+                            return 'black-white';
+                            break;
+                        case 'pean':
+                        case 'erminois':
+                            return 'black-yellow';
+                            break;
+                        case 'potent':
+                        case 'vair':
+                        case 'counter-potent':
+                        case 'potent-counter-potent':
+                            return 'black-yellow';
+                        default:
+                    }
+                    // is it part of a charge adjustment?
+                    var chargeAdj1 = ['shown', 'shewn', 'moved' ];
+                    var chargeAdj2 = ['to', 'of', 'than', 'the', 'is', 'normal',
+                            'usual', 'position', 'location', 'and', 'somewhat',
+                            'place', 'positions', 'locations', 'places', 
+                            'very', 'much', 'a', 'lot', 'dexter',
+                            'little', 'slightly', 'larger', 'smaller', 
+                            'bigger', 'above', 'raised', 'sinister',
+                            'lifted', 'higher', 'below', 'lower', 
+                            'lowered', 'dropped', 'further',
+                            'close', 'closer', 'together', 'apart' ];
+                    if (!state.chargeAdjustment && chargeAdj1.includes(word)) {
+                        state.chargeAdjustment = true;
+                        return 'charge-adjustment';
+                    }
+                    if (state.chargeAdjustment) { 
+                        if (chargeAdj2.includes(word))
+                            return 'charge-adjustment';
+                        else
+                            state.chargeAdjustment = false;
+                    }
+                    // or is it part of the drawing instructions?
+                    var drawing1 = ['palette', 'with', 'in', 'using',
+                            'a', 'an', 'and', 'the', 'tinctures',
+                            'colours', 'colors', 'shape', 'appearance',
+                            'style', 'effect', 'aspect',
+                            'ratio', 'of', 'proportions'];
+                    if (!state.drawingInstructions && word == 'drawn') {
+                        state.drawingInstructions = true;
+                        return 'drawing-instructions';
+                    }
+                    if (state.drawingInstructions && drawing1.includes(word)) {
+                        return 'drawing-instructions';
+                    }
+                    // otherwise it isn't anything we need to highlight
+                    return; // no token
+                } // end of token function
+            }; // end of return
         });
-        var blazonEditor = CodeMirror.fromTextArea(document.getElementById('blazon'), {
+    
+function createEditor() {
+    return CodeMirror.fromTextArea(document.getElementById('blazon'), {
         mode: "blazonry",
         theme: "default",
         keymap: "sublime",
@@ -167,8 +259,8 @@
                 }
             }]
         });
-        if (editorLoad != null) { 
-            loadEditor(editorLoad);
-        }
+}
+
+
     </script>
 <!-- blazonEditor partial ends -->

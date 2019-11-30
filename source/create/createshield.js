@@ -16,7 +16,9 @@ var effect = 'shiny';
 var shape = 'heater';
 var saveFormat = 'png';
 var aspectRatio = '0.5';
+var useEditor = 'yes';
 var editorLoad = null;
+var blazonEditor;
 
 function setCookies() {
     setCookie('palette',palette);
@@ -35,6 +37,7 @@ function getCookies() { // override defaults if cookies are set
     if ((temp = getCookie('saveWidth')) != '') saveWidth = temp;
     if ((temp = getCookie('saveFormat')) != '') saveFormat = temp;
     if ((temp = getCookie('aspectRatio')) != '') aspectRatio = temp;
+    if ((temp = getCookie('useEditor')) != '') useEditor = temp;
 }
 
 function setCookie(cname, cvalue, exdays ) {
@@ -43,6 +46,50 @@ function setCookie(cname, cvalue, exdays ) {
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     var expires = "expires="+d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function growTextArea()
+{
+  if ( useEditor == 'yes') return; // let codeMirror do the sizing
+//   textLines = (blazonEditor.value.match(/\n/g)||[]).length;
+//   currentLines = blazonEditor.getAttribute('rows');
+//   if  (currentLines < textLines) {
+//       blazonEditor.setAttribute('rows',textLines + 1);
+//   }
+  if (blazonEditor.clientHeight < blazonEditor.scrollHeight)
+  {
+    blazonEditor.style.height = blazonEditor.scrollHeight + "px";
+    if (blazonEditor.clientHeight < blazonEditor.scrollHeight)
+    {
+      blazonEditor.style.height = 
+        (blazonEditor.scrollHeight * 2 - blazonEditor.clientHeight) + "px";
+    }
+  }
+}
+
+function switchEditor() {
+    useEditor = (document.getElementById('use-editor').checked == true) ? 'yes' : 'no';
+    setCookie('useEditor',useEditor);
+    content = '';
+    if (useEditor == 'yes') {
+        blazonEditor.onkeyup = null;
+        blazonEditor = createEditor();
+    } else {
+        if (typeof(blazonEditor.getWrapperElement) == 'function') {
+            content = blazonEditor.getValue();
+            editor =  blazonEditor.getWrapperElement();
+            editor.parentNode.removeChild(editor);
+            buttons = document.getElementsByClassName('CodeMirror-buttonsPanel');
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].parentNode.removeChild(buttons[i]);
+            }
+        }
+        blazonEditor = document.getElementById('blazon');
+        blazonEditor.setAttribute('style','');
+        blazonEditor.value = content;
+        blazonEditor.onkeyup = growTextArea;
+        growTextArea();
+    }
 }
 
 function getCookie(cname) {
@@ -97,7 +144,8 @@ function setOptions() {
             option.checked = true;
             break;
         }
-    }    
+    }   
+    $('#use-editor').attr('checked',(useEditor == 'yes'));
 }
 
 function toggleDrawOptions() { // load or unload the options panel
@@ -155,7 +203,6 @@ function readOptions() {
             break;
         }
     }
-
     // These are only set if the options panel has been loaded
     setCookies();
 }
@@ -168,6 +215,7 @@ function getFormData() {
     formData.append('palette',palette);
     formData.append('size',shieldSize);
     formData.append('ar',aspectRatio);
+   // formData.append('useEditor',useEditor); // not needed on server
     return formData;
 }
 
@@ -208,14 +256,6 @@ function submitSuggestion(event) {
     return true;
 }
 
-function togglePartsFinder() {
-    if (!partsLoaded) {
-        jQuery('#partsPanel').load("/create/parts-finder.html");
-        partsLoaded = true;
-    }
-    togglePanel('partsPanel');
-}
-
 function clearFile(event) {
     document.getElementById('blazonInputFile').value = null;  
 }
@@ -246,7 +286,6 @@ function drawFile() {
         shieldCaption.firstChild.nodeValue = "Uploaded file - " + uploadedFile.name;
         baseURL = "http://" + window.location.hostname + "/create/index.html"
         shieldCaption.setAttribute("href",baseURL);
-        document.getElementById('social-links').setAttribute('data-url',baseURL);
         document.getElementById('suggestion').innerHTML = "Please e-mail your file or copy the contents into the textarea";
         requestFileSVG(targetURL,shieldtarget,formData,displayMessages);
     }
@@ -266,7 +305,10 @@ function saveBlazon(data) {
 }
 
 function loadEditor(data) {
-    blazonEditor.setValue(data);
+    if (useEditor == 'yes')
+        blazonEditor.setValue(data);
+    else
+        blazonEditor.value = data;
     clearFile();
 }
 
@@ -335,18 +377,23 @@ function drawshield(blazon) {
     shieldCaption = document.getElementById(captiontarget);
     readOptions(); // in case any have changed
     var formData = getFormData();
-    if (blazon != null)
+    if (blazon != null){
         blazonText = blazon;
-    else
-        blazonText = blazonEditor.getValue();
+    } else { 
+        if (useEditor == 'yes')
+            blazonText = blazonEditor.getValue();
+        else
+            blazonText = blazonEditor.value;
+    }
     captionText = stripComments(blazonText);
-    var blazonURL = "http://" + window.location.hostname + "/create/index.html?blazon=" + encodeURIComponent(captionText);
+    var blazonURL = "http://" + window.location.hostname + "/create/index.html?blazon="
+         + encodeURIComponent(captionText) + "&palette=" + palette
+         + "&shape=" + shape + "&effect=" + effect + "&ar=" + aspectRatio;
     if (captionText.length > 70) {
         captionText = captionText.substring(0,67) + '...';
     }
     shieldCaption.firstChild.nodeValue = captionText ;
     shieldCaption.setAttribute("href",blazonURL);
-    document.getElementById('social-links').setAttribute('data-url',blazonURL);
     document.getElementById('suggestion').innerHTML = blazonText;
     if (blazonText != '') formData.append('blazon',blazonText);
     requestFileSVG(targetURL,shieldtarget,formData,displayMessages);
@@ -472,7 +519,19 @@ function setupshield(initial) {
         requestFileSVG(targetURL,shieldtarget,formData,displayMessages);
 //        shieldCaption.firstChild.nodeValue = "Your shield here";
     }
+    if (useEditor == 'yes'){
+        blazonEditor = createEditor();
+    } else{
+        blazonEditor = document.getElementById('blazon');
+        blazonEditor.onkeyup = growTextArea;
+        growTextArea();
+    }
+    if (editorLoad != null) { 
+        loadEditor(editorLoad);
+    }
     document.getElementById("suggestButton").addEventListener("click",submitSuggestion);
 }
 
+
 window.onload = setupshield(get_blazon());
+
