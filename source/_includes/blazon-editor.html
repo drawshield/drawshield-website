@@ -23,7 +23,8 @@
                                                 roundBrackets: false,
                                                 drawingInstructions: false,
                                                 chargeAdjustment: false,
-                                                inComment: false
+                                                inComment: false,
+                                                celestial: false
                                             };},
                 token: function(stream, state) {
                     // single line comments always win
@@ -42,15 +43,19 @@
                         }
                     }
                     // then multi-line (delimited) comments
-                    if (!inComment && slash && stream.peek() == '*') {
+                    if (!state.inComment && slash && stream.peek() == '*') {
                         state.inComment = true;
+                        stream.next();
                         return 'comment';
                     }
-                    if (state.inComment && stream.peek() == '*') {
-                        stream.next();
-                        if (stream.peek() == '/') {
-                            state.inComment = false;
+                    if (state.inComment) {
+                        if (stream.peek() == '*') {
+                            stream.next();
+                            if (stream.peek() == '/') {
+                                state.inComment = false;
+                            }
                         }
+                        stream.next();
                         return 'comment';
                     }
                     // then strings
@@ -108,13 +113,79 @@
                     var word = '';
                     while((found = stream.eat(/[A-Za-z-]/)) != undefined)
                         word += found;
+                    // if word is empty, this must be punctuation
+                    if (word == '') {
+                        stream.next();
+                        return 'punctuation';
+                    }
+                    word = word.toLowerCase();
                     // is the word a tincture?
-                    var tinctures = ['azure','or','vert','argent','sable','gules',
+                    var tinctures = ['or','vert','argent','sable','gules',
                             'brunatre','purpure','murrey','sanguine','carnation',
-                            'rose'];
+                            'rose', 'orange', 'tenne', 'cendree', 'bisque', 'senois'];
                     if (tinctures.includes(word)) return word;
+                    // is abbreviated (or an alternate)?
+                    switch (word) {
+                        case 'azure':
+                        case 'blue':
+                        case 'az':
+                            if (state.celestial) {
+                                state.celestial = false;
+                                return 'celestial';
+                            } else {
+                                return 'azure';
+                            }
+                            break;
+                        case 'gold':
+                            return 'or';
+                            break;
+                        case 'sinople':
+                        case 'green':
+                            return 'vert';
+                            break;
+                        case 'gu':
+                        case 'gui':
+                        case 'guiles' :
+                        case 'red':
+                            return 'gules';
+                            break;
+                        case 'arg':
+                        case 'white':
+                        case 'silver':
+                            return 'argent';
+                            break;
+                        case 'sa':
+                        case 'black':
+                            return 'sable';
+                            break;
+                        case 'purple':
+                            return 'purpure';
+                            break;
+                        case 'brown':
+                            return 'brunatre';
+                            break;
+                        case 'pink':
+                            return 'rose';
+                            break;
+                        case 'bis':
+                            return 'bisque';
+                            break;
+                        case 'tanned':
+                        case 'tawny':
+                            return 'tenne';
+                            break;
+                        case 'celestial':
+                        case 'bleu':
+                        case 'celeste':
+                        case 'horizon':
+                            state.celestial = true;
+                            return 'celestial';
+                            break;
+                        default:
+                    }
+                    state.celestial = false;
                     // is the word a fur?
-                    switch (word.toLowerCase()) {
+                    switch (word) {
                         case 'ermine':
                         case 'counter-ermine':
                         case 'ermines':
@@ -133,7 +204,8 @@
                         default:
                     }
                     // is it part of a charge adjustment?
-                    var chargeAdj1 = ['shown', 'shewn', 'moved' ];
+                    var chargeAdj1 = ['shown', 'shewn', 'moved', 'smaller', 'larger',
+                        'higher', 'lower', 'to' ];
                     var chargeAdj2 = ['to', 'of', 'than', 'the', 'is', 'normal',
                             'usual', 'position', 'location', 'and', 'somewhat',
                             'place', 'positions', 'locations', 'places', 
