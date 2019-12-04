@@ -5,19 +5,20 @@ editor: true
 <!-- ./create.ejs starts -->
 <div class="row">
     <div class="col-12">
-        <p>Enter a <strong>blazon</strong> then click the <strong>Draw Shield</strong> 
-        button. There is also a comprehensive <a href="/user-guide"">User Guide</a>, a <a href="/catalog">Visual Catalog</a> of available parts, and a <a href="/tutorial">tutorial on blazonry</a>.  For inspiration look at the <a href="/gallery">gallery</a> or have a <a href="/random">random blazon</a> created for you. Please <a href="/contact">get in touch</a> if you would like some help or have any suggestions! <span style="color:red">New!</span>Oct '19 - limited support for drawing a full achievement, see <a href="/user-guide/blazon-reference/achievement.html">user guide for details.</a>.</p>    
+        <p>Enter a <strong>blazon</strong> into the text area below then click the <strong>Draw Shield</strong> button.<br />
+            For help see the <a href="/user-guide">User Guide</a>, the <a href="/catalog">Visual Catalog</a> of available parts, or the <a href="/tutorial">tutorial on blazonry</a>.<br />
+            For inspiration look at the <a href="/gallery">gallery</a> or have a <a href="/random">random blazon</a> created for you. <a href="/contact">Get in touch</a> if you have questions or suggestions! .</p>    
     </div>
 </div>
-<form id="blazonForm" method="post" enctype="multipart/form-data">   
-    <div class="row">
-        <div class="col-sm-12 col-lg-8">
+<div class="row" style="display: none; margin: 2px;" id="uploadControls">
+    <input id="localFile" type="file" />
+    <button type="button" class="btn-light" onclick="loadLocalFile()">Load into Editor</button>
+</div>
+<div class="row">
+    <div class="col-12">
+        <form id="blazonForm" method="post" enctype="multipart/form-data">   
             <fieldset class="form-group">
                 <textarea class="form-control" placeholder="Enter a blazon" id="blazon" name="blazon" spellcheck="false" rows="2"></textarea>
-                <small id="fileHelp" class="form-text text-muted">Type or paste your blazon above or upload it in a plain text file.</small>
-                <input style="width: 400px;" type="file" class="form-control-file  btn-primary d-inline-block" id="blazonInputFile" aria-describedby="fileHelp" name="blazonfile">
-                <button class="btn-light d-inline-block" type="button" onclick="uploadFile()">Upload</button>
-                <button class="btn-danger d-inline-block" type="button" onclick="drawFile()">Draw</button>
                 <input type="hidden" name="asfile" value="0"/>
                 <input type="hidden" name="size" value="500"/>
                 <input type="hidden" name="palette" value="drawshield"/>
@@ -27,19 +28,21 @@ editor: true
                 <input type="hidden" name="ar" value="0.5"/>
                 <input type="hidden" name="editor" value="on"/>
             </fieldset>
-        </div>
-        <div class="col-sm-12 col-lg-4">
-            <div class="d-flex flex-lg-column flex-row">
-                <div class="p-1"><button type="button" class="btn-block btn-danger" onclick="drawshield();">Draw Shield</button></div>
-                <div class="p-1"><button type="button" class="btn-block btn-primary" onclick="toggleDrawOptions()">Preferences</button></div>
-            </div>
-        </div> 
+        </form>
     </div>
-</form>
-<div id="optionsPanel" class="panel" style="display: none;"></div>
+</div>
 <div class="row">
-    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-sm-12" id="shieldimg"></div>
-    <div class="col-lg-8 offset-lg-2  col-md-10 offset-md-1 col-sm-12 text-center"><a href="/create/index.html" id="shieldcaption">Your shield here</a></div>
+    <div class="col-lg-4 offset-lg-2 col-sm-12 p-1">
+        <button type="button" class=" btn-block btn-primary" onclick="toggleDrawOptions()">Preferences</button>
+    </div>
+    <div class="col-lg-4 col-sm-12 p-1">
+        <button type="button" class=" btn-block btn-danger" onclick="drawshield();">Draw Shield</button>
+    </div>
+</div>
+<div id="optionsPanel" class="panel" style="display: none;"></div>
+<div class="row justify-content-center">
+    <div class="col-lg-10  col-md-12 col-sm-12 text-center" id="shieldimg"></div>
+    <div class="col-lg-10  col-md-12 col-sm-12 text-center"><a href="/create/index.html" id="shieldcaption">Your shield here</a></div>
 </div>
 <div class="row" id="messageDiv" style="display: none;">
     <div class="col-lg-10 offset-lg-1 col-sm-12 card p-1">
@@ -54,7 +57,7 @@ editor: true
                 <button type="button" class="btn-primary btn-sm float-right" onclick="document.getElementById('messageDiv').style.display = 'none';" >Clear</button>
                 <input type="hidden" name="reference" value="Error Report">
             </p>
-            <p>Edit the field above if you need to give more information. See "Contact->View Responses" or follow @drawshield on Twitter for feedback.</p>
+            <p>Edit the field above if you need to give more information. See "Contact-&gt;View Responses" or follow @drawshield on Twitter for feedback.</p>
             <h2>Common Problems</h2>
                 <dl>
                     <dt>Not a complete blazon</dt>

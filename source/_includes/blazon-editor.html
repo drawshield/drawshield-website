@@ -252,7 +252,7 @@ function createEditor() {
         lineNumbers: true,
         lineWrapping: true,
         autoClearEmptyLines: false,
-        value: "\n\n",
+        value: "\n\n\n",
         viewportMargin: Infinity,
         extraKeys: {
             "Ctrl-Space": "autocomplete",
@@ -328,6 +328,13 @@ function createEditor() {
                 label: 'Save',
                 callback: function (cm) {
                     saveBlazon(blazonEditor.getValue());
+                }
+            },
+            {
+                class: 'btn-light',
+                label: 'Load...',
+                callback: function (cm) {
+                    jQuery('#uploadControls').toggle();
                 }
             }]
         });

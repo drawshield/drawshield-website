@@ -17,7 +17,7 @@ var shape = 'heater';
 var saveFormat = 'png';
 var aspectRatio = '0.5';
 var useEditor = 'yes';
-var editorLoad = null;
+var editorLoad = "\n\n\n";
 var blazonEditor;
 
 function setCookies() {
@@ -256,40 +256,40 @@ function submitSuggestion(event) {
     return true;
 }
 
-function clearFile(event) {
-    document.getElementById('blazonInputFile').value = null;  
-}
+// function clearFile(event) {
+//     document.getElementById('blazonInputFile').value = null;  
+// }
 
-function getFile() {
-    var fileSelect = document.getElementById('blazonInputFile');
-    if (fileSelect.files.length == 0) return;
-    uploadedFile = fileSelect.files[0];
-    if ( !uploadedFile.type.match('text/plain')) {
-        alert('Only text files supported');
-        return false;
-    }
-    if ( uploadedFile.size >= 1000000 ) {
-        alert('File must be smaller than 1Mb');
-        return false;
-    }
-    return uploadedFile;
-}
+// function getFile() {
+//     var fileSelect = document.getElementById('blazonInputFile');
+//     if (fileSelect.files.length == 0) return;
+//     uploadedFile = fileSelect.files[0];
+//     if ( !uploadedFile.type.match('text/plain')) {
+//         alert('Only text files supported');
+//         return false;
+//     }
+//     if ( uploadedFile.size >= 1000000 ) {
+//         alert('File must be smaller than 1Mb');
+//         return false;
+//     }
+//     return uploadedFile;
+// }
 
-function drawFile() {
-    var uploadedFile = getFile();
-    if (uploadedFile) {
-        readOptions(); // in case any have changed
-        var formData = getFormData();
-        formData.append('blazonfile', uploadedFile, uploadedFile.name);
-        document.getElementById(messageContainer).style.display = 'none';
-        shieldCaption = document.getElementById(captiontarget);
-        shieldCaption.firstChild.nodeValue = "Uploaded file - " + uploadedFile.name;
-        baseURL = "http://" + window.location.hostname + "/create/index.html"
-        shieldCaption.setAttribute("href",baseURL);
-        document.getElementById('suggestion').innerHTML = "Please e-mail your file or copy the contents into the textarea";
-        requestFileSVG(targetURL,shieldtarget,formData,displayMessages);
-    }
-}
+// function drawFile() {
+//     var uploadedFile = getFile();
+//     if (uploadedFile) {
+//         readOptions(); // in case any have changed
+//         var formData = getFormData();
+//         formData.append('blazonfile', uploadedFile, uploadedFile.name);
+//         document.getElementById(messageContainer).style.display = 'none';
+//         shieldCaption = document.getElementById(captiontarget);
+//         shieldCaption.firstChild.nodeValue = "Uploaded file - " + uploadedFile.name;
+//         baseURL = "http://" + window.location.hostname + "/create/index.html"
+//         shieldCaption.setAttribute("href",baseURL);
+//         document.getElementById('suggestion').innerHTML = "Please e-mail your file or copy the contents into the textarea";
+//         requestFileSVG(targetURL,shieldtarget,formData,displayMessages);
+//     }
+// }
 
 function saveBlazon(data) {
     var form = document.createElement("FORM");
@@ -309,7 +309,7 @@ function loadEditor(data) {
         blazonEditor.setValue(data);
     else
         blazonEditor.value = data;
-    clearFile();
+    // clearFile();
 }
 
 function uploadFile() {
@@ -372,7 +372,7 @@ function uploadFile() {
 
 function drawshield(blazon) {
     uploadedFile = null;
-    clearFile();
+//    clearFile();
     document.getElementById(messageContainer).style.display = 'none';
     shieldCaption = document.getElementById(captiontarget);
     readOptions(); // in case any have changed
@@ -456,6 +456,17 @@ function get_blazon() {
     return getUrlParameter('blazon');
 }
 
+function loadLocalFile() {
+    var file = document.getElementById("localFile").files[0];
+    if (typeof(file) == 'undefined') window.alert("Choose a local file first");
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        loadEditor(e.target.result);
+        jQuery('#uploadControls').hide();
+    };
+    reader.readAsText(file);
+}
+
 function displayMessages(svg) {
     var messageText = '';
     var remarksHTML = '';
@@ -511,7 +522,7 @@ function setupshield(initial) {
     getCookies(); // do we have any saved values?
     initBlazon = "";
     shieldCaption = document.getElementById(captiontarget);
-    if (typeof(initial) !== 'undefined' && initial != null) {
+    if (typeof(initial) !== 'undefined' && initial != null && initial != '') {
         drawshield(initial);
         editorLoad = initial;
     } else {
