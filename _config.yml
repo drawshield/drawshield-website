@@ -16,14 +16,14 @@ defaults:
 siteURL: https://drawshield.net
 siteTitle: DrawShield
 
-buildNum: 616
+buildNum: 620
 
-latestGallery: 9006
+latestGallery: 8992
 incrementGallery: 20
 
 collections:
   catalog:
-    output: false
+    output: true
   reference:
     output: false
   gplus:
