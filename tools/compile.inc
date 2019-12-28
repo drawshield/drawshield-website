@@ -193,6 +193,27 @@ function ordinaries() {
 }
 
 
+function achievements() {
+    global $achievelist, $keep;
+    global $targetDir, $sourceDir, $tempDir;
+
+    @mkdir("$targetDir/achievements");
+    foreach ($achievelist as $path) {
+        list($folder,achievement) = explode('/',$path);
+        if (file_exists("$targetDir/achievements/$folder/achievement.png")) continue;
+        @mkdir("$targetDir/achievements/$folder");
+        $blazon = "gray  achievement " .
+            str_replace(array('-','+'),' ',achievement);
+        $blazon =  rawurlencode($blazon);
+        $execString = 'wget -q -O ' . "$targetDir/achievements/$folder/achievement.png" .
+        ' "http://drawshield.home/include/quickimage.php?blazon=' . $blazon .
+        '&outputformat=png&size=400&effect=none&nomask=1"';
+        echo "Executing $execString\n";
+        exec($execString);
+    }
+}
+
+
 function divisions() {
     global $divList, $keep;
     global $targetDir, $sourceDir, $tempDir;
@@ -281,6 +302,7 @@ function compile($argc, $argv) {
     $edges = false;
     $divs = false;
     $treats = false;
+    $achs = false;
 
     if ($argc > 1) { // must be a subset
         if (substr($argv[1], 0, 3) == 'ord') {
@@ -291,6 +313,8 @@ function compile($argc, $argv) {
             $divs = true;
         } elseif (substr($argv[1], 0, 3) == 'tre') {
             $treats = true;
+        } elseif (substr($argv[1], 0, 3) == 'ach') {
+            $achs = true;
         } else { 
             $allCharges = array_splice($argv, 1);
             $ords = false;
@@ -328,5 +352,8 @@ function compile($argc, $argv) {
     }
     if ($treats) {
         treatments();
+    }
+    if ($achs) {
+        achievements();
     }
 }

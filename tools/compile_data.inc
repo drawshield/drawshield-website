@@ -543,3 +543,16 @@ $treatList = [
     "furs/potent-counter-potent",
 ];
 
+$achievementList = [
+    "components/mantling of ribbons",
+    "components/mantling of a cloak",
+    "components/torse",
+    "components/royal-helmet",
+    "components/knights-helmet",
+    "components/esquires-helmet",
+    "components/lords-helmet",
+    'components/motto-"your-motto',
+    "catholic/of-a-catholic-priest",
+    "catholic/of-a-catholic-monsignor-chaplain",
+    "catholic/of-a-foreign-vicar",
+];

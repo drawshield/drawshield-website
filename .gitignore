@@ -3,5 +3,7 @@ temp/
 Videos/
 Gemfile.lock
 source/gallery/index*.html
-
+var/
+etc/
 source/gallery/index.html
+backups/
