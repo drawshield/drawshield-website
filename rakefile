@@ -39,3 +39,11 @@ task :catalog do
     sh %{ php compile.php }
   end
 end
+
+desc 'Publish Gallery Entries'
+task :publish do
+  Dir.chdir('tools') do
+    sh %{ php publish.php }
+  end  
+end
+
