@@ -199,7 +199,7 @@ function achievements() {
 
     @mkdir("$targetDir/achievements");
     foreach ($achievelist as $path) {
-        list($folder,achievement) = explode('/',$path);
+        list($folder,$achievement) = explode('/',$path);
         if (file_exists("$targetDir/achievements/$folder/achievement.png")) continue;
         @mkdir("$targetDir/achievements/$folder");
         $blazon = "gray  achievement " .

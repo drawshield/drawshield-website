@@ -1,4 +1,5 @@
 task :default do
+  Rake::Task[:latest].invoke
   Rake::Task[:gallery].invoke
   Rake::Task[:jekyll].invoke
   Rake::Task[:bump].invoke
@@ -47,3 +48,9 @@ task :publish do
   end  
 end
 
+desc 'Set lowest gallery entry'
+task :latest do
+  Dir.chdir('tools') do
+    sh %{ php latest.php }
+  end  
+end
