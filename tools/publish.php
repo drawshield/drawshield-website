@@ -161,6 +161,7 @@ while (true) {
 	$endTarget = '<!-- gallery/[....].html ends';
 	$numTarget = 'entryNum:';
 	$execTarget = '<!-- num=NNNN';
+	$fixTarget = 'pageTitle: layout:';
 	$execEnd = '-->';
 	$gatherExecute = false;
     foreach ($lines as $line) {
@@ -174,7 +175,12 @@ while (true) {
 			continue;
 		}
         if (startsWith($titleTarget, $line)) {
+			if (startsWith($fixTarget, $line)) {
+				$output .= "layout: gallery-entry\n";
+				$title = '(Untitled)';
+			} else {
             $title = trim(substr($line, strlen($titleTarget)));
+			}
 			if ($title == '') $title = '(Untitled)';
 			$copy = true;
 			$output .= $titleTarget . ' ' . $title . "\n";

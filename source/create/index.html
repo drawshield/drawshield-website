@@ -11,9 +11,22 @@ editor: true
             <a href="/contact">Get in touch</a> if you have questions or suggestions! .</p>    
     </div>
 </div>
+<div class="row" style="margin: 2px;" id="editorButtons">
+    <div class="col-12">
+        <button type="button" class="btn-light" onclick="edChangeMode()">Hilite</button>
+        <button type="button" class="btn-light" onclick="edFind()">Find</button>
+        <button type="button" class="btn-light" onclick="edReplace()">Replace</button>
+        <button type="button" class="btn-light" onclick="edJump()">Goto</button>
+        <button type="button" class="btn-light" onclick="edMaximise()">Fullscreen</button>
+        <button type="button" class="btn-light" onclick="edCopy()">Copy</button>
+        <button type="button" class="btn-light" onclick="edClear()">Clear</button>
+        <button type="button" class="btn-light" onclick="edSave()">Save</button>
+        <button type="button" class="btn-light" onclick="edLoad()">Load...</button>
+    </div>
+</div>
 <div class="row" style="display: none; margin: 2px;" id="uploadControls">
     <input id="localFile" type="file" />
-    <button type="button" class="btn-light" onclick="loadLocalFile()">Load into Editor</button>
+    <div class="col-12"><button type="button" class="btn-light" onclick="loadLocalFile()">Upload</button></div>
 </div>
 <div class="row">
     <div class="col-12">
@@ -28,6 +41,8 @@ editor: true
                 <input type="hidden" name="saveformat" value="png"/>
                 <input type="hidden" name="ar" value="0.5"/>
                 <input type="hidden" name="editor" value="on"/>
+                <input type="hidden" name="webcols" value="no"/>
+                <input type="hidden" name="whcols" value="no"/>
             </fieldset>
         </form>
     </div>

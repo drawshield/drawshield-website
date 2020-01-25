@@ -3,7 +3,6 @@
     <script src="/js/addon/display/placeholder.js"></script>
     <script src="/js/addon/display/fullscreen.js"></script>
     <script src="/js/addon/display/panel.js"></script>
-    <script src="/js/addon/display/buttons.js"></script>
     <script src="/js/addon/dialog/dialog.js"></script>
     <script src="/js/addon/search/searchcursor.js"></script>
     <script src="/js/addon/search/search.js"></script>
@@ -11,7 +10,6 @@
     <script src="/js/addon/search/matchesonscrollbar.js"></script>
     <script src="/js/addon/search/jump-to-line.js"></script>
     <script src="/js/addon/mode/simple.js"></script>
-    <script src="/js/addon/dialog/dialog.js"></script>
     <script src="/js/addon/hint/show-hint.js"></script>
     <script src="/js/keymap/sublime.js"></script>
     <script src="/js/blazon-hint.js"></script>
@@ -243,7 +241,41 @@
                 } // end of token function
             }; // end of return
         });
+
+function edChangeMode() {
+    if (blazonEditor.getOption('mode') != 'blazonry') {
+        blazonEditor.setOption('mode','blazonry');
+    } else {
+        blazonEditor.setOption('mode','none');
+    }
+}
+
+function edFind() { blazonEditor.execCommand("find"); }
+function edReplace() { blazonEditor.execCommand("replace"); }
+function edJump() { blazonEditor.execCommand("jumpToLine"); }
     
+
+function edMaximise() {
+    if (blazonEditor.getOption("fullScreen")) {
+        blazonEditor.setOption("fullScreen", false);
+        jQuery('.fixed-top').show();
+    } else {
+        alert("Press Esc to restore original screen");
+        blazonEditor.setOption("fullScreen", true);
+        jQuery('.fixed-top').hide();
+    }
+}
+
+function edCopy() {
+    blazonEditor.execCommand("selectAll");
+    document.execCommand("copy");
+    blazonEditor.setSelection({line: 0, ch: 0});
+}
+
+function edClear() { blazonEditor.setValue(''); };
+function edSave() { saveBlazon(blazonEditor.getValue()); };
+function edLoad() { jQuery('#uploadControls').toggle(); };
+
 function createEditor() {
     return CodeMirror.fromTextArea(document.getElementById('blazon'), {
         mode: "blazonry",
@@ -251,93 +283,19 @@ function createEditor() {
         keymap: "sublime",
         lineNumbers: true,
         lineWrapping: true,
-        autoClearEmptyLines: false,
-        value: "\n\n\n",
+        // autoClearEmptyLines: false,
+        // value: "\n\n\n",
         viewportMargin: Infinity,
         extraKeys: {
             "Ctrl-Space": "autocomplete",
             "Esc": function(cm) {
-                if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+                if (cm.getOption("fullScreen")) {
+                    cm.setOption("fullScreen", false);
+                    jQuery('.fixed-top').show();
+                }
             }
-        },
-        buttons: [
-            {
-                hotkey: 'Ctrl-H',
-                class: 'btn-light',
-                label: 'Hilite',
-                callback: function (cm) {
-                    if (cm.getOption('mode') != 'blazonry') {
-                        cm.setOption('mode','blazonry');
-                    } else {
-                        cm.setOption('mode','none');
-                    }
-                }
-            },
-            {
-                class: 'btn-light',
-                label: 'Find',
-                callback: function (cm) {
-                    cm.execCommand("find");
-                }
-            },
-            {
-                class: 'btn-light',
-                label: 'Replace',
-                callback: function (cm) {
-                    cm.execCommand("replace");
-                }
-            },
-            {
-                class: 'btn-light',
-                label: 'Goto',
-                callback: function (cm) {
-                    cm.execCommand("jumpToLine");
-                }
-            },
-            {
-                hotkey: 'F11',
-                class: 'btn-light',
-                label: 'Max',
-                callback: function (cm) {
-                    if (cm.getOption("fullScreen")) {
-                        cm.setOption("fullScreen", false);
-                    } else {
-                        alert("Press Esc to restore original screen");
-                        cm.setOption("fullScreen", true);
-                    }
-                }
-            },
-            {
-                class: 'btn-light',
-                label: 'Copy',
-                callback: function (cm) {
-                    cm.execCommand("selectAll");
-                    document.execCommand("Copy");
-                    cm.setSelection({line: 0, ch: 0});
-                }
-            },
-            {
-                class: 'btn-light',
-                label: 'Clear',
-                callback: function (cm) {
-                    blazonEditor.setValue('');
-                }
-            },
-            {
-                class: 'btn-light',
-                label: 'Save',
-                callback: function (cm) {
-                    saveBlazon(blazonEditor.getValue());
-                }
-            },
-            {
-                class: 'btn-light',
-                label: 'Load...',
-                callback: function (cm) {
-                    jQuery('#uploadControls').toggle();
-                }
-            }]
-        });
+        }
+    });
 }
 
 

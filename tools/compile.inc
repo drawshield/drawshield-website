@@ -293,7 +293,7 @@ function edges() {
 }
 
 function compile($argc, $argv) {
-    global $sourceDir, $targetDir, $tempDir, $ignoreFolders, $action;
+    global $sourceDir, $targetDir, $tempDir, $ignoreFolders, $action, $indexHtml;
 
     @mkdir($tempDir);
 

@@ -19,6 +19,8 @@ var aspectRatio = '0.5';
 var useEditor = 'yes';
 var editorLoad = "\n\n\n";
 var blazonEditor;
+var useWebColours = 'no';
+var useWarhammerColours = 'no';
 
 function setCookies() {
     setCookie('palette',palette);
@@ -27,6 +29,9 @@ function setCookies() {
     setCookie('saveWidth',saveWidth);
     setCookie('saveFormat',saveFormat);
     setCookie('aspectRatio',aspectRatio);
+    setCookie('useEditor',useEditor);
+    setCookie('useWebColours',useWebColours);
+    setCookie('useWarhammerColours',useWarhammerColours);
 }
 
 function getCookies() { // override defaults if cookies are set
@@ -38,6 +43,8 @@ function getCookies() { // override defaults if cookies are set
     if ((temp = getCookie('saveFormat')) != '') saveFormat = temp;
     if ((temp = getCookie('aspectRatio')) != '') aspectRatio = temp;
     if ((temp = getCookie('useEditor')) != '') useEditor = temp;
+    if ((temp = getCookie('useWebColours')) != '') useWebColours = temp;
+    if ((temp = getCookie('useWarhammerColours')) != '') useWarhammerColours = temp;
 }
 
 function setCookie(cname, cvalue, exdays ) {
@@ -48,47 +55,38 @@ function setCookie(cname, cvalue, exdays ) {
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
-function growTextArea()
-{
-  if ( useEditor == 'yes') return; // let codeMirror do the sizing
-//   textLines = (blazonEditor.value.match(/\n/g)||[]).length;
-//   currentLines = blazonEditor.getAttribute('rows');
-//   if  (currentLines < textLines) {
-//       blazonEditor.setAttribute('rows',textLines + 1);
-//   }
-  if (blazonEditor.clientHeight < blazonEditor.scrollHeight)
-  {
-    blazonEditor.style.height = blazonEditor.scrollHeight + "px";
-    if (blazonEditor.clientHeight < blazonEditor.scrollHeight)
-    {
-      blazonEditor.style.height = 
-        (blazonEditor.scrollHeight * 2 - blazonEditor.clientHeight) + "px";
-    }
-  }
+function toggleWebColours() {
+    if (useWebColours == 'yes')
+        useWebColours = 'no';
+    else
+        useWebColours = 'yes;'
 }
+
+function toggleWarhammerColours() {
+    if (useWarhammerColours == 'yes')
+        useWarhammerColours = 'no';
+    else
+        useWarhammerColours = 'yes;'
+}
+
 
 function switchEditor() {
     useEditor = (document.getElementById('use-editor').checked == true) ? 'yes' : 'no';
     setCookie('useEditor',useEditor);
     content = '';
     if (useEditor == 'yes') {
-        blazonEditor.onkeyup = null;
+        jQuery('.editorButtons').show();
         blazonEditor = createEditor();
     } else {
         if (typeof(blazonEditor.getWrapperElement) == 'function') {
             content = blazonEditor.getValue();
             editor =  blazonEditor.getWrapperElement();
             editor.parentNode.removeChild(editor);
-            buttons = document.getElementsByClassName('CodeMirror-buttonsPanel');
-            for (var i = 0; i < buttons.length; i++) {
-                buttons[i].parentNode.removeChild(buttons[i]);
-            }
         }
+        jQuery('.editorButtons').hide();
         blazonEditor = document.getElementById('blazon');
         blazonEditor.setAttribute('style','');
         blazonEditor.value = content;
-        blazonEditor.onkeyup = growTextArea;
-        growTextArea();
     }
 }
 
@@ -146,6 +144,8 @@ function setOptions() {
         }
     }   
     $('#use-editor').attr('checked',(useEditor == 'yes'));
+    $('#webColours').attr('checked',(useWebColours == 'yes'));
+    $('#warhammerColours').attr('checked',(useWarhammerColours == 'yes'));
 }
 
 function toggleDrawOptions() { // load or unload the options panel
@@ -204,6 +204,8 @@ function readOptions() {
         }
     }
     // These are only set if the options panel has been loaded
+    useWebColours = (document.getElementById('webcols').checked) ? 'yes' : 'no';
+    useWarhammerColours = (document.getElementById('whcols').checked) ? 'yes' : 'no';
     setCookies();
 }
 
@@ -215,7 +217,9 @@ function getFormData() {
     formData.append('palette',palette);
     formData.append('size',shieldSize);
     formData.append('ar',aspectRatio);
-   // formData.append('useEditor',useEditor); // not needed on server
+    // formData.append('useEditor',useEditor); // not needed on server
+    if (useWebColours == 'yes') formData.append('webcols','1');
+    if (useWarhammerColours == 'yes') formData.append('whcols','1');
     return formData;
 }
 
@@ -252,44 +256,12 @@ function submitSuggestion(event) {
         }
         suggestion.innerHTML = blazon;
     } // else there was already a blazon there
-    document.getElementById('suggestion-options').value = 'shape=' + shape + ',effect=' + effect + ',palette=' + palette + ',ar=' + aspectRatio;
+    cols = '';
+   if (useWebColours == 'yes') cols += ',webcols=1';
+   if (useWarhammerColours == 'yes') cols += ',whcols=1';
+    document.getElementById('suggestion-options').value = 'shape=' + shape + ',effect=' + effect + ',palette=' + palette + ',ar=' + aspectRatio + cols;
     return true;
 }
-
-// function clearFile(event) {
-//     document.getElementById('blazonInputFile').value = null;  
-// }
-
-// function getFile() {
-//     var fileSelect = document.getElementById('blazonInputFile');
-//     if (fileSelect.files.length == 0) return;
-//     uploadedFile = fileSelect.files[0];
-//     if ( !uploadedFile.type.match('text/plain')) {
-//         alert('Only text files supported');
-//         return false;
-//     }
-//     if ( uploadedFile.size >= 1000000 ) {
-//         alert('File must be smaller than 1Mb');
-//         return false;
-//     }
-//     return uploadedFile;
-// }
-
-// function drawFile() {
-//     var uploadedFile = getFile();
-//     if (uploadedFile) {
-//         readOptions(); // in case any have changed
-//         var formData = getFormData();
-//         formData.append('blazonfile', uploadedFile, uploadedFile.name);
-//         document.getElementById(messageContainer).style.display = 'none';
-//         shieldCaption = document.getElementById(captiontarget);
-//         shieldCaption.firstChild.nodeValue = "Uploaded file - " + uploadedFile.name;
-//         baseURL = "http://" + window.location.hostname + "/create/index.html"
-//         shieldCaption.setAttribute("href",baseURL);
-//         document.getElementById('suggestion').innerHTML = "Please e-mail your file or copy the contents into the textarea";
-//         requestFileSVG(targetURL,shieldtarget,formData,displayMessages);
-//     }
-// }
 
 function saveBlazon(data) {
     var form = document.createElement("FORM");
@@ -411,6 +383,8 @@ function newTab() {
     form.elements["effect"].value = effect;
     form.elements["palette"].value = palette;
     form.elements["ar"].value = aspectRatio;
+    if (useWebColours == 'yes') form.elements["webcols"].checked = true;
+    if (useWarhammerColours == 'yes') form.elements["whcols"].checked = true;
     window.alert("The shield will be drawn in a new tab. Please use your browser menu to print it");
     form.submit();
 }
@@ -441,7 +415,9 @@ function saveshield(e) {
         form.elements["effect"].value = effect;
         form.elements["palette"].value = palette;
         form.elements["ar"].value = aspectRatio;
-        form.submit();
+        if (useWebColours == 'yes') form.elements["webcols"].checked = true;
+        if (useWarhammerColours == 'yes') form.elements["whcols"].checked = true;
+            form.submit();
     }
 }
 
@@ -489,6 +465,8 @@ function displayMessages(svg) {
                 linksHTML += "<li>" + message + "</li>";
                 break;
             case'warning':
+                remarksHTML += "<li><span style='color:orange;'>WARNING</span> " + message + "</li>";
+            break;                
             case'legal':
                 remarksHTML += "<li>" + message + "</li>";
                 break;                
@@ -501,7 +479,11 @@ function displayMessages(svg) {
     }
     if ( messageText.length > 0 ) {
         document.getElementById(messageTarget).innerHTML = messageText;
-        document.getElementById('error-blazon').innerHTML = blazonEditor.getValue();
+        if (useEditor == 'yes') {
+            document.getElementById('error-blazon').innerHTML = blazonEditor.getValue();
+        } else {
+            document.getElementById('error-blazon').innerHTML = blazonEditor.value;
+        }
         document.getElementById(messageContainer).style.display = 'block';
     }
     if ( linksHTML.length > 0 ) {
@@ -532,10 +514,9 @@ function setupshield(initial) {
     }
     if (useEditor == 'yes'){
         blazonEditor = createEditor();
-    } else{
+    } else {
         blazonEditor = document.getElementById('blazon');
-        blazonEditor.onkeyup = growTextArea;
-        growTextArea();
+        jQuery('.editorButtons').hide();
     }
     if (editorLoad != null) { 
         loadEditor(editorLoad);
