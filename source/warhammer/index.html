@@ -1,0 +1,32 @@
+---
+pageTitle: Build a Pauldron from Parts
+---
+<!-- ./build.ejs starts -->
+<p>Choose the parts from the questions below and watch how your blazon (heraldic description) of your pauldron is built up.</p>
+<form>
+<table>
+<tbody>
+<tr>
+<td style="text-align:center;vertical-align:top;" rowspan="2">
+<div id="shieldimg">
+</div>
+</td>
+<td rowspan="2">&nbsp;</td>
+<td colspan="3">
+<textarea id="blazon" cols="28" rows="10" disabled="disabled">~background~</textarea>
+</td>
+</tr>
+<tr>
+<td>  <button class="btn-block btn-primary" onclick="goback();"   >Go Back a Step</button></td>
+<td>  <button class="btn-block btn-danger" onclick="finished();" >Finished!</button></td>
+<td>  <button class="btn-block btn-primary" onclick="do_reset();" >Start Over</button></td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</form>
+<div id="questions">
+</div>
+<script src="/js/shieldcommon.js"></script>
+<script src="buildpauldron.js"></script>
+<!-- ./build.ejs ends -->
