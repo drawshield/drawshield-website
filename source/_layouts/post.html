@@ -1,0 +1,58 @@
+{% include upper.html %}
+<div class="row PageNavigation">
+    {% if page.previous.url %}
+        <div class="col-4 text-left"><a class="prev" href="{{ page.previous.url }}">&laquo; {{ page.previous.title }}</a></div>
+    {% endif %}
+    <div class="col-4 text-center"><a class="up" href="/blog/">&raquo; Blog Index &laquo;</a></div>
+    {% if page.next.url %}
+    <div class="col-4 text-right"><a class="next" href="{{ page.next.url }}">{{ page.next.title }} &raquo;</a></div>
+    {% endif %}
+</div>
+<div class="blog">
+<p class="lead">{{ page.date | date_to_string }} - {{ page.summary }}</p>
+    {{ content }}
+    {% assign hasSimilar = '' %}
+    {% for post in site.posts  %}
+        {% assign postHasSimilar = false %}
+        {% for tag in post.categories %}
+            {% for thisTag in page.categories %}
+                {% if postHasSimilar == false and thisTag != 'blog' and hasSimilar.size < 6 and post != page and tag == thisTag %}
+                    {% if hasSimilar.size == 0 %}
+<div class="related">
+ <h3>Related Posts</h3>
+  <ul>
+                    {% endif %}
+   <li class="relatedPost">
+    <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+                    {% if post.categories %}
+                        (Categories: {% for category in post.categories %}{{ category }}{% if forloop.last == false %}, {% endif %}{% endfor %})
+                    {% endif %}
+   </li>
+                    {% capture hasSimilar %}{{ hasSimilar }}*{% endcapture %}
+                    {% assign postHasSimilar = true %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    {% endfor %}
+    {% if hasSimilar.size > 0 %}
+                 </ul>
+              </div>
+    {% endif %}
+  
+    <div class="row PageNavigation">
+        {% if page.previous.url %}
+            <div class="col-4 text-left"><a class="prev" href="{{ page.previous.url }}">&laquo; {{ page.previous.title }}</a></div>
+        {% endif %}
+        <div class="col-4 text-center"><a class="up" href="/blog/">&raquo; Blog Index &laquo;</a></div>
+        {% if page.next.url %}
+        <div class="col-4 text-right"><a class="next" href="{{ page.next.url }}">{{ page.next.title }} &raquo;</a></div>
+        {% endif %}
+    </div>
+<h3>Comments</h3>
+<div id="comment-target"></div>
+<script>jQuery('#comment-target').load('/gallery/comments.php?refnum={{ page.refNum }}');</script>
+<p>If you have some helpful feedback or would like to comment on this blog entry please click on the button below. Your comment will be moderated and added to this page.</p>
+{% capture thisRef %}blog-{{ page.refNum }}{% endcapture %}
+{% include reply.html reference = thisRef caption = "Comment" prompt = "Your interesting comment..." noemail = true %}  
+</div>
+{% include lower.html %}

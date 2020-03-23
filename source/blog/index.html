@@ -2,9 +2,49 @@
 pageTitle: The DrawShield.net Blog
 ---
 <!-- /blog/index.html starts -->
+<figure class="float-right figure">
+  <a href="/blog/feed.xml"><img src="feed-icon.png" alt="RSS Feed Icon"></a>
+  <figcaption class="text-center"><a href="/blog/feed.xml">Subscribe</a></figcaption>
+</figure>
 <p>Welcome to the Drawshield.net blog. My intention here is to discuss topics of interest that don't really fit in anywhere else. These could be ideas for getting the most of the tools here, thoughts on heraldry, or longer responses to error reports.</p>
 <h2>List of Blog Posts</h2>
-{% navtree %}
+<ul>
+    {% for post in site.posts %}
+      <li>
+        <a href="{{ post.url }}">{{ post.pageTitle }}</a> - {{ post.summary }}
+      </li>
+    {% endfor %}
+</ul>
+<h2>Posts by category</h2>
+<div class="row">
+  {% for category in site.categories %}
+  {%- if category[0] != 'blog' -%}
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <h3>{{ category[0] }}</h3>
+      <ul>
+          {% for post in category[1] %}
+          <li><a href="{{ post.url }}">{{ post.pageTitle }}</a></li>
+          {% endfor %}
+      </ul>
+    </div>
+    {%- endif -%}
+  {% endfor %}
+</div>
+<h2>Posts by Tag</h2>
+<div class="row">
+  {% for tag in site.tags %}
+  {%- if tag[0] != 'blog' -%}
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <h3>{{ tag[0] }}</h3>
+      <ul>
+          {% for post in tag[1] %}
+          <li><a href="{{ post.url }}">{{ post.pageTitle }}</a></li>
+          {% endfor %}
+      </ul>
+    </div>
+    {%- endif -%}
+  {% endfor %}
+</div>
 <!-- /blog/index.html ends -->
 
 

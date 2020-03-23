@@ -121,18 +121,21 @@ try
             $gallery = true;
         }
         if ( $key == 'reference') {
-            if (preg_match('/^gallery-[0-9]{4}$/', $value)) {
+            if (preg_match('/^(gallery|blog)-[a-zA-Z0-9][0-9]{3}$/', $value)) {
                 $okMessage = "Thanks for your comment, it will be moderated and added to this page soon.";
                 $comment = true;
-                $subject = "comment on http://drawshield.net/gallery/$value";
+                $subject = "comment on $key";
                 $refnum = substr($value,-4);
             } else {
                 $subject = $value;
             }
         }
    }
+   if (stripos($content, '</a>') !== false || stripos($content, "http:") !== false) {
+       $errorMessage = "URLs are not allowed in comments, sorry";
+   }
    // Rebuild emailText if this a suggestion
-   if ($gallery) {
+   elseif ($gallery) {
        $title = $_POST['title'] ?? 'TITLE';
        $plainBlazon = $_POST['suggestion'] ?? 'argent';
        $plainBlazon = lineBreak($plainBlazon,50);
@@ -172,17 +175,19 @@ try
         }
     }
 
-    // All the neccessary headers for the email.
-    $headers = array('Content-Type: text/plain; charset="UTF-8";',
-        'From: ' . $from,
-        'Reply-To: ' . $from,
-        'Return-Path: ' . $from,
-    );
-    $myfile = fopen("/tmp/email.txt","a");
-    fwrite($myfile,$emailText);
-    fclose($myfile);
-    // Send email
-    @mail($sendTo, $subject, $emailText, implode("\n", $headers));
+    if (!$errorMessage) {
+        // All the neccessary headers for the email.
+        $headers = array('Content-Type: text/plain; charset="UTF-8";',
+            'From: ' . $from,
+            'Reply-To: ' . $from,
+            'Return-Path: ' . $from,
+        );
+        $myfile = fopen("/tmp/email.txt","a");
+        fwrite($myfile,$emailText);
+        fclose($myfile);
+        // Send email
+        @mail($sendTo, $subject, $emailText, implode("\n", $headers));
+    }
 
     if ($errorMessage)
         $responseArray = array('type' => 'fail', 'message' => $errorMessage);
@@ -206,5 +211,6 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
 }
 // else just display the message
 else {
-    echo $responseArray['message'];
+    header("Location: /contact/response.html?message=" . urlencode($responseArray['message']));
 }
+exit;

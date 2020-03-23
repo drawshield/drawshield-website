@@ -128,14 +128,6 @@ aside img, aside form, aside input {
     background-color: #edda88;  
 }
 
-/* Stuff for the news ticker */
-
-#newscontent {margin-right: 10px; float: left;}
-#newscontent a {color: #585858;}
-#news {display: none; float: left;}
-h4.news_cover{display: inline-block; position: relative; top: -7px;}
-#ticker_container{display: inline-block;}
-#controls{position: relative; top: 3px;}
 
 /* stuff for blazons and user-guide */
 
