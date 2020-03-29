@@ -1,6 +1,6 @@
 source: ./source
-# destination: /mnt/c/Users/karlw/Sites/drawshield.net
-destination: /home/karl/Sites/drawshield.home
+destination: /mnt/e/Sites/drawshield.home
+# destination: /home/karlw/Sites/drawshield.home
 
 
 # Directory
@@ -16,14 +16,14 @@ defaults:
 siteURL: https://drawshield.net
 siteTitle: DrawShield
 
-buildNum: 683
+buildNum: 694
 
-latestGallery: 8527
+latestGallery: 8489
 incrementGallery: 20
 
 collections:
   catalog:
-    output: false
+    output: true
   reference:
     output: false
   gplus:
