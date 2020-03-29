@@ -561,3 +561,37 @@ $achievementList = [
     "catholic/of-a-catholic-monsignor-chaplain",
     "catholic/of-a-foreign-vicar",
 ];
+
+$arrList = [
+    "6-roundels",
+    "3-roundels-in-pale",
+    "3-roundels-in-fess",
+    "3-roundels-in-bend",
+    "3-roundels-in-bend-sinister",
+    "5-roundels-in-chevron",
+    "12-roundels-in-orle",
+    "5-roundels-in-saltire",
+    "5-roundels-in-cross",
+    "2-lions-counter-passant",
+    "4-roundels-in-quadrangle",
+    "2-lions-respecting-each-other",
+    "2-lions-combattant",
+    "2-lions-addorsed",
+    "10-roundels-in-annulo",
+    "7-roundels-arranged-2-3-2",
+];
+
+$oriList = [
+    "an-axe",
+    "a-salmon",
+    "an-axe-reversed",
+    "an-axe-inverted",
+    "an-axe-fesswise",
+    "an-axe-fesswise-inverted",
+    "an-axe-fesswise-reversed",
+    "an-axe-fesswise-reversed-inverted",
+    "a-salmon-palewise",
+    "a-salmon-bendwise",
+    "a-salmon-bendwise-sinister",
+    "a-salmon-bendwise-reversed",
+];

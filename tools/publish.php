@@ -93,7 +93,7 @@ class Email_reader {
 
 }
 
-$folder = "/home/karl/Nextcloud/drawshield/source/gallery/";
+$folder = "/mnt/e/Documents/Nextcloud/drawshield/source/gallery/";
 
 function getNextLowest($folder) {
 	$lowestDir =999;

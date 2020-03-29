@@ -1,8 +1,8 @@
 <?php
 
 
-$folder = "/home/karl/Nextcloud/drawshield/source/gallery/";
-$configFile = "/home/karl/Nextcloud/drawshield/_config.yml";
+$folder = "/mnt/e/Documents/Nextcloud/drawshield/source/gallery/";
+$configFile = "/mnt/e/Documents/Nextcloud/drawshield/_config.yml";
 
 function getNextLowest($folder) {
 	$lowestDir =999;

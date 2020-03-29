@@ -1,5 +1,5 @@
 <?php
-
+if (!file_exists('/var/www/etc/credentials.inc')) exit;
 // defaults
 $errorMessage = false;
 $response = '<div id="comments">' . "\n";

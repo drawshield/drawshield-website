@@ -230,13 +230,49 @@ function divisions() {
         $blazon =  rawurlencode($blazon);
         $execString = 'wget -q -O ' . "$targetDir/divisions/$folder/$div.png" .
         ' "http://drawshield.home/include/quickimage.php?blazon=' . $blazon .
-        '&outputformat=svg&size=400&effect=none&nomask=1"';
+        '&outputformat=png&size=400&effect=none&nomask=1"';
         echo "Executing $execString\n";
         exec($execString);
         // $execString2 = "convert $tempDir/division.svg -size 400x480 '$targetDir/divisions/$folder/$div.png'";
         // echo "Executing $execString2\n";
         // exec($execString2);
         // if (!$keep) unlink("$tempDir/division.svg");
+    }
+}
+
+function arrangements() {
+    global $arrList, $keep;
+    global $targetDir, $sourceDir, $tempDir;
+
+    @mkdir("$targetDir/arrangements");
+    foreach ($arrList as $example) {
+        if (file_exists("$targetDir/arrangements/$example.png")) continue;
+        $blazon = 'argent ' . str_replace(array('-','+'),' ',$example) . 
+            " grey";
+        $blazon =  rawurlencode($blazon);
+        $execString = 'wget -q -O ' . "$targetDir/arrangements/$example.png" .
+        ' "http://drawshield.home/include/quickimage.php?blazon=' . $blazon .
+        '&outputformat=png&size=400&effect=none&nomask=1"';
+        echo "Executing $execString\n";
+        exec($execString);
+    }
+}
+
+function orientations() {
+    global $oriList, $keep;
+    global $targetDir, $sourceDir, $tempDir;
+
+    @mkdir("$targetDir/orientations");
+    foreach ($oriList as $example) {
+        if (file_exists("$targetDir/orientations/$example.png")) continue;
+        $blazon = 'argent ' . str_replace(array('-','+'),' ',$example) . 
+            " grey";
+        $blazon =  rawurlencode($blazon);
+        $execString = 'wget -q -O ' . "$targetDir/orientations/$example.png" .
+        ' "http://drawshield.home/include/quickimage.php?blazon=' . $blazon .
+        '&outputformat=png&size=400&effect=none&nomask=1"';
+        echo "Executing $execString\n";
+        exec($execString);
     }
 }
 
@@ -303,6 +339,8 @@ function compile($argc, $argv) {
     $divs = false;
     $treats = false;
     $achs = false;
+    $arr = false;
+    $ori = false;
 
     if ($argc > 1) { // must be a subset
         if (substr($argv[1], 0, 3) == 'ord') {
@@ -315,6 +353,10 @@ function compile($argc, $argv) {
             $treats = true;
         } elseif (substr($argv[1], 0, 3) == 'ach') {
             $achs = true;
+        } elseif (substr($argv[1], 0, 3) == 'arr') {
+            $arr = true;
+        } elseif (substr($argv[1], 0, 3) == 'ori') {
+            $ori = true;
         } else { 
             $allCharges = array_splice($argv, 1);
             $ords = false;
@@ -355,5 +397,11 @@ function compile($argc, $argv) {
     }
     if ($achs) {
         achievements();
+    }
+    if ($arr) {
+        arrangements();
+    }
+    if ($ori) {
+        orientations();
     }
 }

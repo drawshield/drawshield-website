@@ -8,9 +8,9 @@ end
 desc 'Jekyll Build'
 task :jekyll do
   sh %{ bundle exec jekyll build }
-  sh %{ ln -s /home/karl/Nextcloud/draw-code/include /home/karl/Sites/drawshield.home }
-  sh %{ chgrp -R www-data /home/karl/Sites/drawshield.home }
-  sh %{ chmod -R g+rw /home/karl/Sites/drawshield.home }
+  # sh %{ ln -s /mnt/e/Documents/Nextcloud/draw-code/include /home/karlw/Sites/drawshield.home }
+  # sh %{ chgrp -R www-data /home/karlw/Sites/drawshield.home }
+  # sh %{ chmod -R g+rw /home/karlw/Sites/drawshield.home }
 end
 
 desc 'Bump build number'

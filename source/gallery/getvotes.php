@@ -1,4 +1,5 @@
 <?php
+if (!file_exists('/var/www/etc/credentials.inc')) exit;
 session_start();
 
 $response = "0";
