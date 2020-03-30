@@ -15,14 +15,14 @@ $template = <<< EOD
 
 EOD;
 
+if (!file_exists('/var/www/etc/credentials.inc')) exit;
+
 session_start();
 
 if (!array_key_exists('votable', $_SESSION)) {
     $_SESSION['votable'] = [];
     $_SESSION['voted'] = [];
 }
-
-if (!file_exists('/var/www/etc/credentials.inc')) exit;
 
 include('/var/www/etc/credentials.inc');
 $database = mysqli_connect($db_addr,$db_user,$db_password,$db_database);
