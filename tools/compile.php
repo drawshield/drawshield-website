@@ -7,8 +7,8 @@
 //     $targetDir = "/Users/karlw/gdrive/Projects/drawshield/source/_catalog/";
 //     $sourceDir = "/Users/karlw/gdrive/Projects/draw-code/include/svg/";
 // }
-$targetDir = "/home/karl/Nextcloud/drawshield/source/_catalog/";
-$sourceDir = "/home/karl/Nextcloud/draw-code/include/svg/";
+$targetDir = "/mnt/e/Documents/Nextcloud/drawshield/source/_catalog/";
+$sourceDir = "/mnt/e/Documents/Nextcloud/draw-code/include/svg/";
 
 $tempDir = "/tmp";
 
