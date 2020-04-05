@@ -1,0 +1,15 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+
+{%- assign unsorted = site.pages | where:"layout","gallery-entry" -%}
+{%- assign entries = unsorted | sort: "pageTitle" -%}
+<list>
+{%- for entry in entries -%}
+  <item>
+    <refnum>{{ entry.entryNum }}</refnum>
+    <title>{{ entry.pageTitle | escape }}</title>
+  </item>
+{%- endfor -%}
+</list>
