@@ -1,0 +1,9 @@
+---
+pageTitle: 20 Random Gallery Images
+---
+<script src="/js/voting.js"></script>
+<p>Here are 20 randomly chosen gallery entries for your delight! Refresh the page to see a different selection, or return to <a href="/gallery/index.html">the entire gallery</a> to view them in order of their submission.</p>
+<div class="container">
+    <div id="random" class="row"><p>Loading...</p></div>
+</div>
+<script>jQuery('#random').load("/gallery/random20.php",fillBadges);</script>

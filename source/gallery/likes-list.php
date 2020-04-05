@@ -17,6 +17,13 @@ EOD;
 
 if (!file_exists('/var/www/etc/credentials.inc')) exit;
 
+$allEntries = [];
+$list = simplexml_load_file('./list-of-entries.xml');
+foreach($list as $entry) {
+    $allEntries[$entry->refnum] = $entry->title;
+}
+
+
 session_start();
 
 if (!array_key_exists('votable', $_SESSION)) {
@@ -38,8 +45,12 @@ if ($res = mysqli_query($database, $sql)) {
     $initial = substr($refnum,0,2);
     $image = "/gallery/$initial/img/gallery-$refnum.png";
     $pageURL = "/gallery/$initial/gallery-$refnum.html";
-    $caption = "TBD ($refnum)";
-      $output = preg_replace(array('/%pageURL%/','/%caption%/','/%refnum%/','/%image%/','/%votes%/'), 
+    if (array_key_exists($refnum, $allEntries)) {
+      $caption = $allEntries[$refnum] . " ($refnum)";
+    } else { 
+      $caption = "TBD ($refnum)";
+    }
+    $output = preg_replace(array('/%pageURL%/','/%caption%/','/%refnum%/','/%image%/','/%votes%/'), 
                   array($pageURL, $caption, $refnum, $image, $votes), $template);
       echo $output;
   }
