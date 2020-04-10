@@ -20,7 +20,7 @@ if (!file_exists('/var/www/etc/credentials.inc')) exit;
 $allEntries = [];
 $list = simplexml_load_file('./list-of-entries.xml');
 foreach($list as $entry) {
-    $allEntries[$entry->refnum] = $entry->title;
+    $allEntries[(string)$entry->refnum] = $entry->title;
 }
 
 
