@@ -266,6 +266,25 @@ function edMaximise() {
     }
 }
 
+function commentLine() {
+	if (blazonEditor.somethingSelected()) {
+		from = blazonEditor.getCursor("from");
+		to = blazonEditor.getCursor("to");
+	} else {
+		from = blazonEditor.getCursor();
+		to = from;
+	}
+	for (i = from.line; i <= to.line; i++) {
+		blazonEditor.setSelection({line: i, ch: 0},{line: i, ch: 3});
+		if (blazonEditor.getSelection() == "// ") {
+			blazonEditor.replaceSelection("");
+		} else {
+			blazonEditor.replaceRange("// ",{line: i, ch: 0});
+		}
+	}
+	blazonEditor.setCursor({line: to, ch: 0});
+}
+
 function edCopy() {
     blazonEditor.execCommand("selectAll");
     document.execCommand("copy");
@@ -288,6 +307,7 @@ function createEditor() {
         viewportMargin: Infinity,
         extraKeys: {
             "Ctrl-Space": "autocomplete",
+            "Ctrl-/": commentLine,
             "Esc": function(cm) {
                 if (cm.getOption("fullScreen")) {
                     cm.setOption("fullScreen", false);
