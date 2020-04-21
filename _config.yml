@@ -1,10 +1,10 @@
 source: ./source
-destination: /mnt/e/Sites/drawshield.home
+destination: /var/www/html
 # destination: /home/karlw/Sites/drawshield.home
 
 
-# Directory
-include: [ .htaccess ]
+# don't delete
+keep_files: [ .htaccess, include ]
 
 defaults:
     -
@@ -18,7 +18,7 @@ siteTitle: DrawShield
 
 buildNum: 714
 
-latestGallery: 8408
+latestGallery: 8399
 incrementGallery: 20
 
 collections:
