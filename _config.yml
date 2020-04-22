@@ -1,5 +1,6 @@
 source: ./source
-destination: /var/www/html
+# give destination on command line
+# destination: /var/www/html
 # destination: /home/karlw/Sites/drawshield.home
 
 
