@@ -21,6 +21,88 @@ var editorLoad = "\n\n\n";
 var blazonEditor;
 var useWebColours = 'no';
 var useWarhammerColours = 'no';
+// Local functions - memory handling
+var memState = 'NON';
+var useMemories = true;
+
+function setMemories() {
+    jQuery(".memNumber").each(function(index,value) {
+        key = $(this).attr("id");
+        content = localStorage.getItem(key);
+        if (content) {
+           jQuery("#" + key).removeClass('btn-light').addClass('btn-secondary');
+        }
+    });
+}
+
+function memButton(but) {
+    // What is the current button state?
+    if (jQuery('#button' + but).hasClass('btn-secondary')) { // already pressed
+        memState = 'NON';
+        jQuery('#button' + but).removeClass('btn-secondary').addClass('btn-light');
+    } else { //  Button not pressed, reset others
+        jQuery('.memButton').each(function(index,value) {
+            $(this).removeClass('btn-secondary').addClass('btn-light');
+        });
+        // Set this one
+        jQuery('#button' + but).removeClass('btn-light').addClass('btn-secondary');
+        memState = but;
+    }
+}
+
+function memNumber(key) {
+    var data = "";
+    switch(memState) {
+        case 'NON':
+            break; // No action set
+        case 'STO':
+            data = saveEditor();
+            if (key != "memory00" && data.trim().length) {
+                localStorage.setItem(key, encodeURI(data));
+                jQuery('#' + key).removeClass('btn-light').addClass('btn-secondary');
+            }
+            break;
+        case 'RCL':
+            data = localStorage.getItem(key);
+            if (data) {
+                if (key != "memory00") {
+                    localStorage.setItem("memory00", encodeURI(saveEditor()));
+                    jQuery("#memory00").removeClass('btn-light').addClass('btn-secondary');
+                }
+                loadEditor(decodeURI(data));
+            }
+            break;
+        case 'CLR':
+            localStorage.removeItem(key);
+            jQuery('#' + key).removeClass('btn-secondary').addClass('btn-light');
+            break;
+    }
+    // now reset all the button states
+    jQuery('.memButton').each(function(index,value) {
+        $(this).removeClass('btn-secondary').addClass('btn-light');
+    });    
+}
+
+function saveToFile() {
+    if (!useMemories) {
+        saveBlazon(saveEditor());
+        return;
+    }
+    var data = new Array();
+	localStorage.setItem("memory00", encodeURI(saveEditor()));
+    jQuery(".memNumber").each(function(index,value) {
+        key = $(this).attr("id");
+        content = localStorage.getItem(key);
+        if (content) {
+           data.push({key: key, value: String(decodeURI(content))});
+        }
+    });
+    if (!data.length) { // nothing in the memories,just save editor content as text
+        saveBlazon(saveEditor());
+    } else {
+        saveBlazon(JSON.stringify(data));
+    }
+}
 
 function setCookies() {
     setCookie('palette',palette);
@@ -284,21 +366,37 @@ function loadEditor(data) {
     // clearFile();
 }
 
-function uploadFile() {
-    var uploadedFile = getFile();
-    if (uploadedFile) {
-        var formData = new FormData();
-        formData.append('blazonfile', uploadedFile, uploadedFile.name);
-        jQuery.ajax({
-            url: '/include/reflectfile.php',
-            data: formData,
-            success: loadEditor,
-            processData: false,
-            contentType: false,
-            type: 'POST'
-        });
-    }
- }
+function saveEditor() {
+    var data = "";
+    if (useEditor == 'yes')
+        data = blazonEditor.getValue();
+    else
+        data = blazonEditor.value;
+    return String(data);
+}
+
+function processFile(fileContent) {
+	if (fileContent.substring(0,1) == '[' ) { // looks like JSON
+		content = JSON.parse(fileContent);
+		for (var i = 0; i < content.length; i++) {
+			var item = content[i];
+			var key = item.key;
+			var value = item.value;
+			if (key.substring(0,6) == "memory") { // looks legit
+				if (key == "memory00" && value) {
+					loadEditor(value);
+				} else {
+                    if (useMemories) {
+                        localStorage.setItem(key,value);
+                    }
+				}
+			}
+		}
+		setMemories();	
+	} else { // Treat as a simple string
+		loadEditor(fileContent);
+	}
+}
 
  function stripComments(blazon) {
     var output = '';
@@ -344,6 +442,10 @@ function uploadFile() {
 
 function drawshield(blazon) {
     uploadedFile = null;
+    if (useMemories) {
+        localStorage.setItem("memory00", encodeURI(saveEditor()));
+        jQuery("#memory00").removeClass('btn-light').addClass('btn-secondary');
+    }
 //    clearFile();
     document.getElementById(messageContainer).style.display = 'none';
     shieldCaption = document.getElementById(captiontarget);
@@ -437,7 +539,7 @@ function loadLocalFile() {
     if (typeof(file) == 'undefined') window.alert("Choose a local file first");
     var reader = new FileReader();
     reader.onload = function (e) {
-        loadEditor(e.target.result);
+        processFile(e.target.result);
         jQuery('#uploadControls').hide();
     };
     reader.readAsText(file);
@@ -522,8 +624,15 @@ function setupshield(initial) {
         loadEditor(editorLoad);
     }
     document.getElementById("suggestButton").addEventListener("click",submitSuggestion);
+    if (typeof(window.localStorage) == 'undefined') {
+        useMemories = false;
+        jQuery('#memoryButtons').hide();
+    } else {
+        setMemories();
+    }
 }
 
 
 window.onload = setupshield(get_blazon());
+
 
