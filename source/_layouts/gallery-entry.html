@@ -9,7 +9,7 @@
 {% endif %}
 
 {% assign lastEntry = "/gallery/gallery-9999.html" %}
-{% capture firstEntry %}/gallery/gallery-{{ site.latestGallery }}.html{% endcapture %}
+{% assign firstEntry = "/gallery/first-entry.php" %}
 {% capture upEntry %}/gallery/parent.php?of={{ page.entryNum }}{% endcapture %}
 {% if upEntry == "index0.html" %}
  {% assign upEntry = "index.html" %}
