@@ -8,9 +8,7 @@ end
 desc 'Jekyll Build'
 task :jekyll do
   sh %{ bundle exec jekyll build }
-  sh %{ ln -s /mnt/e/Documents/Nextcloud/draw-code/include /var/www/html }
-  sh %{ cp /var/www/etc/_htaccess /var/www/html/.htaccess }
-  sh %{ chgrp -R www-data /var/www/html }
+  #sh %{ chgrp -R www-data /var/www/html }
   #sh %{ chmod -R g+rw /var/www/html }
 end
 
