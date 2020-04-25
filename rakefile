@@ -2,12 +2,12 @@ task :default do
   Rake::Task[:latest].invoke
   Rake::Task[:gallery].invoke
   Rake::Task[:jekyll].invoke
-  Rake::Task[:bump].invoke
+  # Rake::Task[:bump].invoke
 end
 
 desc 'Jekyll Build'
 task :jekyll do
-  sh %{ bundle exec jekyll build }
+  sh %{ bundle exec jekyll build -d /var/www/html }
   #sh %{ chgrp -R www-data /var/www/html }
   #sh %{ chmod -R g+rw /var/www/html }
 end

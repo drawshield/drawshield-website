@@ -32,7 +32,6 @@ function setMemories() {
         if (content) {
            jQuery("#" + key).removeClass('btn-light').addClass('btn-secondary');
            jQuery('#' + key).attr("data-content", popoverText(content));
-           jQuery('#' + key).attr("data-trigger", 'hover');
         }
     });
 }
@@ -53,9 +52,9 @@ function memButton(but) {
 }
 
 function popoverText(data) {
-    var popover = decodeURI(data).trim().substring(0,35);
-    popover = str_replace(/(\r\n|\n|\r)/gm, " ", $popover);
-    if (data.trim().length > 34) {
+    var popover = decodeURI(data).trim().substring(0,90);
+    popover = popover.replace(/(\r\n|\n|\r)/gm, " ");
+    if (data.trim().length > 90) {
         popover = popover + "...";
     }   
     return popover;
@@ -72,7 +71,6 @@ function memNumber(key) {
                 localStorage.setItem(key, encodeURI(data));
                 jQuery('#' + key).removeClass('btn-light').addClass('btn-secondary');
                 jQuery('#' + key).attr("data-content", popoverText(data));
-                jQuery('#' + key).attr("data-trigger", 'hover');
             }
             break;
         case 'RCL':
@@ -89,7 +87,6 @@ function memNumber(key) {
             localStorage.removeItem(key);
             jQuery('#' + key).removeClass('btn-secondary').addClass('btn-light');
             jQuery('#' + key).attr("data-content", "");
-            jQuery('#' + key).attr("data-trigger", "");
             break;
     }
     // now reset all the button states

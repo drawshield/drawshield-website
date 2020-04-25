@@ -1,6 +1,6 @@
 source: ./source
 # give destination on command line
-# destination: /var/www/html
+destination: /var/www/html
 # destination: /home/karlw/Sites/drawshield.home
 
 
@@ -17,7 +17,7 @@ defaults:
 siteURL: https://drawshield.net
 siteTitle: DrawShield
 
-buildNum: 714
+buildNum: 715
 
 latestGallery: 8366
 incrementGallery: 20
