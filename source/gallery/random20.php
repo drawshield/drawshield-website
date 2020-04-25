@@ -30,6 +30,9 @@ foreach($randomList as $randomEntry) {
     $refnum = $allEntries[$randomEntry][0];
     $folder = substr($refnum,0,2);
     $title = $allEntries[$randomEntry][1];
+    if (strlen($title) > 20) {
+        $title = substr($title,0,17) . "...";
+    }
     echo '<div class="gallery gallery_product col-lg-3 col-md-4 col-sm-4 col-xs-6">' . "\n<figure>\n";
     echo "<a href=\"$folder/gallery-$refnum.html\"><img src=\"$folder/img/gallery-$refnum.png\" alt=\"Shield image\" class=\"img-fluid\" /></a>\n";
     echo "<figcaption class=\"text-center\"><a href=\"$folder/gallery-$refnum.html\">$title ($refnum)</a> <br>\n";

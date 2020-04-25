@@ -99,7 +99,7 @@ address {
     display: inline-block;
 }
 
-aside {
+.carousel-caption, aside {
     border-radius: 4px;
     margin: 10px;
     padding: 10px;
@@ -234,6 +234,13 @@ div.combobox-container {
     display: none;
   }
 }
+
+.carousel-caption {
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
 
 /* Bits for Rietstap translation */
 

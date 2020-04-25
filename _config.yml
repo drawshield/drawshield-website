@@ -5,7 +5,7 @@ source: ./source
 
 
 # don't delete
-keep_files: [ .htaccess, include ]
+keep_files: [ .htaccess, include, gallery/giotd.html ]
 
 defaults:
     -

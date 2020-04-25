@@ -27,10 +27,12 @@ var useMemories = true;
 
 function setMemories() {
     jQuery(".memNumber").each(function(index,value) {
-        key = $(this).attr("id");
-        content = localStorage.getItem(key);
+        var key = $(this).attr("id");
+        var content = localStorage.getItem(key);
         if (content) {
            jQuery("#" + key).removeClass('btn-light').addClass('btn-secondary');
+           jQuery('#' + key).attr("data-content", popoverText(content));
+           jQuery('#' + key).attr("data-trigger", 'hover');
         }
     });
 }
@@ -50,6 +52,15 @@ function memButton(but) {
     }
 }
 
+function popoverText(data) {
+    var popover = decodeURI(data).trim().substring(0,35);
+    popover = str_replace(/(\r\n|\n|\r)/gm, " ", $popover);
+    if (data.trim().length > 34) {
+        popover = popover + "...";
+    }   
+    return popover;
+}
+
 function memNumber(key) {
     var data = "";
     switch(memState) {
@@ -57,9 +68,11 @@ function memNumber(key) {
             break; // No action set
         case 'STO':
             data = saveEditor();
-            if (key != "memory00" && data.trim().length) {
+            if (key != "memory00" && data.trim().length > 0) {
                 localStorage.setItem(key, encodeURI(data));
                 jQuery('#' + key).removeClass('btn-light').addClass('btn-secondary');
+                jQuery('#' + key).attr("data-content", popoverText(data));
+                jQuery('#' + key).attr("data-trigger", 'hover');
             }
             break;
         case 'RCL':
@@ -75,6 +88,8 @@ function memNumber(key) {
         case 'CLR':
             localStorage.removeItem(key);
             jQuery('#' + key).removeClass('btn-secondary').addClass('btn-light');
+            jQuery('#' + key).attr("data-content", "");
+            jQuery('#' + key).attr("data-trigger", "");
             break;
     }
     // now reset all the button states
@@ -388,6 +403,7 @@ function processFile(fileContent) {
 				} else {
                     if (useMemories) {
                         localStorage.setItem(key,value);
+                        jQuery('#' + key).attr("data-content", popoverText(decodeURI(value)));
                     }
 				}
 			}
@@ -629,6 +645,7 @@ function setupshield(initial) {
         jQuery('#memoryButtons').hide();
     } else {
         setMemories();
+        $('.memNumber').popover();
     }
 }
 
