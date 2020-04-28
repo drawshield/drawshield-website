@@ -1,6 +1,6 @@
 source: ./source
-# give destination on command line
-destination: /var/www/html
+# Command line destination can override this
+destination: /var/www/test
 # destination: /home/karlw/Sites/drawshield.home
 
 
@@ -19,7 +19,7 @@ siteTitle: DrawShield
 
 buildNum: 715
 
-latestGallery: 8362
+latestGallery: 8338
 incrementGallery: 20
 
 collections:

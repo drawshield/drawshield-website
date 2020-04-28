@@ -1,28 +1,20 @@
-task :default do
+task :build do
+  Rake::Task[:jekyll].invoke
+end
+
+task :update do
+  Rake::Task[:publish].invoke
   Rake::Task[:latest].invoke
   Rake::Task[:gallery].invoke
-  Rake::Task[:jekyll].invoke
-  # Rake::Task[:bump].invoke
+end
+
+task :deploy do
+  sh %{ rsync -rcv --exclude-from=.deployignore /var/www/test /var/www/html }
 end
 
 desc 'Jekyll Build'
 task :jekyll do
-  sh %{ bundle exec jekyll build -d /var/www/html }
-  #sh %{ chgrp -R www-data /var/www/html }
-  #sh %{ chmod -R g+rw /var/www/html }
-end
-
-desc 'Bump build number'
-task :bump do
-  content = File.read('_config.yml')
-
-  version_pattern = /buildNum: ([0-9]+)/
-  current_version = content.match(version_pattern)[1]
-  next_version    = current_version.to_i + 1
-
-  File.write('_config.yml', content.gsub(version_pattern, "buildNum: #{next_version}"))
-
-  puts "Successfully bumped build number from #{current_version} to #{next_version}!"
+  sh %{ bundle exec jekyll build -d /var/www/test }
 end
 
 desc 'Gallery & catalog Build'
