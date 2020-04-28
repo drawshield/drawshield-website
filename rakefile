@@ -9,7 +9,7 @@ task :update do
 end
 
 task :deploy do
-  sh %{ rsync -rcv --exclude-from=.deployignore /var/www/test /var/www/html }
+  sh %{ rsync -rcv --exclude-from=.deployignore /var/www/test/ /var/www/html }
 end
 
 desc 'Jekyll Build'
