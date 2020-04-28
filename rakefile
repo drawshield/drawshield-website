@@ -3,7 +3,7 @@ task :build do
 end
 
 task :update do
-  Rake::Task[:publish].invoke
+  Rake::Task[:submit].invoke
   Rake::Task[:latest].invoke
   Rake::Task[:gallery].invoke
 end
@@ -32,8 +32,8 @@ task :catalog do
   end
 end
 
-desc 'Publish Gallery Entries'
-task :publish do
+desc 'submit Gallery Entries'
+task :submit do
   Dir.chdir('tools') do
     sh %{ php publish.php }
   end  

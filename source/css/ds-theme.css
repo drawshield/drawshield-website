@@ -77,6 +77,10 @@ body {
     background: #eacb8e;  
 }
 
+.bg-danger {
+    background-color: #d03718;
+}
+
 h1, h2, h3 {
   color: #d03718;
 }

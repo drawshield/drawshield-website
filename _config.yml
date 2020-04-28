@@ -19,14 +19,14 @@ siteTitle: DrawShield
 
 buildNum: 715
 
-latestGallery: 8338
+latestGallery: 8336
 incrementGallery: 20
 
 collections:
   catalog:
     output: true
   reference:
-    output: false
+    output: true
   gplus:
-    output: false
+    output: true
 
