@@ -1,0 +1,134 @@
+---
+pageTitle: Reference API
+---
+
+<p>You can access some of the reference material on this site through an Application Programming Interface (API) and so use the information in your own projects. 
+    An acknowledgement or link to the original source is always appreciated but is no mandatory. A contribution to the coffee and cake fund goes down even better(!) 
+<a href="http://paypal.me/drawshield/USD10">paypal.me/drawshield</a>.</p>
+
+<h2>Overview</h2>
+
+<p>At the moment, all API calls use the HTTP verb "GET". The target URL is of the form:</p>
+
+<pre>https://drawshield.net/api/ACTION/ARGUMENT</pre>
+
+<p>The meaning of the ARGUMENT depends on the chosen ACTION, and there may also be additional options that can follow the ARGUMENT. Options
+    always take the following form:
+</p>
+
+<pre>&amp;OPTION=VALUE</pre>
+
+<p>Options must immediately follow the ARGUMENT, and more than one argument may be supplied.</p>
+
+<p>By default, the returned data will be in JSON format. In the future I may make other formats available which would be
+    selectable by setting an appropriate option.</p>
+
+<h3>Error Messages</h3>
+
+<p>If the API detects an error of any kind, either in the format of the request or during the execution of the request an error message will be 
+    returned. This will take the following JSON format:
+</p>
+
+<pre>
+    {
+        "error": "ERROR MESSAGE"
+    }
+</pre>
+
+<p>The following sections describe the various ACTIONs that are available.</p>
+
+<h2>Getting a Dictionary Definition of a Term</h2>
+
+<p>To search the available dictionaries for the definition of a heraldic term use the ACTION "define". The ARGUMENT is the term that you wish
+    to search for (which must have special characters URL encoded). For example:
+</p>
+
+<pre>https://drawshield.net/api/define/azure</pre>
+
+<h3>Return Value</h3>
+
+<p>If a definition is found it will be returned in JSON format as an array of two values, "content", which contains the term definition
+    as a text string; and "URL" which is a link to the page containing the source of the definition. For example, the query above will
+    return the following data: (I have added line breaks for readability, in reality the content string is a single line.)
+</p>
+
+<pre>
+    {
+        "content": "Azure, bright blue, i.e. the colour of an eastern sky, probably derives the name from the Arabic lazura
+        (conf. lapis lazuli, Gr. , Span. azul, Italian azurro, Fr. azur), the name being introduced from the East at the time 
+        of the Crusades. It is sometimes called Inde from the sapphire, which is found in the East: (see example under cadency.) 
+        Heralds who blazon by planets called it Jupiter, perhaps from his supposed rule over the skies; and when the names of 
+        jewels are employed it is called Sapphire. Engravers represent it by an indefinite number of horizontal line.",
+        "URL": "https://drawshield.net/reference/parker/a/azure.html"
+    }
+</pre>
+
+<p>If the term cannot be found then the error message "Term not found" is returned.</p>
+
+<h3>Options</h3>
+
+<p>The following options and values are supported.</p>
+
+<p><strong>source</strong>: This allows you to choose the dictionary to search. Currently the available values are:</p>
+
+<ul>
+    <li>parker - to search Parker's Heraldic Dictionary only.</li>
+    <li>elvin - to search Elvins' Heraldic Dictionary only.</li>
+    <li>* - (the default) to search all available dictionaries.</li>
+</ul>
+
+<p>Elvin's Dictionary has more entries (6,000) than Parkers (2,400) but the Parker definitions tend to be more
+    detailed and descriptive. Other sources are likely to be added in future.
+</p>
+
+<p><strong>match</strong>: This allows you to require an exact match for the term, or to allow the API to conduct a 
+"fuzzy" search. The available values are:</p>
+
+<ul>
+    <li>exact - the term must be found exactly as entered (except that all matches are case insensitive)</li>
+    <li>fuzzy - (strictly, any value that is not "exact") lets the program conduct a fuzzy match for the term. (See below).</li>
+</ul>
+
+<h3>Matching Strategy</h3>
+
+<p>Obviously, if an exact match is requested then only an exact (but case insensitive) match with a dictionary term is returned.</p>
+
+<p>If a fuzzy match is requested, and a single dictionary is selected then we still search first for an exact match. If none is 
+    found we search all those terms that <strong>begin with the same letter</strong> and chose the term that most closely matches
+    the requested term. The method used is to calculate a uniform cost Levenshtein distance to each entry and selecting the lowest value,
+    provided that it is less than 7. In future, it may be possible to set this threshold through the option. If no entry with
+    a Levenshtein distance below 7 is found then the error message "Term not found" is returned.
+</p>
+
+<p>If you do NOT specify the dictionary, a slightly more complex approach is used, in which a series of searches are
+    carried out and the first that succeeds is returned. The steps are as follows:</p>
+
+<ol>
+    <li>Search for an exact match in Parker</li>
+    <li>Search for an exact match in Elvin</li>
+    <li>Search for a fuzzy match in Parker</li>
+    <li>Search for a fuzzy match in Elvin</li>
+    <li>Return the "Term not found" error</li>
+</ol>
+
+<h3>Examples</h3>
+
+<p>Search Parker for an exact match for "azure":</p>
+
+<pre>https://drawshield.net/api/define/azure&amp;source=parker&amp;match=exact</pre>
+
+<p>Search everything for something like "abbased":</p>
+
+<pre>https://drawshield.net/api/define/abbased&amp;match=fuzzy</pre>
+
+<p>(or, more simply):</p>
+
+<pre>https://drawshield.net/api/define/abbased</pre>
+
+<h2>Future Developments</h2>
+
+<p>It is hoped to add further API calls in the future. Please get in touch if you have any suggestions for new calls, or for 
+    improvements and fixes to the existing calls.
+</p>
+
+{% include reply.html %}
