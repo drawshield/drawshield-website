@@ -3,9 +3,9 @@ task :build do
 end
 
 task :update do
-  Rake::Task[:submit].invoke
   Rake::Task[:latest].invoke
   Rake::Task[:gallery].invoke
+  Rake::Task[:bump].invoke
 end
 
 task :deploy do
@@ -44,4 +44,17 @@ task :latest do
   Dir.chdir('tools') do
     sh %{ php latest.php }
   end  
+end
+
+desc 'Bump build number'
+task :bump do
+  content = File.read('_config.yml')
+
+  version_pattern = /buildNum: ([0-9]+)/
+  current_version = content.match(version_pattern)[1]
+  next_version    = current_version.to_i + 1
+
+  File.write('_config.yml', content.gsub(version_pattern, "buildNum: #{next_version}"))
+
+  puts "Build number from #{current_version} to #{next_version}!"
 end
