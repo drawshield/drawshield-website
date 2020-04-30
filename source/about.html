@@ -2,9 +2,9 @@
 title: About This Website
 ---
 
-<h2>Site Information</h2>
+<h2>Site Information - Most Recent Build</h2>
 <dl>
-    <dt>Build:</dt>
+    <dt>Number:</dt>
     <dd>{{ site.buildNum }}</dd>
     <dt>Date:</dt>
     <dd>{{ "now" | date: "%Y-%m-%d %H:%M" }}</dd>
@@ -16,12 +16,12 @@ title: About This Website
 <h2>Who</h2>
 <p>My name is Karl Wilcox. I am an educator, web developer and programmer living in Lincolnshire, in the East of England. You can find out much more about my background on <a href="http://www.linkedin.com/in/karlwilcox">Linked In</a> so I won't repeat it here.</p>
 <h2>Why</h2>
-<p>I looked at Heraldry and blazonry as a programming language, and wrote a compiler for it. The original idea belongs to my group project supervisor for my undergraduate degree, which we implemented in UCSD Pascal on an Apple ][. About 20 years later, looking for a project to test my programming skills I re-implemented it and massively expanded it in PHP and SVG.</p>
-<p>While researching blazonry I found many good resource on archive.org but found the multi-megabyte PDFs a difficult medium to use comfortably. Hence, I started another project to convert these into cleaner, searchable web pages.</p>
+<p>I looked at Heraldry and blazonry as a programming language, and wrote a compiler for it. The original idea belongs to my group project supervisor for my undergraduate degree, which we implemented in UCSD Pascal on an Apple II. About 20 years later, looking for a project to test my programming skills I re-implemented it and massively expanded it in PHP and SVG.</p>
+<p>While researching blazonry I found many good resources on archive.org but found the multi-megabyte PDFs a difficult medium to use comfortably. Hence, I started another project to convert these into cleaner, searchable web pages.</p>
 <h2>How</h2>
 <p>The source files for this website are HTML5 and CSS with Embedded Liquid tags and are edited  using <a href="https://code.visualstudio.com/">Visual Studio Code</a>. I use <a href="https://jekyllrb.com/">Jekyll</a> to compile these files into pure HTML5 and CSS. The page layouts make use of <a href="http://getbootstrap.com">Bootstrap 4</a> design elements with a custom theme designed by me.</p>
 <p>The interactive parts of the pages are written in JavaScript, and the server-side programs such as the main DrawShield engine are written in PHP, again edited with Visual Studio Code.</p>
-<p>All of the website source files can be found on Github at <a href="https://github.com/karlwilcox/drawshield-website">https://github.com/karlwilcox/drawshield-website</a>.</p>
-<p>All development work is done on a Dell Alienware R7 desktop, with 16GB of RAM running Ubuntu 18.04 and driving 2 27" Samsung Ultra HD displays.</p>
-<p>The live pages are served from an AWS Lightsail instance, also running Ubuntu 18.04. <a href="http://filezilla.com">Filezilla</a> is used to synchronise the development version and the live system.</p>   
+<p>All of the website source files can be found on Github at <a href="https://github.com/drawshield/drawshield-website">https://github.com/karlwilcox/drawshield-website</a>.</p>
+<p>All development work is done on a Dell Alienware R7 desktop, with 32GB of RAM running Ubuntu 18.04 under the Windows Subsystem for Linux (WSL2). VSCode and various other tools are run under windows, the build and other processes are in Linux and I use X410 to seamlessly switch between these environments on two, 27" Samsung Ultra HD displays.</p>
+<p>The live pages are served from an AWS Lightsail instance, also running Ubuntu 18.04. <a href="http://filezilla.com">Filezilla</a> is used to synchronise the development version and the live system, or sometimes this is done via the Github repositories.</p>   
 <img src="img/Karl-at-work.jpg" class="img-fluid">
