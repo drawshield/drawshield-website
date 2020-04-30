@@ -12,6 +12,10 @@ task :deploy do
   sh %{ rsync -rcv --exclude-from=.deployignore /var/www/test/ /var/www/html }
 end
 
+task :deploygallery do
+  sh %{ rsync -rcv /var/www/test/gallery/ /var/www/html/gallery }
+end
+
 desc 'Jekyll Build'
 task :jekyll do
   sh %{ bundle exec jekyll build -d /var/www/test }
