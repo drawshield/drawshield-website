@@ -151,6 +151,7 @@ function charges($folder) {
             ' "http://drawshield.home/include/quickimage.php?blazon=' . $blazon .
             '&outputformat=png&size=400&effect=none&nomask=1"';
            // echo "Executing $execString\n";
+			echo "Adding $toFind\n";
             exec($execString);
 
 /*            $execString = 'wget -q -O ' . "$tempDir/$sourceItem" .
