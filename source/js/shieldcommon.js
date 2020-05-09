@@ -4,6 +4,7 @@ var xmlhttp;
 var useId;
 var useHTMLId;
 var messageCallback;
+var lastsvg = null;
 
 
 function updateHTML() {
@@ -35,6 +36,9 @@ function updateSVG() {
       errorPara.appendChild(errorText);
       shieldImg.insertBefore(errorPara,null);
     } else {
+      if (lastsvg != null) {
+        svgPanZoom(lastsvg).destroy();
+      }
       if ( (navigator.userAgent.indexOf( "iPad" ) > 0) ||
                   (navigator.userAgent.indexOf( "iPod" ) > 0) ||
                   (navigator.userAgent.indexOf( "iPhone" ) > 0) 
@@ -42,12 +46,21 @@ function updateSVG() {
          var svg = document.importNode(xmlhttp.responseXML.firstChild, true);
        } else if (navigator.userAgent.indexOf('Edge') > 0){
          var svg = xmlhttp.responseXML.documentElement;
-         svg = cloneAndFix(svg);
+         svg = cloneToDoc(svg);
+         // pan zoom doesn't work in Edge
+         panZoom = false;
        } else {
          var svg = xmlhttp.responseXML.documentElement;
          svg = cloneToDoc(svg);
        }
        shieldImg.appendChild(svg);
+       if (panZoom) {
+        var lastsvg = svgPanZoom(svg, {
+          minZoom: 1.0,
+          maxZoom: 10,
+          controlIconsEnabled: true,
+        });
+      }
        if (messageCallback != null) {
             messageCallback(xmlhttp.responseXML);
        }
