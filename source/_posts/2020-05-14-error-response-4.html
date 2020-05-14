@@ -1,0 +1,66 @@
+---
+pageTitle: Error Report Responses - 4
+date: 2020-05-14 10:00:00 +0100
+refNum: B016
+layout: post
+summary: More replies to error reports
+categories:  [blog, updates]
+tags: [error]
+---
+
+<h2>Recent Error Reports</h2>
+
+<p>Hello folks, here is a grab bag of fixes, hints and rebuttals arising from recent error reports. Thank you for these, please keep them coming!</p>
+
+<h2>Quick Hits</h2>
+
+<p>As usual, we'll tackle some of the easy ones first…</p>
+
+<p><em>Per pile vert and argent
+a chevron rompu counterchanged </em> - Cannot counterchange 3 tinctures. This is a bug, sorry, see <a href="https://github.com/drawshield/Drawshield-Code/issues/36">Issue #36</a></p>
+
+<p><em>Or a lion rampant [within] a double tressure flory... </em>, you don't really need the "within", as charges are by default inside it, but it should be recognised, raised as <a href="https://github.com/drawshield/Drawshield-Code/issues/86">Issue #86</a> </p>
+
+<p><em>[on the whole] a chevron sable...</em> - this is supported as "overall", I'll add this as a synonym if it doesn't cause a problem with anything else, raised as <a href="https://github.com/drawshield/Drawshield-Code/issues/87">Issue #87</a>.</p>
+
+<p><em>Mantling Or and Azure A Helmet Argent
+    On Crest Torse Azure and Gules
+    On Crest A Swan Displayed Or On a Rose Gules smaller</em> - you have made this too complicated, you don't need the first "on crest" (once their is a helmet we know where to put the torse) and for the second just use "crest".</p>
+
+<h2>Too Complicated (for now)</h2>
+
+<p><em>Gules chapé ployé or with the scallop shell Or; the dexter chape with a moor's head Proper, crowned and collared Gules, the sinister chape a bear passant Proper</em> </p>
+
+<ul>
+    <li>sorry, you will need to position the charges explicitly for now, e.g. in dexter/sinister chief</li>
+    <li>Divisions have to come first, so "chape gules and or" (I'm thinking about supporting the alternate construction but suspect it will open up all sorts of further ambiguities in parsing divisions that include treatments...)</li>
+    <li>"chapé ployé" isn't supported yet, but would be nice. Raised as <a href="https://github.com/drawshield/Drawshield-Code/issues/88"> Issue #88</a></li>
+</ul>
+
+<p><em> Azure on three mountain tops vert three towers argent masoned and windowed sable each weather vaned with an ostrich plume argent</em> Nice design, but very unlikely to be supported by DrawShield, it would involve quite a lot of work and not be widely useful, sorry.</p>
+
+<h2>Confusions</h2>
+
+<p><em>per saltire or
+    couchant gules
+    couchant sable
+    Mullet 
+    </em> - Really not sure what the author is trying to achieve there. Any ideas?</p>
+
+
+    <p><em>
+      Snake argent
+                [Gronny] azure
+</em> Should be "gyronny", but you also need a field colour and the number of snakes</p>
+        
+
+<h2>Other Matters</h2>
+
+<p>I'm aware that the problem with numbering of nested quarters may have  cropped again (<a href="https://github.com/drawshield/Drawshield-Code/issues/64">Issue #64 - Closed) </a> so I have re-opened it.</p>
+
+<p>That's all for now - please keep the error reports coming, but check the obvious things first!</p>
+
+
+
+
+
