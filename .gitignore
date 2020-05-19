@@ -3,4 +3,5 @@ var/
 etc/
 backups/
 linkchecks.txt
+.idea/
 
