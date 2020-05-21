@@ -26,7 +26,7 @@ foreach($existing as $name) {
         unlink($targetDir . $name);
 }
 $firstVal = "firstIndex: index.html";
-$lastVal = "lastIndex: index" . ( intdiv((10000 - $entryNum), $increment )) . ".html";
+$lastVal = "lastIndex: index" . ( intdiv((10000 - $entryNum), $increment ) - 1) . ".html";
 
 while ($entryNum < 10000) {
     $start = $entryNum;
