@@ -38,7 +38,7 @@ end
 
 desc 'submit Gallery Entries'
 task :submit do
-    sh %{ git pull }
+#    sh %{ git pull }
   Dir.chdir('tools') do
     sh %{ php publish.php }
   end  
