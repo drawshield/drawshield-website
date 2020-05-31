@@ -21,6 +21,7 @@ var editorLoad = "\n\n\n";
 var blazonEditor;
 var useWebColours = 'no';
 var useWarhammerColours = 'no';
+var useTartanColours = 'no';
 // Local functions - memory handling
 var memState = 'NON';
 var useMemories = true;
@@ -139,6 +140,7 @@ function getCookies() { // override defaults if cookies are set
     if ((temp = getCookie('useEditor')) != '') useEditor = temp;
     if ((temp = getCookie('useWebColours')) != '') useWebColours = temp;
     if ((temp = getCookie('useWarhammerColours')) != '') useWarhammerColours = temp;
+    if ((temp = getCookie('useTartanColours')) != '') useTartanColours = temp;
 }
 
 function setCookie(cname, cvalue, exdays ) {
@@ -161,6 +163,14 @@ function toggleWarhammerColours() {
         useWarhammerColours = 'no';
     else
         useWarhammerColours = 'yes;'
+}
+
+
+function toggleTartanColours() {
+    if (useTartanColours == 'yes')
+        useTartanColours = 'no';
+    else
+        useTartanColours = 'yes;'
 }
 
 
@@ -238,8 +248,9 @@ function setOptions() {
         }
     }   
     $('#use-editor').attr('checked',(useEditor == 'yes'));
-    $('#webColours').attr('checked',(useWebColours == 'yes'));
-    $('#warhammerColours').attr('checked',(useWarhammerColours == 'yes'));
+    $('#webcols').attr('checked',(useWebColours == 'yes'));
+    $('#whcols').attr('checked',(useWarhammerColours == 'yes'));
+    $('#tartancols').attr('checked',(useTartanColours == 'yes'));
 }
 
 function toggleDrawOptions() { // load or unload the options panel
@@ -300,6 +311,7 @@ function readOptions() {
     // These are only set if the options panel has been loaded
     useWebColours = (document.getElementById('webcols').checked) ? 'yes' : 'no';
     useWarhammerColours = (document.getElementById('whcols').checked) ? 'yes' : 'no';
+    useTartanColours = (document.getElementById('tartancols').checked) ? 'yes' : 'no';
     setCookies();
 }
 
@@ -314,6 +326,7 @@ function getFormData() {
     // formData.append('useEditor',useEditor); // not needed on server
     if (useWebColours == 'yes') formData.append('webcols','1');
     if (useWarhammerColours == 'yes') formData.append('whcols','1');
+    if (useTartanColours == 'yes') formData.append('tartancols','1');
     return formData;
 }
 
@@ -353,6 +366,7 @@ function submitSuggestion(event) {
     cols = '';
    if (useWebColours == 'yes') cols += ',webcols=1';
    if (useWarhammerColours == 'yes') cols += ',whcols=1';
+   if (useTartanColours == 'yes') cols += ',tartancols=1';
     document.getElementById('suggestion-options').value = 'shape=' + shape + ',effect=' + effect + ',palette=' + palette + ',ar=' + aspectRatio + cols;
     return true;
 }
@@ -500,6 +514,7 @@ function newTab() {
     form.elements["ar"].value = aspectRatio;
     if (useWebColours == 'yes') form.elements["webcols"].checked = true;
     if (useWarhammerColours == 'yes') form.elements["whcols"].checked = true;
+    if (useTartanColours == 'yes') form.elements["tartancols"].checked = true;
     window.alert("The shield will be drawn in a new tab. Please use your browser menu to print it");
     form.submit();
 }
@@ -532,6 +547,7 @@ function saveshield(e) {
         form.elements["ar"].value = aspectRatio;
         if (useWebColours == 'yes') form.elements["webcols"].checked = true;
         if (useWarhammerColours == 'yes') form.elements["whcols"].checked = true;
+        if (useTartanColours == 'yes') form.elements["tartancols"].checked = true;
             form.submit();
     }
 }
