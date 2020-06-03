@@ -1,4 +1,7 @@
 var blazon = "";
+var lexicon = null;
+var normalisations = null;
+var language = "fr";
 
 // Bad blazon: Écartelé aux 1 et 4 d'or au chevron d'azur acc en pointe d'une demi-aigle de sable posée en fasce mouv de la pointe la tête à senestre aux 2 et 3 de gueules au lion d'or celui du 3 contourné A la fasce d'argent brochant sur l'écartelé et ch de trois écussons de sable Casque couronné Cimier le lion du 2 issant Lambrequin à dextre d'or et de sable à senestre d'or et de gueules
 
@@ -26,42 +29,44 @@ function getGuesses(input) {
 	var original = input;
 	var results = [];
 	input += " "; // ensure everyword terminates with whitespace
-	for ( index = 0; index < normalisations.length; index++ ) {
+	for (index = 0; index < normalisations.length; index++) {
 		item = normalisations[index];
-		re = new RegExp( item[0], 'g' );
-		input = input.replace(re,item[1]);
+		re = new RegExp(item[0], 'g');
+		input = input.replace(re, item[1]);
 	}
 	input = input[0].toLowerCase() + input.substring(1); // never trigger upper case on first word
 
 	while (input.length > 0) {
 		found = null;
 
-		// Upper case A on its own sometimes seems to mean "overall"
-		re0 = /^A\s\s*/;
-		found = input.match(re0);
-		if (found != null) {
-			foundLength = found[0].length;
-			orig = original.substring(0,foundLength);
-			original = original.substring(foundLength);
-			results.push([found[0],"Overall/A",orig]);
-			input = input.substring(foundLength);
-			continue;
-		}
-		if (found == null) {
-			// look for a (n)
-			re4 = /^\(([1-9]) \)\s*/;
-			found = input.match(re4);
+		if (language == "fr") {
+			// Upper case A on its own sometimes seems to mean "overall"
+			re0 = /^A\s\s*/;
+			found = input.match(re0);
 			if (found != null) {
 				foundLength = found[0].length;
-				orig = original.substring(0,foundLength);
+				orig = original.substring(0, foundLength);
 				original = original.substring(foundLength);
-				results.push([found[0],"of " + found[1] + " points",orig]);
+				results.push([found[0], "Overall/A", orig]);
 				input = input.substring(foundLength);
 				continue;
 			}
+			if (found == null) {
+				// look for a (n)
+				re4 = /^\(([1-9]) \)\s*/;
+				found = input.match(re4);
+				if (found != null) {
+					foundLength = found[0].length;
+					orig = original.substring(0, foundLength);
+					original = original.substring(foundLength);
+					results.push([found[0], "of " + found[1] + " points", orig]);
+					input = input.substring(foundLength);
+					continue;
+				}
+			}
 		}
 		// other Brackets just match and pass on
-		re0 = /^[\({\[\]}\)]/;
+		re0 = /^[\({\[\]}\)]/u;
 		found = input.match(re0);
 		if (found != null) {
 			orig = original.substring(0,1);
@@ -73,7 +78,7 @@ function getGuesses(input) {
 
 		if (found == null) {
 			// if all upper case, just pass through
-			re2 = /^([A-Z][A-Z]*)\b\s*/;
+			re2 = /^([A-Z][A-Z]*)\b\s*/u;
 			found = input.match(re2);
 			if ( found != null ) {
 				foundLength = found[0].length;
@@ -85,10 +90,10 @@ function getGuesses(input) {
 			}
 		}
 		// target = document.getElementById("target");
-		for ( index = 0; index < lexicon.length; index++ ) {
+		for (index = 0; index < lexicon.length; index++ ) {
 			item = lexicon[index];
 			// target.value += item[0] + "/";
-			re = new RegExp( "^" + item[0] + "\\s\\s*", 'i' );
+			re = new RegExp( "^" + item[0] + "\\s\\s*", 'iu' );
 			found = input.match(re);
 			if ( found != null ) {
 				foundLength = found[0].length;
@@ -156,6 +161,7 @@ function doExpand() {
 		return;
 	}
 	var charWidth = 10;
+	var padding = 4;
 	var guesses = getGuesses(blazon);
 	var focusOnMe = null;
 
@@ -210,7 +216,7 @@ function doExpand() {
 			newInput.value = thisGuess;
 			if (thisGuess.length == 0) {
 				style += "background-color: NavajoWhite;";
-				width = 10 * charWidth;
+				width = 10 * charWidth + padding;
 			} else {
                 wordLength = thisGuess.length;
                 if (wordLength < 6) {
@@ -218,7 +224,7 @@ function doExpand() {
                 } else if (wordLength > 12) {
                     wordLength = Math.floor(wordLength * 0.9);
                 }
-    			width = wordLength * charWidth;			    
+    			width = wordLength * charWidth + padding;
 			}
 		}
 		if (width > 680) { width = 680; }
@@ -235,7 +241,7 @@ function doExpand() {
 	focusOnMe.focus();
 }
 
-function format() {
+function doFormat() {
 	// get target textarea
 	var target = document.getElementById("target");
 
@@ -263,6 +269,18 @@ function format() {
 
 function doTranslate() {
 	blazon = document.getElementById("blazon").value;
+	language = document.getElementById("language").value;
+	switch(language) {
+		case "fr":
+			lexicon = lexiconFr;
+			normalisations = normalisationsFr;
+			break;
+		case 'es':
+			lexicon = lexiconEs;
+			normalisations = normalisationsEs;
+			break;
+	}
+
 	doExpand();
 }
 
@@ -277,7 +295,7 @@ document.onkeyup=function(e){
 	}
 }
 
-function restart() {
+function doRestart() {
 	document.getElementById("blazon").value = "";
 	clearAll();
 }

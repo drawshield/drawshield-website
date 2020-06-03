@@ -1,46 +1,48 @@
 ---
-pageTitle: French To English Translation
+pageTitle: Translation To English
 ---
-<script charset="UTF-8"  src="js/lexicon.js"></script>
+<script charset="UTF-8"  src="js/lexicon-fr.js"></script>
+<script charset="UTF-8"  src="js/lexicon-es.js"></script>
 <script charset="UTF-8"  src="js/translator.js"></script>
-<p>By following the instructions below you can translate blazons from French into English. The result is not 100% perfect but is a good basis for a final translation. In particular, the "style" of French is that used in <em>Rietstap's General Armorial</em>, so for example you can copy the blazons from <a href="http://www.euraldic.com/lasu/bl/bl_a_aa.html">Euralidic.com</a> into the box below and get a reasonable attempt at an English translation.</p>
-<table border="1" style="width: 100%; background-color: #EACB8E">
-	<tbody  id="table">
-	<tr>
-		<td>Type or paste a French blazon into the box below, then click here:
-			<button id="download" onclick="doTranslate()" class="btn btn-primary">Translate</button></td>
-	</tr>
-	<tr>
-		<td style="width: 95%;"><textarea rows="8" cols="92" name="target" id="blazon"  style="background-color: white"></textarea></td>
-	</tr>
-	<tr>
-		<td>Your translation will appear below. Sometimes there are alternative choices
+<p>By following the instructions below you can translate blazons from French or Spanish into English. The result is not 100% perfect but is a good basis for a final translation. The "style" of French is that used in <em>Rietstap's General Armorial</em>, so for example you can copy the blazons from <a href="http://www.euraldic.com/lasu/bl/bl_a_aa.html">Euralidic.com</a> into the box below and get a reasonable attempt at an English translation.</p>
+
+<form onsubmit="return false;">
+	<div class="form-group">
+		<label for="blazon">Type or paste the blazon for translation into the box below</label>
+		<textarea class="form-control" name="blazon" rows="8" id="blazon"></textarea>
+	</div>
+	<div>
+		<button onclick="doTranslate()" class="btn btn-primary">Translate from:</button>
+		<select class="form-control" id="language">
+			<option selected value="fr">French</option>
+			<option value="es">Spanish</option>
+		</select>
+	</div>
+	<p>Your translation will appear below. Sometimes there are alternative choices
 		that you can chose from a drop-down menu (if none of the options are right chose
 		"(n/a)" ). You can overtype any of the other translations if they are wrong. As
-		you click in each box the corresponding French word is highlighted in the box below.
-		Unknown words are shown in orange, you will need to look these up in a French / English
-		dictionary.</td>
-	</tr>
-	<tr>
-		<td style="width: 95%;"  style="background-color: aliceblue"><p  id="translation"></p></td>
-	</tr>
-<tr>
-		<td style="width: 95%;"><p id="original"></p></td>
-	</tr>
-	<tr>
-		<td>When you are happy with the translation, press this button:
-			<button id="format" onclick="format()" class="btn btn-primary">Format</button>.
-		You can still edit the translation below if you want before you
-		copy it and paste it somewhere else.</td>
-	</tr>
-	<tr>
-		<td style="width: 95%;"><textarea rows="8" cols="92" name="target" id="target" style="background-color: white"></textarea></td>
-	</tr>
-	<tr>
-		<td>When you have finished here, click here: <button id="restart" onclick="restart()" class="btn btn-primary">Restart</button>
-		to start over with a new blazon.</td>
-	</tr>
-	</tbody>
-</table>
-<p>At the moment there are about 1,100 words and phrases in the translation dictionary. If you find additional words or phrases that you think should be included please let me know by clicking the button below.</p>
+		you click in each box the corresponding foreign language word is highlighted in the box below.
+		Unknown words are shown in orange, you will need to look these up in an appropriate
+		dictionary.</p>
+	<div class="card bg-light mb-3">
+		<p  id="translation">
+	</div>
+	<div class="card bg-light mb-3">
+		<p id="original">
+	</div>
+	<div class="form-group">
+		<label for="format">When you are happy with the translation, press here: </label>
+		<button id="format" onclick="doFormat()" class="btn btn-primary">Format</button>
+	</div>
+	<div class="form-group">
+		<textarea rows="8" name="target" id="target" class="form-control"></textarea>
+	</div>
+	<div class="form-group">
+		<label for="restart">When you are finished click here to restart: </label>
+		<button id="restart" onclick="doRestart()" class="btn btn-primary">Clear</button>
+	</div>
+</form>
+
+<p>At the moment there are about 1,100 words and phrases in each of the translation dictionaries. If you find additional words or phrases that you think should be included please let me know by clicking the button below.</p>
+
 {% include reply.html reference = "translation" caption = "Suggestions" prompt = "Additional words or phrases...?" %}

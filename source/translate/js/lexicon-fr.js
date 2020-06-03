@@ -1,4 +1,4 @@
-var normalisations = [
+var normalisationsFr = [
     ["\\-",' '],
     [";"," "],
     [":"," "],
@@ -25,7 +25,7 @@ var normalisations = [
 ];
 
 
-var lexicon = [
+var lexiconFr = [
     ["1","1"],
     ["1er?","1st"],
     ["2","2"],
