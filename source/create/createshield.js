@@ -17,6 +17,7 @@ var shape = 'heater';
 var saveFormat = 'png';
 var aspectRatio = '0.5';
 var useEditor = 'yes';
+var useZoom = 'yes';
 var editorLoad = "\n\n\n";
 var blazonEditor;
 var useWebColours = 'no';
@@ -125,6 +126,7 @@ function setCookies() {
     setCookie('saveFormat',saveFormat);
     setCookie('aspectRatio',aspectRatio);
     setCookie('useEditor',useEditor);
+    setCookie('useZoom',useZoom);
     setCookie('useWebColours',useWebColours);
     setCookie('useWarhammerColours',useWarhammerColours);
 }
@@ -138,6 +140,7 @@ function getCookies() { // override defaults if cookies are set
     if ((temp = getCookie('saveFormat')) != '') saveFormat = temp;
     if ((temp = getCookie('aspectRatio')) != '') aspectRatio = temp;
     if ((temp = getCookie('useEditor')) != '') useEditor = temp;
+    if ((temp = getCookie('useZoom')) != '') useZoom = temp;
     if ((temp = getCookie('useWebColours')) != '') useWebColours = temp;
     if ((temp = getCookie('useWarhammerColours')) != '') useWarhammerColours = temp;
     if ((temp = getCookie('useTartanColours')) != '') useTartanColours = temp;
@@ -194,6 +197,10 @@ function switchEditor() {
     }
 }
 
+function switchZoom() {
+    useZoom = (document.getElementById('use-zoom').checked == true) ? 'yes' : 'no';
+}
+
 function getCookie(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');
@@ -248,6 +255,7 @@ function setOptions() {
         }
     }   
     $('#use-editor').attr('checked',(useEditor == 'yes'));
+    $('#use-zoom').attr('checked',(useZoom == 'yes'));
     $('#webcols').attr('checked',(useWebColours == 'yes'));
     $('#whcols').attr('checked',(useWarhammerColours == 'yes'));
     $('#tartancols').attr('checked',(useTartanColours == 'yes'));

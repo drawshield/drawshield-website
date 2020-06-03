@@ -7,6 +7,7 @@ var messageCallback;
 var lastsvg = null;
 
 
+
 function updateHTML() {
 	if ( xmlhttp.readyState == 4 && xmlhttp.status == 200 ) {
     var item = document.getElementById(useHTMLId);
@@ -48,13 +49,13 @@ function updateSVG() {
          var svg = xmlhttp.responseXML.documentElement;
          svg = cloneToDoc(svg);
          // pan zoom doesn't work in Edge
-         panZoom = false;
+         useZoom = false;
        } else {
          var svg = xmlhttp.responseXML.documentElement;
          svg = cloneToDoc(svg);
        }
        shieldImg.appendChild(svg);
-       if (panZoom) {
+       if (useZoom) {
         var lastsvg = svgPanZoom(svg, {
           minZoom: 1.0,
           maxZoom: 10,

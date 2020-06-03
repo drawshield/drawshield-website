@@ -391,6 +391,8 @@ $ordList = [
     "minor/point-sinister-+",
     "minor/2-square-flaunches",
     "minor/trimount",
+    "minor/chief-pointed",
+    "minor/base-pointed",
     "pale/pale-+",
     "pale/canadian-pale-+",
     "pale/endorse-+",
@@ -555,6 +557,13 @@ $treatList = [
     "furs/vair-in-pale",
     "furs/vair-en-point",
     "furs/potent-counter-potent",
+    "fabric/buffalo-check",
+    "fabric/gingham",
+    "fabric/glen-check",
+    "fabric/graph-check",
+    "fabric/shepherd-check",
+    "fabric/houndstooth",
+    "fabric/tartan",
 ];
 
 $achievementList = [

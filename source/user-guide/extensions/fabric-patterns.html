@@ -1,0 +1,114 @@
+---
+group02: true
+g02menu13: active
+layout: sidemenu
+sidemenu: user-guide-menu
+pageTitle: Creating Fabric Patterns
+upLink: index.html
+prevLink: extra-colours.html
+nextLink: charge-adjustments.html
+---
+<h2>Creating Fabric Patterns.</h2>
+
+<p>The code that creates normal heraldic treatments is very flexible and was easily modified to produce fabric like patterns.
+Although not remotely Heraldic they are included here in the hope that they might be useful for something. You can if you
+want to use them as the field for your arms but heraldic purists are unlikely to be happy about it!</p>
+
+<h3>Plaid Patterns</h3>
+
+<p>These patterns are based on those illustrated and discussed on this <a href="https://www.plaidlover.com/different-types-plaid-pattern/">
+    Plaid Lovers</a> page. The patterns available are <strong>buffalo check, gingham, glen check</strong>
+    (or <strong>Prince of Wales check</strong>),
+    <strong>graph check, houndstooth</strong> and
+    <strong>shepherd check</strong>. </p>
+
+<p>These work exactly the same way as treatments and must be followed by two tinctures.</p>
+
+<p>To see the appearance of these patterns look at the <a href="/catalog/treatments/fabric/index.html">visual catalog page.</a></p>
+
+
+<h3>Tartan Patterns</h3>
+
+<p>Tartan patterns don't really fall into the heraldic way of doing things but it seemed a shame not to implement so I have
+    added a small extra piece of syntax to allow them to be drawn. The implementation here is based on the <a
+            href="https://en.wikipedia.org/wiki/Tartan#Construction">Wikipedia discussion here</a>, with additional
+    information from <a href="https://www.tartanregister.gov.uk/">the official Scottish Tartan Register</a>.</p>
+
+    <p>The pattern name is (obviously) <em>tartan</em> and this
+should be followed by a series of colour names and thread widths. (Note that <strong>only</strong> colours may be used, not any
+other type of tincture). Thread widths are given as numbers. You should assume that there are 500 threads across the field, hence
+if your total thread widths add up to 50 your pattern will repeat 5 times across the full width. (Each pattern is 100 x 100 threads
+        because of the mirrored repeat). So, for example:</p>
+.
+<p><em>tartan ancient black 4 scarlet 24 ancient black 24 yellow 4</em></p>
+
+<p>Produces the rather lovely pattern:</p>
+
+<img class="img-fluid" src="/user-guide/extensions/img/tartan1.png" alt="Tartan swatch" />
+
+<p>Note that using the tartan pattern will <em>automatically enable</em> the extra tartan colour set. You can use as many
+colour / thread count pairs as required, at least 4 for a proper "tartan" appearance.
+	If required, a semi-colon can be used to separate the tartan description from any following
+content, and commas may be used between each item. You are not limited to tartan colours, but can use any of the colour sets
+that you have enabled (see below).</p>
+
+<p>The referenced sources both mention rare cases in which the tartan pattern does <strong>not</strong> repeat in a mirror
+image. For this situation use the construction <em>tartan no repeat</em> followed by the colours and thread counts
+as normal.</p>
+
+<p>In general, if you find published thread counts you can probably use them "as is" - although you
+    will need to convert the abbreviations to proper colour names. A convertor for this process is provided below, (and may be
+incorporated into the main DrawShield code later):</p>
+
+<script src="tartan.js" ></script>
+		<form>
+			<div class="form-group">
+				<p>Converts standard tartan descriptions into a form usable by DrawShield</p>
+			</div>
+			<div class="form-group">
+				<label class="description" for="tartan">Tartan  Specification </label>
+				<input id="tartan" name="tartan" class="form-control" type="text" maxlength="255" value=""/>
+				<p class="guidelines" id="guide_1"><small>Enter tartan components e.g. K4 R24 K24 Y4</small></p>
+			</div>
+			<div class="form-group">
+				<label class="description" for="blazon">DrawShield Blazon </label>
+				<textarea id="blazon" name="blazon" class="form-control"></textarea>
+			</div>
+			<div class="form-group row">
+				<div class="col">
+					<input onclick="tartanToBlazon();" class="button_text" type="button" name="submit" value="Convert" />
+				</div>
+				<div class="col">
+					<input onclick="tartanToBlazon();" class="button_text" type="reset" name="reset" value="Clear" />
+				</div>
+			</div>
+		</form>
+
+<h4>Notes</h4>
+
+<p>The colour mixing that occurs when threads "overlap" is very crude and not based on any physically realistic process.
+I might change this in the future if anyone reports it to be a problem.</p>
+
+<h3>Tattersall Pattern</h3>
+
+<p>The Plaid Lover's site referenced above also includes a fabric pattern known as <em>Tattersall</em>. This has 3 colours
+so doesn't really fit into the heraldic treatment paradigm,however it can be simulated by using the tartan pattern - the
+photograph on the plaid lover's can be simulated by entering <em> tartan gules 3 argent 36 brunatre 3</em>.</p>
+
+<h3>Additional Colours</h3>
+
+<p>For fabric design purposes you may find it useful to turn on the additional colour sets <em>named wed</em> and <em>tartan</em>
+as <a href="/user-guide/extensions/extra-colours.html">discussed here</a>. As noted above, using the tartan pattern automatically
+enables the tartan colour set.</p>
+
+<h3>Visual Appearance</h3>
+
+<p>Since these patterns are not really heraldic it may not seem appropriate to display on a shield. As an alternative
+you may wish to the shape <em>swatch</em>, which is chosen from the drop-down <strong>Preferences</strong> pane
+and is intended to look like a material sample. Alternatively you can append <em>drawn using the swatch shape</em> to the
+end of the blazon</p>
+
+<p>In addition, there is a visual effect which can be applied, specifically created for these patterns, <em>Fabric</em>. This
+can also be selected from the drop-down <strong>Preferences</strong> menu, or by appending <em>drawn using the fabric effect</em> to
+the end of the blazon. Note that this effect darkens the colours somewhat, so may always be suitable, but it does like nice, especially
+on tartans, which are very subdued anyway.</p>

@@ -68,6 +68,11 @@ layout: null
                             <div class="mx-auto"><img alt="ripples" src="img/ripples.png" class="mx-auto d-block" onclick="jQuery('#effect6').prop('checked','checked');"></div>
                             <div class="mx-auto text-center"><span><input type="radio" class="mx-auto" name="effectgroup" id="effect6" value="ripples"></span></div>
                     </div>
+                    <div class="col-lg-2 mx-auto col-sm-6 pl-1 pr-1">
+                        <div class="mx-auto text-center"><span>Fabric</span></div>
+                            <div class="mx-auto"><img alt="ripples" src="img/fabric.png" class="mx-auto d-block" onclick="jQuery('#effect7').prop('checked','checked');"></div>
+                            <div class="mx-auto text-center"><span><input type="radio" class="mx-auto" name="effectgroup" id="effect7" value="fabric"></span></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -218,6 +223,11 @@ layout: null
                         <div class="mx-auto"><img alt="sca" src="img/sca.png" class="mx-auto d-block" onclick="jQuery('#shape14').prop('checked','checked');"></div>
                         <div class="mx-auto text-center"><span><input type="radio" class="mx-auto" name="shapegroup" id="shape14" value="sca"></span></div>
                     </div>
+                     <div class="col-lg-2 mx-auto col-sm-6 pl-1 pr-1">
+                        <div class="mx-auto text-center"><span>Swatch</span></div>
+                        <div class="mx-auto"><img alt="sca" src="img/swatch.png" class="mx-auto d-block" onclick="jQuery('#shape15').prop('checked','checked');"></div>
+                        <div class="mx-auto text-center"><span><input type="radio" class="mx-auto" name="shapegroup" id="shape15" value="swatch"></span></div>
+                    </div>
                     <div class="col-lg-2 mx-auto col-sm-6 pl-1 pr-1">
                         <div class="mx-auto text-center"><span>Pauldron</span></div>
                         <div class="mx-auto"><img alt="pauldron" src="img/pauldron.png" class="mx-auto d-block" onclick="jQuery('#shape14').prop('checked','checked');"></div>
@@ -245,9 +255,14 @@ layout: null
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-6 col-lg-4 offset-lg-1 pl-1 pr-1">
+                <div class="col-sm-12 col-lg-6 pl-1 pr-1">
                     <div class="input-group"><span>Use Fancy Editor: </span>
                         <input type="checkbox" class="mx-auto" name="use-editor" id="use-editor" value="on" checked onchange="switchEditor();">
+                    </div>
+                </div>
+                <div class="col-sm-12 col-lg-6 pl-1 pr-1">
+                    <div class="input-group"><span>Enable Image Zoom: </span>
+                        <input type="checkbox" class="mx-auto" name="use-zoom" id="use-zoom" value="on" checked onchange="switchZoom();">
                     </div>
                 </div>
             </div>
