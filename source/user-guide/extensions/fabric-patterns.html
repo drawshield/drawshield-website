@@ -46,6 +46,9 @@ if your total thread widths add up to 50 your pattern will repeat 5 times across
 
 <img class="img-fluid" src="/user-guide/extensions/img/tartan1.png" alt="Tartan swatch" />
 
+<p>Some tartan patterns use large (>100) or small (<20) total thread counts, and DrawShield will attempt to do some crude scaling
+in these cases to keep the tartan pattern size to similar dimensions as other treatments.</p>
+
 <p>Note that using the tartan pattern will <em>automatically enable</em> the extra tartan colour set. You can use as many
 colour / thread count pairs as required, at least 4 for a proper "tartan" appearance.
 	If required, a semi-colon can be used to separate the tartan description from any following
@@ -56,9 +59,16 @@ that you have enabled (see below).</p>
 image. For this situation use the construction <em>tartan no repeat</em> followed by the colours and thread counts
 as normal.</p>
 
-<p>In general, if you find published thread counts you can probably use them "as is" - although you
-    will need to convert the abbreviations to proper colour names. A convertor for this process is provided below, (and may be
-incorporated into the main DrawShield code later):</p>
+<p>You will sometimes find tartan specified in a compact form, like <em>K4 R24 K24 Y4</em>, where the letters reference a colour and the numbers are the count of threads for the associated colour. You can use these directly in a blazon but you
+   <strong>MUST</strong> enclose them in double quotes, e.g. <em>tartan "K4 R24 K24 Y4"</em>. Alternatively,
+	if you would like to see the full colour names then a convertor for this process is provided below.</p>
+
+<p>If you obtain threadcounts from the Scottish Tartan register above you may also find that the compact form also includes a "pallet" (their spelling) which describes the colours more precisely. These <strong>cannot</strong> be used directly with DrawShield, but you can use the convertor below which will produce a form usable in DrawShield. Also look out for the phrase: </p>
+
+<p><em>Threadcount given over a half sett with full count at the pivots.</em></p>
+
+<p>This means that the first and last counts should be halved for use in DrawShield - tick the box marked "Full count at the
+pivots?" if you see this phrase and the convertor will automatically make the appropriate adjustments.</p>
 
 <script src="tartan.js" ></script>
 		<form>
@@ -66,9 +76,19 @@ incorporated into the main DrawShield code later):</p>
 				<p>Converts standard tartan descriptions into a form usable by DrawShield</p>
 			</div>
 			<div class="form-group">
-				<label class="description" for="tartan">Tartan  Specification </label>
+				<label class="description" for="tartan">Threadcount </label>
 				<input id="tartan" name="tartan" class="form-control" type="text" maxlength="255" value=""/>
 				<p class="guidelines" id="guide_1"><small>Enter tartan components e.g. K4 R24 K24 Y4</small></p>
+			</div>
+			<div class="form-group">
+				<label class="description" for="pallete">Pallet  (if given) </label>
+				<input id="pallete" name="tartan" class="form-control" type="text" maxlength="255" value=""/>
+				<p class="guidelines" id="guide_2"><small>Enter pallet sepcification e.g. K=101010BLACK;...</small></p>
+			</div>
+			<div class="form-group">
+				<input type="checkbox" class="form-control" id="full-count">
+				<label class="description" for="full-count">Full count at the pivots?</label>
+				<p class="guidelines" id="guide_3"><small>This is usually stated after the pallet</small></p>
 			</div>
 			<div class="form-group">
 				<label class="description" for="blazon">DrawShield Blazon </label>
