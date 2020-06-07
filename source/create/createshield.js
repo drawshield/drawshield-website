@@ -477,7 +477,10 @@ function processFile(fileContent) {
 
 function drawshield(blazon) {
     uploadedFile = null;
-    if (useMemories) {
+    // if we come here because there is a blazon in the URL, we don't need to store
+    // the existing blazon as there isn't one. At this point, blazonEditor is
+    // not defined, but will be created later and populated with the URL blazon
+    if (typeof(blazonEditor) !== 'undefined' && useMemories) {
         localStorage.setItem("memory00", encodeURI(saveEditor()));
         jQuery("#memory00").removeClass('btn-light').addClass('btn-secondary');
     }
