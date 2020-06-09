@@ -190,6 +190,29 @@ $colours = [
     "zandri-dust" => "#9e915c  ",
 ];
 
+$wordList = [
+  "col-a" => "A..",
+  "col-b" => "B..",
+  "col-c" => "C..",
+  "col-d" => "D..",
+  "col-e" => "E..",
+  "col-f" => "F..",
+  "col-g" => "G..",
+  "col-h" => "H..",
+  "col-ij" => "I-J",
+  "col-k" => "K..",
+  "col-l" => "L..",
+  "col-m" => "M..",
+  "col-n" => "N..",
+  "col-opq" => "OPQ",
+  "col-r" => "R..",
+  "col-s" => "S..",
+  "col-t" => "T..",
+  "col-uv" => "U-V",
+  "col-w" => "W..",
+  "col-xyz" => "XYZ",
+];
+
 function splitRGB($hex) {
       if ($hex[0] == '#') {
     $prefix = '#';
@@ -201,13 +224,31 @@ function splitRGB($hex) {
   return [ 'r' => $red, 'g' => $green, 'b' => $blue ];
 }
 
-foreach ($colours as $name => $value) {
-   $image = imageCreate(120,120);
-   $rgb = splitRGB($value);
-   $fill = imageColorAllocate($image, $rgb['r'],$rgb['g'],$rgb['b']);
-   imageFilledRectangle($image, 50, 50, 250, 150, $fill);
-   imagepng($image, "../source/warhammer/img/$name.png");
-   imageDestroy($image);
+function colours()
+{
+        global $colours;
+    foreach ($colours as $name => $value) {
+        $image = imageCreate(120, 120);
+        $rgb = splitRGB($value);
+        $fill = imageColorAllocate($image, $rgb['r'], $rgb['g'], $rgb['b']);
+        imageFilledRectangle($image, 0, 0, 120, 120, $fill);
+        imagepng($image, "../source/warhammer/img/$name.png");
+        imageDestroy($image);
+    }
 }
 
+function words() {
+    global $wordList;
+    foreach ($wordList as $word => $text) {
+        $image = imageCreate(120, 120);
+        $fill = imagecolorallocate($image, 255, 255, 255);
+        $foreground = imagecolorallocate($image, 0, 0, 0);
+        imageFilledRectangle($image, 0, 0, 120, 122, $fill);
+        imageString($image, 5, 100, 20, $text, $foreground);
+        imagepng($image, "../source/warhammer/img/$word.png");
+        imageDestroy($image);
+    }
+}
+
+words();
 
