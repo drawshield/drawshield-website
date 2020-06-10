@@ -1,7 +1,6 @@
 var shieldSize = 500;
 var shieldtarget = 'shieldimg';
 var captiontarget = 'shieldcaption';
-var tabletarget = 'errorMessages';
 var targetURL = '/include/drawshield.php';
 var messageContainer = 'messageDiv';
 var messageTarget = 'messageList'
@@ -14,7 +13,6 @@ var saveWidth = "1000";
 var palette = 'drawshield';
 var effect = 'shiny';
 var shape = 'heater';
-var saveFormat = 'png';
 var aspectRatio = '0.5';
 var useEditor = 'yes';
 var useZoom = 'yes';
@@ -123,7 +121,6 @@ function setCookies() {
     setCookie('effect',effect);
     setCookie('shape',shape);
     setCookie('saveWidth',saveWidth);
-    setCookie('saveFormat',saveFormat);
     setCookie('aspectRatio',aspectRatio);
     setCookie('useEditor',useEditor);
     setCookie('useZoom',useZoom);
@@ -137,7 +134,6 @@ function getCookies() { // override defaults if cookies are set
     if ((temp = getCookie('effect')) != '') effect = temp;
     if ((temp = getCookie('shape')) != '') shape = temp;
     if ((temp = getCookie('saveWidth')) != '') saveWidth = temp;
-    if ((temp = getCookie('saveFormat')) != '') saveFormat = temp;
     if ((temp = getCookie('aspectRatio')) != '') aspectRatio = temp;
     if ((temp = getCookie('useEditor')) != '') useEditor = temp;
     if ((temp = getCookie('useZoom')) != '') useZoom = temp;
@@ -219,17 +215,6 @@ function getCookie(cname) {
 function setOptions() {
     document.getElementById("sizeInput").value = saveWidth;
     document.getElementById("aspectRatio").value = aspectRatio;
-    switch ( saveFormat ) {
-        case 'svg': 
-            document.getElementById("formatSelect").selectedIndex = 2;
-            break;
-        case 'jpg': 
-            document.getElementById("formatSelect").selectedIndex = 1;
-            break;
-        case 'png': 
-            document.getElementById("formatSelect").selectedIndex = 0;
-            break;
-    }
     radioButtons = document.getElementsByName('palettegroup');
     for ( i = 0; i < radioButtons.length; i++ ) {
         option = radioButtons[i];
@@ -275,10 +260,7 @@ function readOptions() {
     if (!optionsLoaded) return;
     // only look for things if the options panel has been loaded
 
-    var e = document.getElementById("formatSelect");
-    saveFormat = e.options[e.selectedIndex].value;
-
-    e = document.getElementById("sizeInput");
+    var e =  document.getElementById("sizeInput");
     temp = parseInt(e.value);
     if (temp < 100) {
         temp = 100;
@@ -531,36 +513,25 @@ function newTab() {
 }
 
 
-function saveshield(e) {
+function saveshield() {
     readOptions(); // in case any have changed
-    if(e.shiftKey) {   // only works with text input
-        stage = 'parser';
-        switch(saveFormat) {
-            case 'jpg': 
-                stage = 'references';
-                break;
-            case 'svg':
-                stage = 'links';
-                break;
-        }
-        window.open( targetURL + '?stage=' + stage + '&blazon=' + encodeURIComponent(blazonEditor.getValue()));
-    } else { // normal file save
-        form = document.forms[0];
-        form.action = targetURL;
-        form.target = '_blank';
-        form.elements["asfile"].value = '1';
-        form.elements["size"].value = saveWidth;
-        form.elements["saveformat"].value = saveFormat;
-        form.elements["asfile"].value = '1';
-        form.elements["shape"].value = shape;
-        form.elements["effect"].value = effect;
-        form.elements["palette"].value = palette;
-        form.elements["ar"].value = aspectRatio;
-        if (useWebColours == 'yes') form.elements["webcols"].checked = true;
-        if (useWarhammerColours == 'yes') form.elements["whcols"].checked = true;
-        if (useTartanColours == 'yes') form.elements["tartancols"].checked = true;
-            form.submit();
-    }
+    form = document.forms[0];
+    form.action = targetURL;
+    form.target = '_blank';
+    form.elements["asfile"].value = '1';
+    form.elements['filename'].value = document.getElementById('filenameInput').value;
+    form.elements["size"].value = saveWidth;
+    var e = document.getElementById("formatSelect");
+    form.elements["saveformat"].value = e.options[e.selectedIndex].value;
+    form.elements["asfile"].value = '1';
+    form.elements["shape"].value = shape;
+    form.elements["effect"].value = effect;
+    form.elements["palette"].value = palette;
+    form.elements["ar"].value = aspectRatio;
+    if (useWebColours == 'yes') form.elements["webcols"].checked = true;
+    if (useWarhammerColours == 'yes') form.elements["whcols"].checked = true;
+    if (useTartanColours == 'yes') form.elements["tartancols"].checked = true;
+    form.submit();
 }
 
 function getUrlParameter(name) {
