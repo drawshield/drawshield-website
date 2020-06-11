@@ -2,13 +2,39 @@ var version = "0.1a";
 var size=280;
 
 var shieldData = {};
-shieldData["~start-here~"] = [ "Answer the following Questions and watch how the blazon is build up",
-"~background~ ~update~ ~bordure~ ~update~ ~add-symbol~ ~update~", "Begin", 'yes.png',
+shieldData["~start-here~"] = [ "Answer the following Questions by clicking the boxes below.",
+"~background~ ~update~ ~add-ord~ ~update~ ~bordure~ ~update~ ~add-symbol~ ~update~", "Begin", 'yes.png',
     ];
 shieldData["~background~"] = [ "Is the background single colour or split into two?",
-      '~colour~', "A single colour", 'plain.png',
-      '~divided~', "Divided between two colours", 'divided.png'
+      '~colour~', "A single colour", 'div/plain.png',
+      '~divided~ ~colour~ and ~colour~', "Divided between two colours", 'div/division.png'
       ];
+shieldData["~ordinary~"] = [ "Choose a shape (ordinary) to place on your pauldron",
+"3 chevrons interlaced", "3 chevrons", 'ord/3-chevrons.png',
+"bend sinister", "bend sinister", 'ord/bend-sin.png',
+"bend", "bend", 'ord/bend.png',
+"chevron", "chevron", 'ord/chevron.png',
+"cross formy", "cross formy", 'ord/cross-formy.png',
+"fillet cross", "fillet cross", 'ord/fillet-cross.png',
+"gorge", "gorge", 'ord/gorge.png',
+"pale", "pale", 'ord/pale.png',
+"pile embowed", "pile embowed", 'ord/pile-embowed.png',
+    ];
+shieldData["~divided~"] = [ "Choose the style of the division into two colours",
+"bendy sinister", "bendy sinister", 'div/bendy-sin.png',
+"bendy", "bendy", 'div/bendy.png',
+"chevronny", "chevronny", 'div/chevronny.png',
+"gyronny", "gyronny", 'div/gyronny.png',
+"per bend", "per bend", 'div/per-bend.png',
+"per bend sinister", "per bend sinister", 'div/per-bend-sin.png',
+"per chevron", "per chevron", 'div/per-chevron.png',
+"per chevron-inv", "per chevron-inv", 'div/per-chevron-inv.png',
+"per fess", "per fess", 'div/per-fess.png',
+"per pale", "per pale", 'div/per-pale.png',
+"per pile", "per pile", 'div/per-pile.png',
+"per saltire", "per saltire", 'div/per-saltire.png',
+"pily", "pily", 'div/pily.png',
+];
 shieldData["~colour~"] = [ "How do you want to choose the colour?",
     "~col-by-shade~", "By Shade", 'col/col-blues.png',
     "~col-by-name~", "By Name", 'col/by-letter.png',
@@ -667,7 +693,12 @@ shieldData["~sym-t-z~"] = [ "symbols starting with T, U, V, W X & Y",
 ];
 
 shieldData["~add-symbol~"] = [ "Do you want to add a Faction Symbol?",
-      '~numcharges~ ~symbol~ ~colour~', 'Yes', 'yes.png',
+      '~numcharges~ ~colour~', 'Yes', 'yes.png',
+      '', 'No', 'no.png',
+      ];
+
+shieldData["~add-ord~"] = [ "Do you want to add a simple shape (ordinary)?",
+      '~ordinary~ ~colour~', 'Yes', 'yes.png',
       '', 'No', 'no.png',
       ];
 
@@ -696,12 +727,12 @@ shieldData["~and~"] = [ "Now choose another, different colour",
       ];
 
 shieldData["~numcharges~"] = [ "How many copies of the symbol do you want to add?",
-      'the', "One", 'one.png',
-      'two', "Two", 'two.png',
-      'three', "Three", 'three.png',
-      'four', "Four", 'four.png',
-      'five', "Five", 'five.png',
-      'six', "Six", 'six.png',
+      'the ~symbol~', "One", 'one.png',
+      'two ~symbol~', "Two", 'two.png',
+      'three ~symbol~ arranged 1,2', "Three", 'three.png',
+      'four ~symbol~ arranged 2,2', "Four", 'four.png',
+      'five ~symbol~ arranged 2,3', "Five", 'five.png',
+      'six ~symbol~ arranged 3,3', "Six", 'six.png',
       ];
 
 
@@ -726,27 +757,25 @@ function init_build() {
 }
 
 function finished() {
-    // if ( shadow.indexOf("~") != -1 ) {
-    //   window.alert ('You must complete choosing all of the current parts before you can finish');
-    // } else {
-      document.getElementById('blazon').removeAttribute('disabled');
-      var questions = document.getElementById('questions');
-      var para = document.createElement('p');
-      var words = document.createTextNode('Congratulations! You have now completed your ' +
-      'design! To make any more changes or chose different options ');
-      para.appendChild(words);
-      var link = document.createElement('a');
-      link.setAttribute('href',"/create/index.html?" +
-          '&blazon=' + encodeURIComponent(document.getElementById('blazon').value = ' drawn using a pauldron shape"'));
-      words = document.createTextNode('click this link ');
-      link.appendChild(words);
-      para.appendChild(link);
-      words = document.createTextNode('to transfer your blazon to the "Create" page" where you can add further items, print it, download it as an image or submit it to the gallery! Click the "Start Over" button if you want to create a new pauldron. ' +
-      ' This page only shows a small subset of what DrawShield is capable of, but I hope it has helped you understand how blazons are constructed and given you a start on learning blazonry. ' +
-          'Take a look at the items under the "Learn" menu to find ways to improve your skills and knowledge.');
-      para.appendChild(words);
-      questions.replaceChild(para,questions.firstChild);
-    // }
+    document.getElementById('blazon').removeAttribute('disabled');
+    var questions = document.getElementById('questions');
+    var para = document.createElement('p');
+    var words = document.createTextNode('Congratulations! You have now completed your ' +
+    'design! To make any more changes or chose different options ');
+    para.appendChild(words);
+    var link = document.createElement('a');
+    link.setAttribute('href',"/create/index.html?" +
+      '&blazon=' + encodeURIComponent(document.getElementById('blazon').value
+          + ' drawn using a pauldron shape'));
+    words = document.createTextNode('click this link ');
+    link.appendChild(words);
+    para.appendChild(link);
+    words = document.createTextNode('to transfer your blazon to the "Create" page" where you can add further items, print it or submit it to the gallery! You can download it as an image using the form below. Click the "Start Over" button if you want to create a new pauldron. ' +
+    ' This page only shows a small subset of what DrawShield is capable of, but I hope it has helped you understand how blazons are constructed and given you a start on learning blazonry. ' +
+      'Take a look at the items under the "Learn" menu to find ways to improve your skills and knowledge.');
+    para.appendChild(words);
+    questions.appendChild(para);
+    document.getElementById("savePanel").setAttribute('style','display: block;');
     return false;
 }
 
@@ -762,6 +791,7 @@ function goback() {
 
 function do_reset() {
   document.getElementById('blazon').disabled='disabled';
+  document.getElementById("savePanel").setAttribute("style", "display: none;");
   init_build();
   return false;
 }
@@ -775,7 +805,11 @@ function do_replace(answer) {
   questions = document.getElementById('questions');
   qStack.push( questions.firstChild );
   shadow = shadow.replace( /~.*?~/, answer );
-  questions.replaceChild(nextQuestion (), questions.firstChild);
+  let newChild = nextQuestion ();
+  if (newChild != null) // last question
+    questions.replaceChild(newChild, questions.firstChild);
+  else
+      questions.removeChild(questions.firstChild);
 }
 
 function nextQuestion()  {
@@ -834,6 +868,25 @@ function nextQuestion()  {
     }
 
     return retDOM;
+}
+
+
+function savePauldron() {
+    form = document.getElementById("saveForm");
+    form.action = '/include/drawshield.php';
+    form.target = '_blank';
+    let filename = document.getElementById('filenameInput').value;
+    if (filename == '') filename = 'pauldron';
+    form.elements['filename'].value = filename;
+    var saveWidth = document.getElementById('filenameInput').value;
+    if (saveWidth > 5000)
+        saveWidth = 5000
+    else if (saveWidth < 50)
+        saveWidth = 50;
+    form.elements["size"].value = saveWidth;
+    var e = document.getElementById("formatSelect");
+    form.elements["saveformat"].value = e.options[e.selectedIndex].value;
+    form.submit();
 }
 
 window.onload=init_build();

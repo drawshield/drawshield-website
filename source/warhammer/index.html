@@ -3,7 +3,8 @@ pageTitle: Build a Pauldron from Parts
 ---
 <!-- ./build.ejs starts -->
 <p>Choose the parts from the questions below and watch how your blazon (heraldic description) of your pauldron is built up in the text area.</p>
-<form onsubmit="return false;">
+
+<form onsubmit="return false">
     <div class="row">
         <div class="col-lg-6 col-sm-12">
             <div id="shieldimg"></div>
@@ -29,6 +30,52 @@ pageTitle: Build a Pauldron from Parts
 <div id="questions">
 
 </div>
+<form id="saveForm">
+    <input type="hidden" name="asfile" value="1"/>
+    <input type="hidden" name="size" value="1000"/>
+    <input type="hidden" name="palette" value="drawshield"/>
+    <input type="hidden" name="shape" value="pauldron"/>
+    <input type="hidden" name="effect" value="flat"/>
+    <input type="hidden" name="saveformat" value="png"/>
+    <input type="hidden" name="filename" value="pauldron"/>
+    <div class="row panel" id="savePanel" style="display: none;">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1 col-md-10 col-sm-12 card">
+                <div class="row">
+                    <div class="col-12">
+                        <p class="lead">Save your Pauldron as an image file</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-lg-3  pl-1 pr-1">
+                        <div class="input-group"><span>Format: </span>
+                            <select class="custom-select" data-style="btn-primary" id="formatSelect">
+                                <option selected value="png">PNG</option>
+                                <option value="jpg">JPEG</option>
+                                <option value="svg">SVG</option>
+    <!--                           <option value="pdf">PDF (A4)</option>-->
+     <!--                            <option value="pdfLtr">PDF (Ltr)</option> -->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 pl-1 pr-1">
+                        <div class="input-group"><span>Width (px): </span>
+                            <input type="text" class="form-control" id="sizeInput" placeholder="1000">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 pl-1 pr-1">
+                        <div class="input-group"><span>Filename: </span>
+                            <input type="text" class="form-control" id="filenameInput" placeholder="pauldron">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 pl-1 pr-1">
+                        <input type="button" class="btn btn-danger" value="Save File" id="saveFile" onclick="savePauldron()">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
 
 <script src="/js/shieldcommon.js"></script>
 <script src="buildpauldron.js"></script>
