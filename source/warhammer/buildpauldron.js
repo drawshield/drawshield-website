@@ -878,6 +878,7 @@ function savePauldron() {
     let filename = document.getElementById('filenameInput').value;
     if (filename == '') filename = 'pauldron';
     form.elements['filename'].value = filename;
+    fomr.elements['blazon'] = document.getElementById('blazon').value;
     var saveWidth = document.getElementById('filenameInput').value;
     if (saveWidth > 5000)
         saveWidth = 5000
