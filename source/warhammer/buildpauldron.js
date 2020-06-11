@@ -217,7 +217,7 @@ shieldData["~col-purples~"] = [ "Choose one of the purples",
 ];
 shieldData["~col-reds~"] = [ "Choose one of the reds",
 "astorath red", "Astorath red", 'col/astorath-red.png',
-"blood for the-blood-god", "Blood for the-blood-god", 'col/blood-for-the-blood-god.png',
+"blood for the blood god", "Blood for the-blood god", 'col/blood-for-the-blood-god.png',
 "bloodletter", "Bloodletter", 'col/bloodletter.png',
 "changeling pink", "Changeling pink", 'col/changeling-pink.png',
 "evil sunz scarlet", "Evil sunz scarlet", 'col/evil-sunz-scarlet.png',
@@ -714,23 +714,21 @@ var qStack;
 var sStack;
 
 function init_build() {
-    blazonElement = document.getElementById('blazon');
-    shadow="~start-here~";
-    blazonElement.value="";
-    questions = document.getElementById("questions");
-    questions.replaceChild( nextQuestion ( shadow ), questions.firstChild );
-//  document.getElementById('caption').firstChild.nodeValue = "Go back one step";
     bStack = [];
     qStack = [];
     sStack = [];
+    document.getElementById('blazon').value="";
+    shadow="~start-here~";
     requestSVG('/include/drawshield.php?' + urlArgs +
         '&blazon=Argent%20the%20word%20pauldron%20sable','shieldimg');
+    questions = document.getElementById("questions");
+    questions.replaceChild( nextQuestion (), questions.firstChild );
 }
 
 function finished() {
-    if ( shadow.indexOf("~") != -1 ) {
-      window.alert ('You must complete choosing all of the current parts before you can finish');
-    } else {
+    // if ( shadow.indexOf("~") != -1 ) {
+    //   window.alert ('You must complete choosing all of the current parts before you can finish');
+    // } else {
       document.getElementById('blazon').removeAttribute('disabled');
       var questions = document.getElementById('questions');
       var para = document.createElement('p');
@@ -738,16 +736,17 @@ function finished() {
       'design! To make any more changes or chose different options ');
       para.appendChild(words);
       var link = document.createElement('a');
-      link.setAttribute('href',"/create/index.html?" + urlArgs + encodeURIComponent(blazonElement.value));
+      link.setAttribute('href',"/create/index.html?" +
+          '&blazon=' + encodeURIComponent(document.getElementById('blazon').value = ' drawn using a pauldron shape"'));
       words = document.createTextNode('click this link ');
       link.appendChild(words);
       para.appendChild(link);
-      words = document.createTextNode('to transfer your blazon to the "Create" page", or click the "Refresh" button to start over. ' +
-      ' This program only has a small subset of blazonry terms, but I hope it has helped you understand how blazons are constructed. ' +
-          'Take a look at the help page and the suggested reading to find out more of what can be done.');
+      words = document.createTextNode('to transfer your blazon to the "Create" page" where you can add further items, print it, download it as an image or submit it to the gallery! Click the "Start Over" button if you want to create a new pauldron. ' +
+      ' This page only shows a small subset of what DrawShield is capable of, but I hope it has helped you understand how blazons are constructed and given you a start on learning blazonry. ' +
+          'Take a look at the items under the "Learn" menu to find ways to improve your skills and knowledge.');
       para.appendChild(words);
       questions.replaceChild(para,questions.firstChild);
-    }
+    // }
     return false;
 }
 
@@ -761,11 +760,6 @@ function goback() {
   return false;
 }
 
-// function update() {
-//   blazonElement = document.getElementById('blazon');
-//   requestSVG('/include/drawshield.php?' + urlArgs + '&blazon=' + encodeURIComponent(blazonElement.value),'shieldimg');
-// }
-
 function do_reset() {
   document.getElementById('blazon').disabled='disabled';
   init_build();
@@ -773,34 +767,41 @@ function do_reset() {
 }
 
 function do_replace(answer) {
-  blazonElement = document.getElementById('blazon');
+  var blazonElement = document.getElementById('blazon');
   if ( !blazonElement.hasAttribute('disabled') ) return;
   bStack.push(blazonElement.value);
   sStack.push(shadow);
   shieldImg = document.getElementById('shieldimg');
   questions = document.getElementById('questions');
   qStack.push( questions.firstChild );
-  //if ( blazonElement.value.indexOf("~") == -1 ) {
-    blazonElement.value += ' ' + answer.replace(/ *~.*?~ */g,'');
- // } else {
-    shadow = shadow.replace( /~.*?~/, answer );
-  //}
-  questions.replaceChild(nextQuestion ( shadow ), questions.firstChild);
+  shadow = shadow.replace( /~.*?~/, answer );
+  questions.replaceChild(nextQuestion (), questions.firstChild);
 }
 
-function nextQuestion( blazon ) {
+function nextQuestion()  {
 
-  target = blazon.match(/~.*?~/);
-  if ( target == "~update~") {
-      blazon = blazon.replace( /~update~/, '' );
-      requestSVG('/include/drawshield.php?' + urlArgs + '&blazon=' + encodeURIComponent(blazonElement.value),'shieldimg');
-      target = blazon.match(/~.*?~/);
-  }
-  if ( target == null ) {
+  var target = shadow.match(/~.*?~/);
+  if (target == null) {
       finished();
+      return;
   } else {
-    sData = shieldData[target];
+      target = target[0];
   }
+  if ( target == "~update~") {
+      var current = shadow.substring(0, shadow.indexOf('~') - 1);
+      document.getElementById('blazon').value = current;
+      shadow = shadow.replace(/~update~/, '');
+      requestSVG('/include/drawshield.php?' + urlArgs +
+          '&blazon=' + encodeURIComponent(current), 'shieldimg');
+      target = shadow.match(/~.*?~/);
+      if (target == null) {
+          finished();
+          return;
+      } else {
+          target = target[0];
+      }
+  }
+  sData = shieldData[target];
   var retDOM = document.createElement('div');
   retDOM.setAttribute('class','row');
   var h2div = document.createElement('div');

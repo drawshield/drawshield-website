@@ -2,8 +2,8 @@
 pageTitle: Build a Pauldron from Parts
 ---
 <!-- ./build.ejs starts -->
-<p>Choose the parts from the questions below and watch how your blazon (heraldic description) of your pauldron is built up.</p>
-<form>
+<p>Choose the parts from the questions below and watch how your blazon (heraldic description) of your pauldron is built up in the text area.</p>
+<form onsubmit="return false;">
     <div class="row">
         <div class="col-lg-6 col-sm-12">
             <div id="shieldimg"></div>
@@ -11,7 +11,7 @@ pageTitle: Build a Pauldron from Parts
         <div class="col-lg-6 col-sm-12">
             <div class="row">
                 <div class="col-12">
-                    <textarea id="blazon" cols="28" rows="10" disabled="disabled">~background~</textarea>
+                    <textarea class="form-control m-2" id="blazon" rows="8" disabled="disabled"></textarea>
                 </div>
                 <div class="col-4">
                     <button class="btn-block btn-primary" onclick="goback();"   >Go Back a Step</button>
