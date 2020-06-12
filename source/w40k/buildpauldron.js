@@ -721,8 +721,8 @@ shieldData["~bordure~"] = [ "Do you want the pauldron rim a different colour?",
       '', 'No', 'no.png',
       ];
 
-shieldData["~motto~"] = [ "Do you want to add a motto below the pauldron?",
-      'motto "~string~"', 'Yes', 'yes.png',
+shieldData["~add-motto~"] = [ "Do you want to add a motto below the pauldron?",
+      'motto ~string~', 'Yes', 'yes.png',
       '', 'No', 'no.png',
       ];
 
@@ -813,12 +813,20 @@ function do_replace(answer) {
   shieldImg = document.getElementById('shieldimg');
   questions = document.getElementById('questions');
   qStack.push( questions.firstChild );
+  let target = shadow.match(/~.*?~/);
+  if (target[0] == '~string~') answer = '"' + answer + '"';
   shadow = shadow.replace( /~.*?~/, answer );
   let newChild = nextQuestion ();
   if (newChild != null) // last question
     questions.replaceChild(newChild, questions.firstChild);
   else
       questions.removeChild(questions.firstChild);
+}
+
+function getString(id) {
+    let string = document.getElementById(id).value;
+    if (string == '') string = 'motto';
+    do_replace(string);
 }
 
 function nextQuestion()  {
@@ -845,6 +853,10 @@ function nextQuestion()  {
       }
   }
   sData = shieldData[target];
+  if (typeof (sData) == 'undefined') {
+      console.log("Expansion " + target + " not found");
+      return;
+  }
   var retDOM = document.createElement('div');
   retDOM.setAttribute('class','row');
   var h2div = document.createElement('div');
@@ -855,12 +867,11 @@ function nextQuestion()  {
   retDOM.appendChild(h2div);
   var stringCount = 1;
     for (var i = 1; i < sData.length; i +=3 ) {
-        if ($data[i] == '$') {
+        if (sData[i] == '$') {
             var div = document.createElement('div');
             div.setAttribute('class', 'col-10');
             let id = 'string' + stringCount++;
             var textInput = document.createElement('input');
-            textInput.setAttribute('id',id);
             textInput.setAttribute('id',id);
             textInput.setAttribute('size','50');
             textInput.setAttribute('type','text');
@@ -872,7 +883,7 @@ function nextQuestion()  {
             var submitButton = document.createElement('input');
             submitButton.setAttribute('value','Submit');
             submitButton.setAttribute('type','button');
-            submitButton.setAttribute('onclick','do_replace(document.getElementById(id).value)');
+            submitButton.setAttribute('onclick','getString("' + id + '");');
             div.appendChild(submitButton);
         } else {
             var div = document.createElement('div');

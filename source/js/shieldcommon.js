@@ -55,7 +55,7 @@ function updateSVG() {
          svg = cloneToDoc(svg);
        }
        shieldImg.appendChild(svg);
-       if (useZoom) {
+       if (typeof(useZoom) != 'undefined' && useZoom) {
         var lastsvg = svgPanZoom(svg, {
           minZoom: 1.0,
           maxZoom: 10,
