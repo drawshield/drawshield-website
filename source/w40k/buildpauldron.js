@@ -3,11 +3,11 @@ var size=280;
 
 var shieldData = {};
 shieldData["~start-here~"] = [ "Answer the following Questions by clicking the boxes below.",
-"~background~ ~update~ ~add-ord~ ~update~ ~bordure~ ~update~ ~add-symbol~ ~update~", "Begin", 'yes.png',
+"~background~ ~update~ ~add-ord~ ~update~ ~bordure~ ~update~ ~add-symbol~ ~update~ ~add-motto~ ~update~", "Begin", 'yes.png',
     ];
 shieldData["~background~"] = [ "Is the background single colour or split into two?",
       '~colour~', "A single colour", 'div/plain.png',
-      '~divided~ ~colour~ and ~colour~', "Divided between two colours", 'div/division.png'
+      '~divided~ ~colour~ ~and~ ~colour~', "Divided between two colours", 'div/division.png'
       ];
 shieldData["~ordinary~"] = [ "Choose a shape (ordinary) to place on your pauldron",
 "3 chevrons interlaced", "3 chevrons", 'ord/3-chevrons.png',
@@ -721,6 +721,15 @@ shieldData["~bordure~"] = [ "Do you want the pauldron rim a different colour?",
       '', 'No', 'no.png',
       ];
 
+shieldData["~motto~"] = [ "Do you want to add a motto below the pauldron?",
+      'motto "~string~"', 'Yes', 'yes.png',
+      '', 'No', 'no.png',
+      ];
+
+
+shieldData["~string~"] = [ "Enter some text and press the Submit button",
+      '$', 'Your text', '',
+      ];
 
 shieldData["~and~"] = [ "Now choose another, different colour",
       'and', 'Click to continue', 'next.png',
@@ -844,26 +853,48 @@ function nextQuestion()  {
   h2div.appendChild(temp);
   temp.appendChild(document.createTextNode(sData[0]));
   retDOM.appendChild(h2div);
+  var stringCount = 1;
     for (var i = 1; i < sData.length; i +=3 ) {
-        var div = document.createElement('div');
-        div.setAttribute('class','col-lg-2 col-md-3, col-sm-4');
-        div.setAttribute('onclick','do_replace("' + sData[i] + '")');
-        div.setAttribute('style','background:#EBEBE4;');
-        var img = document.createElement('img');
-        img.setAttribute('alt','choice');
-        img.setAttribute('width','120');
-        img.setAttribute('height','120');
-        img.setAttribute('class','mx-auto d-block');
-        if ( sData[i+2] != '' ) {
-          img.setAttribute('src','/w40k/img/' + sData[i+2]);
+        if ($data[i] == '$') {
+            var div = document.createElement('div');
+            div.setAttribute('class', 'col-10');
+            let id = 'string' + stringCount++;
+            var textInput = document.createElement('input');
+            textInput.setAttribute('id',id);
+            textInput.setAttribute('id',id);
+            textInput.setAttribute('size','50');
+            textInput.setAttribute('type','text');
+            textInput.setAttribute('placeholder',sData[i+1]);
+            div.appendChild(textInput);
+            retDOM.appendChild(div);
+            var div = document.createElement('div');
+            div.setAttribute('class', 'col-2');
+            var submitButton = document.createElement('input');
+            submitButton.setAttribute('value','Submit');
+            submitButton.setAttribute('type','button');
+            submitButton.setAttribute('onclick','do_replace(document.getElementById(id).value)');
+            div.appendChild(submitButton);
         } else {
-          img.setAttribute('src','/w40k/img/none.png');
+            var div = document.createElement('div');
+            div.setAttribute('class', 'col-lg-2 col-md-3, col-sm-4');
+            div.setAttribute('onclick', 'do_replace("' + sData[i] + '")');
+            div.setAttribute('style', 'background:#EBEBE4;');
+            var img = document.createElement('img');
+            img.setAttribute('alt', 'choice');
+            img.setAttribute('width', '120');
+            img.setAttribute('height', '120');
+            img.setAttribute('class', 'mx-auto d-block');
+            if (sData[i + 2] != '') {
+                img.setAttribute('src', '/w40k/img/' + sData[i + 2]);
+            } else {
+                img.setAttribute('src', '/w40k/img/none.png');
+            }
+            div.appendChild(img);
+            var temp = document.createElement('p');
+            temp.setAttribute('class', 'lead');
+            temp.appendChild(document.createTextNode(sData[i + 1]));
+            div.appendChild(temp);
         }
-        div.appendChild(img);
-        var temp = document.createElement('p');
-        temp.setAttribute('class','lead');
-        temp.appendChild(document.createTextNode(sData[i+1]));
-        div.appendChild(temp);
         retDOM.appendChild(div);
     }
 
