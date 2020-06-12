@@ -855,9 +855,9 @@ function nextQuestion()  {
         img.setAttribute('height','120');
         img.setAttribute('class','mx-auto d-block');
         if ( sData[i+2] != '' ) {
-          img.setAttribute('src','/warhammer/img/' + sData[i+2]);
+          img.setAttribute('src','/w40k/img/' + sData[i+2]);
         } else {
-          img.setAttribute('src','/warhammer/img/none.png');
+          img.setAttribute('src','/w40k/img/none.png');
         }
         div.appendChild(img);
         var temp = document.createElement('p');
@@ -878,7 +878,7 @@ function savePauldron() {
     let filename = document.getElementById('filenameInput').value;
     if (filename == '') filename = 'pauldron';
     form.elements['filename'].value = filename;
-    fomr.elements['blazon'] = document.getElementById('blazon').value;
+    form.elements['blazon'] = document.getElementById('blazon').value;
     var saveWidth = document.getElementById('filenameInput').value;
     if (saveWidth > 5000)
         saveWidth = 5000
