@@ -774,7 +774,7 @@ function finished() {
     para.appendChild(words);
     var link = document.createElement('a');
     link.setAttribute('href',"/create/index.html?" +
-      '&blazon=' + encodeURIComponent(document.getElementById('blazon').value
+      'blazon=' + encodeURIComponent(document.getElementById('blazon').value
           + ' drawn using a pauldron shape'));
     words = document.createTextNode('click this link ');
     link.appendChild(words);
@@ -920,8 +920,9 @@ function savePauldron() {
     let filename = document.getElementById('filenameInput').value;
     if (filename == '') filename = 'pauldron';
     form.elements['filename'].value = filename;
-    form.elements['blazon'] = document.getElementById('blazon').value;
-    var saveWidth = document.getElementById('filenameInput').value;
+    let blazonText = document.getElementById('blazon').value;
+    form.elements['blazon'].value = blazonText;
+    var saveWidth = document.getElementById('sizeInput').value;
     if (saveWidth > 5000)
         saveWidth = 5000
     else if (saveWidth < 50)
