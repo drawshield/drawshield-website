@@ -887,7 +887,7 @@ function nextQuestion()  {
             div.appendChild(submitButton);
         } else {
             var div = document.createElement('div');
-            div.setAttribute('class', 'col-lg-2 col-md-3, col-sm-4');
+            div.setAttribute('class', 'col-lg-2 col-md-3, col-sm-4 p-0');
             div.setAttribute('onclick', 'do_replace("' + sData[i] + '")');
             div.setAttribute('style', 'background:#EBEBE4;');
             var img = document.createElement('img');

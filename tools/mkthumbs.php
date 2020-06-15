@@ -1,5 +1,39 @@
 <?php
 
+$x_colors = [
+"argent" => "#F0F0F0",
+"azure" => "#1E7FCB ",
+"bisque" => "#F1E2BE",
+"bronze" => "#c28039",
+"brunatre" => "#7E0001",
+"buff" => "#f0dc82",
+"carnation" => "#FEC3AC",
+"celestial-azure" => "#96C8F9",
+"cendree" => "#848484",
+"charge-stroke" => "#696969",
+"copper" => "#ba702f",
+"crimson" => "#dc143c ",
+"division-stroke" => "none",
+"gray" => "#888888",
+"gules" => "#E21313 ",
+"iron" => "#bcbcbc",
+"lead" => "#6b949e",
+"murrey" => "#8C004B",
+"or" => "#EFD807 ",
+"orange" => "#FAA401",
+"purpure" => "#965578",
+"red-ochre" => "#890520",
+"rose" => "#FF006E",
+"sable" => "#050505",
+"sanguine" => "#850606",
+"senois" => "#8D4024",
+"steel" => "#bdbdbd",
+"tenne" => "#A75502",
+"vert" => "#149414 ",
+"white" => "#ffffff",
+"yellow-ochre" => "#ccaa2b",
+];
+
 $colours = [
     "abaddon-black" => "#231f20",
     "administratum-grey" => "#949b95",
@@ -224,31 +258,16 @@ function splitRGB($hex) {
   return [ 'r' => $red, 'g' => $green, 'b' => $blue ];
 }
 
-function colours()
+function do_colours($colours)
 {
-        global $colours;
     foreach ($colours as $name => $value) {
         $image = imageCreate(120, 120);
         $rgb = splitRGB($value);
         $fill = imageColorAllocate($image, $rgb['r'], $rgb['g'], $rgb['b']);
         imageFilledRectangle($image, 0, 0, 120, 120, $fill);
-        imagepng($image, "../source/warhammer/img/$name.png");
+        imagepng($image, "../source/build/img/col/$name.png");
         imageDestroy($image);
     }
 }
 
-function words() {
-    global $wordList;
-    foreach ($wordList as $word => $text) {
-        $image = imageCreate(120, 120);
-        $fill = imagecolorallocate($image, 255, 255, 255);
-        $foreground = imagecolorallocate($image, 0, 0, 0);
-        imageFilledRectangle($image, 0, 0, 120, 122, $fill);
-        imageString($image, 5, 100, 20, $text, $foreground);
-        imagepng($image, "../source/warhammer/img/$word.png");
-        imageDestroy($image);
-    }
-}
-
-words();
-
+do_colours($x_colors);
