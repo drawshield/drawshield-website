@@ -1,0 +1,3 @@
+# Check that web colours can be enabled using the API argument
+blazon=firebrick
+webcols=1
