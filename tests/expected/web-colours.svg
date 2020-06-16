@@ -1,0 +1,1 @@
+curl --verbose --data-urlencode blazon=firebrick&webcols=1 http://test.drawshield.home/include/drawshield.php?

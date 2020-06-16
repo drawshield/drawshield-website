@@ -1,0 +1,1 @@
+curl --verbose --data-urlencode blazon= http://test.drawshield.home/include/drawshield.php?
