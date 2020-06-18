@@ -7,15 +7,15 @@ resultfile=results.txt
 cat /dev/null > $resultfile
 
 if [ $# -eq 0 ]; then
-  myargs='commands/*.txt'
+  myargs='testcases/*.txt'
 else
   myargs="$*"
 fi
-for i in commands/*.txt; do
+for i in $myargs; do
   name=${i##*/}
   name=${name%.txt}
   echo -n "Testing: " $name
-  args=$(sed -e '/^#/d' -e '/^[[:space:]]*$/d' $i | paste '-sd&')
+  args=$(sed -e '/^[[:space:]]*#/d' -e '/^[[:space:]]*$/d' -e 's/ *= */=/' -e 's/.*/--data-urlencode "&"/' $i | paste '-sd ')
   eval curl --silent $args $url$target > "responses/$name.svg"
   if [ ! -f "expected/$name.svg" ]; then
     echo " comparison file missing"
