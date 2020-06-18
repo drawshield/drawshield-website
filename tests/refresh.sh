@@ -11,10 +11,8 @@ fi
 for i in $myargs; do
   name=${i##*/}
   name=${name%.txt}
-  args=$(sed -e '/^#/d' -e '/^[[:space:]]*$/d' $i | paste '-sd&')
-  #curl --silent --data-urlencode "$args" $url$target > "expected/$name.svg"
-  echo curl --verbose --data-urlencode "$args" $url$target
-  #curl --verbose --data-urlencode "$args" $url$target > "expected/$name.svg"
-  echo Created: $name
+  args=$(sed -e '/^#/d' -e '/^[[:space:]]*$/d' -e 's/.*/--data-urlencode "&"/' $i | paste '-sd ')
+  eval curl --silent $args $url$target > "expected/$name.svg"
+  echo Created: $name with $args
   sleep 1
 done
