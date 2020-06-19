@@ -24,6 +24,11 @@ tags: [error]
     a semy of dogs sable
     dexter statant</em> - not quite sure what the author was trying to do here, the division into two tinctures is fine but semy is used in the manner {tincture} semy of {charge} {tincture} so the rest doesn't really make sense...</p>
 
+<p><em>...much larger , raised , [slightly] [to] the sinister argent... </em> That was a bug, now fixed.</p>
+
+<p><em>[Red] [eagle] [on] [a] [blue] [background]
+</em> - come on people, read the tutorials and the hints and tips! This should be <em>azure an eagle gules</em> (or use the shield builder).</p>
+
 <h2>Quarterly</h2>
 
 <p>Quarterly blazons need to be exactly correct otherwise you will not see what you are expecting and will get a confusing and deeply unhelpful error message instead. Here are a couple of recent example reported as errors, but actually incorrect syntax:</p>
@@ -37,8 +42,22 @@ tags: [error]
     First, argent, a cross gules,
     Second, two Lions... </em> - here the second quartering does not have a field colour. Each quarter must be a complete shield description.</p>
 
+<p>Finally, I'm aware that <em>bordure</em> is not always shown correctly on quarters, this is becuase each quarter is (potentially at least) a different shape and hence each bordure is also potentially a different shape. I need to figure out how to draw this.</p>
+
+<h2>Questions</h2>
+
+<p><em>How do you put ordinaries in one division rather than the whole shield?
+    Blazon: Per pale pean and argent a bend gules in sinster half</em> - for this one use {shield} dimidiated with {shield} (although not everything will work correctly this particular example shoule).</p>
+
+<p><em> Please can you break up the coat of arms outside of the shield? I want to put two mottos and I cannot do it because of what is associated with the motto in this case, even though examples of multiple mottos (such as Michigan's) exist. Please can you break the outside-shield COA?
+Blazon: Tierced in bend sinister azure, gules, vert  a lion or in nombril, two dog argent in fess, the letter randia in chief, motto "Habent insulae istae" on top, motto "dominus pugnabit pro libertate" bottom</em> - probably not in the near future at least, this is a bit of a minority issue and I'm unlikely to spend time on this one. I suggest you do as much as you can in DrawShield and then download in SVG and use Inkscape for the finishing touchs.</p>
+
 <h2>Other Stuff For the To Do list</h2>
 
 <q>In the charge “lion rampant guardant” the langued color is fixed as a bright red regardless of the tincture assigned. Further more, many heraldic lions have their tongue layered above the head so it doesn’t look like it comes out of their mouth. In current versions the tongue looks glued on the side of the head.</q>
 
 <p>True, this needs fixing... its on the list as #93</p>
+
+
+<p><em>Message: Counterchange requires two colour field
+    Blazon:  or, a saltire sable, overall an inescutcheon per pale vert and argent, a cross bottony counterchanged.</em> - yes, that is a bug, the escutcheon doesn't look like a "field" so the program gets confused. Added as issue #94.</p>
