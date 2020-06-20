@@ -309,11 +309,30 @@ shieldData["~x-ordinary~"] = [ "Choose an ordinary",
 'trimount ~x-tincture~',"trimount", '/catalog/ordinaries/minor/trimount.png',
 
 ];
+shieldData["x-nine-arr"] = [ "How would you like to arrange these 9 charges?",
+'', 'Default arrangement', '',
+'arranged 3,3,3', '3x3 grid',
+];
+shieldData["~x-number~"] = [ "How many charges to add?",
+      '~x-location~ a ~x-charge~', 'one', 'img/num/one.png',
+      '~x-location~ 2 ~x-charge~ ~x-two-arr~', 'two', 'img/num/two.png',
+      '~x-location~ 3 ~x-charge~', 'three', 'img/num/three.png',
+      '~x-location~ 4 ~x-charge~ ~x-four-arr~', 'four', 'img/num/four.png',
+      '~x-location~ 5 ~x-charge~ ~x-five-arr~', 'five', 'img/num/five.png',
+      '~x-location~ 6 ~x-charge~', 'six', 'img/num/six.png',
+      '~x-location~ 7 ~x-charge~', 'seven', 'img/num/seven.png',
+      '~x-location~ 8 ~x-charge~', 'eight', 'img/num/eight.png',
+      '~x-location~ 9 ~x-charge~ ~x-nine-arr~', 'nine', 'img/num/nine.png',
+      '~x-location~ 10 ~x-charge~', 'ten', 'img/num/ten.png',
+      '~x-location~ 11 ~x-charge~', 'eleven', 'img/num/eleven.png',
+      '~x-location~ 12 ~x-charge~ ~x-twelve-arr~', 'twelve', 'img/num/twelve.png',
+];
 shieldData["~x-add-items~"] = [ "Do you want to add further elements?",
       '', "No", 'simple/no.png',
           '~x-ordinary~ ~update~', "An Ordinary", 'simple/ordinary.png',
-    ];
-shieldData["~add-motto~"] = [ "Do you want to add a motto below the pauldron?",
+      '~x-number~ ~x-orient~ ~x-colour~ ~update~', "One or more charges", 'simple/charge.png',
+];
+shieldData["~add-motto~"] = [ "Do you want to add a motto below the shield?",
       'motto ~string~', 'simple/Yes', 'yes.png',
       '', "No", 'simple/no.png',
       ];

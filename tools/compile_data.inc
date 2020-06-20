@@ -289,7 +289,10 @@
 $ignoreFolders = [
     'emblem',
     'character',
-    'special'
+    'special',
+    'submissions',
+    'symbol',
+    'words',
 ];
 
 $ordList = [
