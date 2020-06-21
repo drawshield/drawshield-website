@@ -5,7 +5,7 @@ var size=280;
 var shieldData = {};
 shieldData["~start-here~"] = [ "Create a simple shield (recommended) or complex?",
     '~field~ ~update~ ~ordchg~', "A simple shield", 'simple/plain.png',
-    '~x-field~ ~update~ ~x-add-items~ ~add-motto~', "A Complex Shield", 'simple/divided.png',
+    '~x-field~ ~update~ ~x-add-items~', "A Complex Shield", 'simple/divided.png',
 ];
 
 // The complex set of charges
@@ -367,23 +367,42 @@ shieldData["~x-five-arr~"] = [ "How would you like to arrange these five charges
       'combattant', 'combattant', '/catalog/arrangements/2-lions-combattant.png',
 ];
 
+shieldData["~x-on-ord~"] = [ "Choose an ordinary to place the charges on",
+      'base ~x-linetype~ ~x-tincture~',"base", '/catalog/ordinaries/major/base-+.png',
+      'bend ~x-linetype~ ~x-tincture~',"bend", '/catalog/ordinaries/major/bend-+.png',
+      'chevron ~x-linetype~ ~x-tincture~',"chevron", '/catalog/ordinaries/major/chevron-+.png',
+      'chief ~x-linetype~ ~x-tincture~',"chief", '/catalog/ordinaries/major/chief-+.png',
+      'plain cross ~x-linetype~ ~x-tincture~',"plain cross", '/catalog/ordinaries/major/plain-cross-+.png',
+      'fess ~x-linetype~ ~x-tincture~',"fess", '/catalog/ordinaries/major/fess-+.png',
+      'pale ~x-linetype~ ~x-tincture~',"pale", '/catalog/ordinaries/major/pale-+.png',
+      'saltire ~x-linetype~ ~x-tincture~',"saltire", '/catalog/ordinaries/major/saltire-+.png',
+      'bordure ~x-tincture~',"bordure", '/catalog/ordinaries/major/bordure.png',
+    ];
 shieldData["~x-location~"] = [ "Do you want these charges in a particular location on the shield?",
       '', 'The normal location', '',
-      'in first quarter', 'in first quarter', '',
-      'in second quarter', 'in second quarter', '',
-      'in third quarter', 'in third quarter', '',
-      'in fourth quarter', 'in fourth quarter', '',
-      'in dexter chief', 'in dexter chief', '',
-      'in sinister chief', 'in sinister chief', '',
-      'in dexter base', 'in dexter base', '',
-      'in sinister base', 'in sinister base', '',
-      'in dexter flank', 'in dexter flank', '',
-      'in sinister flank', 'in sinister flank', '',
-      'in middle chief', 'in middle chief', '',
-      'in base', 'in base', '',
-      'in nombril', 'in nombril', '',
-      'in fess point', 'in fess point', '',
+      'in first quarter', 'in first quarter', 'simple/infirstquarter.png',
+      'in second quarter', 'in second quarter', 'simple/insecondquarter.png',
+      'in third quarter', 'in third quarter', 'simple/inthirdquarter.png',
+      'in fourth quarter', 'in fourth quarter', 'simple/infourthquarter.png',
+      'in dexter chief', 'in dexter chief', 'simple/indexterchief.png',
+      'in sinister chief', 'in sinister chief', 'simple/insinisterchief.png',
+      'in dexter base', 'in dexter base', 'simple/indexterbase.png',
+      'in sinister base', 'in sinister base', 'simple/insinisterbase.png',
+      'in dexter flank', 'in dexter flank', 'simple/indexterflank.png',
+      'in sinister flank', 'in sinister flank', 'simple/insinisterflank.png',
+      'in middle chief', 'in middle chief', 'simple/inmiddlechief.png',
+      'in middle base', 'in middle base', 'simple/inmiddlebase.png',
+      'in nombril', 'in nombril', 'simple/innombril.png',
+      'in fess point', 'in fess point', 'simple/infesspoint.png',
     ];
+shieldData["~x-sml-number~"] = [ "How many charges to place on the ordinary?",
+      'a', 'one', 'num/one.png',
+      '2', 'two', 'num/two.png',
+      '3', 'three', 'num/three.png',
+      '4', 'four', 'num/four.png',
+      '5', 'five', 'num/five.png',
+    ];
+
       shieldData["~x-number~"] = [ "How many charges to add?",
       '~x-location~ a ~x-charge~', 'one', 'num/one.png',
       '~x-location~ 2 ~x-charge~ ~x-two-arr~', 'two', 'num/two.png',
@@ -400,11 +419,12 @@ shieldData["~x-location~"] = [ "Do you want these charges in a particular locati
 ];
 shieldData["~x-add-items~"] = [ "Do you want to add further elements?",
       '', "No", 'simple/no.png',
-          '~x-ordinary~ ~update~', "An Ordinary", 'simple/ordinary.png',
-      '~x-number~ ~x-orient~ ~x-colour~ ~update~', "One or more charges", 'simple/charge.png',
+          '~x-ordinary~ ~update~ ~x-add-items~', "An Ordinary", 'simple/ordinary.png',
+      '~x-number~ ~x-orient~ ~x-colour~ ~update~ ~x-add-items~', "One or more charges", 'simple/charge.png',
+      'on an ~x-on-ord~ ~x-sml-number~ ~x-charge~ ~x-orient~ ~x-colour~ ~update~ ~x-add-items~', "One or more charges on an ordinary", 'simple/chargeonord.png',
 ];
 shieldData["~add-motto~"] = [ "Do you want to add a motto below the shield?",
-      'motto ~string~', 'simple/Yes', 'yes.png',
+      'motto ~string~', 'Yes', 'simple/yes.png',
       '', "No", 'simple/no.png',
       ];
 shieldData["~string~"] = [ "Enter some text and press the Submit button",
@@ -442,7 +462,7 @@ shieldData["~colour~"] = [ "Choose a plain colour (note the heraldic names)",
       'brunatre', "Brunatre", 'simple/brunatre.png',
       'carnation', "Carnation", 'simple/carnation.png',
       'murrey', "Murrey", 'simple/murrey.png',
-      'orange', "Orange", 'simple/orange.png',
+      'orange ', "Orange", 'simple/orange.png', // The space stops us matching orange the charge
       'tenne', "Tenne", 'tenne.png'
       ];
 shieldData["~treatment~"] = [ "Choose the type of treatment (a pattern of two colours)",
@@ -586,6 +606,32 @@ shieldData["~plantcharge~"] = ["Which type of plant would you like to use?",
       'oak tree ~colour~', "Oak Tree", 'simple/oak-tree.png',
       ];
 
+/*
+function doCheck(group) {
+      let strings = group[1];
+      for (let j = 1; j < strings.length; j += 3) {
+            let target = strings[j];
+            let matches = target.match(/~.*?~/g);
+            if (!matches) continue;
+            for (let k = 0; k < matches.length; k++) {
+                  let replacement = matches[k];
+                  if (replacement == '~update~') continue;
+                  if (typeof shieldData[replacement] === 'undefined') {
+                        console.log("Missing array - " + matches[k]);
+                  }
+            }
+      }
+
+}
+
+function validate() {
+      console.log("Checking...");
+      Object.entries(shieldData).forEach(doCheck);
+      console.log("Checked");
+}
+
+ */
+
 var urlArgs = 'highlight=0&size=' + size;
 
 var shadow = '';
@@ -593,6 +639,8 @@ var shadow = '';
 var bStack;
 var qStack;
 var sStack;
+
+var fixedColour = false;
 
 function init_build() {
     bStack = [];
@@ -604,11 +652,13 @@ function init_build() {
         '&blazon=Argent%20the%20word%20shield%20sable%20the%20word%20Your%20sable%20in%20chief%20the%20word%20here%20in%20base%20sable','shieldimg');
     questions = document.getElementById("questions");
     questions.replaceChild( nextQuestion (), questions.firstChild );
+    // validate();
 }
 
 function finished() {
     document.getElementById('blazon').removeAttribute('disabled');
     var questions = document.getElementById('questions');
+      questions.removeChild(questions.firstChild);
     var para = document.createElement('p');
     var words = document.createTextNode('Congratulations! You have now completed your ' +
     'design! To make any more changes or chose different options ');
@@ -636,7 +686,7 @@ function goback() {
     var questions = document.getElementById('questions');
     questions.replaceChild(qStack.pop(),questions.firstChild);
   }
-  return false;
+  // return false;
 }
 
 function do_reset() {
@@ -646,7 +696,10 @@ function do_reset() {
   return false;
 }
 
+var fixedItems = [ 'pellet', 'golpe', 'guze', 'hurt', 'orange', 'pomme', 'torteau', 'ford'];
+
 function do_replace(answer) {
+      if (fixedItems.includes(answer)) fixedColour = true;
   var blazonElement = document.getElementById('blazon');
   if ( !blazonElement.hasAttribute('disabled') ) return;
   bStack.push(blazonElement.value);
@@ -679,21 +732,39 @@ function nextQuestion()  {
   } else {
       target = target[0];
   }
-  if ( target == "~update~") {
-      var current = shadow.substring(0, shadow.indexOf('~') - 1);
-      document.getElementById('blazon').value = current;
-      shadow = shadow.replace(/~update~/, '');
-      requestSVG('/include/drawshield.php?' + urlArgs +
-          '&blazon=' + encodeURIComponent(current), 'shieldimg');
-      target = shadow.match(/~.*?~/);
-      if (target == null) {
-          finished();
-          return;
-      } else {
-          target = target[0];
-      }
+  let found = true;
+  while (found) {
+        found = false;
+        if (target == "~x-colour~" && fixedColour) {
+              shadow = shadow.replace(/~x-colour~/, '');
+              fixedColour = false;
+              target = shadow.match(/~.*?~/);
+              if (target == null) {
+                    finished();
+                    return;
+              } else {
+                    target = target[0];
+              }
+              found = true;
+        }
+        if (target == "~update~") {
+              var current = shadow.substring(0, shadow.indexOf('~') - 1);
+              document.getElementById('blazon').value = current;
+              shadow = shadow.replace(/~update~/, '');
+              requestSVG('/include/drawshield.php?' + urlArgs +
+                  '&blazon=' + encodeURIComponent(current), 'shieldimg');
+              target = shadow.match(/~.*?~/);
+              if (target == null) {
+                    finished();
+                    return;
+              } else {
+                    target = target[0];
+              }
+              found = true;
+        }
   }
-  sData = shieldData[target];
+
+  let sData = shieldData[target];
   if (typeof (sData) == 'undefined') {
       console.log("Expansion " + target + " not found");
       return;

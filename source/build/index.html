@@ -7,7 +7,6 @@ then choose "A Simple Shield" - this has a small number of options and will care
 If you want to access many more features (but answer many more questions!) then choose "A Complex Shield".</p>
 <p class="lead">Pay careful attention to the blazon as it is built up in the textarea - this will help you learn
     blazonry!</p>
-<form>
 <table>
 <tbody>
 <tr>
@@ -17,18 +16,19 @@ If you want to access many more features (but answer many more questions!) then 
 </td>
 <td rowspan="2">&nbsp;</td>
 <td colspan="3">
+    <form>
 <textarea id="blazon" cols="28" rows="10" disabled="disabled">~background~</textarea>
+    </form>
 </td>
 </tr>
 <tr>
-<td>  <button class="btn-block btn-primary" onclick="goback();"   >Go Back a Step</button></td>
-<td>  <button class="btn-block btn-danger" onclick="finished();" >Finished!</button></td>
-<td>  <button class="btn-block btn-primary" onclick="do_reset();" >Start Over</button></td>
+<td>  <button type="button" class="btn-block btn-primary" onclick="goback();"   >Go Back a Step</button></td>
+<td>  <button type="button" class="btn-block btn-danger" onclick="finished();" >Finished!</button></td>
+<td>  <button type="button" class="btn-block btn-primary" onclick="do_reset();" >Start Over</button></td>
 <td>&nbsp;</td>
 </tr>
 </tbody>
 </table>
-</form>
 <div id="questions">
 </div>
 <form id="saveForm">
@@ -45,7 +45,7 @@ If you want to access many more features (but answer many more questions!) then 
             <div class="col-lg-10 offset-lg-1 col-md-10 col-sm-12 card">
                 <div class="row">
                     <div class="col-12">
-                        <p class="lead">Save your Pauldron as an image file</p>
+                        <p class="lead">Save your shield as an image file</p>
                     </div>
                 </div>
                 <div class="row">
@@ -67,7 +67,7 @@ If you want to access many more features (but answer many more questions!) then 
                     </div>
                     <div class="col-sm-6 col-lg-3 pl-1 pr-1">
                         <div class="input-group"><span>Filename: </span>
-                            <input type="text" class="form-control" id="filenameInput" placeholder="pauldron">
+                            <input type="text" class="form-control" id="filenameInput" placeholder="shield">
                         </div>
                     </div>
                     <div class="col-sm-6 col-lg-3 pl-1 pr-1">

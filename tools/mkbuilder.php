@@ -6,6 +6,7 @@ $sourceDir = '../source/_catalog/';
 function listCharges($folder) {
     global $targetDir, $sourceDir;
 
+    if ($folder == "badges" || $folder == 'annulet') return '';
     $montage = [];
     $sources = scandir($sourceDir . "charges/$folder" );
     $retval = '';
