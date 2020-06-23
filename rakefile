@@ -51,6 +51,13 @@ task :latest do
   end  
 end
 
+desc 'Run test comparisons'
+task :runtests do
+  Dir.chdir('tests') do
+    sh %{ ./runtests.sh }
+  end
+end
+
 desc 'Bump build number'
 task :bump do
   content = File.read('_config.yml')
