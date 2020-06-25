@@ -5,4 +5,5 @@ backups/
 linkchecks.txt
 .idea/
 tests/responses/
+tests/results.txt
 
