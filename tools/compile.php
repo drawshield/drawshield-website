@@ -1,7 +1,7 @@
 <?php
 
 $targetDir = "../source/_catalog/";
-$sourceDir = "../../drawshield-code/svg/";
+$sourceDir = "../../ds-code/svg/";
 
 $tempDir = "/tmp";
 
