@@ -314,9 +314,9 @@ function getFormData() {
     formData.append('size',shieldSize);
     formData.append('ar',aspectRatio);
     // formData.append('useEditor',useEditor); // not needed on server
-    if (useWebColours == 'yes') formData.append('webcols','1');
-    if (useWarhammerColours == 'yes') formData.append('whcols','1');
-    if (useTartanColours == 'yes') formData.append('tartancols','1');
+    if (useWebColours == 'yes') formData.append('webcols','yes');
+    if (useWarhammerColours == 'yes') formData.append('whcols','yes');
+    if (useTartanColours == 'yes') formData.append('tartancols','yes');
     return formData;
 }
 
