@@ -505,9 +505,9 @@ function newTab() {
     form.elements["effect"].value = effect;
     form.elements["palette"].value = palette;
     form.elements["ar"].value = aspectRatio;
-    if (useWebColours == 'yes') form.elements["webcols"].checked = true;
-    if (useWarhammerColours == 'yes') form.elements["whcols"].checked = true;
-    if (useTartanColours == 'yes') form.elements["tartancols"].checked = true;
+    if (useWebColours == 'yes') form.elements["webcols"].value = "yes";
+    if (useWarhammerColours == 'yes') form.elements["whcols"].value = "yes";
+    if (useTartanColours == 'yes') form.elements["tartancols"].value = "yes";
     window.alert("The shield will be drawn in a new tab. Please use your browser menu to print it");
     form.submit();
 }
@@ -528,9 +528,9 @@ function saveshield() {
     form.elements["effect"].value = effect;
     form.elements["palette"].value = palette;
     form.elements["ar"].value = aspectRatio;
-    if (useWebColours == 'yes') form.elements["webcols"].checked = true;
-    if (useWarhammerColours == 'yes') form.elements["whcols"].checked = true;
-    if (useTartanColours == 'yes') form.elements["tartancols"].checked = true;
+    if (useWebColours == 'yes') form.elements["webcols"].value = "yes";
+    if (useWarhammerColours == 'yes') form.elements["whcols"].value = "yes";
+    if (useTartanColours == 'yes') form.elements["tartancols"].value = "yes";
     form.submit();
 }
 
