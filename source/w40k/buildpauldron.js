@@ -948,7 +948,9 @@ function savePauldron() {
     let blazonText = document.getElementById('blazon').value;
     form.elements['blazon'].value = blazonText;
     var saveWidth = document.getElementById('sizeInput').value;
-    if (saveWidth > 5000)
+    if (saveWidth == 0)
+        saveWidth = 1000
+    else if (saveWidth > 5000)
         saveWidth = 5000
     else if (saveWidth < 50)
         saveWidth = 50;

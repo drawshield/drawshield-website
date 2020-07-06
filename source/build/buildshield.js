@@ -784,7 +784,7 @@ function nextQuestion()  {
             let id = 'string' + stringCount++;
             var textInput = document.createElement('input');
             textInput.setAttribute('id',id);
-            textInput.setAttribute('size','50');
+            textInput.setAttribute('size','500');
             textInput.setAttribute('type','text');
             textInput.setAttribute('placeholder',sData[i+1]);
             div.appendChild(textInput);
@@ -840,7 +840,9 @@ function saveBuild() {
     let blazonText = document.getElementById('blazon').value;
     form.elements['blazon'].value = blazonText;
     var saveWidth = document.getElementById('sizeInput').value;
-    if (saveWidth > 5000)
+    if (saveWidth == 0)
+          saveWidth = 1000
+    else if (saveWidth > 5000)
         saveWidth = 5000
     else if (saveWidth < 50)
         saveWidth = 50;
