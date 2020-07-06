@@ -665,8 +665,7 @@ function finished() {
     para.appendChild(words);
     var link = document.createElement('a');
     link.setAttribute('href',"/create/index.html?" +
-      'blazon=' + encodeURIComponent(document.getElementById('blazon').value
-          + ' drawn using a pauldron shape'));
+      'blazon=' + encodeURIComponent(document.getElementById('blazon').value));
     words = document.createTextNode('click this link ');
     link.appendChild(words);
     para.appendChild(link);
@@ -836,7 +835,7 @@ function saveBuild() {
     form.action = '/include/drawshield.php';
     form.target = '_blank';
     let filename = document.getElementById('filenameInput').value;
-    if (filename == '') filename = 'pauldron';
+    if (filename == '') filename = 'shield';
     form.elements['filename'].value = filename;
     let blazonText = document.getElementById('blazon').value;
     form.elements['blazon'].value = blazonText;
