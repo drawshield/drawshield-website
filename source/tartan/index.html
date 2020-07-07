@@ -1,0 +1,87 @@
+---
+pageTitle: Design Your Own Tartan
+---
+<!-- ./build.ejs starts -->
+<p>Choose a colour and the number of threads for that colour (you need at least two!). Add more colours by
+    clicking on the box with the plus sign. See your tartan build up as you add colours and widths. You
+can change existing colours and widths by clicking on them, or remove them.</p>
+<p class="lead">Pay careful attention to the blazon as it is built up in the textarea - this will help you learn
+    blazonry!</p>
+<table>
+<tbody>
+<tr>
+<td style="text-align:center;vertical-align:top;" rowspan="2">
+<div id="shieldimg">
+</div>
+</td>
+<td rowspan="2">&nbsp;</td>
+<td colspan="3">
+    <form>
+<textarea id="blazon" cols="28" rows="10" disabled="disabled">~background~</textarea>
+    </form>
+</td>
+</tr>
+<tr>
+<td>  <button type="button" class="btn-block btn-danger" onclick="finished();" >Finished!</button></td>
+<td>  <button type="button" class="btn-block btn-primary" onclick="do_reset();" >Start Over</button></td>
+    <td><label for="repeat">Repeat pattern?</label><input type="checkbox" name="repeat" id="repeat"</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<div class="row" id="boxes">
+    <div class="col-sm-4 col-lg-2">
+
+    </div>
+</div>
+<form id="saveForm">
+    <input type="hidden" name="asfile" value="1"/>
+    <input type="hidden" name="size" value="1000"/>
+    <input type="hidden" name="palette" value="drawshield"/>
+    <input type="hidden" name="shape" value="tartan"/>
+    <input type="hidden" name="effect" value="flat"/>
+    <input type="hidden" name="saveformat" value="png"/>
+    <input type="hidden" name="filename" value="tartan"/>
+    <input type="hidden" name="blazon" value="grey"/>
+    <input type="hidden" name="tartancols" value="yes"/>
+    <div class="row panel" id="savePanel" style="display: none;">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1 col-md-10 col-sm-12 card">
+                <div class="row">
+                    <div class="col-12">
+                        <p class="lead">Save your shield as an image file</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-lg-3  pl-1 pr-1">
+                        <div class="input-group"><span>Format: </span>
+                            <select class="custom-select" data-style="btn-primary" id="formatSelect">
+                                <option selected value="png">PNG</option>
+                                <option value="jpg">JPEG</option>
+                                <option value="svg">SVG</option>
+                                <!--                           <option value="pdf">PDF (A4)</option>-->
+                                <!--                            <option value="pdfLtr">PDF (Ltr)</option> -->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 pl-1 pr-1">
+                        <div class="input-group"><span>Width (px): </span>
+                            <input type="text" class="form-control" id="sizeInput" placeholder="1000">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 pl-1 pr-1">
+                        <div class="input-group"><span>Filename: </span>
+                            <input type="text" class="form-control" id="filenameInput" placeholder="shield">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 pl-1 pr-1">
+                        <input type="button" class="btn btn-danger" value="Save File" id="saveFile" onclick="saveTartan()">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script src="/js/shieldcommon.js"></script>
+<script src="buildtartan.js"></script>
+<!-- ./build.ejs ends -->
