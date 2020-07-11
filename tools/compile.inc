@@ -107,65 +107,99 @@ function features($folder) {
 /*
 **	Create a catalog of charge images
 */
-function charges($folder) {
+function charges($folder)
+{
     global $targetDir, $sourceDir, $keep, $tempDir, $colours;
 
-    $sources = scandir($sourceDir . "charges/$folder" );
-    $targets = scandir($targetDir. "charges/$folder" );
+    $sources = scandir($sourceDir . "charges/$folder");
+    $targets = scandir($targetDir . "charges/$folder");
 
     /*
     **	Delete any in target dir NOT in source dir
     */
 
-   /* foreach ($targets as $targetItem) {
-        if ($targetItem[0] == '.' || $targetItem == "index.html") continue;
-        $toFind = mapping($folder, null, substr($targetItem,0,-4)) . ".svg";
-        if (!in_array($toFind, $sources)) {
-            $doomedFile = "$targetDir/charges/$folder/$targetItem";
-            echo "Removing $doomedFile\n";
-            unlink ($doomedFile);
-        }
-    } */
+    /* foreach ($targets as $targetItem) {
+         if ($targetItem[0] == '.' || $targetItem == "index.html") continue;
+         $toFind = mapping($folder, null, substr($targetItem,0,-4)) . ".svg";
+         if (!in_array($toFind, $sources)) {
+             $doomedFile = "$targetDir/charges/$folder/$targetItem";
+             echo "Removing $doomedFile\n";
+             unlink ($doomedFile);
+         }
+     } */
 
     /*
     **	Create anything in source dir NOT in target dir
     *    OR if source is newer than target
     */
+
     foreach ($sources as $sourceItem) {
-        if ($sourceItem[0] == '.' || substr($sourceItem,-4) != '.svg') continue;
-        $toFind = mapping($folder, substr($sourceItem,0,-4), null);
+        if ($sourceItem[0] == '.' || substr($sourceItem, -4) != '.svg') continue;
+        $toFind = mapping($folder, substr($sourceItem, 0, -4), null);
         // echo $toFind . '.png ' . (in_array($toFind  . '.png', $targets) ? 'found ' : 'not found ') .  filemtime("$sourceDir/charges/$folder/$sourceItem") . ' ' .
-            //filemtime("$targetDir/charges/$folder/$toFind.png") . PHP_EOL;
+        //filemtime("$targetDir/charges/$folder/$toFind.png") . PHP_EOL;
         if (!in_array($toFind . '.png', $targets) /*||
                 filemtime("$sourceDir/charges/$folder/$sourceItem") >
-                filemtime("$targetDir/charges/$folder/$toFind.png") */ ) {
+                filemtime("$targetDir/charges/$folder/$toFind.png") */) {
             $features = getFeatures("$sourceDir/charges/$folder/$sourceItem", "$targetDir/charges/$folder/$toFind.txt");
             $specifier = is_numeric($toFind[0]) ? ' ' : ' a ';
             $blazon = "argent $specifier " .
-             str_replace('-',' ',$toFind) . " grey";
+                str_replace('-', ' ', $toFind) . " grey";
             for ($i = 0; $i < count($features); $i++) {
                 $blazon .= ' ' . $features[$i] . ' ' . $colours[$i][0];
             }
             $blazon = rawurlencode($blazon);
             $execString = 'wget -q -O ' . "$targetDir/charges/$folder/$toFind.png" .
-            ' "http://drawshield.home/include/quickimage.php?blazon=' . $blazon .
-            '&outputformat=png&size=400&effect=none&nomask=1"';
-           // echo "Executing $execString\n";
-			echo "Adding $toFind\n";
+                ' "http://drawshield.home/include/quickimage.php?blazon=' . $blazon .
+                '&outputformat=png&size=400&effect=none&nomask=1"';
+            // echo "Executing $execString\n";
+            echo "Adding $toFind\n";
             exec($execString);
-
-/*            $execString = 'wget -q -O ' . "$tempDir/$sourceItem" .
-            ' "http://drawshield.home/include/quickimage.php?blazon=' . $blazon .
-            '&outputformat=svg&size=400&effect=none&nomask=1&raw=1"';
-            echo "Executing $execString\n";
-            exec($execString);
-            // $execString2 = "convert $tempDir/$sourceItem -size 400x480 -background white -flatten -alpha remove -alpha off '$targetDir/charges/$folder/$toFind'";
-            $execString2 = "convert $tempDir/$sourceItem -size 400x480 -background white '$targetDir/charges/$folder/$toFind.png'";
-            echo "Executing $execString2\n";
-            exec($execString2);
-            if (!$keep) unlink("$tempDir/$sourceItem"); */
         }
     }
+}
+
+function bordures() {
+
+    global $targetDir, $sourceDir;
+
+    $sources = scandir($sourceDir . "ordinaries/bordures" );
+    $targets = scandir($targetDir. "ordinaries/bordures" );
+    foreach ($sources as $sourceItem) {
+        if ($sourceItem[0] == '.' || substr($sourceItem, -4) != '.svg') continue;
+        $basename = substr($sourceItem, 0, -4);
+        $parts = explode('-', $basename);
+        $shape = $parts[0];
+        $chief = '';
+        $edge = '';
+        for ($i = 1; $i < count($parts); $i++) {
+            switch ($parts[$i]) {
+                case 'chief':
+                    $chief = " a chief sable ";
+                    break;
+                case 'impaled':
+                    $shape = null;
+                    break;
+                default:
+                    $edge .= " $parts[$i] ";
+            }
+        }
+        if ($shape == null) continue;
+        if ($shape == 'quarter')
+            $blazon = "quarterly of 9 1st argent a bordure $edge sable 2nd grey 3rd argent 4th grey 5th argent 6th grey 7th argent 8th grey 9th argent drawn in a french shape";
+        else
+            $blazon = "argent $chief a bordure $edge grey drawn in a $shape shape";
+        echo $blazon . "\n";
+        $blazon = rawurlencode($blazon);
+        $execString = 'wget -q -O ' . "$targetDir/ordinaries/bordures/$basename.png" .
+            ' "http://test.drawshield.net/include/drawshield.php?blazon=' . $blazon .
+            '&outputformat=png&size=400&effect=none"';
+//         echo "Executing $execString\n";
+        echo "Adding $shape\n";
+        exec($execString);
+
+    }
+
 }
 
 function ordinaries() {
@@ -342,6 +376,7 @@ function compile($argc, $argv) {
     $achs = false;
     $arr = false;
     $ori = false;
+    $bor = false;
 
     if ($argc > 1) { // must be a subset
         if (substr($argv[1], 0, 3) == 'ord') {
@@ -358,7 +393,9 @@ function compile($argc, $argv) {
             $arr = true;
         } elseif (substr($argv[1], 0, 3) == 'ori') {
             $ori = true;
-        } else { 
+        } elseif (substr($argv[1], 0, 3) == 'bor') {
+            $bor = true;
+        } else {
             $allCharges = array_splice($argv, 1);
             $ords = false;
         }
@@ -401,6 +438,9 @@ function compile($argc, $argv) {
     }
     if ($arr) {
         arrangements();
+    }
+    if ($bor) {
+        bordures();
     }
     if ($ori) {
         orientations();
