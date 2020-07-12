@@ -172,6 +172,7 @@ function bordures() {
         $shape = $parts[0];
         $chief = '';
         $edge = '';
+        $compony = '';
         for ($i = 1; $i < count($parts); $i++) {
             switch ($parts[$i]) {
                 case 'chief':
@@ -180,15 +181,21 @@ function bordures() {
                 case 'impaled':
                     $shape = null;
                     break;
+                case 'of16':
+                    break; // ignore for now
+                case 'compony1':
+                    $compony = " and steel ";
+                    $edge .= " compony ";
+                    break;
                 default:
                     $edge .= " $parts[$i] ";
             }
         }
         if ($shape == null) continue;
         if ($shape == 'quarter')
-            $blazon = "quarterly of 9 1st argent a bordure $edge sable 2nd grey 3rd argent 4th grey 5th argent 6th grey 7th argent 8th grey 9th argent drawn in a french shape";
+            $blazon = "quarterly of 9 1st argent a bordure $edge sable $compony 2nd grey 3rd argent 4th grey 5th argent 6th grey 7th argent 8th grey 9th argent drawn in a french shape";
         else
-            $blazon = "argent $chief a bordure $edge grey drawn in a $shape shape";
+            $blazon = "argent $chief a bordure $edge grey $compony drawn in a $shape shape";
         echo $blazon . "\n";
         $blazon = rawurlencode($blazon);
         $execString = 'wget -q -O ' . "$targetDir/ordinaries/bordures/$basename.png" .
