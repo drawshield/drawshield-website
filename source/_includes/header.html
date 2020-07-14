@@ -75,22 +75,27 @@
                 </li>     
             </ul>
         </div>
-        <span class="navbar-text">
-            <div aria-label="breadcrumb">
-                <ol class="breadcrumb" style="float: right;">
-                    <li class="breadcrumb-item"><a href="/index.html">Home</a></li>
-                        {% assign crumbs = page.url | split: '/' %}
-                        {% assign crumbs_total = crumbs | size | minus: 1 %}
-                        {% for crumb in crumbs offset: 1 %}
-                        {% if forloop.index == crumbs_total %}
-                    <li class="breadcrumb-item active">{{ crumb | truncate: 20 | replace:'-',' ' }}</li>
-                        {% else %}
-                    <li class="breadcrumb-item"><a href="{% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}">{{ crumb | replace:'-',' ' }}</a>
-                        {% endif %}
-                        {% endfor %}
-                </ol>                
-            </div>
-        </span>
+        <form class="form-inline my-2 my-lg-0" id="search-form" action="/api/define/">
+            <input  id="search-term" class="form-control mr-sm-2" type="text" placeholder="term"> <button id="define-term" class="btn btn-danger my-2 my-sm-0" type="submit">Define</button>
+        </form>
     </nav>
 </header>
+<!-- Modal -->
+<div class="modal fade" id="definition-modal" tabindex="-1" role="dialog" aria-labelledby="Heraldic Term Definition" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="definition-title">Heraldic Definition</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="define-content">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- _includes/header.ejs ends -->

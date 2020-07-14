@@ -73,6 +73,10 @@ body {
     background-color: #fcf4db;
 }
 
+.modal-content {
+    background-color: #fcf4db;
+}
+
 .dropdown-menu {
     background: #eacb8e;  
 }
@@ -81,7 +85,7 @@ body {
     background-color: #d03718;
 }
 
-h1, h2, h3 {
+h1, h2, h3, .modal-header {
   color: #d03718;
 }
 
