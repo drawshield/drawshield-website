@@ -1,7 +1,7 @@
 $("#search-form").submit(function (event) {
     event.preventDefault();
     var url = "/api/define/";
-    var search = $("search-term").val();
+    var search = $("#search-term").val();
     var term = encodeURI(search);
     if (term == '') return;
     $.get(url + term, function (response) {
