@@ -515,7 +515,7 @@ function newTab() {
 
 function saveshield() {
     readOptions(); // in case any have changed
-    form = document.forms[0];
+    form = document.getElementById("blazonForm");
     form.action = targetURL;
     form.target = '_blank';
     form.elements["asfile"].value = '1';
