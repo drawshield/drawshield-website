@@ -17,9 +17,9 @@ defaults:
 siteURL: https://drawshield.net
 siteTitle: DrawShield
 
-buildNum: 784
+buildNum: 785
 
-latestGallery: 7824
+latestGallery: 7817
 incrementGallery: 20
 
 collections:
