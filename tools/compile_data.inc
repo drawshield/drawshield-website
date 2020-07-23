@@ -507,6 +507,7 @@ $divList = [
     "multi/per-pile",
     "multi/tierced-in-bend-sinister-+",
     "multi/tierced-in-chevron-+",
+    "multi/tierced-in-chevron-inverted-+",
     "multi/tierced-in-fess-+",
     "multi/tierced-in-pale-+",
 ];
