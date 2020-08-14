@@ -1,0 +1,28 @@
+# I will allow comment lines as usual
+
+# Blank lines are ignored
+
+# Tips are separated by lines beginning with "id:" The word following is used as a unique id
+# If not unique, later version wins, so in general, add to this file at the end
+# Each tweet is prefixed by "Build-bot's tip of the day: ", so tips are limited to 250 characters
+#==================================================================================================
+#==================================================================================================
+#================================================
+id: Create a stamp
+Paste this into the create page and design a stamp! 
+" <Your design here> a mans head shown smaller and lower in sinister chief overall a bordure argent drawn in a 
+stamp shape "
+
+id: Get random
+Stuck for inspiration? Try something random! https://drawshield.net/random/index.html
+
+id: Link to gallery
+Want to send someone a link to a gallery entry? Just make a note of its number and use the short code https://drawshield.net/gallery/NNNN
+
+id: In annullo
+You can arrange charges in a circle by using "in annullo". This obviously works better if there are 8 or more - unless you are a dragon, in which case you can be in annullo all by yourself...
+
+id: Bad joke 1
+Did you hear about the herald who drew 3 lions in a bucket of water? The client told him he wanted them "in pail"...
+
+

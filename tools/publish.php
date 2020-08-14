@@ -241,6 +241,9 @@ while (true) {
 	 // system($execute);
 	// echo $execute . "\n";
 	$img = file_get_contents($url);
+	if ($img[0] == '<') {
+		echo "possible rendering error\n";
+	}
 	file_put_contents($folder . $subfolder . '/img/' . '/gallery-' . $subject . '.png', $img);
 
     // move the email to Processed folder on the server

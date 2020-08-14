@@ -15,7 +15,7 @@ end
 task :deploygallery do
   sh %{ rsync -rcv /var/www/test/gallery/ /var/www/html/gallery }
 
-  sh %{ /home/ubuntu/gems/bin/t update "The DrawShield build-bot reports that new gallery entries have been posted - https://drawshield.net/gallery/index.html" }
+  sh %{ /home/ubuntu/gems/bin/t update "$(cat tools/tweet.txt)" } 
 end
 
 desc 'Jekyll Build'
