@@ -150,8 +150,8 @@ try
            $tagData = "<p>With Tags: $tags</p>\n";
        }
        $options = $_POST['options'] ?? 'shape=heater,effect=shiny,palette=drawshield';
-       $createURL = "http://drawshield.net/create/index.html?blazon=" . rawurlencode($plainBlazon);
-       $wgetURL = 'num=NNNN; wget -O /home/karl/Nextcloud/drawshield/source/gallery/${num:0:2}/img/gallery-$num.png ' . "'http://drawshield.net/include/drawshield.php?asfile=1&size=750&saveformat=png&whcols=1&webcols=1&blazon=" . rawurlencode($plainBlazon) . '&' . str_replace(',','&',$options) . "'";
+       $createURL = "https://drawshield.net/create/index.html?blazon=" . rawurlencode($plainBlazon);
+       $wgetURL = 'num=NNNN; wget -O /home/karl/Nextcloud/drawshield/source/gallery/${num:0:2}/img/gallery-$num.png ' . "'http://drawshield.net/include/drawshield.php?asfile=1&size=750&saveformat=png&blazon=" . rawurlencode($plainBlazon) . '&' . str_replace(',','&',$options) . "'";
        $emailText = preg_replace(
             array('/%plainBlazon%/', '/%addData%/', '/%createURL%/', '/%wgetURL%/', '/%title%/', '/%tags%/' ),
             array($plainBlazon, $addData, $createURL, $wgetURL, $title, $tagData),

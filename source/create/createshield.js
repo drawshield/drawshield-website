@@ -495,7 +495,7 @@ function drawshield(blazon) {
 
 function newTab() {
     readOptions(); // in case any have changed
-    form = document.forms[0];
+    form = document.getElementById('blazonForm');
     form.method = 'POST';
     form.action = targetURL;
     form.elements["size"].value = "1000";
