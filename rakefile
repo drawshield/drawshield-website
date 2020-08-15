@@ -23,6 +23,13 @@ task :jekyll do
   sh %{ bundle exec jekyll build -d /var/www/test }
 end
 
+desc 'Commit and Push to git'
+task :dogit do
+  sh %{ git add -A }
+  sh %{ git commit -m "Gallery Updates" }
+  sh %{ git push }
+end
+
 desc 'Gallery & catalog Build'
 task :gallery do
   Dir.chdir('tools') do

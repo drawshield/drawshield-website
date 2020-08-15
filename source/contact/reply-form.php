@@ -16,6 +16,7 @@ $subject = 'New message from contact form';
 $galleryTemplate = <<< EOD
 ---
 pageTitle: %title%
+
 layout: gallery-entry
 entryNum: NNNN
 ---

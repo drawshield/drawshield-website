@@ -13,6 +13,7 @@ foreach ($urgent as $urgentItem) {
     $source = 'urgent/' . $urgentItem;
     $target = 'used/' . $urgentItem;
     $content = file_get_contents($source);
+    $content = preg_replace('/\n/','',$content);
     $parts = explode('-',$urgentItem);
     $type = $parts[0];
     break; // only use first one, leave others for later
@@ -26,6 +27,7 @@ if ($content == '' || $type == '') { // nothing urgent found
         $source = 'pool/' . $poolItem;
         $target = 'used/' . $poolItem;
         $content = file_get_contents($source);
+	$content = preg_replace('/\n/','',$content);
         $parts = explode('-', $poolItem);
         $type = $parts[0];
         break; // only use first one, leave others for later
@@ -35,7 +37,8 @@ if ($content == '' || $type == '') { // nothing urgent found
 
 if ($content != '' && $type != '') {
     $tweet = "Build-bot's $type of the day: $content";
-    echo "$tweet\n";
-    echo "rename($source, $target);\n";
+    system( '/home/ubuntu/gems/bin/t update ' . escapeshellarg($tweet));
+//    echo  '/home/ubuntu/gems/bin/t update ' . escapeshellarg($tweet);
+    rename($source, $target);
 }
 

@@ -238,8 +238,8 @@ while (true) {
 			}
 		}
 	}
-	$url = preg_replace('http:','https:', $url);
-    $url = preg_replace('=png&whcols=1&webcols=1','=png', $url);
+	$url = preg_replace('/http:/','https:', $url);
+    $url = preg_replace('/=png&whcols=1&webcols=1/','=png', $url);
 	 // system($execute);
 	// echo $execute . "\n";
 	$img = file_get_contents($url);
