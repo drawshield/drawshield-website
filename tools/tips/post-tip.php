@@ -37,7 +37,7 @@ if ($content == '' || $type == '') { // nothing urgent found
 
 if ($content != '' && $type != '') {
     $tweet = "Build-bot's $type of the day: $content";
-    system( '/home/ubuntu/gems/bin/t update ' . escapeshellarg($tweet));
+    system( 'bundle exec t update ' . escapeshellarg($tweet));
 //    echo  '/home/ubuntu/gems/bin/t update ' . escapeshellarg($tweet);
     rename($source, $target);
 }
