@@ -141,7 +141,8 @@ while (true) {
     $subject   = ( ! empty($email['header']->subject) ? $email['header']->subject : '');
 	$body = $email['body'];
 	
-	if (strcmp ($subject, "Fwd: Gallery Suggestion") == 0) {
+	if ((strcmp ($subject, "Fwd: Gallery Suggestion") == 0) ||
+	(strcmp ($subject, "Gallery Suggestion") == 0)) {
 		$subject = getNextLowest($folder);
 	} elseif (!preg_match('/[0-9]{4}/',$subject)) {
 		echo "ignoring message subject: $subject\n";
