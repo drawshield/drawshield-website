@@ -27,7 +27,7 @@ if ($content == '' || $type == '') { // nothing urgent found
         $source = 'pool/' . $poolItem;
         $target = 'used/' . $poolItem;
         $content = file_get_contents($source);
-	$content = preg_replace('/\n/','',$content);
+	$content = preg_replace('/\n/',' ',$content);
         $parts = explode('-', $poolItem);
         $type = $parts[0];
         break; // only use first one, leave others for later
@@ -37,6 +37,7 @@ if ($content == '' || $type == '') { // nothing urgent found
 
 if ($content != '' && $type != '') {
     $tweet = "Build-bot's $type of the day: $content";
+//    file_put_contents("today.txt",  escapeshellarg($tweet));
     system( '/home/ubuntu/gems/bin/t update ' . escapeshellarg($tweet));
 //    echo  '/home/ubuntu/gems/bin/t update ' . escapeshellarg($tweet);
     rename($source, $target);

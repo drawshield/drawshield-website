@@ -9,7 +9,6 @@ var partsLoaded = false;
 var uploadedFile = null;
 //////////// OPTION HANDLING ///////////////////
 // The options, default values for first time visit
-var saveWidth = "1000";
 var palette = 'drawshield';
 var effect = 'shiny';
 var shape = 'heater';
@@ -120,7 +119,6 @@ function setCookies() {
     setCookie('palette',palette);
     setCookie('effect',effect);
     setCookie('shape',shape);
-    setCookie('saveWidth',saveWidth);
     setCookie('aspectRatio',aspectRatio);
     setCookie('useEditor',useEditor);
     setCookie('useZoom',useZoom);
@@ -133,7 +131,6 @@ function getCookies() { // override defaults if cookies are set
     if ((temp = getCookie('palette')) != '') palette = temp;
     if ((temp = getCookie('effect')) != '') effect = temp;
     if ((temp = getCookie('shape')) != '') shape = temp;
-    if ((temp = getCookie('saveWidth')) != '') saveWidth = temp;
     if ((temp = getCookie('aspectRatio')) != '') aspectRatio = temp;
     if ((temp = getCookie('useEditor')) != '') useEditor = temp;
     if ((temp = getCookie('useZoom')) != '') useZoom = temp;
@@ -213,7 +210,6 @@ function getCookie(cname) {
 }
 
 function setOptions() {
-    document.getElementById("sizeInput").value = saveWidth;
     document.getElementById("aspectRatio").value = aspectRatio;
     radioButtons = document.getElementsByName('palettegroup');
     for ( i = 0; i < radioButtons.length; i++ ) {
@@ -258,18 +254,7 @@ function toggleDrawOptions() { // load or unload the options panel
 function readOptions() {
 
     if (!optionsLoaded) return;
-    // only look for things if the options panel has been loaded
-
-    var e =  document.getElementById("sizeInput");
-    temp = parseInt(e.value);
-    if (temp < 100) {
-        temp = 100;
-        e.value = "100";
-    } else if (temp > 2500) {
-        temp = 2500;
-        e.value = "2500";
-    }
-    saveWidth = temp.toString();
+    // only look for other things if the options panel has been loaded
     aspectRatio = document.getElementById("aspectRatio").value;
 
     radioButtons = document.getElementsByName('palettegroup');
@@ -515,6 +500,9 @@ function newTab() {
 
 function saveshield() {
     readOptions(); // in case any have changed
+    var e =  document.getElementById("sizeInput");
+    var saveWidth = parseInt(e.value);
+
     form = document.getElementById("blazonForm");
     form.action = targetURL;
     form.target = '_blank';
@@ -523,6 +511,8 @@ function saveshield() {
     form.elements["size"].value = saveWidth;
     var e = document.getElementById("formatSelect");
     form.elements["saveformat"].value = e.options[e.selectedIndex].value;
+    e = document.getElementById("unitSelect");
+    form.elements["units"].value = e.options[e.selectedIndex].value;
     form.elements["asfile"].value = '1';
     form.elements["shape"].value = shape;
     form.elements["effect"].value = effect;
