@@ -502,6 +502,7 @@ function saveshield() {
     readOptions(); // in case any have changed
     var e =  document.getElementById("sizeInput");
     var saveWidth = parseInt(e.value);
+    if (isNaN(saveWidth)) saveWidth = 1000;
 
     form = document.getElementById("blazonForm");
     form.action = targetURL;
