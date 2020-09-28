@@ -4,7 +4,7 @@ var size=280;
 
 var shieldData = {};
 shieldData["~start-here~"] = [ "Create a simple shield (recommended) or complex?",
-    '~field~ ~update~ ~ordchg~', "A simple shield", 'simple/plain.png',
+    '~field~ ~update~ ~ordchg~ ~update~', "A simple shield", 'simple/plain.png',
     '~x-field~ ~update~ ~x-add-items~', "A Complex Shield", 'simple/divided.png',
 ];
 
