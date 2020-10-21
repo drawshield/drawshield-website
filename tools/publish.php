@@ -37,7 +37,9 @@ class Email_reader {
 	// the imap_open function parameters will need to be changed for the particular server
 	// these are laid out to connect to a Dreamhost IMAP server
 	function connect() {
-		$this->conn = imap_open('{'.$this->server . ':' . $this->port.'}', $this->user, $this->pass);
+		$this->conn = imap_open('{'.$this->server . ':' . '993/imap/ssl/novalidate-cert}', $this->user, $this->pass);
+//		$this->conn = imap_open('{'.$this->server . ':' . $this->port.'/imap/notls}', $this->user, $this->pass);
+	
 	}
 
 	// move the message to a new folder
