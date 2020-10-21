@@ -14,7 +14,6 @@ var effect = 'shiny';
 var shape = 'heater';
 var aspectRatio = '0.5';
 var useEditor = 'yes';
-var useZoom = 'yes';
 var editorLoad = "\n\n\n";
 var blazonEditor;
 var useWebColours = 'no';
@@ -121,7 +120,7 @@ function setCookies() {
     setCookie('shape',shape);
     setCookie('aspectRatio',aspectRatio);
     setCookie('useEditor',useEditor);
-    setCookie('useZoom',useZoom);
+    setCookie('useMemories',(useMemories ? 'yes' : 'no'));
     setCookie('useWebColours',useWebColours);
     setCookie('useWarhammerColours',useWarhammerColours);
 }
@@ -133,7 +132,7 @@ function getCookies() { // override defaults if cookies are set
     if ((temp = getCookie('shape')) != '') shape = temp;
     if ((temp = getCookie('aspectRatio')) != '') aspectRatio = temp;
     if ((temp = getCookie('useEditor')) != '') useEditor = temp;
-    if ((temp = getCookie('useZoom')) != '') useZoom = temp;
+    if ((temp = getCookie('useMemories')) != '') useMemories = ((typeof(window.localStorage) != 'undefined') && (temp == 'yes'));
     if ((temp = getCookie('useWebColours')) != '') useWebColours = temp;
     if ((temp = getCookie('useWarhammerColours')) != '') useWarhammerColours = temp;
     if ((temp = getCookie('useTartanColours')) != '') useTartanColours = temp;
@@ -175,7 +174,7 @@ function switchEditor() {
     setCookie('useEditor',useEditor);
     content = '';
     if (useEditor == 'yes') {
-        jQuery('.editorButtons').show();
+        jQuery('#editorButtons').show();
         blazonEditor = createEditor();
     } else {
         if (typeof(blazonEditor.getWrapperElement) == 'function') {
@@ -183,15 +182,23 @@ function switchEditor() {
             editor =  blazonEditor.getWrapperElement();
             editor.parentNode.removeChild(editor);
         }
-        jQuery('.editorButtons').hide();
+        jQuery('#editorButtons').hide();
         blazonEditor = document.getElementById('blazon');
         blazonEditor.setAttribute('style','');
         blazonEditor.value = content;
     }
 }
 
-function switchZoom() {
-    useZoom = (document.getElementById('use-zoom').checked == true) ? 'yes' : 'no';
+function switchMemories() {
+    if (document.getElementById('use-memories').checked == true) {
+        useMemories = true;
+        jQuery('#memoryButtons').show();
+        setMemories();
+        $('.memNumber').popover();
+    } else {
+        useMemories = false;
+        jQuery('#memoryButtons').hide();
+    }
 }
 
 function getCookie(cname) {
@@ -236,7 +243,7 @@ function setOptions() {
         }
     }   
     $('#use-editor').attr('checked',(useEditor == 'yes'));
-    $('#use-zoom').attr('checked',(useZoom == 'yes'));
+    $('#use-memories').attr('checked',(useMemories == true));
     $('#webcols').attr('checked',(useWebColours == 'yes'));
     $('#whcols').attr('checked',(useWarhammerColours == 'yes'));
     $('#tartancols').attr('checked',(useTartanColours == 'yes'));
@@ -620,7 +627,7 @@ function setupshield(initial) {
         blazonEditor = createEditor();
     } else {
         blazonEditor = document.getElementById('blazon');
-        jQuery('.editorButtons').hide();
+        jQuery('#editorButtons').hide();
     }
     if (editorLoad != null) { 
         loadEditor(editorLoad);
@@ -629,7 +636,7 @@ function setupshield(initial) {
     if (typeof(window.localStorage) == 'undefined') {
         useMemories = false;
         jQuery('#memoryButtons').hide();
-    } else {
+    } else if (useMemories) {
         setMemories();
         $('.memNumber').popover();
     }

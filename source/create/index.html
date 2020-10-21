@@ -25,6 +25,7 @@ panzoom: true
         <button type="button" class="btn-light" onclick="saveToFile()">Save</button>
         <button type="button" class="btn-light" onclick="edLoad()">Load...</button>
     </div>
+</div>
     <div class="col-12" id="memoryButtons">
         <button type="button" class="btn-light memButton" data-toggle="button"  id="buttonSTO" onclick="memButton('STO');">STO</button>
         <button type="button" class="btn-light memButton" data-toggle="button"  id="buttonRCL" onclick="memButton('RCL');">RCL</button>
@@ -58,7 +59,6 @@ panzoom: true
         <button type="button" class="btn-light memNumber" data-toggle="popover" 
             data-placement="bottom" data-content="" data-trigger="hover" id="memory12" onclick="memNumber(this.id);">12</button>
     </div>
-</div>
 <div class="row" style="display: none; margin: 2px;" id="uploadControls">
     <input id="localFile" type="file" />
     <div class="col-12"><button type="button" class="btn-light" onclick="loadLocalFile()">Upload</button></div>
