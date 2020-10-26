@@ -150,7 +150,7 @@ function charges($folder)
             }
             $blazon = rawurlencode($blazon);
             $execString = 'wget -q -O ' . "$targetDir/charges/$folder/$toFind.png" .
-                ' "http://drawshield.home/include/quickimage.php?blazon=' . $blazon .
+                ' "http://test.drawshield.net/include/quickimage.php?blazon=' . $blazon .
                 '&outputformat=png&size=400&effect=none&nomask=1"';
             // echo "Executing $execString\n";
             echo "Adding $toFind\n";
@@ -223,7 +223,7 @@ function ordinaries() {
             str_replace(array('-','+'),' ',$ord) . " grey";
         $blazon =  rawurlencode($blazon);
         $execString = 'wget -q -O ' . "$targetDir/ordinaries/$folder/$ord.png" .
-        ' "http://drawshield.home/include/quickimage.php?blazon=' . $blazon .
+        ' "http://test.drawshield.net/include/quickimage.php?blazon=' . $blazon .
         '&outputformat=png&size=400&effect=none&nomask=1"';
         echo "Executing $execString\n";
         exec($execString);
@@ -248,7 +248,7 @@ function achievements() {
             str_replace(array('-','+'),' ',achievement);
         $blazon =  rawurlencode($blazon);
         $execString = 'wget -q -O ' . "$targetDir/achievements/$folder/achievement.png" .
-        ' "http://drawshield.home/include/quickimage.php?blazon=' . $blazon .
+        ' "http://test.drawshield.net/include/quickimage.php?blazon=' . $blazon .
         '&outputformat=png&size=400&effect=none&nomask=1"';
         echo "Executing $execString\n";
         exec($execString);
@@ -271,7 +271,7 @@ function divisions() {
             $blazon .= " and sable";
         $blazon =  rawurlencode($blazon);
         $execString = 'wget -q -O ' . "$targetDir/divisions/$folder/$div.png" .
-        ' "http://drawshield.home/include/quickimage.php?blazon=' . $blazon .
+        ' "http://test.drawshield.net/include/quickimage.php?blazon=' . $blazon .
         '&outputformat=png&size=400&effect=none&nomask=1"';
         echo "Executing $execString\n";
         exec($execString);
@@ -293,7 +293,7 @@ function arrangements() {
             " grey";
         $blazon =  rawurlencode($blazon);
         $execString = 'wget -q -O ' . "$targetDir/arrangements/$example.png" .
-        ' "http://drawshield.home/include/quickimage.php?blazon=' . $blazon .
+        ' "http://test.drawshield.net/include/quickimage.php?blazon=' . $blazon .
         '&outputformat=png&size=400&effect=none&nomask=1"';
         echo "Executing $execString\n";
         exec($execString);
@@ -311,7 +311,7 @@ function orientations() {
             " grey";
         $blazon =  rawurlencode($blazon);
         $execString = 'wget -q -O ' . "$targetDir/orientations/$example.png" .
-        ' "http://drawshield.home/include/quickimage.php?blazon=' . $blazon .
+        ' "http://test.drawshield.net/include/quickimage.php?blazon=' . $blazon .
         '&outputformat=png&size=400&effect=none&nomask=1"';
         echo "Executing $execString\n";
         exec($execString);
@@ -335,7 +335,7 @@ function treatments() {
             $blazon = "argent " . str_replace(array('-','+'),' ',$treat) . " grey";
         $blazon =  rawurlencode($blazon);
         $execString = 'wget -q -O ' . "$tempDir/treatment.svg" .
-        ' "http://drawshield.home/include/quickimage.php?blazon=' . $blazon .
+        ' "http://test.drawshield.net/include/quickimage.php?blazon=' . $blazon .
         '&outputformat=svg&size=400&effect=none&nomask=1"';
         echo "Executing $execString\n";
         exec($execString);
@@ -359,7 +359,7 @@ function edges() {
         $blazon = rawurlencode("argent $specifier " .
             str_replace(array('-','+'),' ',$edge) . " grey");
         $execString = 'wget -q -O ' . "$tempDir/edge.svg" .
-        ' "http://drawshield.home/include/quickimage.php?blazon=' . $blazon .
+        ' "http://test.drawshield.net/include/quickimage.php?blazon=' . $blazon .
         '&outputformat=svg&size=400&effect=none&nomask=1"';
         echo "Executing $execString\n";
         exec($execString);
