@@ -72,21 +72,41 @@ $errorMessage = false;
 error_reporting(E_ALL & ~E_NOTICE);
 
 
-function lineBreak($string, $breakAfter = 40) {
+function lineBreak($string, $breakAfter = 50) {
     $return = '';
     $count = 0;
+    $comment = 'no';
     for ($i = 0; $i < strlen($string); $i++) {
         switch ($string[$i]) {
             case "\n":
-                $count = 0;
-                break;
+		    $count = 0;
+		    $comment = 'no';
+		    break;
+	    case '/':
+		    if ($comment == 'no') {
+			    $comment = 'maybe';
+		    } elseif ($comment == 'maybe') {
+			    $comment = 'yes';
+		    }
+		    break;
+	    case '*': 
+		    if ($comment == 'maybe') {
+			    $comment = 'yes';
+		    }
+		    break;
             case ' ':
                 if ($count >= $breakAfter) {
                     $return .= PHP_EOL;
                     $count = 0;
+		    if ($comment == 'yes') {
+			    $return .= '// ';
+		    }
                 }
                 break;
-            default:
+	    default:
+		if ($comment == 'maybe') {
+			$comment = 'no';
+		}
                 break;
         }
         $return .= $string[$i];
