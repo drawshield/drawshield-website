@@ -125,6 +125,7 @@ try
     $gallery = false;
     $comment = false;
     $refnum = '';
+    $bugReport = false;
     $content = '(No content)';
 
     foreach ($_POST as $key => $value) {
@@ -133,7 +134,8 @@ try
             $emailText .= "$fields[$key]: $value\n";
         }
         if ( $key == 'error-blazon') {
-            $okMessage = "Error report submitted. Please check 'Contact -> View Responses' in a day or two or follow @drawshield on Twitter.";
+		$bugReport = true;
+            $okMessage = "Error report submitted. Please check for a response on the DrawShield Discord Server in a day or two.";
         }
         if ( $key == 'message' ) {
             $content = $value;
@@ -207,6 +209,18 @@ try
         fclose($myfile);
         // Send email
         @mail($sendTo, $subject, $emailText, implode("\n", $headers));
+
+	if ($bugReport) { // also send to discord
+		$ch = curl_init("https://discord.com/api/webhooks/775495216852893716/AG_6jkWQMS0_MWRYXUR6-9jkjlt_57CBKDb9UIVY1A5TSym1ewl35AnDic0RfjaprYlC");
+		$msg = "payload_json=" . urlencode(json_encode(array("username" => "ErrorBot", "content" => $emailText )));
+		if(isset($ch)) {
+			  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+			  curl_setopt($ch, CURLOPT_POSTFIELDS, $msg);
+			  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			  $result = curl_exec($ch);
+			  curl_close($ch);
+		}
+	}
     }
 
     if ($errorMessage)
