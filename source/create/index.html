@@ -111,7 +111,7 @@ panzoom: true
                 <button type="button" class="btn-primary btn-sm float-right" onclick="document.getElementById('messageDiv').style.display = 'none';" >Clear</button>
                 <input type="hidden" name="reference" value="Error Report">
             </p>
-            <p>Edit the field above if you need to give more information. See "Contact-&gt;View Responses" or follow @drawshield on Twitter for feedback.</p>
+            <p>Edit the field above if you need to give more information. For real-time help and chat please use the DrawShield Discord Server.</p>
             <h2>Common Problems</h2>
                 <dl>
                     <dt>Not a complete blazon</dt>
@@ -191,14 +191,14 @@ panzoom: true
     <div class="col-lg-8 offset-lg-2 col-sm-12 card p-1">
         <form class="contact-form" method="post" action="/contact/reply-form.php" role="form">
             <div class="form-group">
-                <label for="suggestion" style="color: red;">Your Suggestion:</label>
+                <label for="suggestion" style="color: red;">Your Blazon Submission:</label>
                 <textarea name="suggestion" id="suggestion" readonly class="form-control" placeholder="(Enter a blazon into the text area at the top of the page)"></textarea>
                 <label for="title" style="color: red;">A Title?</label>
                 <input type="text" name="title" id="title" class="form-control" placeholder="(optional)">
                 <label for="tags" style="color: red;">Tags?</label>
                 <input type="text" name="tags" id="tags" class="form-control" placeholder="(optional - to help find your submission)">
                 <label for="additional" style="color: red;">Anything you wish to add:</label>
-                <textarea name="additional" id="additional" class="form-control"></textarea>
+                <textarea name="additional" id="additional" class="form-control" placeholder="Tell us about your blazon or suggest an area for improvement!"></textarea>
             </div>
             <p class="pt-3">
                 <input type="submit" class="btn btn-danger btn-send" value="Submit this blazon" id="suggestButton">
