@@ -3,17 +3,26 @@ group02: true
 g02menu00: active
 layout: sidemenu
 sidemenu: user-guide-menu
-pageTitle: Charge Adjustments
+pageTitle: Artist Hints
 upLink: index.html
 nextLink: playing-cards.html
 prevLink: text-effects.html
 ---
-<p>In an ideal world your expert Herald would consider your blazon and use their skill and judgement to size and place charges for the best clarity, impact and overall balance. Sadly, you don't have an expert Herald, just 15,000 lines of PHP code!</p>
+<p>If you engage a human artist to create a coat of arms for you it is often a collaborative process. On being shown the first draft, you might say things like - "That's lovely, but can you make
+the lion a bit larger and move it up a bit?". </p>
 
-<p>For those occasions when DrawShield just doesn't get it right I have created a small extension introduced by the keyword <span class="keyword">shown</span> (or, if you prefer your language more archaic, <span class="keyword">shewn somewhat</span>). Any charge may be described by this keyword (which  <em>must come after</em> the charge), followed by any number of the phrases shown below.</p>
-<p>Please note that none of these phrases are <i>heraldic</i> in any sense, you will not find them in any manual of blazonry. I tend to think of them more as "instructions to the artist" - I believe is a perfectly reasonable scenario in which your heraldic artist brings you the first sketch of your proposed arms and you say "That's lovely, but can you make the lion a bit larger?". This set of charge adjustments lets you do that when DrawShield is your artist!</p>
+<p>The same dialogue is possible with DrawShield, using the "Artist Hints" extension. These are placed within the blazon itself and should follow whatever it is the hint
+is about. Hints are introduced with the  keyword <span class="keyword">shown</span> (or, if you prefer your language more archaic, <span class="keyword">shewn somewhat</span>).
+	So, in the example above, your blazon might contain something like <span class="keyword">a lion gules shown larger and slightly raised</span>.</p>
 
-<p>The list of possible adjustments is as follows:</p>
+<p>You can give hints about charges, wherever they are used, and also about most parts of the achievement, including the shield itself. Note that the mantling, if it is present, is
+	<em>always fixed</em> in size and position, all the other parts of the achievement are sized and positions relative to the mantling. If you want to adjust the position of the
+shield itself then use <span class="keyword">the shield shown smaller</span> (or whatever) at the end of the achievement.</p>
+
+<p>Artists hints can <em>not</em> be applied to ordinaries as these have fixed positions and sizes, however there are heraldic terms <span class="keyword">enhanced / abased</span>
+which will move an ordinary upwards and downwards respectively. Similarly you cannot apply artistic hints to divisions or treatments, these are always drawn in fixed positions.</p>
+
+<p>The list of available hints, and there effect is as follows:</p>
 
 
 	<p class="lead">To make charges smaller: </p>
@@ -39,8 +48,10 @@ prevLink: text-effects.html
 		<li><span class="keyword">much rotated to the dexter</span> - The charge will be rotated anti-clockwise, but a bit further round.</li>
 		<li><span class="keyword">very much rotated to the dexter</span> - The charge will be rotated anti-clockwise, but a quite a bit further round.</li>
 </ul>
+<p>You can also use the terms <span class="keyword">clockwise / anti-clockwise / counter-clockwise</span> if this clearer to you.</p>
+
 <p>Obviously you can also use <span class="keyword">sinister</span> in place of <span class="keyword">dexter</span> to rotate in the opposite direction. You can also use constructions like <span class="keyword">turned towards the sinister</span> if that reads better.</p>
-<p>The rotations are in steps of 9 degrees, so <span class="keyword">slightly rotated</span> is 9 degrees, and <span class="keyword">very much rotated</span> is 36 degrees. do <b>NOT</b> use multiple rotations when you really mean <span class="keyword">bendwise</span> or <span class="keyword">bendwise sinister</span>.</p>
+<p>The rotations are in steps of 9 degrees, so <span class="keyword">slightly rotated</span> is 9 degrees, and <span class="keyword">very much rotated</span> is 36 degrees. Do <b>NOT</b> use multiple rotations when you really mean <span class="keyword">bendwise</span> or <span class="keyword">bendwise sinister</span>.</p>
 
 <p class="lead">To move the charge upwards:</p>
 <ul>	<li><span class="keyword">slightly raised</span> - the charge will be moved about 1/40th of the shield height upwards</li>
@@ -77,7 +88,9 @@ prevLink: text-effects.html
 			<li><span class="keyword">very much further apart</span> - In some cases charges may extend beyond the edge of the shield</li>
 </ul>
 
-<p>Note you should avoid using <em>closer together</em> when you really mean <em>conjoined</em>, which is a true heraldic term.</p>
+<p>Note you should avoid using <em>closer together</em> when you really mean <em>conjoined</em>, which is a true heraldic term. Nor should you use
+repeated positioning hints when you really just mean something like <span class="keyword">in first quarter</span> or one of the other heraldic positions
+on the field.</p>
 
 <p>You may also use additional words and phrases like <span class="keyword">than the usual</span> or <span class="keyword">than is normal</span>, which don't have any effect but might make your blazon clearer.</p>
 
@@ -91,7 +104,7 @@ prevLink: text-effects.html
 
 <h2>Fine control</h2>
 
-<p>It is possible to repeat these adjustments and each will applied in turn, <strong>however</strong> it is strongly recommended to use the <span class="keyword">much</span> modifiers rather than repeating the adjustment. Not only does this look grammatically nicer, the "effect" of a <span class="keyword">much</span> is actually greater than repeating the "basic" modifier. Consider the following examples:</p>
+<p>It is possible to repeat these hints and each will applied in turn, <strong>however</strong> it is strongly recommended to use the <span class="keyword">much</span> modifiers rather than repeating the adjustment. Not only does this look grammatically nicer, the "effect" of a <span class="keyword">much</span> is actually greater than repeating the "basic" modifier. Consider the following examples:</p>
 
 <dl>
 	<dt>A roundel or smaller smaller smaller</dt><dd>size multiplier = 0.8 * 0.8 * 0.8 = 0.512</dd>
