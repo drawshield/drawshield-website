@@ -46,11 +46,11 @@ EOD;
 
 $commentTemplate = <<< EOD2
 
-Approve This Comment: http://drawshield.net/gallery/comments.php?id=%tableid%&action=approve&secret=jsk5k*VV
+Approve This Comment: http://drawshield.net/gallery/comments.php?id=%tableid%&action=approve&secret=jsk5k*VV&refnum=%refnum%
 
-Reject This Comment: http://drawshield.net/gallery/comments.php?id=%tableid%&action=reject&secret=jsk5k*VV
+Reject This Comment: http://drawshield.net/gallery/comments.php?id=%tableid%&action=reject&secret=jsk5k*VV&refnum=%refnum%
 
-Refer This Comment: http://drawshield.net/gallery/comments.php?id=%tableid%&action=refer&secret=jsk5k*VV
+Refer This Comment: http://drawshield.net/gallery/comments.php?id=%tableid%&action=refer&secret=jsk5k*VV&refnum=%refnum%
 
 EOD2;
 
@@ -190,7 +190,10 @@ try
             if ($res = mysqli_query($database, $sql)) {
                 $tableid = mysqli_insert_id($database);
                 $emailText .= "I added this\n";
-                $emailText .= preg_replace('/%tableid%/',$tableid, $commentTemplate);
+                $emailText .= preg_replace(
+                    array ('/%tableid%/', '/%refnum%/'),
+                    array ( $tableid, $refnum),
+                     $commentTemplate);
             } else {
                 $errorMessage = "Database insertion error -" . mysqli_error($database);
             }
