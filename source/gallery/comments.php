@@ -44,6 +44,32 @@ if (!$errorMessage) {
                 $sql = "UPDATE comments SET status = 'approved' WHERE id = '$tableid'";
                 $res = mysqli_query($database, $sql);
                 $response .= '<p>' . mysqli_info($database) . "</p>\n";
+                if (isset($ch)) {
+                    $comments = "";
+                    $sql = "SELECT content, timestamp FROM comments WHERE refnum = '$refnum' AND status = 'approved'";
+                    if ($res = mysqli_query($database, $sql)) {
+                        if (mysqli_num_rows($res) > 0) {
+                            $comments .=  "New Comment on Gallery Entry $refnum\n";
+                        }
+                        while ($row = mysqli_fetch_array($res)) {
+                            $response .=  $row['content'] . "\n";
+                            $response .=  $row['timestamp'] . "\n";
+                        }
+                    } else {
+                        $errorMessage = "SQL error " . mysqli_error($database);
+                        break;
+                    }
+                    $msg = "payload_json=" . urlencode(json_encode(array("username" => "GalleryBot", "content" => "https://drawshield.net/gallery/$folder/img/gallery-$refnum.png" )));
+                    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, $msg);
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    $result = curl_exec($ch);
+                    $msg = "payload_json=" . urlencode(json_encode(array("username" => "GalleryBot", "content" => $comments )));
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, $msg);
+                    $result = curl_exec($ch);
+                    curl_close($ch);
+                    $response .= "<p>And copied to Discord</p>";
+                }   
                 break;
             case 'reject':
                 $sql = "UPDATE comments SET status = 'rejected' WHERE id = '$tableid'";
