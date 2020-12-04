@@ -617,3 +617,10 @@ $oriList = [
     "a-salmon-bendwise-sinister",
     "a-salmon-bendwise-reversed",
 ];
+
+$hatchList = [
+    'gules', 'azure', 'cendree', 'orange', 'celestial-azure', 'or',
+    'sable', 'vert','purpure', 'bisque', 'tenne', 'brunatre',
+    'murrey'
+];
+

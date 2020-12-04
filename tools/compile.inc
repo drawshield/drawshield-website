@@ -235,6 +235,25 @@ function ordinaries() {
 }
 
 
+function hatchings() {
+    global $hatchList, $keep;
+    global $targetDir, $sourceDir, $tempDir;
+
+    @mkdir("$targetDir/colours/hatchings");
+    foreach ($hatchList as $colour) {
+        if (file_exists("$targetDir/colours/hatchings/$colour.png")) continue;
+        $blazon = "$colour drawn using the hatching palette";
+        $blazon =  rawurlencode($blazon);
+        $execString = 'wget -q -O ' . "$targetDir/colours/hatchings/$colour.png" .
+        ' "http://test.drawshield.net/include/quickimage.php?blazon=' . $blazon .
+        '&outputformat=png&size=400&effect=none&nomask=1&palette=hatching"';
+        echo "Executing $execString\n";
+        exec($execString);
+    }
+}
+
+
+
 function achievements() {
     global $achievelist, $keep;
     global $targetDir, $sourceDir, $tempDir;
@@ -384,10 +403,13 @@ function compile($argc, $argv) {
     $arr = false;
     $ori = false;
     $bor = false;
+    $hat = false;
 
     if ($argc > 1) { // must be a subset
         if (substr($argv[1], 0, 3) == 'ord') {
             $ords = true;
+        } elseif (substr($argv[1], 0, 3) == 'hat') {
+            $hat = true;
         } elseif (substr($argv[1], 0, 3) == 'edg') {
             $edges = true;
         } elseif (substr($argv[1], 0, 3) == 'div') {
@@ -427,6 +449,9 @@ function compile($argc, $argv) {
             $action($chargeDir);
             // features($chargeDir);
         }
+    }
+    if ($hat) {
+        hatchings();
     }
     if ($ords) {
         ordinaries();
