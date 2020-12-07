@@ -31,6 +31,9 @@ if ( !$error ) {
         case 'giotd':
             doGiotd($arg);
             break;
+        case 'challenge':
+            doChallenge($arg);
+        break;
         default:
             $error = "Unknown action";
             break;
@@ -150,6 +153,25 @@ function doDefine($term) {
         default:
             $error = "Unknown source";
             break;
+    }
+}
+
+function doChallenge($arg) {
+    global $success, $format;
+    $targets = file("image-links.txt");
+    $max = count($targets);
+    if ($max < 1) {
+        $error = "no targets found";
+        return;
+    }
+    $target = '';
+    while (strlen($target) < 5) {
+        $target = trim($targets[rand(0,$max -1)]);
+    }
+    if ($format == 'html') {
+        $success = "<a href=\"$target\">$target</a>";
+    } else {
+        $success = $target;
     }
 }
 
