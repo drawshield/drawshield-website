@@ -34,6 +34,9 @@ if ( !$error ) {
         case 'challenge':
             doChallenge($arg);
         break;
+        case 'catalog':
+            doCatalog($arg);
+        break;
         default:
             $error = "Unknown action";
             break;
@@ -157,7 +160,7 @@ function doDefine($term) {
 }
 
 function doChallenge($arg) {
-    global $success, $format;
+    global $success, $format, $error;
     $targets = file("image-links.txt");
     $max = count($targets);
     if ($max < 1) {
@@ -174,6 +177,53 @@ function doChallenge($arg) {
         $success = $target;
     }
 }
+
+function tidyUp($path) {
+	$path = preg_replace('/_catalog\//','',$path);
+	$path = preg_replace('/\//',' -> ', $path);
+	$path = preg_replace('/[-+]*\.png$/','',$path);
+	return $path;
+}
+
+function doCatalog($arg) {
+	global $success, $format, $error;
+
+	$catalogFile = "catalog.txt";
+	if (!file_exists($catalogFile)) {
+		$error = "Missing catalog file";
+		return;
+	}
+	$matchAll = strpos($arg,'*');
+	$catalogList = file($catalogFile);
+	$hitList = [];
+	if ($matchAll) {
+		$arg = preg_replace('/\*/','', $arg);
+		$searchTerm = '/' . preg_replace('/  */','.*',$arg) . '/';
+	} else {
+		$searchTerm = '/\/' . preg_replace('/  */','.*',$arg) . '[-+]*\.png$/';
+	}
+	$hits = 0;
+	$success = ''; // $arg . ' ' . $searchTerm . "\n";
+	foreach($catalogList as $listItem) {
+		if (preg_match($searchTerm, $listItem)) {
+			$hitList[] = trim($listItem);
+			$hits++;
+		}
+		if ($hits > 9) break;
+	}
+	// we now have up to 10 hits in the hitlist
+	if ($hits == 0) {
+		$success .= "Sorry, nothing found in catalog";
+	} elseif ($hits == 1) { // return link to image
+		$success = preg_replace('/_/','https://drawshield.net/', $hitList[0]);
+	} else { // more than one, return list of words
+		$success .= "Multiple matches found:\n";
+		for ($i = 0; $i < $hits; $i++) {
+			$success .= tidyUp($hitList[$i]) . "\n";
+		}
+	}
+}
+
 
 function doGiotd($arg) {
     global $success, $error, $format, $imgFormat;

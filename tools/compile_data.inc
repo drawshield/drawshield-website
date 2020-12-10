@@ -621,6 +621,6 @@ $oriList = [
 $hatchList = [
     'gules', 'azure', 'cendree', 'orange', 'celestial-azure', 'or',
     'sable', 'vert','purpure', 'bisque', 'tenne', 'brunatre',
-    'murrey'
+    'murrey', 'rose'
 ];
 
