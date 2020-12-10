@@ -161,7 +161,29 @@ function doDefine($term) {
 
 function doChallenge($arg) {
     global $success, $format, $error;
-    $targets = file("image-links.txt");
+    
+    $fileNames = [];
+    $targets = [];
+    if ($handle = opendir('image-links')) {
+        if ($arg == 'all') {
+            while (false !== ($entry = readdir($handle))) {
+                if ($entry != "." && $entry != "..") {
+                    $fileNames[] = 'image-links/' . $entry;
+                }
+            }
+            $targets = file($fileNames[rand(0,count($fileNames) - 1)]);
+        } else {
+            while (false !== ($entry = readdir($handle))) {
+                if ($entry != "." && $entry != "..") {
+                    if ($arg == '*' || substr($entry, 0, strlen($arg)) === $arg) {
+                        $targets = array_merge($targets, file('image-links/' . $entry));
+                    }
+                }
+            }
+        }
+        closedir($handle);
+    }
+
     $max = count($targets);
     if ($max < 1) {
         $error = "no targets found";

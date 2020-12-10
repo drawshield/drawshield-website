@@ -1,0 +1,14 @@
+{
+    "name": "bot",
+    "version": "1.0.0",
+    "description": "Discord Utilities for DrawShield",
+    "main": "drawshield.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Karl Wilcox",
+    "license": "ISC",
+    "dependencies": {
+      "discord.js": "^12.5.1"
+    }
+  }
