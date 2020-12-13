@@ -7,11 +7,11 @@ const prefix = '!';
 
 const helpInfo = {
     define: "*!define <term>*\nProvide a brief definition of a heraldic term (Searches Parker's heraldic dictionary, and Elvins' Heraldic dictionary) and provides a link to the full entry.",
-    challenge: `*!challenge*\n
-Shows you a randomly selected image of a coat of arms from somewhere on the internet. Can you reproduce it using DrawShield? Sometimes you will have to guess charges and colours, and sometimes the referenced resource will have disappeared, if  you don't see anything just ask for another challenge\n.
-You can also provide the name of source for the challenges, the currently supported sources are:\n
-coadb - coadb.com catalog of European surnames (32,000 entries, monochrome)\n
-public - The Book of Public Arms (1,200 entries, monochrome)\n
+    challenge: `*!challenge*
+Shows you a randomly selected image of a coat of arms from somewhere on the internet. Can you reproduce it using DrawShield? Sometimes you will have to guess charges and colours, and sometimes the referenced resource will have disappeared, if  you don't see anything just ask for another challenge.
+You can also provide the name of source for the challenges, the currently supported sources are:
+coadb - coadb.com catalog of European surnames (32,000 entries, many broken, monochrome)
+public - The Book of Public Arms (1,200 entries, monochrome)
 wikimedia - Wikimedia commons (243, genuine DrawShield, colour)`,
     catalog: "*!catalog <item>*\nSearch the visual catalog for <item>. If there is an exact match then the relevant image from the catalog is returned. You can also do a wildcard search by putting an asterisk at the end, in which case the names of up to 10 charge names that contain the string <item> will be listed.",
     link: "*!link*\nReturns an invite link to add the bot to another server.",
