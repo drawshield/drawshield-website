@@ -1,7 +1,8 @@
 <?php
 
 $targetDir = "../source/_catalog/";
-$sourceDir = "../../ds-code/svg/";
+$sourceDir = "/var/www/html/include/svg/";
+$host = "https://drawshield.net/";
 
 $tempDir = "/tmp";
 

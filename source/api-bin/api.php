@@ -37,6 +37,9 @@ if ( !$error ) {
         case 'catalog':
             doCatalog($arg);
         break;
+        case 'gallery':
+            doGallery($arg);
+        break;
         default:
             $error = "Unknown action";
             break;
@@ -157,6 +160,10 @@ function doDefine($term) {
             $error = "Unknown source";
             break;
     }
+}
+
+function doGallery($arg) {
+    return "Not implemented yet";
 }
 
 function doChallenge($arg) {

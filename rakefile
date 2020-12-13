@@ -18,6 +18,10 @@ task :deploygallery do
   sh %{ /home/ubuntu/gems/bin/t update "$(cat tools/tweet.txt)" } 
 end
 
+task :deploycatalog do
+  sh %{ rsync -rcv /var/www/test/catalog/ /var/www/html/catalog }
+end
+
 desc 'Jekyll Build'
 task :jekyll do
   sh %{ bundle exec jekyll build -d /var/www/test }
