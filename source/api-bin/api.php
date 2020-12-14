@@ -244,7 +244,7 @@ function doCatalog($arg) {
 	if ($hits == 0) {
 		$success .= "Sorry, nothing found in catalog";
 	} elseif ($hits == 1) { // return link to image
-		$success = preg_replace('/_/','https://drawshield.net/', $hitList[0]);
+		$success = 'https://drawshield.net/' . $hitList[0];
 	} else { // more than one, return list of words
 		$success .= "Multiple matches found:\n";
 		for ($i = 0; $i < $hits; $i++) {

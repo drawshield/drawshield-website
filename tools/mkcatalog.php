@@ -3,6 +3,7 @@
 // $config = yaml_parse_file("../_config.yml");
 $sourceDir = "../source/_catalog/";
 $targetDir = "../source/_includes";
+$apiDir = "../source/api-bin";
 
 exec ("tree -fi -P '*.png' --noreport $sourceDir", $output);
 
@@ -31,10 +32,12 @@ function goto() {
 END;
 
 $select = $start;
+$catalog = '';
 
 foreach ($output as $line) {
     if (substr($line,-4,4) != '.png') continue;
     $line = str_replace('../source/_', '/',$line);
+    $catalog .= $line . "\n";
     $last = strrpos($line,'/');
     $dir = substr($line,0,$last);
     $item = substr($line,$last + 1);
@@ -47,6 +50,7 @@ foreach ($output as $line) {
 $select .= $end;
 
 file_put_contents($targetDir . '/searchcatalog.html', $select);
+file_put_contents($apiDir . '/catalog.txt', $catalog);
 
 
 
