@@ -4,5 +4,10 @@ etc/
 backups/
 linkchecks.txt
 .idea/
+*.swp
+*.swo
+.*.swp
+.*.swo
+
 
 

@@ -20,6 +20,7 @@ end
 
 task :deploycatalog do
   sh %{ rsync -rcv /var/www/test/catalog/ /var/www/html/catalog }
+  FileUtils.cp( "/var/www/test/api-bin/catalog.txt", "/var/www/html/api-bin/catalog.txt")
 end
 
 desc 'Jekyll Build'

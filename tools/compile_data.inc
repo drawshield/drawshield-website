@@ -140,11 +140,24 @@
         "rose-natural", "natural-rose",
         "leopard-natural", "natural-leopard",
         "leopard-head-jessant", "leopards-head-jessant-de-lys",
-        "rose-york", "rose-of-York",
+        "rose-york", "rose-of-York",archal-cross-on-4-step",
+        "patriarchal-5", "patriarchal-cross-on-5-step",
+        "patriarchal-6", "patriarchal-cross-on-6-step",
+        "patriarchal-7", "patriarchal-cross-on-7-step",
+        "patriarchal-8", "patriarchal-cross-on-8-step",
+        "patriarchal-9", "patriarchal-cross-on-9-step",
+        "swordstpaul", "sword-of-saint-paul",
+        "portate", "cross-portate",
+        "russian", "Russian-cross",
+        "st-james", "cross-of-St-James",
+        "lorraine", "cross-of-Lorraine",
+        "tau", "tau-cross",
+        "antique", "antique-crown",
+        "astral", "astral-crown
         "fret", "3 frets",
         "book-modern-open", "modern-book-open",
         "book-modern-closed", "modern-book-closed",
-        "tulip-bundle", "bundle-of-tulips",
+        "tulip-bundle-3", "bundle-of-tulips",
         "board-alquerque", "alquerque-board",
         "board-nine-mens-morris", "nine-mens-morris-board",
         "board-twelve-mens-morris", "twelve-mens-morris-board",
@@ -174,14 +187,17 @@
         "stone-flint", "flint-stone",
         "reed-bundle-3", "bundle-of-reeds",
         "arrow-broad", "broad-arrow",
-        "arrow-bundle", "bundle-of-arrows",
+        "arrow-bundle-3", "bundle-of-arrows",
         "cramp-bundle-3", "bundle-of-cramps",
         "cramp-pair-2", "pair-of-cramps",
         "flail-insaltire-2", "2-flails-in-saltire",
         "key-pair-2", "pair-of-keys",
+        "hand-pair-2", "pair-of-hands",
         "cherry-pair-2", "pair-of-cherries",
         "palm-leaf-insaltire-2", "2-palm-leaves-in-saltire",
         "palm-tree-insaltire-2", "2-palm-trees-in-saltire",
+        "banner-insaltire-2", "2-banners-in-saltire",
+        "banner-insaltire-4", "4-banners-in-saltire",
         "trees-hurst-of-couped", "hurst-of-trees",
         "staff-ragged", "ragged-staff",
         "pelican-natural", "natural-pelican",
@@ -259,6 +275,7 @@
 	"two-spades","playing-card-two-of-spades",
   "bow-arrow-drawn", "bow-and-arrow-drawn",
   "bow-arrow-nocked", "bow-and-arrow",
+  "cup-covered", "covered cup",
     ];
 
 
@@ -282,9 +299,19 @@
     'acorned', 'laced', 'shafted', 'shelled', 'tied', 'headed',
     'slipped', 'spurs', 'stick', 'stirruped', 'stock', 'tailed',
     'threaded', 'tools', 'top', 'trousered', 'trunked',
-    'unguled', 'visor', 'wattled', 'winged',
+    'unguled', 'visor', 'wattled', 'winged', 'pole'
     );
     
+$copyTo = [
+    'longship' => 'ship',
+   ];
+
+$ignoreFiles = [
+    'breeches',
+    'scissors',
+    'shears',
+    'flag-of-num-2',
+];
 
 $ignoreFolders = [
     'emblem',
