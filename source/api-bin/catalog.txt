@@ -33,6 +33,7 @@
 /catalog/charges/animal/bison-head-caboshed.png
 /catalog/charges/animal/bison.png
 /catalog/charges/animal/bison-rampant.png
+/catalog/charges/animal/bison-statant.png
 /catalog/charges/animal/camelopard-dormant.png
 /catalog/charges/animal/camelopard.png
 /catalog/charges/animal/camelopard-rampant.png
@@ -134,6 +135,7 @@
 /catalog/charges/armour/morion.png
 /catalog/charges/armour/peers-helmet.png
 /catalog/charges/armour/royal-helmet.png
+/catalog/charges/armour/torse.png
 /catalog/charges/astronomical/astronomical-symbol-for-earth.png
 /catalog/charges/astronomical/astronomical-symbol-for-jupiter.png
 /catalog/charges/astronomical/astronomical-symbol-for-mars.png
@@ -197,6 +199,7 @@
 /catalog/charges/bird/owl.png
 /catalog/charges/bird/pair-of-wings-conjoined-in-lure.png
 /catalog/charges/bird/pair-of-wings.png
+/catalog/charges/bird/peacock-affronty.png
 /catalog/charges/bird/peacock.png
 /catalog/charges/bird/pelican.png
 /catalog/charges/bird/popinjay.png
@@ -226,15 +229,20 @@
 /catalog/charges/celestial/moon-pendant.png
 /catalog/charges/celestial/moon.png
 /catalog/charges/celestial/rainbow.png
+/catalog/charges/celestial/star-of6.png
+/catalog/charges/celestial/star-of8.png
 /catalog/charges/celestial/star.png
 /catalog/charges/celestial/sunburst.png
+/catalog/charges/celestial/sun-in-glory.png
 /catalog/charges/celestial/sun-in-his-splendour.png
 /catalog/charges/celestial/suns-rays.png
 /catalog/charges/celestial/thunderbolt.png
+/catalog/charges/characters/question.png
 /catalog/charges/christian/altar.png
 /catalog/charges/christian/angel.png
 /catalog/charges/christian/cherub.png
 /catalog/charges/christian/church-bell.png
+/catalog/charges/christian/crown-of-thorns.png
 /catalog/charges/christian/crozier.png
 /catalog/charges/christian/mitre.png
 /catalog/charges/christian/paschal-lamb.png
@@ -288,7 +296,6 @@
 /catalog/charges/cross/cross-couped.png
 /catalog/charges/cross/cross-of-Lorraine.png
 /catalog/charges/cross/cross-of-St-James.png
-/catalog/charges/cross/cross-of-St.-James.png
 /catalog/charges/cross/cross.png
 /catalog/charges/cross/cross-portate.png
 /catalog/charges/cross/Egyptian-cross.png
@@ -305,6 +312,7 @@
 /catalog/charges/cross/patriarchal-cross-on-8-step.png
 /catalog/charges/cross/patriarchal-cross-on-9-step.png
 /catalog/charges/cross/patriarchal-cross.png
+/catalog/charges/cross/peter.png
 /catalog/charges/cross/Russian-cross.png
 /catalog/charges/cross/saltire-couped.png
 /catalog/charges/cross/tau-cross.png
@@ -348,6 +356,7 @@
 /catalog/charges/dragon/welsh-dragon.png
 /catalog/charges/dragon/welsh-dragon-rampant.png
 /catalog/charges/dragon/wyvern-displayed.png
+/catalog/charges/dragon/wyvern-old.png
 /catalog/charges/dragon/wyvern.png
 /catalog/charges/dragon/wyvern-rampant.png
 /catalog/charges/dragon/wyvern-sejant-displayed.png
@@ -357,6 +366,8 @@
 /catalog/charges/emblem/ankh.png
 /catalog/charges/emblem/baton-marshall.png
 /catalog/charges/emblem/caduceus.png
+/catalog/charges/emblem/chain-of-navarre.png
+/catalog/charges/emblem/chain-of-navarre-square.png
 /catalog/charges/emblem/chi-rho.png
 /catalog/charges/emblem/cornucopia.png
 /catalog/charges/emblem/ermine-spot.png
@@ -418,6 +429,7 @@
 /catalog/charges/fish/roach.png
 /catalog/charges/fish/salmon.png
 /catalog/charges/fish/shark.png
+/catalog/charges/fish/swordfish-haurient.png
 /catalog/charges/fish/whale-embowed.png
 /catalog/charges/fish/whale-embowed-spouting.png
 /catalog/charges/fish/whale.png
@@ -457,15 +469,18 @@
 /catalog/charges/flower/trefoil.png
 /catalog/charges/flower/trillium.png
 /catalog/charges/flower/tudor-rose.png
-/catalog/charges/flower/tulip-bundle-3.png
 /catalog/charges/flower/tulip.png
 /catalog/charges/food/breadloaf.png
 /catalog/charges/food/cheese-wedge.png
 /catalog/charges/food/cheese-wheel.png
+/catalog/charges/furnishings/2-banners-in-saltire.png
+/catalog/charges/furnishings/4-banners-in-saltire.png
+/catalog/charges/furnishings/banner.png
 /catalog/charges/furnishings/chair.png
 /catalog/charges/furnishings/cushion.png
 /catalog/charges/furnishings/flag-of-num-2.png
 /catalog/charges/furnishings/flag.png
+/catalog/charges/furnishings/flagpole.png
 /catalog/charges/furnishings/garland.png
 /catalog/charges/furnishings/gonfannon.png
 /catalog/charges/furnishings/table.png
@@ -568,6 +583,7 @@
 /catalog/charges/geometric/triskele.png
 /catalog/charges/geometric/valknut.png
 /catalog/charges/hawking/alerion.png
+/catalog/charges/hawking/eagle-claw.png
 /catalog/charges/hawking/eagle-closed.png
 /catalog/charges/hawking/eagle-displayed.png
 /catalog/charges/hawking/eagle-double-headed.png
@@ -616,7 +632,6 @@
 /catalog/charges/human/foot-winged.png
 /catalog/charges/human/hand-clawed.png
 /catalog/charges/human/hand-of-benediction.png
-/catalog/charges/human/hand-pair-2.png
 /catalog/charges/human/hand.png
 /catalog/charges/human/heart.png
 /catalog/charges/human/knight-mounted.png
@@ -628,6 +643,7 @@
 /catalog/charges/human/mans-head-and-bust.png
 /catalog/charges/human/monk.png
 /catalog/charges/human/moor-head.png
+/catalog/charges/human/pair-of-hands.png
 /catalog/charges/human/saracen-head.png
 /catalog/charges/human/savage-head.png
 /catalog/charges/human/savage.png
@@ -641,6 +657,7 @@
 /catalog/charges/insect/dragonfly.png
 /catalog/charges/insect/fly.png
 /catalog/charges/insect/hornet.png
+/catalog/charges/insect/moth.png
 /catalog/charges/insect/snail.png
 /catalog/charges/insect/spider.png
 /catalog/charges/insect/spiderweb.png
@@ -680,6 +697,7 @@
 /catalog/charges/lion/lion-head-guardant.png
 /catalog/charges/lion/lion-head.png
 /catalog/charges/lion/lion-head-reguardant.png
+/catalog/charges/lion/lion-leg.png
 /catalog/charges/lion/lion-passant-guardant.png
 /catalog/charges/lion/lion-passant.png
 /catalog/charges/lion/lion-passant-reguardant.png
@@ -724,6 +742,7 @@
 /catalog/charges/livestock/ram.png
 /catalog/charges/livestock/rams-horn.png
 /catalog/charges/livestock/sheep.png
+/catalog/charges/livestock/testicules-pair-2.png
 /catalog/charges/livestock/testicules.png
 /catalog/charges/livestock/turkeycock.png
 /catalog/charges/modern/aerostat.png
@@ -735,6 +754,7 @@
 /catalog/charges/modern/pocketwatch.png
 /catalog/charges/modern/spyglass.png
 /catalog/charges/modern/trevithick.png
+/catalog/charges/modern/umbrella.png
 /catalog/charges/mullet/mullet-of-10-pierced.png
 /catalog/charges/mullet/mullet-of-10.png
 /catalog/charges/mullet/mullet-of-4-pierced.png
@@ -755,12 +775,14 @@
 /catalog/charges/music/accordion.png
 /catalog/charges/music/bagpipe.png
 /catalog/charges/music/bugle-horn.png
+/catalog/charges/music/c-clef.png
 /catalog/charges/music/church-organ.png
 /catalog/charges/music/clarion.png
 /catalog/charges/music/drum.png
 /catalog/charges/music/drumstick.png
 /catalog/charges/music/electric-guitar.png
 /catalog/charges/music/flute.png
+/catalog/charges/music/g-clef.png
 /catalog/charges/music/guitar.png
 /catalog/charges/music/harp.png
 /catalog/charges/music/hautboy.png
@@ -768,6 +790,9 @@
 /catalog/charges/music/lute.png
 /catalog/charges/music/lyre.png
 /catalog/charges/music/musical-note.png
+/catalog/charges/music/note-eighth.png
+/catalog/charges/music/note-half.png
+/catalog/charges/music/note-quarter.png
 /catalog/charges/music/organ-pipe.png
 /catalog/charges/music/post-horn.png
 /catalog/charges/music/recorder.png
@@ -825,9 +850,11 @@
 /catalog/charges/natural/cloud.png
 /catalog/charges/natural/flint-stone.png
 /catalog/charges/natural/forest.png
+/catalog/charges/natural/lightning-bolt-modern.png
 /catalog/charges/natural/lightning-bolt.png
 /catalog/charges/natural/rock.png
 /catalog/charges/natural/snowflake.png
+/catalog/charges/natural/sod.png
 /catalog/charges/natural/stone.png
 /catalog/charges/natural/wind.png
 /catalog/charges/norse/awen.png
@@ -931,9 +958,9 @@
 /catalog/charges/playing-card/playing-card-two-of-hearts.png
 /catalog/charges/playing-card/playing-card-two-of-spades.png
 /catalog/charges/playing-card/winning-hand-of-playing-cards.png
-/catalog/charges/projectile/arrow-bundle-3.png
 /catalog/charges/projectile/arrow.png
 /catalog/charges/projectile/broad-arrow.png
+/catalog/charges/projectile/bundle-of-arrows.png
 /catalog/charges/projectile/chaine-shot.png
 /catalog/charges/projectile/pheon.png
 /catalog/charges/projectile/salmon-spear.png
@@ -998,6 +1025,11 @@
 /catalog/charges/quadrate/cross-fourche-pierced.png
 /catalog/charges/quadrate/cross-fourche.png
 /catalog/charges/quadrate/cross-fourche-voided.png
+/catalog/charges/quadrate/cross-gammadion-clubbed-clubbed.png
+/catalog/charges/quadrate/cross-gammadion-fitchy-fitchy.png
+/catalog/charges/quadrate/cross-gammadion-pierced-pierced.png
+/catalog/charges/quadrate/cross-gammadion.png
+/catalog/charges/quadrate/cross-gammadion-voided-voided.png
 /catalog/charges/quadrate/crosslet-fitchy.png
 /catalog/charges/quadrate/crosslet-formy-fitchy.png
 /catalog/charges/quadrate/crosslet-formy-pierced.png
@@ -1055,11 +1087,6 @@
 /catalog/charges/quadrate/fylfot-pierced.png
 /catalog/charges/quadrate/fylfot.png
 /catalog/charges/quadrate/fylfot-voided.png
-/catalog/charges/quadrate/gammadion-clubbed.png
-/catalog/charges/quadrate/gammadion-fitchy.png
-/catalog/charges/quadrate/gammadion-pierced.png
-/catalog/charges/quadrate/gammadion.png
-/catalog/charges/quadrate/gammadion-voided.png
 /catalog/charges/quadrate/jerusalem-cross.png
 /catalog/charges/quadrate/maltese-cross.png
 /catalog/charges/quadrate/saltorel.png
@@ -1120,6 +1147,7 @@
 /catalog/charges/ship/rudder.png
 /catalog/charges/ship/ship.png
 /catalog/charges/ship/ships-wheel.png
+/catalog/charges/special/escutcheon.png
 /catalog/charges/sports/american-football.png
 /catalog/charges/sports/baseball-glove.png
 /catalog/charges/sports/baseball.png
@@ -1142,6 +1170,7 @@
 /catalog/charges/tack/horseshoe.png
 /catalog/charges/tack/saddle.png
 /catalog/charges/tack/spur.png
+/catalog/charges/tack/stirrup-leathered.png
 /catalog/charges/tack/stirrup.png
 /catalog/charges/tools/2-flails-in-saltire.png
 /catalog/charges/tools/anvil.png
@@ -1217,7 +1246,9 @@
 /catalog/charges/tree-fruit/linden-leaf.png
 /catalog/charges/tree-fruit/linden-tree-eradicated.png
 /catalog/charges/tree-fruit/linden-tree.png
+/catalog/charges/tree-fruit/log.png
 /catalog/charges/tree-fruit/maple-leaf.png
+/catalog/charges/tree-fruit/maple-seed.png
 /catalog/charges/tree-fruit/marijuana-leaf.png
 /catalog/charges/tree-fruit/oak-leaf.png
 /catalog/charges/tree-fruit/oak.png
@@ -1243,7 +1274,6 @@
 /catalog/charges/tree-fruit/yew-tree.png
 /catalog/charges/utensil/cauldron.png
 /catalog/charges/utensil/chalice.png
-/catalog/charges/utensil/covered-cup.png
 /catalog/charges/utensil/cup.png
 /catalog/charges/utensil/ewer.png
 /catalog/charges/utensil/fleshpot.png

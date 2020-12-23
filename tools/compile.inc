@@ -137,7 +137,7 @@ function charges($folder)
         $toFind = mapping($folder, substr($sourceItem, 0, -4), null);
         // echo $toFind . '.png ' . (in_array($toFind  . '.png', $targets) ? 'found ' : 'not found ') .  filemtime("$sourceDir/charges/$folder/$sourceItem") . ' ' .
         //filemtime("$targetDir/charges/$folder/$toFind.png") . PHP_EOL;
-        if (in_array($toFind, $ignoreFiles) continue;
+        if (in_array($toFind, $ignoreFiles)) continue;
         if (!in_array($toFind . '.png', $targets) /*||
                 filemtime("$sourceDir/charges/$folder/$sourceItem") >
                 filemtime("$targetDir/charges/$folder/$toFind.png") */) {
@@ -158,7 +158,7 @@ function charges($folder)
             if (array_key_exists($toFind, $copyTo)) {
                 $extraFolder = $copyTo[$toFind];
                 copy("$targetDir/charges/$folder/$toFind.png","$targetDir/charges/$extraFolder/$toFind.png");
-                echo "And copied to $extraFolder\n");
+                echo "And copied to $extraFolder\n";
             }
         }
     }

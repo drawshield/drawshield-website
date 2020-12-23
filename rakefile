@@ -8,19 +8,43 @@ task :update do
   Rake::Task[:bump].invoke
 end
 
+desc 'Copy All Files to Live System'
 task :deploy do
   sh %{ rsync -rcv --exclude-from=.deployignore /var/www/test/ /var/www/html }
 end
 
+desc 'Copy new gallary entries to Live System'
 task :deploygallery do
   sh %{ rsync -rcv /var/www/test/gallery/ /var/www/html/gallery }
 
   sh %{ /home/ubuntu/gems/bin/t update "$(cat tools/tweet.txt)" } 
 end
 
+desc 'Copy new catalog entries to Live System'
 task :deploycatalog do
   sh %{ rsync -rcv /var/www/test/catalog/ /var/www/html/catalog }
   FileUtils.cp( "/var/www/test/api-bin/catalog.txt", "/var/www/html/api-bin/catalog.txt")
+  filename = '/var/www/html/api-bin/catalog.txt'
+  line_count = `wc -l "#{filename}"`.strip.split(' ')[0].to_i
+  require 'net/http'
+  require 'uri'
+  require 'json'
+  uri = URI.parse("https://discord.com/api/webhooks/791096657978327040/DimP_gfybRwEzN1DSWMSE1lb7u-Mwunh3FuTzVjYPS2fVeccPXaIUoFtzA_k1sdyiOas")
+  #uri = URI.parse("https://discord.com/api/webhooks/775383821029736449/2lzSHGTRpmd-XV-8i6UjvZrwO-b5tDZCIbTQxgoW1XmTGtax-GmHoz0A5OjkDH0NXoHv")
+  request = Net::HTTP::Post.new(uri)
+  request.content_type = "application/json"
+  request.body = JSON.dump({
+    "content" => "The Visual Catalog has been updated, DrawShield now supports approximately #{line_count} charges."
+  })
+
+  req_options = {
+      use_ssl: uri.scheme == "https",
+  }
+
+  response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+      http.request(request)
+  end
+  puts "Reported #{line_count} charges to Discord"
 end
 
 desc 'Jekyll Build'
