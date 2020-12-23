@@ -94,6 +94,7 @@
         "calvary-9", "cross-calvary-on-9-steps",
         "calvary", "cross-calvary",
         "celtic", "celtic-cross",
+        "celtic-equal-armed", "celtic-cross-equal-armed",
         "couped", "cross-couped",
         "egyptian", "Egyptian-cross",
         "greek", "Greek-cross",
@@ -115,6 +116,7 @@
         "portate", "cross-portate",
         "russian", "Russian-cross",
         "st-james", "cross-of-St-James",
+        "peter", "cross-of-St-Peter",
         "lorraine", "cross-of-Lorraine",
         "tau", "tau-cross",
         "antique", "antique-crown",
@@ -135,13 +137,22 @@
         "vallary", "crown-vallary",
         "viscount", "viscounts-crown",
         "wheat-bundle-3", "bundle-of-corn",
+        "grape-bundle-3", "bundle-of-grapes",
         "rose-lancaster", "rose-of-lancaster",
         "rose-tudor", "tudor-rose",
         "rose-natural", "natural-rose",
         "leopard-natural", "natural-leopard",
         "leopard-head-jessant", "leopards-head-jessant-de-lys",
+<<<<<<< HEAD
         "rose-york", "rose-of-York",
+=======
+        "rose-york", "rose-of-York"
+>>>>>>> small catalog fixes
         "fret", "3 frets",
+        "note-quarter", "quarter-note",
+        "note-half", "musical-half-note",
+        "note-eighth", "eighth-note",
+        "baton-marshall","marshalls-baton",
         "book-modern-open", "modern-book-open",
         "book-modern-closed", "modern-book-closed",
         "tulip-bundle-3", "bundle-of-tulips",
@@ -298,6 +309,7 @@ $ignoreFiles = [
     'scissors',
     'shears',
     'flag-of-num-2',
+    'testicules-pair-2',
 ];
 
 $ignoreFolders = [

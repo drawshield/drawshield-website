@@ -137,7 +137,14 @@ function charges($folder)
         $toFind = mapping($folder, substr($sourceItem, 0, -4), null);
         // echo $toFind . '.png ' . (in_array($toFind  . '.png', $targets) ? 'found ' : 'not found ') .  filemtime("$sourceDir/charges/$folder/$sourceItem") . ' ' .
         //filemtime("$targetDir/charges/$folder/$toFind.png") . PHP_EOL;
+<<<<<<< HEAD
         if (in_array($toFind, $ignoreFiles)) continue;
+=======
+        if (in_array($toFind, $ignoreFiles)) {
+            echo "Ignoring $toFind\n";
+            continue;
+        }
+>>>>>>> small catalog fixes
         if (!in_array($toFind . '.png', $targets) /*||
                 filemtime("$sourceDir/charges/$folder/$sourceItem") >
                 filemtime("$targetDir/charges/$folder/$toFind.png") */) {
