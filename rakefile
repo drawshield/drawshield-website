@@ -17,7 +17,7 @@ desc 'Copy new gallary entries to Live System'
 task :deploygallery do
   sh %{ rsync -rcv /var/www/test/gallery/ /var/www/html/gallery }
 
-  sh %{ /home/ubuntu/gems/bin/t update "$(cat tools/tweet.txt)" } 
+#  sh %{ /home/ubuntu/gems/bin/t update "$(cat tools/tweet.txt)" } 
 end
 
 desc 'Copy new catalog entries to Live System'

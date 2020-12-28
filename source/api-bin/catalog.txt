@@ -251,7 +251,6 @@
 /catalog/charges/christian/virgin.png
 /catalog/charges/clothes/bag.png
 /catalog/charges/clothes/boot.png
-/catalog/charges/clothes/breeches.png
 /catalog/charges/clothes/buckle.png
 /catalog/charges/clothes/cap-of-maintenance.png
 /catalog/charges/clothes/cap-of-Mercury.png
@@ -281,8 +280,8 @@
 /catalog/charges/crafts/thread-spool.png
 /catalog/charges/crafts/yarn-ball.png
 /catalog/charges/cross/3-crosses.png
+/catalog/charges/cross/celtic-cross-equal-armed.png
 /catalog/charges/cross/celtic-cross.png
-/catalog/charges/cross/celtic-equal-armed.png
 /catalog/charges/cross/cross-calvary-on-1-step.png
 /catalog/charges/cross/cross-calvary-on-2-steps.png
 /catalog/charges/cross/cross-calvary-on-3-steps.png
@@ -312,9 +311,9 @@
 /catalog/charges/cross/patriarchal-cross-on-8-step.png
 /catalog/charges/cross/patriarchal-cross-on-9-step.png
 /catalog/charges/cross/patriarchal-cross.png
-/catalog/charges/cross/peter.png
 /catalog/charges/cross/Russian-cross.png
 /catalog/charges/cross/saltire-couped.png
+/catalog/charges/cross/St-Peters-cross.png
 /catalog/charges/cross/tau-cross.png
 /catalog/charges/crown/antique-crown.png
 /catalog/charges/crown/astral-crown.png
@@ -377,6 +376,7 @@
 /catalog/charges/emblem/labyrinth.png
 /catalog/charges/emblem/laurel-wreath-fructed.png
 /catalog/charges/emblem/laurel-wreath.png
+/catalog/charges/emblem/marshalls-baton.png
 /catalog/charges/emblem/menorah-of-7.png
 /catalog/charges/emblem/menorah-of-9.png
 /catalog/charges/emblem/nesselblatt.png
@@ -456,8 +456,8 @@
 /catalog/charges/flower/poppy.png
 /catalog/charges/flower/quatrefoil.png
 /catalog/charges/flower/rose-leaf.png
-/catalog/charges/flower/rose-of-lancaster.png
-/catalog/charges/flower/rose-of-York.png
+/catalog/charges/flower/rose-of-lancaster-proper.png
+/catalog/charges/flower/rose-of-York-proper.png
 /catalog/charges/flower/rose.png
 /catalog/charges/flower/rue-flower.png
 /catalog/charges/flower/rue-sprig.png
@@ -478,7 +478,6 @@
 /catalog/charges/furnishings/banner.png
 /catalog/charges/furnishings/chair.png
 /catalog/charges/furnishings/cushion.png
-/catalog/charges/furnishings/flag-of-num-2.png
 /catalog/charges/furnishings/flag.png
 /catalog/charges/furnishings/flagpole.png
 /catalog/charges/furnishings/garland.png
@@ -742,7 +741,6 @@
 /catalog/charges/livestock/ram.png
 /catalog/charges/livestock/rams-horn.png
 /catalog/charges/livestock/sheep.png
-/catalog/charges/livestock/testicules-pair-2.png
 /catalog/charges/livestock/testicules.png
 /catalog/charges/livestock/turkeycock.png
 /catalog/charges/modern/aerostat.png
@@ -780,6 +778,7 @@
 /catalog/charges/music/clarion.png
 /catalog/charges/music/drum.png
 /catalog/charges/music/drumstick.png
+/catalog/charges/music/eighth-note.png
 /catalog/charges/music/electric-guitar.png
 /catalog/charges/music/flute.png
 /catalog/charges/music/g-clef.png
@@ -789,12 +788,11 @@
 /catalog/charges/music/hunting-horn.png
 /catalog/charges/music/lute.png
 /catalog/charges/music/lyre.png
+/catalog/charges/music/musical-half-note.png
 /catalog/charges/music/musical-note.png
-/catalog/charges/music/note-eighth.png
-/catalog/charges/music/note-half.png
-/catalog/charges/music/note-quarter.png
 /catalog/charges/music/organ-pipe.png
 /catalog/charges/music/post-horn.png
+/catalog/charges/music/quarter-note.png
 /catalog/charges/music/recorder.png
 /catalog/charges/music/shofar.png
 /catalog/charges/music/trumpet.png
@@ -869,13 +867,12 @@
 /catalog/charges/plant/beanpod.png
 /catalog/charges/plant/bullrush.png
 /catalog/charges/plant/bundle-of-corn.png
+/catalog/charges/plant/bundle-of-grapes.png
 /catalog/charges/plant/bundle-of-reeds.png
 /catalog/charges/plant/bush.png
 /catalog/charges/plant/cactus.png
 /catalog/charges/plant/carrot.png
 /catalog/charges/plant/garlic.png
-/catalog/charges/plant/grape-bundle-3.png
-/catalog/charges/plant/grape-bundle.png
 /catalog/charges/plant/grape-leaf.png
 /catalog/charges/plant/ivy-leaf.png
 /catalog/charges/plant/ivy-vine.png

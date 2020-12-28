@@ -116,7 +116,7 @@
         "portate", "cross-portate",
         "russian", "Russian-cross",
         "st-james", "cross-of-St-James",
-        "peter", "cross-of-St-Peter",
+        "peter", "St-Peters-cross",
         "lorraine", "cross-of-Lorraine",
         "tau", "tau-cross",
         "antique", "antique-crown",
@@ -138,16 +138,12 @@
         "viscount", "viscounts-crown",
         "wheat-bundle-3", "bundle-of-corn",
         "grape-bundle-3", "bundle-of-grapes",
-        "rose-lancaster", "rose-of-lancaster",
+        "rose-lancaster", "rose-of-lancaster-proper",
         "rose-tudor", "tudor-rose",
         "rose-natural", "natural-rose",
         "leopard-natural", "natural-leopard",
         "leopard-head-jessant", "leopards-head-jessant-de-lys",
-<<<<<<< HEAD
-        "rose-york", "rose-of-York",
-=======
-        "rose-york", "rose-of-York"
->>>>>>> small catalog fixes
+        "rose-york", "rose-of-York-proper",
         "fret", "3 frets",
         "note-quarter", "quarter-note",
         "note-half", "musical-half-note",

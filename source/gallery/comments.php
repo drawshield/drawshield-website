@@ -1,3 +1,4 @@
+
 <?php
 if (!file_exists('/var/www/etc/credentials.inc')) exit;
 // defaults
@@ -9,6 +10,7 @@ $refnum = $_GET['refnum'] ?? false;
 $tableid = $_GET['id'] ?? false;
 $action = $_GET['action'] ?? 'get';
 $secret = $_GET['secret'] ?? false;
+$discord = $_GET['discord'] ?? false;
 
 if ($action == 'get') {
     if ( !$refnum ) $errorMessage= "No reference number";
@@ -47,11 +49,13 @@ if (!$errorMessage) {
                 $ch = curl_init("https://discord.com/api/webhooks/775807616223281160/7Wuw2BvCAXJIyALaXCstweR0psdtWnQs__GA0tU0U50aRzNSXtGDgIcFyMCD5oxAhZT1");
                 if (isset($ch)) {
                     $folder = substr($refnum,0,2);
-                    $msg = "payload_json=" . urlencode(json_encode(array("username" => "GalleryBot", "content" => "https://drawshield.net/gallery/$folder/img/gallery-$refnum.png" )));
-                    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-                    curl_setopt($ch, CURLOPT_POSTFIELDS, $msg);
-                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                    $result = curl_exec($ch);
+		    if ($discord) {
+			    $msg = "payload_json=" . urlencode(json_encode(array("username" => "GalleryBot", "content" => "https://drawshield.net/gallery/$folder/img/gallery-$refnum.png" )));
+			    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+			    curl_setopt($ch, CURLOPT_POSTFIELDS, $msg);
+			    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			    $result = curl_exec($ch);
+		    }
                     $comments = "";
                     $sql = "SELECT content, timestamp FROM comments WHERE refnum = '$refnum' AND status = 'approved'";
                     if ($res = mysqli_query($database, $sql)) {
@@ -66,11 +70,13 @@ if (!$errorMessage) {
                         $errorMessage = "SQL error " . mysqli_error($database);
                         break;
                     }
-                    $msg = "payload_json=" . urlencode(json_encode(array("username" => "GalleryBot", "content" => $comments )));
-                    curl_setopt($ch, CURLOPT_POSTFIELDS, $msg);
-                    $result = curl_exec($ch);
-                    curl_close($ch);
-                    $response .= "<p>And copied to Discord</p>";
+                    if ($discord) {
+                        $msg = "payload_json=" . urlencode(json_encode(array("username" => "GalleryBot", "content" => $comments )));
+                        curl_setopt($ch, CURLOPT_POSTFIELDS, $msg);
+                        $result = curl_exec($ch);
+                        curl_close($ch);
+                        $response .= "<p>And copied to Discord</p>";
+                    }
                 }
                 break;
             case 'reject':
