@@ -13,7 +13,7 @@ task :deploy do
   sh %{ rsync -rcv --exclude-from=.deployignore /var/www/test/ /var/www/html }
 end
 
-desc 'Copy new gallary entries to Live System'
+desc 'Copy new gallery entries to Live System'
 task :deploygallery do
   sh %{ rsync -rcv /var/www/test/gallery/ /var/www/html/gallery }
 
@@ -63,6 +63,8 @@ desc 'Gallery & catalog Build'
 task :gallery do
   Dir.chdir('tools') do
     sh %{ php mkgallery.php }
+    sh %{ php mkgallery-list.php }
+    sh %{ stork --build gallery.toml }
     sh %{ php mkcatalog.php }
   end
 end

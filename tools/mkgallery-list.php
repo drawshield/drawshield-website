@@ -1,59 +1,88 @@
 <?php
 
-// $config = yaml_parse_file("../_config.yml");
-$sourceDir = "../source/gallery/";
-$targetDir = "../source/_includes";
-$apiDir = "../source/api-bin";
+exec ("grep -R 'pageTitle:' ../source/gallery/*/*.html", $output);
 
-exec ("tree -fi -P '*.html' --noreport $sourceDir", $output);
-
-var_dump($output);
-exit(0);
+//var_dump($output);
+//exit(0);
 
 $items = array();
 
 
 $start = <<< START
-<div class="card">
-<p class="card-text">Item finder:&nbsp;
-<select id="combo-dropdown">
-<option disabled="disabled" selected="selected" value="">Enter text</option>
-START;
+[input]
+    base_directory = "/var/www/test/gallery"
+    frontmatter_handling = "Omit"
+    stemming = "None"
+    minimum_indexed_substring_length = 3
+    files = [
 
+START;
 $end = <<< END
-</select>&nbsp;
-<button type="button" class="btn-danger btn-sm" onclick="goto();">Goto</button>
-</div>
-<script>
-jQuery('#combo-dropdown').combobox({
-bsVersion:'4'
-})
-function goto() {
-    window.location=jQuery("#combo-dropdown option:selected").val();
-}
-</script>
+]
+
+[output]
+    filename = "../source/gallerygallery.st"
+
 END;
 
-$select = $start;
-$catalog = '';
+$content = $start;
 
-foreach ($output as $line) {
-    if (substr($line,-4,4) != '.png') continue;
-    $line = str_replace('../source/_', '/',$line);
-    $catalog .= $line . "\n";
-    $last = strrpos($line,'/');
-    $dir = substr($line,0,$last);
-    $item = substr($line,$last + 1);
-    $item = substr($item,0,-4);
-    $item = str_replace('-',' ', $item);
-    $item = str_replace('+','', $item);
-    $select .= "<option value=\"$dir\">$item</option>\n";
+function extractContent($filename) {
+    $extractedContent = '';
+    $fileLines = file($filename);
+    $inHeader = false;
+    $inComment = false;
+    foreach($fileLines as $fileLine) {
+        if (substr($fileLine,0,3) == '---') {
+            $inHeader = !$inHeader;
+            continue;
+        }
+        if ($inHeader) continue;
+        if (substr($fileLine,0,9) == '<h3>Notes') continue;
+        if (substr($fileLine,0,9) == '<p>If you') continue;
+        $fileLine = trim(preg_replace('/<.*?>/','',$fileLine));
+        if (substr($fileLine,0,4) == '<!--') {
+            $inComment = true;
+            continue;
+        }
+        if (substr($fileLine,0,3) == '-->') {
+            $inComment = false;
+            continue;
+        }
+        if ($inComment) continue;
+        if ($fileLine) {
+            $words = explode(' ',strtolower($fileLine));
+            $contentLine = '';
+            foreach ($words as $word) {
+                if (substr($word,0,4) == 'href') continue;
+                if (in_array($word, array (
+                    'smaller','larger','very','much','higher','lower'))) continue;
+                $contentLine .= $word . ' ';
+            }
+            if ($contentLine)
+                $extractedContent .= $contentLine . ' ';
+        }
+    }
+    return $extractedContent;
 }
 
-$select .= $end;
+// $count = 0;
+foreach ($output as $line) {
+    $parts = explode(':',$line);
+    preg_match("/\d\d\d\d/", $parts[0], $matches);
+    $refNum = $matches[0];
+    $title = substr($parts[2],1);
+    $title = str_replace('"',"'",$title);
+    $fileContent = extractContent($parts[0]);
+    $fileContent = str_replace('"',"'",$fileContent);
+    $fileContent = str_replace('\\',"/",$fileContent);
+    $content .= "{ url = \"/gallery/$refNum\", title = \"$title\", contents = \"$fileContent\", filetype=\"PlainText\" },\n";
+  //   if ($count++ > 10) break;
+}
 
-file_put_contents($targetDir . '/searchcatalog.html', $select);
-file_put_contents($apiDir . '/catalog.txt', $catalog);
+$content .= $end;
+
+file_put_contents('gallery.toml', $content);
 
 
 

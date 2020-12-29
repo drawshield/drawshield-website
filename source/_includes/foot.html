@@ -10,4 +10,8 @@
         <script src="/catalog/parts-finder.js"></script>
         {% endif %}
         <script src="/js/define-terms.js" ></script>
+        {% if page.stork %}
+        <script src="https://files.stork-search.net/stork.js"></script>
+        <script>stork.register("gallery","/gallery/gallery.st");</script>
+        {% endif %}
 <!-- _includes/foot.ejs ends -->
