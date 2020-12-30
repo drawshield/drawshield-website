@@ -21,7 +21,7 @@ $end = <<< END
 ]
 
 [output]
-    filename = "../source/gallerygallery.st"
+    filename = "../source/gallery/gallery.st"
 
 END;
 

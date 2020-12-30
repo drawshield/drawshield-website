@@ -507,15 +507,11 @@
 /catalog/charges/game/rabbit-couchant.png
 /catalog/charges/game/rabbit-courant.png
 /catalog/charges/game/rabbit-forepaw-raised.png
-/catalog/charges/game/rabbit-head-cabossed.png
-/catalog/charges/game/rabbit-head-erased.png
 /catalog/charges/game/rabbit.png
 /catalog/charges/game/rabbit-rampant.png
 /catalog/charges/game/rabbit-salient.png
 /catalog/charges/game/rabbit-sejant-erect-regardant.png
 /catalog/charges/game/rabbit-sejant-erect-reguardant.png
-/catalog/charges/game/rabbits-head-cabossed.png
-/catalog/charges/game/rabbits-head-erased.png
 /catalog/charges/game/stag-at-gaze.png
 /catalog/charges/game/stag-courant.png
 /catalog/charges/game/stag-head.png
