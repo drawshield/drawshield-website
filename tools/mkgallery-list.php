@@ -75,6 +75,7 @@ foreach ($output as $line) {
     $title = str_replace('"',"'",$title);
     $fileContent = extractContent($parts[0]);
     $fileContent = str_replace('"',"'",$fileContent);
+    $fileContent = str_replace('-'," ",$fileContent);
     $fileContent = str_replace('\\',"/",$fileContent);
     $content .= "{ url = \"/gallery/$refNum\", title = \"$title\", contents = \"$fileContent\", filetype=\"PlainText\" },\n";
   //   if ($count++ > 10) break;
