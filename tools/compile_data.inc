@@ -276,7 +276,7 @@
     $features = array (
         'acorns', 'towered', 'domed', 'tasselled', 'mortared',
     'apron', 'armed', 'armoured', 'attired', 'banner', // 'base',
-    'belled', 'finned', 'nest', 'staff', 'seamed', 'belted',
+    'belled', 'finned', 'nest', 'staff', 'seamed', 'belted','corded',
     'blade', 'booted', 'bow', 'buckled', 'caparisoned', 'chausse',
     'crined', 'crowned', 'cuff', 'nooked', 'hooded', 'clasped',
     'claw', 'collared', 'combed', 'crossed', 'fructed', 'beaked',

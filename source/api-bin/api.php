@@ -163,7 +163,63 @@ function doDefine($term) {
 }
 
 function doGallery($arg) {
-    return "Not implemented yet";
+    global $success, $format, $error;
+    
+    if (preg_match('/\d+/', $arg)) { // get a numbered entry, if it exists
+       $folder = substr($arg,0,2); 
+       if (!file_exists("../gallery/$folder/gallery-$arg.html")) {
+           $error = "No gallery entry found";
+           return;
+       } else {
+           $image = "http://${_SERVER['SERVER_NAME']}/gallery/$folder/img/gallery-$arg.png";
+           if ($format == 'html') $image = "<a href=\"$image\">Gallery $arg</a>";
+           $comments = '';
+           if (file_exists('/var/www/etc/credentials.inc')) {
+              include('/var/www/etc/credentials.inc');
+              $database = mysqli_connect($db_addr,$db_user,$db_password,$db_database);
+              if ($database !== false) {
+                  $sql = "SELECT content, timestamp FROM comments WHERE refnum = '$arg' AND status = 'approved'";
+                  if ($res = mysqli_query($database, $sql)) {
+                      if (mysqli_num_rows($res) > 0) {
+                          if ($format == 'html') {
+                              $comments .=  "<h2>Comments</h2>\n";
+                          }
+                      }
+                      while ($row = mysqli_fetch_array($res)) {
+                          if ($format == 'html') {
+                              $comments .= '<p class="gallery-comment">' . $row['content'] . "<p>\n";
+                              $comments .= '<p class="gallery-timestamp">' . $row['timestamp'] . "<p>\n";
+                          } else {
+                              $comments .= "${row['timestamp']} - ${row['content']}\n";
+                          }
+                      }
+                  }
+                  mysqli_close($database);
+               }
+           }
+           $success = "$image\n$comments";
+       }
+    } else { // do a search for the terms
+        $hits = '';
+        $searchTerm = preg_replace('/[^a-zA-Z]/',' ',$arg);
+        $output = shell_exec("/home/ubuntu/.cargo/bin/stork --search /var/www/html/gallery/gallery.st \"$searchTerm\" 2>/dev/null");
+        $json = json_decode($output);
+        foreach ($json->results as $result) {
+                $url = $result->entry->url;
+                $text = '';
+                if (isset($result->excerpts[0]->text)) $text = $result->excerpts[0]->text;
+                if (!$text && isset($result->entry->title)) $text = $result->entry->title;
+            if ($format == 'html') {
+                $hits .= "<p><a href=\"https://drawshield.net/$url\">$url</a> ";
+                $hits .= "$text</p>\n";
+            } else {
+                $ref = str_replace('/gallery/','',$url);
+                $hits .= "$ref $text\n";
+            }
+        }
+        if (!$hits) $hits = "Sorry, nothing found\n";
+       $success = $hits; 
+    }
 }
 
 function doChallenge($arg) {
