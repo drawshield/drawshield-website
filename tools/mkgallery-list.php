@@ -56,7 +56,7 @@ function extractContent($filename) {
             foreach ($words as $word) {
                 if (substr($word,0,4) == 'href') continue;
                 if (in_array($word, array (
-                    'smaller','larger','very','much','higher','lower'))) continue;
+                    'smaller','larger','very','much', 'slightly', 'shown', 'higher','lower'))) continue;
                 $contentLine .= $word . ' ';
             }
             if ($contentLine)
@@ -73,6 +73,7 @@ foreach ($output as $line) {
     $refNum = $matches[0];
     $title = substr($parts[2],1);
     $title = str_replace('"',"'",$title);
+    $title = str_replace('-'," ",$title);
     $fileContent = extractContent($parts[0]);
     $fileContent = str_replace('"',"'",$fileContent);
     $fileContent = str_replace('-'," ",$fileContent);

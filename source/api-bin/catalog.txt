@@ -507,6 +507,8 @@
 /catalog/charges/game/rabbit-couchant.png
 /catalog/charges/game/rabbit-courant.png
 /catalog/charges/game/rabbit-forepaw-raised.png
+/catalog/charges/game/rabbit-head-cabossed.png
+/catalog/charges/game/rabbit-head-erased.png
 /catalog/charges/game/rabbit.png
 /catalog/charges/game/rabbit-rampant.png
 /catalog/charges/game/rabbit-salient.png
