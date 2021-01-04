@@ -475,6 +475,7 @@
 /catalog/charges/food/cheese-wheel.png
 /catalog/charges/furnishings/2-banners-in-saltire.png
 /catalog/charges/furnishings/4-banners-in-saltire.png
+/catalog/charges/furnishings/bag-of-madder.png
 /catalog/charges/furnishings/banner.png
 /catalog/charges/furnishings/chair.png
 /catalog/charges/furnishings/cushion.png
