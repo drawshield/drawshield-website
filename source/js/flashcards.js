@@ -110,7 +110,7 @@ function askQuestion() {
     } while (thisQno === prevQno);
     prevQno = thisQno;
     $('#flashcard p.question').text(cards[thisQno][1]);
-    $('#flashcard img').attr('src', '/build/img/' + cards[thisQno][0] + '.png');
+    $('#flashcard img').attr('src', '/build/img/simple/' + cards[thisQno][0] + '.png');
     $('#flashcard button').text('Reveal Answer');
     $('#flashcard p.answer').text("");
     buttonState = 'giveAnswer';

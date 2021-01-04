@@ -54,13 +54,13 @@ function updateSVG() {
          svg = cloneToDoc(svg);
        }
        shieldImg.appendChild(svg);
-       // if (typeof(useZoom) != 'undefined' && useZoom) {
+       if (typeof(svgPanZoom) != 'undefined') {
         var lastsvg = svgPanZoom(svg, {
           minZoom: 1.0,
           maxZoom: 10,
           controlIconsEnabled: true,
         });
-      // }
+      }
        if (messageCallback != null) {
             messageCallback(xmlhttp.responseXML);
        }

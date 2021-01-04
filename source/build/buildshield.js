@@ -5,7 +5,7 @@ var size=280;
 var shieldData = {};
 shieldData["~start-here~"] = [ "Create a simple shield (recommended) or complex?",
     '~field~ ~update~ ~ordchg~ ~update~', "A simple shield", 'simple/plain.png',
-    '~x-field~ ~update~ ~x-add-items~', "A Complex Shield", 'simple/divided.png',
+    '~x-field~ ~update~ ~x-add-items~ ~achievement~ ~drawn~', "A Complex Shield", 'simple/divided.png',
 ];
 
 // The complex set of charges
@@ -151,9 +151,41 @@ shieldData["~x-divided~"] = [ "Choose the type of division",
 'tierced in pale ~x-linetype~ ~x-tincture~ ~x-tincture~ and ~x-tincture~', "tierced in pale", '/catalog/divisions/multi/tierced-in-pale-+.png',
 ];
 shieldData["~3rd-tincture~"] = [ "Do you want to use a third tincture here?",
-      'and ~x-tincture~', 'simple/Yes', 'yes.png',
+      'and ~x-tincture~', 'Yes', 'simple/yes.png',
       '', "No", 'simple/no.png',
 ];
+shieldData["~drawn~"] = [ "Do you want to change the colour scheme or effects?",
+      'drawn ~palette~ ~effect~ ~update~', 'Yes', 'simple/yes.png',
+       '', "No", 'simple/no.png',
+];
+shieldData["~palette~"] = [ "Do you want to change from the default palette of colours?",
+     '', 'No', 'simple/no.png',
+    'Wikipedia','with a wikipedia palette', '/create/img/wikipedia.png', 
+    'Wappenwiki','with a wappenwiki palette', '/create/img/wappenwiki.png', 
+    'Emoji','with an emoji palette', '/create/img/emoji.png', 
+    'Hatching','with a hatching palette', '/create/img/hatching.png', 
+    // ++ HERE ++
+];
+shieldData["~achievement~"] = [ "Do you want to add an achievement (decoration around the shield)?",
+      'achievement ~mantling~ ~ach-helmet~ ~crest~ ~add-motto~', 'Yes', 'simple/yes.png',
+       '', "No", 'simple/no.png',
+];
+shieldData["~mantling~"] = [ "Do you want to add mantling (cloak around shield)?",
+      'mantling ~colour~ and ~colour~ ~update~', 'Yes', 'simple/yes.png',
+      '', "No", 'simple/no.png',
+];
+shieldData["~crest~"] = [ "Do you want to add a crest (charge on top of shield)?",
+      '', "No", 'simple/no.png',
+      'crest a ~x-charge~ ~x-tincture~ ~update~', 'Yes', 'simple/yes.png',
+];
+shieldData["~ach-helmet~"] = [ "Do you want a helmet (on top of shield)?",
+'', 'No helmet', 'simple/no.png',
+'baronets helmet', 'baronets helmet ~update~', '/catalog/charges/armour/baronets-helmet.png',
+'esquires helmet', 'esquires helmet ~update~', '/catalog/charges/armour/esquires-helmet.png',
+'knights helmet', 'knights helmet ~update~', '/catalog/charges/armour/knights-helmet.png',
+'peers helmet', 'peers helmet ~update~', '/catalog/charges/armour/peers-helmet.png',
+'royal helmet', 'royal helmet ~update~', '/catalog/charges/armour/royal-helmet.png',
+ ];
 shieldData["~x-linetype~"] = [ "Do you want a variant edge type?",
           '', "Plain", 'simple/perfess.png',
   'angled-opposite', "angled-opposite", '/catalog/edges/common/angled-opposite.png',
@@ -463,7 +495,7 @@ shieldData["~colour~"] = [ "Choose a plain colour (note the heraldic names)",
       'carnation', "Carnation", 'simple/carnation.png',
       'murrey', "Murrey", 'simple/murrey.png',
       'orange ', "Orange", 'simple/orange.png', // The space stops us matching orange the charge
-      'tenne', "Tenne", 'tenne.png'
+      'tenne', "Tenne", 'simple/tenne.png'
       ];
 shieldData["~treatment~"] = [ "Choose the type of treatment (a pattern of two colours)",
       'masoned ~colour~ ~and~ ~colour~', "Masoned", 'simple/masoned.png',
