@@ -3,8 +3,9 @@ var version = "0.9b";
 var size=280;
 
 var shieldData = {};
-shieldData["~start-here~"] = [ "Answer the questions below to chose the parts of your shield.",
-    '~x-field~ ~update~ ~x-add-items~ ~achievement~ ~drawn~', "Start", 'simple/next.png',
+shieldData["~start-here~"] = [ "Create a simple shield (recommended) or complex?",
+    '~field~ ~update~ ~ordchg~ ~update~', "A simple shield", 'simple/plain.png',
+    '~x-field~ ~update~ ~x-add-items~ ~achievement~ ~drawn~', "A Complex Shield", 'simple/divided.png',
 ];
 
 // The complex set of charges
@@ -159,39 +160,31 @@ shieldData["~drawn~"] = [ "Do you want to change the colour scheme or effects?",
 ];
 shieldData["~palette~"] = [ "Do you want to change from the default palette of colours?",
      '', 'No', 'simple/no.png',
-    'with a wikipedia palette','Wikipedia', '/create/img/wikipedia.png', 
-    'with a wappenwiki palette', 'Wappenwiki','/create/img/wappenwiki.png', 
-    'with an emoji palette', 'Emoji','/create/img/emoji.png', 
-    'with a hatching palette','Hatching', '/create/img/hatching.png', 
-    'with a cc3 palette','CC3', '/create/img/cc3.png', 
-];
-shieldData["~effect~"] = [ "Do you want to add an overall effect to your image?",
-     '', 'No', 'simple/no.png',
-    'with a shiny effect','Shiny', '/create/img/shiny.png', 
-    'with a stonework effect','Stonework', '/create/img/stonework.png', 
-    'with a vellum effect','Vellum', '/create/img/vellum.png', 
-    'with a fabric effect','Fabric', '/create/img/fabric.png', 
-    'with an inked effect','Inked', '/create/img/inked.png', 
+    'Wikipedia','with a wikipedia palette', '/create/img/wikipedia.png', 
+    'Wappenwiki','with a wappenwiki palette', '/create/img/wappenwiki.png', 
+    'Emoji','with an emoji palette', '/create/img/emoji.png', 
+    'Hatching','with a hatching palette', '/create/img/hatching.png', 
+    // ++ HERE ++
 ];
 shieldData["~achievement~"] = [ "Do you want to add an achievement (decoration around the shield)?",
       'achievement ~mantling~ ~ach-helmet~ ~crest~ ~add-motto~', 'Yes', 'simple/yes.png',
        '', "No", 'simple/no.png',
 ];
 shieldData["~mantling~"] = [ "Do you want to add mantling (cloak around shield)?",
-      'mantling ~colour~ ~and~ ~colour~ ~update~', 'Yes', 'simple/yes.png',
+      'mantling ~colour~ and ~colour~ ~update~', 'Yes', 'simple/yes.png',
       '', "No", 'simple/no.png',
 ];
 shieldData["~crest~"] = [ "Do you want to add a crest (charge on top of shield)?",
-      'crest a ~x-charge~ ~x-tincture~ ~update~', 'Yes', 'simple/yes.png',
       '', "No", 'simple/no.png',
+      'crest a ~x-charge~ ~x-tincture~ ~update~', 'Yes', 'simple/yes.png',
 ];
 shieldData["~ach-helmet~"] = [ "Do you want a helmet (on top of shield)?",
 '', 'No helmet', 'simple/no.png',
-'baronets helmet ~update~', 'baronets helmet', '/catalog/charges/armour/baronets-helmet.png',
-'esquires helmet ~update~', 'esquires helmet', '/catalog/charges/armour/esquires-helmet.png',
-'knights helmet ~update~', 'knights helmet', '/catalog/charges/armour/knights-helmet.png',
-'peers helmet ~update~', 'peers helmet', '/catalog/charges/armour/peers-helmet.png',
-'royal helmet ~update~', 'royal helmet', '/catalog/charges/armour/royal-helmet.png',
+'baronets helmet', 'baronets helmet ~update~', '/catalog/charges/armour/baronets-helmet.png',
+'esquires helmet', 'esquires helmet ~update~', '/catalog/charges/armour/esquires-helmet.png',
+'knights helmet', 'knights helmet ~update~', '/catalog/charges/armour/knights-helmet.png',
+'peers helmet', 'peers helmet ~update~', '/catalog/charges/armour/peers-helmet.png',
+'royal helmet', 'royal helmet ~update~', '/catalog/charges/armour/royal-helmet.png',
  ];
 shieldData["~x-linetype~"] = [ "Do you want a variant edge type?",
           '', "Plain", 'simple/perfess.png',
@@ -463,13 +456,18 @@ shieldData["~x-add-items~"] = [ "Do you want to add further elements?",
       'on a ~x-on-ord~ ~x-sml-number~ ~x-charge~ ~x-orient~ ~x-colour~ ~update~ ~x-add-items~', "One or more charges on an ordinary", 'simple/chargeonord.png',
 ];
 shieldData["~add-motto~"] = [ "Do you want to add a motto below the shield?",
-      'motto ~string~ ~update~', 'Yes', 'simple/yes.png',
+      'motto ~string~', 'Yes', 'simple/yes.png',
       '', "No", 'simple/no.png',
       ];
 shieldData["~string~"] = [ "Enter some text and press the Submit button",
       '$', 'Your text', '',
       ];
 
+// The simple set of elements 
+shieldData["~field~"] = [ "How do you want the background of your shield (the \"field\")?",
+      '~plain~', "A single colour or pattern", 'simple/plain.png',
+      '~divided~', "Divided into two or more parts", 'simple/divided.png'
+      ];
 shieldData["~plain~"] = [ "Now choose a type of colour or pattern",
       '~colour~', "A plain colour", 'simple/plain.png',
       '~treatment~',  "A treatment", 'simple/treatment.png',
@@ -512,8 +510,135 @@ shieldData["~treatment~"] = [ "Choose the type of treatment (a pattern of two co
 shieldData["~and~"] = [ "Now choose another, different, colour",
       'and', "Click to continue", 'simple/next.png',
       ];
+shieldData["~ordchg~"] = [ "Do you want to add something else?",
+      '~ordinary~ ~update~', "An Ordinary (shape in fixed position)", 'simple/ordinary.png',
+      '~diminutives~ ~update~', "Some Smaller Ordinaries", 'simple/diminutive.png',
+      '~numcharges~', "Some Charges (1 or more objects)", 'simple/charge.png',
+      'on ~ordinary~ ~numcharges~ ~update~', "Some charges on an ordinary", 'simple/chgonord.png',
+      'A ~chargegroup~ ~chargeinposition~ ~update~', "One charge in a set position on the field", 'simple/indexterchief.png',
+      ];
+shieldData["~chargeinposition~"] = [ "Where do you want to place the charge?",
+      'in dexter chief', "In dexter chief", 'simple/indexterchief.png',
+      'in middle chief', "In middle chief", 'simple/inmiddlechief.png',
+      'in sinister chief', "In sinister chief", 'simple/insinisterchief.png',
+      'in dexter base', "In dexter base", 'simple/indexterbase.png',
+      'in middle base', "In middle base", 'simple/inmiddlebase.png',
+      'in sinister base', "In sinister base", 'simple/insinisterbase.png',
+      'in fess point', "In fess point", 'simple/infesspoint.png',
+      'in nombril', "In nombril", 'simple/innombril.png',
+      ];
+shieldData["~divided~"] = [ "How do you want to divide the shield? (You will colour the black area first)",
+      'per pale ~linemod~ ~plain~ and ~plain~', "Per Pale", 'simple/perpale.png',
+      'per bend ~plain~ and ~plain~', "Per Bend", 'simple/perbend.png',
+      'quarterly ~plain~ and ~plain~', "Quartely", 'simple/quarterly.png',
+      'tierced in pale ~plain~, ~plain~ and ~plain~', "Tierced in pale", 'simple/tierced-in-pale.png',
+      'per pall ~plain~, ~plain~ and ~plain~', "Per pall", 'simple/perpall.png',
+      'per chevron ~plain~ and ~plain~', "Per Chevron", 'simple/perchevron.png',
+      'barry ~plain~ and ~plain~', "Barry", 'simple/barry.png',
+      'per fess ~linemod~ ~plain~ and ~plain~', "Per Fess", 'simple/perfess.png',
+      'paly ~plain~ and ~plain~', "Paly", 'simple/paly.png',
+      'per pile ~plain~ and ~plain~', "Per pile", 'simple/perpile.png',
+      'per bend sinister ~plain~ and ~plain~', "Per Bend Sinister", 'simple/perbendsin.png',
+      'gyronny ~plain~ and ~plain~', "Gyronny", 'simple/gyronny.png',
+      ];
+shieldData["~ordinary~"] = [ "Choose an ordinary (a shape in a fixed position on the field)",
+      'a bend ~ordlinemod~ ~plain~', "A Bend", 'simple/bend.png',
+      'a fess ~ordlinemod~ ~plain~', "A Fess", 'simple/fess.png',
+      'a pale ~plain~', "A Pale", 'simple/pale.png',
+      'a chief ~linemod~ ~plain~', "A Chief", 'simple/chief.png',
+      'a chevron ~plain~', "A Chevron", 'simple/chevron.png',
+      'a cross ~plain~', "A Cross", 'simple/cross.png',
+      'a bordure ~plain~', "A Bordure", 'simple/bordure.png',
+      'a canton ~plain~', "A Canton", 'simple/canton.png',
+      ];
+shieldData["~ordlinemod~"] = [ "How should the edges of the ordinary be drawn?",
+      '', "Plain", 'simple/perfess.png',
+      'angled', "Angled", 'simple/angled.png',
+      'bevilled', "Bevilled", 'simple/bevilled.png',
+      'escartelly', "Escartelly", 'simple/escartelly.png',
+      'indented', "Indented", 'simple/indented.png',
+      ];
+shieldData["~linemod~"] = [ "How should the lines or edges be drawn?",
+      '', "Plain", 'simple/perfess.png',
+      'angled', "Angled", 'simple/angled.png',
+      'bevilled', "Bevilled", 'simple/bevilled.png',
+      'escartelly', "Escartelly", 'simple/escartelly.png',
+      'indented', "Indented", 'simple/indented.png',
+      'engrailed', "Engrailed", 'simple/engrailed.png',
+      'embattled', "Embattled", 'simple/embattled.png',
+      'nebuly', "Nebuly", 'simple/nebuly.png',
+      ];
+shieldData["~numcharges~"] = [ "How many charges do you want to add?",
+      'a ~chargegroup~', "One", 'simple/one.png',
+      'two ~chargegroup~', "Two", 'simple/two.png',
+      'three ~chargegroup~', "Three", 'simple/three.png',
+      'four ~chargegroup~', "Four", 'simple/four.png',
+      'five ~chargegroup~', "Five", 'simple/five.png',
+      'six ~chargegroup~', "Six", 'simple/six.png',
+      ];
+shieldData["~diminutives~"] = [ "How many small ordinaries (known as diminutives) would you like to add?",
+      'a ~diminutive~ ~colour~', "One", 'simple/one.png',
+      'two ~diminutive~ ~colour~', "Two", 'simple/two.png',
+      'three ~diminutive~ ~colour~', "Three", 'simple/three.png',
+      'four ~diminutive~ ~colour~', "Four", 'simple/four.png',
+      ];
+shieldData["~diminutive~"] = [ "Which diminutive would you like to add?",
+      'bar', "Bar", "bar.png",
+      'palet', "Palet", "palet.png",
+      'bendlet', "Bendlet", "bendlet.png",
+      'chevronel', "Chevronel", "chevronel.png",
+      'chevronel interlaced', "Chevronel Interlaced", "chevronel-interlaced.png",
+      'piles', "Piles", "piles.png",
+      ];
+shieldData["~chargegroup~"] = [ "What type of charge would you like to add?",
+      '~shapecharge~', "Shapes", 'simple/shape.png',
+      '~lioncharge~', "Lions", 'simple/lions.png',
+      '~birdcharge~', "Birds", 'simple/birds.png',
+      '~weaponcharge~', "Weapons", 'simple/weapons.png',
+      '~plantcharge~', "Plants", 'simple/plants.png',
+      ];
+shieldData["~shapecharge~"] = ["Which shape would you like to use?",
+      'mullet ~colour~', "Mullet", 'simple/mullet.png',
+      'bezant ~colour~', "Bezant", 'simple/bezant.png',
+      'crescent ~colour~', "Crescent", 'simple/crescent.png',
+      'lozenge ~colour~', "Lozenge", 'simple/lozenge.png',
+      'billet ~colour~', "Billet", 'simple/billet.png',
+      'annulet ~colour~', "Annulet", 'simple/annulet.png',
+      ];
+shieldData["~lioncharge~"] = ["Which type of lion would you like to use?",
+      'lion passant ~colour~', "Lion Passant", 'simple/lion-passant.png',
+      'lion rampant ~colour~', "Lion Rampant", 'simple/lion-rampant.png',
+      'lion sejant ~colour~', "Lion Sejant", 'simple/lion-sejant.png',
+      'lion statant ~colour~', "Lion Statant", 'simple/lion-statant.png',
+      'lion dormant ~colour~', "Lion Dormant", 'simple/lion-dormant.png',
+      'lion courant ~colour~', "Lion Courant", 'simple/lion-courant.png',
+      'lion head guardant ~colour~', "Lion Head Guardant", 'simple/lion-head-guardant.png',
+      ];
+shieldData["~birdcharge~"] = ["Which type of bird would you like to use?",
+      'cornish chough proper', "Cornish Chough", 'simple/chough.png',
+      'owl ~colour~', "Owl", 'simple/owl.png',
+      'crow ~colour~', "Crow", 'simple/crow.png',
+      'peacock ~colour~', "Peacock", 'simple/peacock.png',
+      'eagle ~colour~', "Eagle", 'simple/eagle.png',
+      'duck ~colour~', "Duck", 'simple/duck.png',
+      ];
+shieldData["~weaponcharge~"] = ["Which type of weapon would you like to use?",
+      'crossbow ~colour~', "Crossbow", 'simple/crossbow.png',
+      'dagger ~colour~', "Dagger", 'simple/dagger.png',
+      'sabre ~colour~', "Sabre", 'simple/sabre.png',
+      'cannon ~colour~', "Cannon", 'simple/cannon.png',
+      'bundle of arrows ~colour~', "Bundle of Arrows", 'simple/arrows.png',
+      ];
+shieldData["~plantcharge~"] = ["Which type of plant would you like to use?",
+      'rose ~colour~ seeded argent barbed gules', "Rose", "rose.png",
+      'lily ~colour~', "Lily", 'simple/lily.png',
+      'vine ~colour~', "Vine", 'simple/vine.png',
+      'thistle ~colour~', "Thistle", 'simple/thistle.png',
+      'cinquefoil ~colour~', "Cinquefoil", 'simple/cinquefoil.png',
+      'oak tree ~colour~', "Oak Tree", 'simple/oak-tree.png',
+      ];
 
-/* 
+/*
 function doCheck(group) {
       let strings = group[1];
       for (let j = 1; j < strings.length; j += 3) {
@@ -536,7 +661,8 @@ function validate() {
       Object.entries(shieldData).forEach(doCheck);
       console.log("Checked");
 }
-*/
+
+ */
 
 var urlArgs = 'highlight=0&size=' + size;
 
@@ -561,7 +687,7 @@ function init_build() {
         questions.removeChild(questions.childNodes[0]);
     }
     questions.appendChild( nextQuestion ());
-     // validate();
+    // validate();
 }
 
 function finished() {
@@ -592,10 +718,7 @@ function goback() {
     document.getElementById('blazon').value = bStack.pop();
     shadow = sStack.pop();
     var questions = document.getElementById('questions');
-    if (questions.hasChildNodes()) { // last question
-      questions.removeChild(questions.firstChild);
-    }
-    questions.appendChild(qStack.pop());
+    questions.replaceChild(qStack.pop(),questions.firstChild);
   }
   // return false;
 }
@@ -696,7 +819,7 @@ function nextQuestion()  {
             let id = 'string' + stringCount++;
             var textInput = document.createElement('input');
             textInput.setAttribute('id',id);
-            textInput.setAttribute('size','40');
+            textInput.setAttribute('size','500');
             textInput.setAttribute('type','text');
             textInput.setAttribute('placeholder',sData[i+1]);
             div.appendChild(textInput);

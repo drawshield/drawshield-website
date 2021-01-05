@@ -251,8 +251,8 @@ function setOptions() {
 
 function toggleDrawOptions() { // load or unload the options panel
     if (!optionsLoaded) {
-        jQuery('#optionsPanel').load("/create/drawing-options.html", setOptions);
         optionsLoaded = true; // set as per current option values
+        setOptions();
     }
     togglePanel('optionsPanel');
 }
