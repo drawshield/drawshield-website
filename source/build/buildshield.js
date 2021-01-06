@@ -639,6 +639,7 @@ function nextQuestion()  {
   var target = shadow.match(/~.*?~/);
   if (target == null) {
       finished();
+      $('html,body').scrollTop(0);
       return;
   } else {
       target = target[0];
@@ -673,6 +674,7 @@ function nextQuestion()  {
               }
               found = true;
         }
+      $('html,body').scrollTop(0);
   }
 
   let sData = shieldData[target];
