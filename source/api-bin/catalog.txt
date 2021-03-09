@@ -64,6 +64,7 @@
 /catalog/charges/animal/monkey-winged-rising.png
 /catalog/charges/animal/monkey.png
 /catalog/charges/animal/natural-leopard.png
+/catalog/charges/animal/paw-print.png
 /catalog/charges/animal/porcupine.png
 /catalog/charges/animal/reindeer-head.png
 /catalog/charges/animal/reindeer-lodged.png
@@ -535,6 +536,7 @@
 /catalog/charges/games/dice.png
 /catalog/charges/games/domino.png
 /catalog/charges/games/jesters-bauble.png
+/catalog/charges/games/meeple.png
 /catalog/charges/games/nine-mens-morris-board.png
 /catalog/charges/games/twelve-mens-morris-board.png
 /catalog/charges/geometric/3-shakeforks.png
@@ -630,6 +632,7 @@
 /catalog/charges/human/footprint.png
 /catalog/charges/human/hand-clawed.png
 /catalog/charges/human/hand-of-benediction.png
+/catalog/charges/human/hand-pair-2-clasped.png
 /catalog/charges/human/hand.png
 /catalog/charges/human/heart.png
 /catalog/charges/human/knight-mounted.png
@@ -639,6 +642,7 @@
 /catalog/charges/human/maidens-head-and-bust.png
 /catalog/charges/human/man-head.png
 /catalog/charges/human/mans-head-and-bust.png
+/catalog/charges/human/molar.png
 /catalog/charges/human/monk.png
 /catalog/charges/human/moor-head.png
 /catalog/charges/human/pair-of-hands.png
@@ -647,6 +651,8 @@
 /catalog/charges/human/savage.png
 /catalog/charges/human/skeleton.png
 /catalog/charges/human/skull.png
+/catalog/charges/human/triskelion-of-arms.png
+/catalog/charges/human/triskelion-of-legs-armored.png
 /catalog/charges/insect/ant.png
 /catalog/charges/insect/bee.png
 /catalog/charges/insect/beetle.png
@@ -724,6 +730,7 @@
 /catalog/charges/livestock/cock.png
 /catalog/charges/livestock/cow-head.png
 /catalog/charges/livestock/cow.png
+/catalog/charges/livestock/egg.png
 /catalog/charges/livestock/goat-clymant.png
 /catalog/charges/livestock/goat-head-erased.png
 /catalog/charges/livestock/goat-head.png
