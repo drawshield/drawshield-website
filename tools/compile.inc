@@ -422,7 +422,7 @@ function compile($argc, $argv) {
             $edges = true;
         } elseif (substr($argv[1], 0, 3) == 'div') {
             $divs = true;
-        } elseif (substr($argv[1], 0, 3) == 'tre') {
+        } elseif (substr($argv[1], 0, 5) == 'treat') {
             $treats = true;
         } elseif (substr($argv[1], 0, 3) == 'ach') {
             $achs = true;

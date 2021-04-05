@@ -431,6 +431,7 @@
 /catalog/charges/fish/salmon.png
 /catalog/charges/fish/shark.png
 /catalog/charges/fish/swordfish-haurient.png
+/catalog/charges/fish/walleye.png
 /catalog/charges/fish/whale-embowed-spouting.png
 /catalog/charges/fish/whale-embowed.png
 /catalog/charges/fish/whale-spouting.png
@@ -1262,6 +1263,9 @@
 /catalog/charges/tree-fruit/palm-tree.png
 /catalog/charges/tree-fruit/pear.png
 /catalog/charges/tree-fruit/pine-cone.png
+/catalog/charges/tree-fruit/pine-new-england-tree.png
+/catalog/charges/tree-fruit/pine-scots-tree-eradicated.png
+/catalog/charges/tree-fruit/pine-scots-tree.png
 /catalog/charges/tree-fruit/pine-tree-eradicated.png
 /catalog/charges/tree-fruit/pine-tree.png
 /catalog/charges/tree-fruit/plane-tree.png

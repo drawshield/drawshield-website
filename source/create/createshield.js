@@ -21,7 +21,7 @@ var useWarhammerColours = 'no';
 var useTartanColours = 'no';
 // Local functions - memory handling
 var memState = 'NON';
-var useMemories = true;
+var useMemories = false;
 
 function setMemories() {
     jQuery(".memNumber").each(function(index,value) {
