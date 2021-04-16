@@ -70,7 +70,7 @@ panzoom: true
                 <textarea class="form-control" placeholder="Enter a blazon" id="blazon" name="blazon" spellcheck="false" rows="2"></textarea>
                 <input type="hidden" name="asfile" value="0"/>
                 <input type="hidden" name="size" value="500"/>
-                <input type="hidden" name="palette" value="drawshield"/>
+                <input type="hidden" name="palette" value="wikipedia"/>
                 <input type="hidden" name="shape" value="default"/>
                 <input type="hidden" name="effect" value="shiny"/>
                 <input type="hidden" name="saveformat" value="png"/>
@@ -162,20 +162,15 @@ panzoom: true
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-2 mx-auto col-sm-6 offset-lg-1 pl-1 pr-1">
-                        <div class="mx-auto text-center"><span>DrawShield</span></div>
-                        <div class="mx-auto"><img alt="Drawshield" src="img/drawshield.png" class="mx-auto d-block" onclick="jQuery('#palette1').prop('checked','checked');"></div>
-                        <div class="mx-auto text-center"><span><input type="radio" class="mx-auto" name="palettegroup" id="palette1" value="drawshield"></span></div>
-                    </div>
                     <div class="col-lg-2 mx-auto col-sm-6 pl-1 pr-1">
                         <div class="mx-auto text-center"><span>Wikipedia</span></div>
                         <div class="mx-auto"><img alt="Wikipedia" src="img/wikipedia.png" class="mx-auto d-block" onclick="jQuery('#palette2').prop('checked','checked');"></div>
                         <div class="mx-auto text-center"><span><input type="radio" class="mx-auto" name="palettegroup" id="palette2" value="wikipedia"></span></div>
                     </div>
-                    <div class="col-lg-2 mx-auto col-sm-6 pl-1 pr-1">
-                        <div class="mx-auto text-center"><span>Emoji</span></div>
-                        <div class="mx-auto"><img alt="Emoji" src="img/emoji.png" class="mx-auto d-block" onclick="jQuery('#palette3').prop('checked','checked');"></div>
-                        <div class="mx-auto text-center"><span><input type="radio" class="mx-auto" name="palettegroup" id="palette3" value="emoji"></span></div>
+                    <div class="col-lg-2 mx-auto col-sm-6 offset-lg-1 pl-1 pr-1">
+                        <div class="mx-auto text-center"><span>DrawShield</span></div>
+                        <div class="mx-auto"><img alt="Drawshield" src="img/drawshield.png" class="mx-auto d-block" onclick="jQuery('#palette1').prop('checked','checked');"></div>
+                        <div class="mx-auto text-center"><span><input type="radio" class="mx-auto" name="palettegroup" id="palette1" value="drawshield"></span></div>
                     </div>
                     <div class="col-lg-2 mx-auto col-sm-6 pl-1 pr-1">
                         <div class="mx-auto text-center"><span>Wappenwiki</span></div>
@@ -184,8 +179,13 @@ panzoom: true
                     </div>
                     <div class="col-lg-2 mx-auto col-sm-6 pl-1 pr-1">
                         <div class="mx-auto text-center"><span>CC3</span></div>
-                        <div class="mx-auto"><img alt="Outline" src="img/cc3.png" class="mx-auto d-block" onclick="jQuery('#palette7').prop('checked','checked');"></div>
+                        <div class="mx-auto"><img alt="Campaign Cartographer" src="img/cc3.png" class="mx-auto d-block" onclick="jQuery('#palette7').prop('checked','checked');"></div>
                         <div class="mx-auto text-center"><span><input type="radio" class="mx-auto" name="palettegroup" id="palette7" value="cc3"></span></div>
+                    </div>
+                    <div class="col-lg-2 mx-auto col-sm-6 pl-1 pr-1">
+                        <div class="mx-auto text-center"><span>Emoji</span></div>
+                        <div class="mx-auto"><img alt="Emoji" src="img/emoji.png" class="mx-auto d-block" onclick="jQuery('#palette3').prop('checked','checked');"></div>
+                        <div class="mx-auto text-center"><span><input type="radio" class="mx-auto" name="palettegroup" id="palette3" value="emoji"></span></div>
                     </div>
                     <div class="col-lg-2 mx-auto col-sm-6 pl-1 pr-1">
                         <div class="mx-auto text-center"><span>Hatching</span></div>

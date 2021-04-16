@@ -9,7 +9,7 @@ var partsLoaded = false;
 var uploadedFile = null;
 //////////// OPTION HANDLING ///////////////////
 // The options, default values for first time visit
-var palette = 'drawshield';
+var palette = 'wikipedia';
 var effect = 'shiny';
 var shape = 'heater';
 var aspectRatio = '0.5';
