@@ -1,6 +1,6 @@
 {% include upper.html %}
-{% capture prevEntry %}/gallery/gallery-{{ page.entryNum | minus: 1 }}.html{% endcapture %}
-{% capture nextEntry %}/gallery/gallery-{{ page.entryNum | plus: 1 }}.html{% endcapture %}
+{% capture prevEntry %}/gallery/{{ page.entryNum | minus: 1 }}{% endcapture %}
+{% capture nextEntry %}/gallery/{{ page.entryNum | plus: 1 }}{% endcapture %}
 {% if page.entryNum == '9999' %}
 	{% assign nextEntry = "" %}
 {% endif %}
@@ -8,7 +8,7 @@
   {% assign prevEntry = "" %}
 {% endif %}
 
-{% assign lastEntry = "/gallery/gallery-9999.html" %}
+{% assign lastEntry = "/gallery/9999" %}
 {% assign firstEntry = "/gallery/first-entry.php" %}
 {% capture upEntry %}/gallery/parent.php?of={{ page.entryNum }}{% endcapture %}
 {% if upEntry == "index0.html" %}

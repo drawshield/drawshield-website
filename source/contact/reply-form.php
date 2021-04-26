@@ -23,6 +23,10 @@ entryNum: NNNN
 <pre>
     %plainBlazon%
 </pre>
+<p>To reproduce this image exactly you need to set your preferences to:</p>
+<dl class="gallery-prefs">
+%prefs%
+</dl>
 %tags%
 <h3>Notes</h3>
 %addData%
@@ -160,11 +164,39 @@ try
            $tagData = "<p>With Tags: $tags</p>\n";
        }
        $options = $_POST['options'] ?? 'shape=heater,effect=shiny,palette=drawshield';
+       $prefs = '';
+       $optionItems = explode(',',$options);
+       foreach($optionItems as $option) {
+           $parts = explode('=',$option);
+            if (count($parts) > 1) $parts[1] = rtrim($parts[1],"' \n");
+            switch($parts[0]) {
+            case 'shape': 
+                    $prefs .= "<dt>Shield Shape</dt><dd>${parts[1]}</dd>\n";
+                    break;
+            case 'ar': 
+                    $prefs .= "<dt>Aspect Ratio</dt><dd>${parts[1]}</dd>\n";
+                    break;
+            case 'palette': 
+                    $prefs .= "<dt>Palette For Heraldic Tinctures</dt><dd>${parts[1]}</dd>\n";
+                    break;
+            case 'effect': 
+                    $prefs .= "<dt>Visual Appearance</dt><dd>${parts[1]}</dd>\n";
+                    break;
+            case 'webcols': 
+                    $prefs .= "<dt>Named Web Colours</dt><dd>Enabled</dd>\n";
+                    break;
+            case 'whcols': 
+                    $prefs .= "<dt>Warhammer Colours</dt><dd>Enabled</dd>\n";
+                    break;
+            default:
+                    break;
+            }
+        }
        $createURL = "https://drawshield.net/create/index.html?blazon=" . rawurlencode($plainBlazon);
        $wgetURL = 'num=NNNN; wget -O /home/karl/Nextcloud/drawshield/source/gallery/${num:0:2}/img/gallery-$num.png ' . "'http://drawshield.net/include/drawshield.php?asfile=1&size=750&saveformat=png&blazon=" . rawurlencode($plainBlazon) . '&' . str_replace(',','&',$options) . "'";
        $emailText = preg_replace(
-            array('/%plainBlazon%/', '/%addData%/', '/%createURL%/', '/%wgetURL%/', '/%title%/', '/%tags%/' ),
-            array($plainBlazon, $addData, $createURL, $wgetURL, $title, $tagData),
+            array('/%plainBlazon%/', '/%addData%/', '/%createURL%/', '/%wgetURL%/', '/%title%/', '/%tags%/', '/%prefs%/' ),
+            array($plainBlazon, $addData, $createURL, $wgetURL, $title, $tagData, $prefs),
             $galleryTemplate);
     } elseif ($comment) {
         include('/var/www/etc/credentials.inc');

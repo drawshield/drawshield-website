@@ -327,4 +327,15 @@ a.list-group-item-action {
                         text-decoration: underline; text-decoration-style: wavy;}
 .cm-s-default .cm-round-brackets {color: #050505; 
                         font-style: italic;}
-
+dl.gallery-prefs dd {
+  display: inline;
+  margin: 5px;
+}
+dl.gallery-prefs dd:after{
+  display: block;
+  content: '';
+}
+dl.gallery-prefs dt{
+  display: inline-block;
+  min-width: 100px;
+}
