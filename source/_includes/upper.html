@@ -4,7 +4,11 @@
     <body> 
          {% include header.html %} 
         <main>
+            {% if page.superWide == true %}
+            <div class="container" style="max-width: 2048px;">
+            {% else %}
             <div class="container"> 
+            {% endif %}
                 <div class="row">
                     <div class="col-lg-9 col-sm-12">
                         {% unless page.skipTitle == true %}

@@ -1,0 +1,6 @@
+{% include upper.html %}
+
+{% if page.upLink   %}{% include navigation.html prev = page.prevLink   next = page.nextLink   up = page.upLink   %}{% endif %}
+                        {{ content }}
+{% if page.upLink   %}{% include navigation.html prev = page.prevLink   next = page.nextLink   up = page.upLink   %}{% endif %}
+{% include lower.html %}

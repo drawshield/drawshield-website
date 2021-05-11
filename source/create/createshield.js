@@ -346,9 +346,9 @@ function submitSuggestion(event) {
         suggestion.innerHTML = blazon;
     } // else there was already a blazon there
     cols = '';
-   if (useWebColours == 'yes') cols += ',webcols=1';
-   if (useWarhammerColours == 'yes') cols += ',whcols=1';
-   if (useTartanColours == 'yes') cols += ',tartancols=1';
+   if (useWebColours == 'yes') cols += ',webcols=yes';
+   if (useWarhammerColours == 'yes') cols += ',whcols=yes';
+   if (useTartanColours == 'yes') cols += ',tartancols=yes';
     document.getElementById('suggestion-options').value = 'shape=' + shape + ',effect=' + effect + ',palette=' + palette + ',ar=' + aspectRatio + cols;
     return true;
 }

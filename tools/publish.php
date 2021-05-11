@@ -127,8 +127,9 @@ function startsWith($start, $target) {
 include "../var/www/etc/email_credentials.inc";
 $email_reader = new Email_reader($server, $user, $pass, $port);
 $num = $email_reader->number();
-
+$counter = 0;
 while (true) {
+    if ($counter++ > 24) break; // only do a screenful at a time
     // get an email
     $email = $email_reader->get();
 
