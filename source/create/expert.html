@@ -1,0 +1,1242 @@
+---
+pageTitle: Expert Mode Create From Blazon
+editor: true
+panzoom: true
+superWide: true
+finder: true
+---
+<!-- Intro paragraph (full width> -->
+<div class="row">
+    <div class="col-8 offset-2">
+        <p>This is an experimental, wide screen layout intended for expert use!</p>    
+    </div>
+</div>
+<!-- upper container for wide page -->
+<div class="row">
+    <!-- Left hand side, Big edit box, draw buttons -->
+    <div class="col-6">
+        <div class="row" style="margin: 2px;" id="editorButtons">
+            <div class="col-12">
+                {% include finder.html %}
+            </div>
+            <div class="col-12">
+                <input id="blazonFile" type="file" />
+                <button type="button" class="btn-light" onclick="load_blazon()">Load</button>
+                <button type="button" class="btn-light" onclick="save_blazon()">Save</button>
+            </div>
+            <div class="col-12">
+                <button type="button" class="btn-light" onclick="edChangeMode()">Hilite</button>
+                <button type="button" class="btn-light" onclick="edFind()">Find</button>
+                <button type="button" class="btn-light" onclick="edReplace()">Replace</button>
+                <button type="button" class="btn-light" onclick="edJump()">Goto</button>
+                <button type="button" class="btn-light" onclick="commentLine()">Comment</button>
+                <button type="button" class="btn-light" onclick="edMaximise()">Fullscreen</button>
+                <button type="button" class="btn-light" onclick="edCopy()">Copy</button>
+                <button type="button" class="btn-light" onclick="edClear()">Clear</button>
+            </div>
+                <div class="col-12">
+            </div>
+            <div class="col-12">
+                <form id="blazonForm" method="post" enctype="multipart/form-data" style="min-height: 500px;">   
+                    <fieldset class="form-group">
+                        <textarea class="form-control" placeholder="Enter a blazon" id="blazon" name="blazon" spellcheck="false" rows="20"></textarea>
+                        <input type="hidden" name="asfile" value="0"/>
+                        <input type="hidden" name="size" value="500"/>
+                        <input type="hidden" name="palette" value="wikipedia"/>
+                        <input type="hidden" name="shape" value="default"/>
+                        <input type="hidden" name="effect" value="none"/>
+                        <input type="hidden" name="saveformat" value="png"/>
+                        <input type="hidden" name="units" value="px"/>
+                        <input type="hidden" name="filename" value="shield"/>
+                        <input type="hidden" name="ar" value="0.5"/>
+                        <input type="hidden" name="editor" value="on"/>
+                        <input type="hidden" name="webcols" value="no"/>
+                        <input type="hidden" name="whcols" value="no"/>
+                        <input type="hidden" name="tartancols" value="no"/>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="col-12" id="messageDiv" style="display: none; position: relative; top: -200px; height: 0px;">
+                <div class="col-10 offset-1 card p-1">
+                    <form class="contact-form" method="post" action="/contact/reply-form.php" role="form">
+                        <div class="form-group">
+                            <label for="messageList" style="color: red;">Error Reported:</label>
+                            <textarea name="message" id="messageList" class="form-control"></textarea>
+                            <textarea name="error-blazon" id="error-blazon" readonly  class="form-control" style="display: none;"></textarea>
+                        </div>
+                        <p class="pt-3">
+                            <input type="submit" class="btn btn-danger btn-send" value="Report This Error">
+                            <button type="button" class="btn-primary btn-sm float-right" onclick="document.getElementById('messageDiv').style.display = 'none';" >Clear</button>
+                            <input type="hidden" name="reference" value="Error Report">
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+           <div class="col-4 offset-1 p-1">
+                <button type="button" class=" btn-block btn-danger" onclick="drawshield();">Draw Shield</button>
+            </div>
+            <div class="col-2 p-1">
+                <span>&nbsp;</span>
+            </div>
+            <div class="col-4 p-1">
+                <button type="button" class=" btn-block btn-primary" onclick="togglePanel('optionsPanel')">Preferences...</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-sm-12 p-1">
+                <button type="button" class="btn-block btn-primary" onclick="setupSuggestion();">Submit to Gallery...</button>
+            </div>
+            <div class="col-lg-4 col-sm-12 p-1">
+                <button type="button" class="btn-block btn-primary" onclick="togglePanel('savePanel');">Save as File...</button>
+            </div>
+            <div class="col-lg-4 col-sm-12 p-1">
+                <button type="button" class="btn-block btn-primary" onclick="newTab();">Print Shield</button>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="finder-modal" tabindex="-1" role="dialog" aria-labelledby="Heraldic item Image" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="finder-title">Item Image</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body" id="finder-content">
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" onclick="insertFinder();">Insert</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row panel" id="savePanel" style="display: none;">
+            <div class="row">
+                <div class="col-12 card">
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="lead">File Save Options</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-lg-2  pl-1 pr-1">
+                            <div class="input-group"><span>Format: </span>
+                                <select class="custom-select" data-style="btn-primary" id="formatSelect">
+                                    <option selected value="png">PNG</option>
+                                    <option value="jpg">JPEG</option>
+                                    <option value="svg">SVG</option>
+                                    <option value="pdfA4">PDF (A4)</option>
+                                    <option value="pdfLtr">PDF (Ltr)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-2 pl-1 pr-1">
+                            <div class="input-group"><span>Width</span>
+                                <input type="text" class="form-control" id="sizeInput" placeholder="1000">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-2  pl-1 pr-1">
+                            <div class="input-group"><span>Units: </span>
+                                <select class="custom-select" data-style="btn-primary" id="unitSelect">
+                                    <option selected value="px">pixels</option>
+                                    <option value="in">inches</option>
+                                    <option value="cm">centimetres</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 pl-1 pr-1">
+                            <div class="input-group"><span>Filename: </span>
+                                <input type="text" class="form-control" id="filenameInput" placeholder="shield">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-2 pl-1 pr-1">
+                            <input type="button" class="btn btn-danger" value="Save File" id="saveFile" onclick="saveshield()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row panel" id="galleryPanel" style="display: none;">
+            <div class="col-lg-8 offset-lg-2 col-sm-12 card p-1">
+                <form class="contact-form" method="post" action="/contact/reply-form.php" role="form">
+                    <div class="form-group">
+                        <label for="suggestion" style="color: red;">Your Blazon Submission:</label>
+                        <textarea name="suggestion" id="suggestion" readonly class="form-control" placeholder="(Enter a blazon into the text area at the top of the page)"></textarea>
+                        <label for="title" style="color: red;">A Title?</label>
+                        <input type="text" name="title" id="title" class="form-control" placeholder="(optional)">
+                        <label for="tags" style="color: red;">Tags?</label>
+                        <input type="text" name="tags" id="tags" class="form-control" placeholder="(optional - to help find your submission)">
+                        <label for="additional" style="color: red;">Anything you wish to add:</label>
+                        <textarea name="additional" id="additional" class="form-control" placeholder="Tell us about your blazon or suggest an area for improvement!"></textarea>
+                    </div>
+                    <p class="pt-3">
+                        <input type="submit" class="btn btn-danger btn-send" value="Submit this blazon" id="suggestButton">
+                        <button type="button" class="btn-primary btn-sm float-right" onclick="document.getElementById('galleryPanel').style.display = 'none';" >Clear</button>
+                        <input type="hidden" name="reference" value="Gallery Suggestion">
+                        <input type="hidden" name="options" id="suggestion-options" value="default">
+                    </p>
+                    <p>Thanks for your suggestion! I don't have room to include all of them but all of your ideas are appreciated.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- end left hand side -->
+    <!-- Right hand side, shield image -->
+    <div class="col-6">
+        <div class="row justify-content-center">
+            <div class="col-lg-10  col-md-12 col-sm-12 text-center" id="shieldimg"></div>
+            <div class="col-lg-10  col-md-12 col-sm-12 text-center"><a href="/create/index.html" id="shieldcaption">Your shield here</a></div>
+        </div>
+    </div>
+    <!-- end right hand side -->
+</div>
+<!-- end upper wide page container -->
+
+<!-- start middle wide page container -->
+<div id="optionsPanel" class="panel" style="display: none;">
+        <div class="row">
+            <div class="col-6 card p-2">
+                <fieldset>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="lead">Visual Appearance</p>
+                        </div>
+                    </div>
+                    <div class="col-12" style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-content: center;">
+                        <div style="width: 110px; ">
+                            <div class="mx-auto text-center">
+                       <span>Shiny</span></div>
+                            <div class="mx-auto"><img alt="shiny" src="/create/img/shiny.png" class="mx-auto d-block" onclick="jQuery('#effect1').click();"></div>
+                            <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'effect','radio');"  class="mx-auto" name="effectgroup" id="effect1" value="shiny"></span></div>
+                        </div>
+                        <div style="width: 110px; ">
+                            <div class="mx-auto text-center">
+                       <span>Flat</span></div>
+                            <div class="mx-auto"><img alt="plain" src="/create/img/plain.png" class="mx-auto d-block" onclick="jQuery('#effect2').click();"></div>
+                            <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'effect','radio');"  class="mx-auto" name="effectgroup" id="effect2" value="none"></span></div>
+                        </div>
+                        <div style="width: 110px; ">
+                            <div class="mx-auto text-center">
+                       <span>Stone</span></div>
+                                <div class="mx-auto"><img alt="stonework" src="/create/img/stonework.png" class="mx-auto d-block" onclick="jQuery('#effect3').click();"></div>
+                                <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'effect','radio');"  class="mx-auto" name="effectgroup" id="effect3" value="stonework"></span></div>
+                        </div>
+                        <div style="width: 110px; ">
+                            <div class="mx-auto text-center">
+                       <span>Plaster</span></div>
+                                <div class="mx-auto"><img alt="plaster" src="/create/img/plaster.png" class="mx-auto d-block" onclick="jQuery('#effect4').click();"></div>
+                                <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'effect','radio');"  class="mx-auto" name="effectgroup" id="effect4" value="plaster"></span></div>
+                        </div>
+                        <div style="width: 110px; ">
+                            <div class="mx-auto text-center">
+                       <span>Vellum</span></div>
+                                <div class="mx-auto"><img alt="vellum" src="/create/img/vellum.png" class="mx-auto d-block" onclick="jQuery('#effect5').click();"></div>
+                                <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'effect','radio');"  class="mx-auto" name="effectgroup" id="effect5" value="vellum"></span></div>
+                        </div>
+                        <div style="width: 110px; ">
+                            <div class="mx-auto text-center">
+                       <span>Ripples</span></div>
+                                <div class="mx-auto"><img alt="ripples" src="/create/img/ripples.png" class="mx-auto d-block" onclick="jQuery('#effect6').click();"></div>
+                                <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'effect','radio');"  class="mx-auto" name="effectgroup" id="effect6" value="ripples"></span></div>
+                        </div>
+                        <div style="width: 110px; ">
+                            <div class="mx-auto text-center">
+                       <span>Fabric</span></div>
+                                <div class="mx-auto"><img alt="fabric" src="/create/img/fabric.png" class="mx-auto d-block" onclick="jQuery('#effect7').click();"></div>
+                                <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'effect','radio');"  class="mx-auto" name="effectgroup" id="effect7" value="fabric"></span></div>
+                        </div>
+                        <div style="width: 110px; ">
+                            <div class="mx-auto text-center">
+                       <span>Inked</span></div>
+                                <div class="mx-auto"><img alt="inked" src="/create/img/inked.png" class="mx-auto d-block" onclick="jQuery('#effect8').click();"></div>
+                                <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'effect','radio');"  class="mx-auto" name="effectgroup" id="effect8" value="inked"></span></div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="col-6 card p-2">
+                <fieldset>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="lead">Palette for Heraldic Tinctures</p>
+                        </div>
+                    </div>
+                    <div class="col-12" style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-content: center;">
+                        <div style="width: 110px;">
+                            <div class="mx-auto text-center">
+                       <span>Wikipedia</span></div>
+                            <div class="mx-auto"><img alt="Wikipedia" src="/create/img/wikipedia.png" class="mx-auto d-block" onclick="jQuery('#palette2').click();"></div>
+                            <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'palette','radio');"  class="mx-auto" name="palettegroup" id="palette2" value="wikipedia"></span></div>
+                        </div>
+                        <div style="width: 110px;">
+                            <div class="mx-auto text-center">
+                       <span>DrawShield</span></div>
+                            <div class="mx-auto"><img alt="Drawshield" src="/create/img/drawshield.png" class="mx-auto d-block" onclick="jQuery('#palette1').click();"></div>
+                            <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'palette','radio');"  class="mx-auto" name="palettegroup" id="palette1" value="drawshield"></span></div>
+                        </div>
+                        <div style="width: 110px;">
+                            <div class="mx-auto text-center">
+                       <span>Wappenwiki</span></div>
+                            <div class="mx-auto"><img alt="Wappenwiki" src="/create/img/wappenwiki.png" class="mx-auto d-block" onclick="jQuery('#palette4').click();"></div>
+                            <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'palette','radio');"  class="mx-auto" name="palettegroup" id="palette4" value="wappenwiki"></span></div>
+                        </div>
+                        <div style="width: 110px;">
+                            <div class="mx-auto text-center">
+                       <span>CC3</span></div>
+                            <div class="mx-auto"><img alt="Campaign Cartographer" src="/create/img/cc3.png" class="mx-auto d-block" onclick="jQuery('#palette7').click();"></div>
+                            <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'palette','radio');"  class="mx-auto" name="palettegroup" id="palette7" value="cc3"></span></div>
+                        </div>
+                        <div style="width: 110px;">
+                            <div class="mx-auto text-center">
+                       <span>Emoji</span></div>
+                            <div class="mx-auto"><img alt="Emoji" src="/create/img/emoji.png" class="mx-auto d-block" onclick="jQuery('#palette3').click();"></div>
+                            <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'palette','radio');"  class="mx-auto" name="palettegroup" id="palette3" value="emoji"></span></div>
+                        </div>
+                        <div style="width: 110px;">
+                            <div class="mx-auto text-center">
+                       <span>Hatching</span></div>
+                            <div class="mx-auto"><img alt="Hatching" src="/create/img/hatching.png" class="mx-auto d-block" onclick="jQuery('#palette6').click();"></div>
+                            <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'palette','radio');"  class="mx-auto" name="palettegroup" id="palette6" value="hatching"></span></div>
+                        </div>
+                        <div style="width: 110px;">
+                            <div class="mx-auto text-center">
+                       <span>Outline</span></div>
+                            <div class="mx-auto"><img alt="Outline" src="/create/img/outline.png" class="mx-auto d-block" onclick="jQuery('#palette5').click();"></div>
+                            <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'palette','radio');"  class="mx-auto" name="palettegroup" id="palette5" value="outline"></span></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <p class="lead">Additional (non-heraldic) Tinctures</p>
+                        </div>
+                        <div class="col-6">
+                            <p class="lead">- Tick to enable</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-3 offset-lg-1 pl-1 pr-1">
+                            <div class="input-group">
+                       <span>Named Web: </span>
+                                <input type="checkbox" class="mx-auto" name="webcols" id="webcols" 
+                                value="yes" onchange="setOption(event,'useWebColours','checkbox');">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-3 offset-lg-1 pl-1 pr-1">
+                            <div class="input-group">
+                       <span>Warhammer: </span>
+                                <input type="checkbox" class="mx-auto" name="whcols" id="whcols" 
+                                value="yes" onchange="setOption(event,'useWarhammerColours','checkbox');">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-3 offset-lg-1 pl-1 pr-1">
+                            <div class="input-group">
+                       <span>Tartan: </span>
+                                <input type="checkbox" class="mx-auto" name="tartancols" id="tartancols" 
+                                value="yes" onchange="setOption(event,'useTartanColours','checkbox');">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="col-6 card p-2">
+                <fieldset>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="lead">Shield Shape</p>
+                        </div>
+                    </div>
+                    <div class="col-12" style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-content: center;">
+                        <div style="width: 110px;">
+                            <div class="mx-auto text-center">
+                       <span>Heater</span></div>
+                            <div class="mx-auto"><img alt="heater" src="/create/img/heater.png" class="mx-auto d-block" onclick="jQuery('#shape1').click();"></div>
+                            <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'shape','radio');"  class="mx-auto" name="shapegroup" id="shape1" value="heater"></span></div>
+                        </div>
+                        <div style="width: 110px;">
+                            <div class="mx-auto text-center">
+                       <span>French</span></div>
+                            <div class="mx-auto"><img alt="french" src="/create/img/french.png" class="mx-auto d-block" onclick="jQuery('#shape2').click();"></div>
+                            <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'shape','radio');"  class="mx-auto" name="shapegroup" id="shape2" value="french"></span></div>
+                        </div>
+                        <div style="width: 110px;">
+                            <div class="mx-auto text-center">
+                       <span>Oval</span></div>
+                            <div class="mx-auto"><img alt="Oval" src="/create/img/oval.png" class="mx-auto d-block" onclick="jQuery('#shape3').click();"></div>
+                            <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'shape','radio');"  class="mx-auto" name="shapegroup" id="shape3" value="oval"></span></div>
+                        </div>
+                        <div style="width: 110px;">
+                            <div class="mx-auto text-center">
+                       <span>Lozenge</span></div>
+                            <div class="mx-auto"><img alt="lozenge" src="/create/img/lozenge.png" class="mx-auto d-block" onclick="jQuery('#shape4').click();"></div>
+                            <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'shape','radio');"  class="mx-auto" name="shapegroup" id="shape4" value="lozenge"></span></div>
+                        </div>
+                        <div style="width: 110px;">
+                            <div class="mx-auto text-center">
+                       <span>Square</span></div>
+                            <div class="mx-auto"><img alt="square" src="/create/img/square.png" class="mx-auto d-block" onclick="jQuery('#shape5').click();"></div>
+                            <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'shape','radio');"  class="mx-auto" name="shapegroup" id="shape5" value="square"></span></div>
+                        </div>
+                        <div style="width: 110px;">
+                            <div class="mx-auto text-center">
+                       <span>Italian</span></div>
+                            <div class="mx-auto"><img alt="italian" src="/create/img/italian.png" class="mx-auto d-block" onclick="jQuery('#shape6').click();"></div>
+                            <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'shape','radio');"  class="mx-auto" name="shapegroup" id="shape6" value="italian"></span></div>
+                        </div>
+                        <div style="width: 110px;">
+                            <div class="mx-auto text-center">
+                       <span>Swiss</span></div>
+                            <div class="mx-auto"><img alt="swiss" src="/create/img/swiss.png" class="mx-auto d-block" onclick="jQuery('#shape7').click();"></div>
+                            <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'shape','radio');"  class="mx-auto" name="shapegroup" id="shape7" value="swiss"></span></div>
+                        </div>
+                        <div style="width: 110px;">
+                            <div class="mx-auto text-center">
+                       <span>English</span></div>
+                            <div class="mx-auto"><img alt="english" src="/create/img/english.png" class="mx-auto d-block" onclick="jQuery('#shape8').click();"></div>
+                            <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'shape','radio');"  class="mx-auto" name="shapegroup" id="shape8" value="english"></span></div>
+                        </div>
+                        <div style="width: 110px;">
+                            <div class="mx-auto text-center">
+                       <span>German</span></div>
+                            <div class="mx-auto"><img alt="german" src="/create/img/german.png" class="mx-auto d-block" onclick="jQuery('#shape9').click();"></div>
+                            <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'shape','radio');"  class="mx-auto" name="shapegroup" id="shape9" value="german"></span></div>
+                        </div>
+                        <div style="width: 110px;">
+                            <div class="mx-auto text-center">
+                       <span>Polish</span></div>
+                            <div class="mx-auto"><img alt="polish" src="/create/img/polish.png" class="mx-auto d-block" onclick="jQuery('#shape10').click();"></div>
+                            <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'shape','radio');"  class="mx-auto" name="shapegroup" id="shape10" value="polish"></span></div>
+                        </div>
+                        <div style="width: 110px;">
+                            <div class="mx-auto text-center">
+                       <span>Spanish</span></div>
+                            <div class="mx-auto"><img alt="spanish" src="/create/img/spanish.png" class="mx-auto d-block" onclick="jQuery('#shape11').click();"></div>
+                            <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'shape','radio');"  class="mx-auto" name="shapegroup" id="shape11" value="spanish"></span></div>
+                        </div>
+                        <div style="width: 110px;">
+                            <div class="mx-auto text-center">
+                       <span>Circle</span></div>
+                            <div class="mx-auto"><img alt="circle" src="/create/img/circle.png" class="mx-auto d-block" onclick="jQuery('#shape13').click();"></div>
+                            <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'shape','radio');"  class="mx-auto" name="shapegroup" id="shape13" value="circle"></span></div>
+                        </div>
+                        <div style="width: 110px;">
+                            <div class="mx-auto text-center">
+                       <span>SCA</span></div>
+                            <div class="mx-auto"><img alt="sca" src="/create/img/sca.png" class="mx-auto d-block" onclick="jQuery('#shape14').click();"></div>
+                            <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'shape','radio');"  class="mx-auto" name="shapegroup" id="shape14" value="sca"></span></div>
+                        </div>
+                         <div style="width: 110px;">
+                            <div class="mx-auto text-center">
+                       <span>Swatch</span></div>
+                            <div class="mx-auto"><img alt="sca" src="/create/img/swatch.png" class="mx-auto d-block" onclick="jQuery('#shape15').click();"></div>
+                            <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'shape','radio');"  class="mx-auto" name="shapegroup" id="shape15" value="swatch"></span></div>
+                        </div>
+                        <div style="width: 110px;">
+                            <div class="mx-auto text-center">
+                       <span>Pauldron</span></div>
+                            <div class="mx-auto"><img alt="pauldron" src="/create/img/pauldron.png" class="mx-auto d-block" onclick="jQuery('#shape16').click();"></div>
+                            <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'shape','radio');"  class="mx-auto" name="shapegroup" id="shape16" value="pauldron"></span></div>
+                        </div>
+                        <div style="width: 110px;">
+                            <div class="mx-auto text-center">
+                       <span>Stamp</span></div>
+                        <div class="mx-auto"><img alt="stamp" src="/create/img/stamp.png" class="mx-auto d-block" onclick="jQuery('#shape17').click();"></div>
+                        <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'shape','radio');"  class="mx-auto" name="shapegroup" id="shape17" value="stamp"></span></div>
+                    </div>
+                    <div class="row">
+                        <div style="width: 110px;">
+                            <div class="mx-auto text-center">
+                       <span>Flag</span></div>
+                            <div class="mx-auto"><img alt="flag" src="/create/img/flag.png" class="mx-auto d-block" onclick="jQuery('#shape12').click();"></div>
+                            <div class="mx-auto text-center">
+                       <span><input type="radio" onchange="setOption(event,'shape','radio');"  class="mx-auto" name="shapegroup" id="shape12" value="flag"></span></div>
+                        </div>
+                        <div style="width: 200px;">
+                            <div class="mx-auto text-center"><span>Proportions (Flag only)</span></div>
+                            <input type="text" class="form-control" id="aspectRatio" aria-describedby="sizeHelp" 
+                                placeholder="E.g. 1:3 or 0.333" onclick="setOption(event,'aspectRatio','text');">
+                            <small id="sizeHelp" class="form-text text-muted">height:width or decimals, E.g. 1:3 or 0.333</small>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="col-6 card p-2">
+                 <div class="row">
+                    <div class="col-8">
+                        <p class="lead">Custom Palette</p>
+                    </div>
+                    <div class="col-4">
+                        <span><input type="checkbox" id="enable-cp" name="enable-cp" value="enabled"
+                            onclick="setOption(event,'useCustomPalette','checkbox');"/>
+                            <label for="enable-cp"> Enable Custom Palette</label>
+                    </div>
+                </div>  
+                <div class="flex-container">
+                    <input id='tincture_name' style="max-width: 250px; display: inline-block;" 
+                        list='tincture_values' oninput='tincture_input(event);' autocomplete='off'/>
+                    <input id='tincture_color' style="height: 30px; display: inline-block;" type='color' />
+                    <button class="button" style="max-width: 140px; display: inline-block;" onclick='tincture_mod()'>Add</button>
+                    <button class="button" style="max-width: 140px; display: inline-block;" onclick='tincture_mod("remove")'>Remove</button>
+                    <button class="button" style="max-width: 140px; display: inline-block;" onclick='tincture_mod("clear")'>Clear</button>
+                </div>
+                <datalist id='tincture_values'>
+                <option value='heraldic/or' data-color='#EFD807'>heraldic/or</option>
+                <option value='heraldic/azure' data-color='#1E7FCB'>heraldic/azure</option>
+                <option value='heraldic/vert' data-color='#149414'>heraldic/vert</option>
+                <option value='heraldic/gules' data-color='#E21313'>heraldic/gules</option>
+                <option value='heraldic/argent' data-color='#F0F0F0'>heraldic/argent</option>
+                <option value='heraldic/sable' data-color='#050505'>heraldic/sable</option>
+                <option value='heraldic/purpure' data-color='#965578'>heraldic/purpure</option>
+                <option value='heraldic/murrey' data-color='#8C004B'>heraldic/murrey</option>
+                <option value='heraldic/sanguine' data-color='#850606'>heraldic/sanguine</option>
+                <option value='heraldic/carnation' data-color='#FEC3AC'>heraldic/carnation</option>
+                <option value='heraldic/brunatre' data-color='#7E0001'>heraldic/brunatre</option>
+                <option value='heraldic/cendree' data-color='#848484'>heraldic/cendree</option>
+                <option value='heraldic/rose' data-color='#FF006E'>heraldic/rose</option>
+                <option value='heraldic/bis' data-color='#F1E2BE'>heraldic/bis</option>
+                <option value='heraldic/celestial-azure' data-color='#96C8F9'>heraldic/celestial-azure</option>
+                <option value='heraldic/senois' data-color='#8D4024'>heraldic/senois</option>
+                <option value='heraldic/tenne' data-color='#A75502'>heraldic/tenne</option>
+                <option value='heraldic/orange' data-color='#FAA401'>heraldic/orange</option>
+                <option value='heraldic/marshalling-stroke' data-color='#696969'>heraldic/marshalling-stroke</option>
+                <option value='heraldic/charge-stroke' data-color='#696969'>heraldic/charge-stroke</option>
+                <option value='heraldic/stroke-light' data-color='#000000'>heraldic/stroke-light</option>
+                <option value='heraldic/stroke-dark' data-color='#696969'>heraldic/stroke-dark</option>
+                <option value='heraldic/light-dark-threshold' data-color='75'>heraldic/light-dark-threshold</option>
+                <option value='heraldic/stroke-width' data-color='1'>heraldic/stroke-width</option>
+                <option value='heraldic/ordinary-stroke' data-color='none'>heraldic/ordinary-stroke</option>
+                <option value='heraldic/pattern-stroke' data-color='none'>heraldic/pattern-stroke</option>
+                <option value='heraldic/division-stroke' data-color='none'>heraldic/division-stroke</option>
+                <option value='heraldic/white-line' data-color='#FFFFFF'>heraldic/white-line</option>
+                <option value='heraldic/gray' data-color='#888888'>heraldic/gray</option>
+                <option value='heraldic/iron' data-color='#bcbcbc'>heraldic/iron</option>
+                <option value='heraldic/bronze' data-color='#c28039'>heraldic/bronze</option>
+                <option value='heraldic/copper' data-color='#ba702f'>heraldic/copper</option>
+                <option value='heraldic/lead' data-color='#6b949e'>heraldic/lead</option>
+                <option value='heraldic/steel' data-color='#bdbdbd'>heraldic/steel</option>
+                <option value='heraldic/white' data-color='#ffffff'>heraldic/white</option>
+                <option value='heraldic/buff' data-color='#f0dc82'>heraldic/buff</option>
+                <option value='heraldic/red-ochre' data-color='#890520'>heraldic/red-ochre</option>
+                <option value='heraldic/yellow-ochre' data-color='#ccaa2b'>heraldic/yellow-ochre</option>
+                <option value='heraldic/crimson' data-color='#dc143c'>heraldic/crimson</option>
+                <option value='web/web-azure' data-color='#f0ffff'>web/web-azure</option>
+                <option value='web/cyan' data-color='#00ffff'>web/cyan</option>
+                <option value='web/lime' data-color='#00ff00'>web/lime</option>
+                <option value='web/olive' data-color='#808000'>web/olive</option>
+                <option value='web/magenta' data-color='#ff00ff'>web/magenta</option>
+                <option value='web/maroon' data-color='#810541'>web/maroon</option>
+                <option value='web/dark-blue' data-color='#0000a0'>web/dark-blue</option>
+                <option value='web/light-blue' data-color='#addfff'>web/light-blue</option>
+                <option value='web/night' data-color='#2c3539'>web/night</option>
+                <option value='web/gunmetal' data-color='#0c090a'>web/gunmetal</option>
+                <option value='web/midnight' data-color='#2b1b17'>web/midnight</option>
+                <option value='web/charcoal' data-color='#34282c'>web/charcoal</option>
+                <option value='web/dark-slate-grey' data-color='#25383c'>web/dark-slate-grey</option>
+                <option value='web/oil' data-color='#3b3131'>web/oil</option>
+                <option value='web/black-cat' data-color='#413839'>web/black-cat</option>
+                <option value='web/iridium' data-color='#3d3c3a'>web/iridium</option>
+                <option value='web/black-eel' data-color='#463e3f'>web/black-eel</option>
+                <option value='web/black-cow' data-color='#4c4646'>web/black-cow</option>
+                <option value='web/gray-wolf' data-color='#504a4b'>web/gray-wolf</option>
+                <option value='web/vampire-gray' data-color='#565051'>web/vampire-gray</option>
+                <option value='web/gray-dolphin' data-color='#5c5858'>web/gray-dolphin</option>
+                <option value='web/carbon-gray' data-color='#625d5d'>web/carbon-gray</option>
+                <option value='web/ash-gray' data-color='#666362'>web/ash-gray</option>
+                <option value='web/cloudy-gray' data-color='#6d6968'>web/cloudy-gray</option>
+                <option value='web/smokey-gray' data-color='#726e6d'>web/smokey-gray</option>
+                <option value='web/gray' data-color='#736f6e'>web/gray</option>
+                <option value='web/granite' data-color='#837e7c'>web/granite</option>
+                <option value='web/battleship-gray' data-color='#848482'>web/battleship-gray</option>
+                <option value='web/gray-cloud' data-color='#b6b6b4'>web/gray-cloud</option>
+                <option value='web/gray-goose' data-color='#d1d0ce'>web/gray-goose</option>
+                <option value='web/platinum' data-color='#e5e4e2'>web/platinum</option>
+                <option value='web/metallic-silver' data-color='#bcc6cc'>web/metallic-silver</option>
+                <option value='web/blue-gray' data-color='#98afc7'>web/blue-gray</option>
+                <option value='web/light-slate-gray' data-color='#6d7b8d'>web/light-slate-gray</option>
+                <option value='web/slate-gray' data-color='#657383'>web/slate-gray</option>
+                <option value='web/jet-gray' data-color='#616d7e'>web/jet-gray</option>
+                <option value='web/mist-blue' data-color='#646d7e'>web/mist-blue</option>
+                <option value='web/marble-blue' data-color='#566d7e'>web/marble-blue</option>
+                <option value='web/slate-blue' data-color='#737ca1'>web/slate-blue</option>
+                <option value='web/steel-blue' data-color='#4863a0'>web/steel-blue</option>
+                <option value='web/blue-jay' data-color='#2b547e'>web/blue-jay</option>
+                <option value='web/dark-slate-blue' data-color='#2b3856'>web/dark-slate-blue</option>
+                <option value='web/midnight-blue' data-color='#151b54'>web/midnight-blue</option>
+                <option value='web/navy-blue' data-color='#000080'>web/navy-blue</option>
+                <option value='web/blue-whale' data-color='#342d7e'>web/blue-whale</option>
+                <option value='web/lapis-blue' data-color='#15317e'>web/lapis-blue</option>
+                <option value='web/denim-dark-blue' data-color='#151b8d'>web/denim-dark-blue</option>
+                <option value='web/earth-blue' data-color='#0000a0'>web/earth-blue</option>
+                <option value='web/cobalt-blue' data-color='#0020c2'>web/cobalt-blue</option>
+                <option value='web/blueberry-blue' data-color='#0041c2'>web/blueberry-blue</option>
+                <option value='web/sapphire-blue' data-color='#2554c7'>web/sapphire-blue</option>
+                <option value='web/blue-eyes' data-color='#1569c7'>web/blue-eyes</option>
+                <option value='web/royal-blue' data-color='#2b60de'>web/royal-blue</option>
+                <option value='web/blue-orchid' data-color='#1f45fc'>web/blue-orchid</option>
+                <option value='web/blue-lotus' data-color='#6960ec'>web/blue-lotus</option>
+                <option value='web/light-slate-blue' data-color='#736aff'>web/light-slate-blue</option>
+                <option value='web/windows-blue' data-color='#357ec7'>web/windows-blue</option>
+                <option value='web/glacial-blue-ice' data-color='#368bc1'>web/glacial-blue-ice</option>
+                <option value='web/silk-blue' data-color='#488ac7'>web/silk-blue</option>
+                <option value='web/blue-ivy' data-color='#3090c7'>web/blue-ivy</option>
+                <option value='web/blue-koi' data-color='#659ec7'>web/blue-koi</option>
+                <option value='web/columbia-blue' data-color='#87afc7'>web/columbia-blue</option>
+                <option value='web/baby-blue' data-color='#95b9c7'>web/baby-blue</option>
+                <option value='web/light-steel-blue' data-color='#728fce'>web/light-steel-blue</option>
+                <option value='web/ocean-blue' data-color='#2b65ec'>web/ocean-blue</option>
+                <option value='web/blue-ribbon' data-color='#306eff'>web/blue-ribbon</option>
+                <option value='web/blue-dress' data-color='#157dec'>web/blue-dress</option>
+                <option value='web/dodger-blue' data-color='#1589ff'>web/dodger-blue</option>
+                <option value='web/cornflower-blue' data-color='#6495ed'>web/cornflower-blue</option>
+                <option value='web/sky-blue' data-color='#6698ff'>web/sky-blue</option>
+                <option value='web/butterfly-blue' data-color='#38acec'>web/butterfly-blue</option>
+                <option value='web/iceberg' data-color='#56a5ec'>web/iceberg</option>
+                <option value='web/crystal-blue' data-color='#5cb3ff'>web/crystal-blue</option>
+                <option value='web/deep-sky-blue' data-color='#3bb9ff'>web/deep-sky-blue</option>
+                <option value='web/denim-blue' data-color='#79baec'>web/denim-blue</option>
+                <option value='web/light-sky-blue' data-color='#82cafa'>web/light-sky-blue</option>
+                <option value='web/day-sky-blue' data-color='#82caff'>web/day-sky-blue</option>
+                <option value='web/jeans-blue' data-color='#a0cfec'>web/jeans-blue</option>
+                <option value='web/blue-angel' data-color='#b7ceec'>web/blue-angel</option>
+                <option value='web/pastel-blue' data-color='#b4cfec'>web/pastel-blue</option>
+                <option value='web/sea-blue' data-color='#c2dfff'>web/sea-blue</option>
+                <option value='web/powder-blue' data-color='#c6deff'>web/powder-blue</option>
+                <option value='web/coral-blue' data-color='#afdcec'>web/coral-blue</option>
+                <option value='web/robin-egg-blue' data-color='#bdedff'>web/robin-egg-blue</option>
+                <option value='web/pale-blue-lily' data-color='#cfecec'>web/pale-blue-lily</option>
+                <option value='web/light-cyan' data-color='#e0ffff'>web/light-cyan</option>
+                <option value='web/water' data-color='#ebf4fa'>web/water</option>
+                <option value='web/aliceblue' data-color='#f0f8ff'>web/aliceblue</option>
+                <option value='web/light-slate' data-color='#ccffff'>web/light-slate</option>
+                <option value='web/light-aquamarine' data-color='#93ffe8'>web/light-aquamarine</option>
+                <option value='web/electric-blue' data-color='#9afeff'>web/electric-blue</option>
+                <option value='web/aquamarine' data-color='#7fffd4'>web/aquamarine</option>
+                <option value='web/tron-blue' data-color='#7dfdfe'>web/tron-blue</option>
+                <option value='web/blue-zircon' data-color='#57feff'>web/blue-zircon</option>
+                <option value='web/blue-lagoon' data-color='#8eebec'>web/blue-lagoon</option>
+                <option value='web/celeste' data-color='#50ebec'>web/celeste</option>
+                <option value='web/blue-diamond' data-color='#4ee2ec'>web/blue-diamond</option>
+                <option value='web/tiffany-blue' data-color='#81d8d0'>web/tiffany-blue</option>
+                <option value='web/cyan-opaque' data-color='#92c7c7'>web/cyan-opaque</option>
+                <option value='web/blue-hosta' data-color='#77bfc7'>web/blue-hosta</option>
+                <option value='web/northern-lights-blue' data-color='#78c7c7'>web/northern-lights-blue</option>
+                <option value='web/medium-turquoise' data-color='#48cccd'>web/medium-turquoise</option>
+                <option value='web/turquoise' data-color='#43c6db'>web/turquoise</option>
+                <option value='web/jellyfish' data-color='#46c7c7'>web/jellyfish</option>
+                <option value='web/blue-green' data-color='#7bccb5'>web/blue-green</option>
+                <option value='web/macaw-blue-green' data-color='#43bfc7'>web/macaw-blue-green</option>
+                <option value='web/light-sea-green' data-color='#3ea99f'>web/light-sea-green</option>
+                <option value='web/dark-turquoise' data-color='#3b9c9c'>web/dark-turquoise</option>
+                <option value='web/sea-turtle-green' data-color='#438d80'>web/sea-turtle-green</option>
+                <option value='web/medium-aquamarine' data-color='#348781'>web/medium-aquamarine</option>
+                <option value='web/greenish-blue' data-color='#307d7e'>web/greenish-blue</option>
+                <option value='web/grayish-turquoise' data-color='#5e7d7e'>web/grayish-turquoise</option>
+                <option value='web/beetle-green' data-color='#4c787e'>web/beetle-green</option>
+                <option value='web/teal' data-color='#008080'>web/teal</option>
+                <option value='web/sea-green' data-color='#4e8975'>web/sea-green</option>
+                <option value='web/camouflage-green' data-color='#78866b'>web/camouflage-green</option>
+                <option value='web/sage-green' data-color='#848b79'>web/sage-green</option>
+                <option value='web/hazel-green' data-color='#617c58'>web/hazel-green</option>
+                <option value='web/venom-green' data-color='#728c00'>web/venom-green</option>
+                <option value='web/fern-green' data-color='#667c26'>web/fern-green</option>
+                <option value='web/dark-forest-green' data-color='#254117'>web/dark-forest-green</option>
+                <option value='web/medium-sea-green' data-color='#306754'>web/medium-sea-green</option>
+                <option value='web/medium-forest-green' data-color='#347235'>web/medium-forest-green</option>
+                <option value='web/seaweed-green' data-color='#437c17'>web/seaweed-green</option>
+                <option value='web/pine-green' data-color='#387c44'>web/pine-green</option>
+                <option value='web/jungle-green' data-color='#347c2c'>web/jungle-green</option>
+                <option value='web/shamrock-green' data-color='#347c17'>web/shamrock-green</option>
+                <option value='web/medium-spring-green' data-color='#348017'>web/medium-spring-green</option>
+                <option value='web/forest-green' data-color='#4e9258'>web/forest-green</option>
+                <option value='web/green-onion' data-color='#6aa121'>web/green-onion</option>
+                <option value='web/spring-green' data-color='#4aa02c'>web/spring-green</option>
+                <option value='web/lime-green' data-color='#41a317'>web/lime-green</option>
+                <option value='web/clover-green' data-color='#3ea055'>web/clover-green</option>
+                <option value='web/green-snake' data-color='#6cbb3c'>web/green-snake</option>
+                <option value='web/alien-green' data-color='#6cc417'>web/alien-green</option>
+                <option value='web/green-apple' data-color='#4cc417'>web/green-apple</option>
+                <option value='web/yellow-green' data-color='#52d017'>web/yellow-green</option>
+                <option value='web/kelly-green' data-color='#4cc552'>web/kelly-green</option>
+                <option value='web/zombie-green' data-color='#54c571'>web/zombie-green</option>
+                <option value='web/frog-green' data-color='#99c68e'>web/frog-green</option>
+                <option value='web/green-peas' data-color='#89c35c'>web/green-peas</option>
+                <option value='web/dollar-bill-green' data-color='#85bb65'>web/dollar-bill-green</option>
+                <option value='web/dark-sea-green' data-color='#8bb381'>web/dark-sea-green</option>
+                <option value='web/iguana-green' data-color='#9cb071'>web/iguana-green</option>
+                <option value='web/avocado-green' data-color='#b2c248'>web/avocado-green</option>
+                <option value='web/pistachio-green' data-color='#9dc209'>web/pistachio-green</option>
+                <option value='web/salad-green' data-color='#a1c935'>web/salad-green</option>
+                <option value='web/hummingbird-green' data-color='#7fe817'>web/hummingbird-green</option>
+                <option value='web/nebula-green' data-color='#59e817'>web/nebula-green</option>
+                <option value='web/stoplight-go-green' data-color='#57e964'>web/stoplight-go-green</option>
+                <option value='web/algae-green' data-color='#64e986'>web/algae-green</option>
+                <option value='web/jade-green' data-color='#5efb6e'>web/jade-green</option>
+                <option value='web/emerald-green' data-color='#5ffb17'>web/emerald-green</option>
+                <option value='web/lawn-green' data-color='#87f717'>web/lawn-green</option>
+                <option value='web/chartreuse' data-color='#8afb17'>web/chartreuse</option>
+                <option value='web/dragon-green' data-color='#6afb92'>web/dragon-green</option>
+                <option value='web/mint-green' data-color='#98ff98'>web/mint-green</option>
+                <option value='web/green-thumb' data-color='#b5eaaa'>web/green-thumb</option>
+                <option value='web/light-jade' data-color='#c3fdb8'>web/light-jade</option>
+                <option value='web/tea-green' data-color='#ccfb5d'>web/tea-green</option>
+                <option value='web/green-yellow' data-color='#b1fb17'>web/green-yellow</option>
+                <option value='web/slime-green' data-color='#bce954'>web/slime-green</option>
+                <option value='web/goldenrod' data-color='#edda74'>web/goldenrod</option>
+                <option value='web/harvest-gold' data-color='#ede275'>web/harvest-gold</option>
+                <option value='web/sun-yellow' data-color='#ffe87c'>web/sun-yellow</option>
+                <option value='web/corn-yellow' data-color='#fff380'>web/corn-yellow</option>
+                <option value='web/parchment' data-color='#ffffc2'>web/parchment</option>
+                <option value='web/cream' data-color='#ffffcc'>web/cream</option>
+                <option value='web/lemon-chiffon' data-color='#fff8c6'>web/lemon-chiffon</option>
+                <option value='web/cornsilk' data-color='#fff8dc'>web/cornsilk</option>
+                <option value='web/beige' data-color='#f5f5dc'>web/beige</option>
+                <option value='web/blonde' data-color='#fbf6d9'>web/blonde</option>
+                <option value='web/antique-white' data-color='#faebd7'>web/antique-white</option>
+                <option value='web/champagne' data-color='#f7e7ce'>web/champagne</option>
+                <option value='web/blanched-almond' data-color='#ffebcd'>web/blanched-almond</option>
+                <option value='web/vanilla' data-color='#f3e5ab'>web/vanilla</option>
+                <option value='web/tan-brown' data-color='#ece5b6'>web/tan-brown</option>
+                <option value='web/peach' data-color='#ffe5b4'>web/peach</option>
+                <option value='web/mustard' data-color='#ffdb58'>web/mustard</option>
+                <option value='web/rubber-ducky-yellow' data-color='#ffd801'>web/rubber-ducky-yellow</option>
+                <option value='web/bright-gold' data-color='#fdd017'>web/bright-gold</option>
+                <option value='web/golden-brown' data-color='#eac117'>web/golden-brown</option>
+                <option value='web/macaroni-cheese' data-color='#f2bb66'>web/macaroni-cheese</option>
+                <option value='web/saffron' data-color='#fbb917'>web/saffron</option>
+                <option value='web/beer' data-color='#fbb117'>web/beer</option>
+                <option value='web/cantaloupe' data-color='#ffa62f'>web/cantaloupe</option>
+                <option value='web/bee-yellow' data-color='#e9ab17'>web/bee-yellow</option>
+                <option value='web/brown-sugar' data-color='#e2a76f'>web/brown-sugar</option>
+                <option value='web/burlywood' data-color='#deb887'>web/burlywood</option>
+                <option value='web/deep-peach' data-color='#ffcba4'>web/deep-peach</option>
+                <option value='web/ginger-brown' data-color='#c9be62'>web/ginger-brown</option>
+                <option value='web/school-bus-yellow' data-color='#e8a317'>web/school-bus-yellow</option>
+                <option value='web/sandy-brown' data-color='#ee9a4d'>web/sandy-brown</option>
+                <option value='web/fall-leaf-brown' data-color='#c8b560'>web/fall-leaf-brown</option>
+                <option value='web/orange-gold' data-color='#d4a017'>web/orange-gold</option>
+                <option value='web/sand' data-color='#c2b280'>web/sand</option>
+                <option value='web/cookie-brown' data-color='#c7a317'>web/cookie-brown</option>
+                <option value='web/caramel' data-color='#c68e17'>web/caramel</option>
+                <option value='web/brass' data-color='#b5a642'>web/brass</option>
+                <option value='web/khaki' data-color='#ada96e'>web/khaki</option>
+                <option value='web/camel-brown' data-color='#c19a6b'>web/camel-brown</option>
+                <option value='web/bronze' data-color='#cd7f32'>web/bronze</option>
+                <option value='web/tiger-orange' data-color='#c88141'>web/tiger-orange</option>
+                <option value='web/cinnamon' data-color='#c58917'>web/cinnamon</option>
+                <option value='web/bullet-shell' data-color='#af9b60'>web/bullet-shell</option>
+                <option value='web/dark-goldenrod' data-color='#af7817'>web/dark-goldenrod</option>
+                <option value='web/copper' data-color='#b87333'>web/copper</option>
+                <option value='web/wood' data-color='#966f33'>web/wood</option>
+                <option value='web/oak-brown' data-color='#806517'>web/oak-brown</option>
+                <option value='web/moccasin' data-color='#827839'>web/moccasin</option>
+                <option value='web/army-brown' data-color='#827b60'>web/army-brown</option>
+                <option value='web/sandstone' data-color='#786d5f'>web/sandstone</option>
+                <option value='web/mocha' data-color='#493d26'>web/mocha</option>
+                <option value='web/taupe' data-color='#483c32'>web/taupe</option>
+                <option value='web/coffee' data-color='#6f4e37'>web/coffee</option>
+                <option value='web/brown-bear' data-color='#835c3b'>web/brown-bear</option>
+                <option value='web/red-dirt' data-color='#7f5217'>web/red-dirt</option>
+                <option value='web/sepia' data-color='#7f462c'>web/sepia</option>
+                <option value='web/orange-salmon' data-color='#c47451'>web/orange-salmon</option>
+                <option value='web/rust' data-color='#c36241'>web/rust</option>
+                <option value='web/red-fox' data-color='#c35817'>web/red-fox</option>
+                <option value='web/chocolate' data-color='#c85a17'>web/chocolate</option>
+                <option value='web/sedona' data-color='#cc6600'>web/sedona</option>
+                <option value='web/papaya-orange' data-color='#e56717'>web/papaya-orange</option>
+                <option value='web/halloween-orange' data-color='#e66c2c'>web/halloween-orange</option>
+                <option value='web/pumpkin-orange' data-color='#f87217'>web/pumpkin-orange</option>
+                <option value='web/construction-cone-orange' data-color='#f87431'>web/construction-cone-orange</option>
+                <option value='web/sunrise-orange' data-color='#e67451'>web/sunrise-orange</option>
+                <option value='web/mango-orange' data-color='#ff8040'>web/mango-orange</option>
+                <option value='web/dark-orange' data-color='#f88017'>web/dark-orange</option>
+                <option value='web/coral' data-color='#ff7f50'>web/coral</option>
+                <option value='web/basket-ball-orange' data-color='#f88158'>web/basket-ball-orange</option>
+                <option value='web/light-salmon' data-color='#f9966b'>web/light-salmon</option>
+                <option value='web/tangerine' data-color='#e78a61'>web/tangerine</option>
+                <option value='web/dark-salmon' data-color='#e18b6b'>web/dark-salmon</option>
+                <option value='web/light-coral' data-color='#e77471'>web/light-coral</option>
+                <option value='web/bean-red' data-color='#f75d59'>web/bean-red</option>
+                <option value='web/valentine-red' data-color='#e55451'>web/valentine-red</option>
+                <option value='web/shocking-orange' data-color='#e55b3c'>web/shocking-orange</option>
+                <option value='web/scarlet' data-color='#ff2400'>web/scarlet</option>
+                <option value='web/ruby-red' data-color='#f62217'>web/ruby-red</option>
+                <option value='web/ferrari-red' data-color='#f70d1a'>web/ferrari-red</option>
+                <option value='web/fire-engine-red' data-color='#f62817'>web/fire-engine-red</option>
+                <option value='web/lava-red' data-color='#e42217'>web/lava-red</option>
+                <option value='web/love-red' data-color='#e41b17'>web/love-red</option>
+                <option value='web/grapefruit' data-color='#dc381f'>web/grapefruit</option>
+                <option value='web/chestnut-red' data-color='#c34a2c'>web/chestnut-red</option>
+                <option value='web/cherry-red' data-color='#c24641'>web/cherry-red</option>
+                <option value='web/mahogany' data-color='#c04000'>web/mahogany</option>
+                <option value='web/chilli-pepper' data-color='#c11b17'>web/chilli-pepper</option>
+                <option value='web/cranberry' data-color='#9f000f'>web/cranberry</option>
+                <option value='web/red-wine' data-color='#990012'>web/red-wine</option>
+                <option value='web/burgundy' data-color='#8c001a'>web/burgundy</option>
+                <option value='web/chestnut' data-color='#954535'>web/chestnut</option>
+                <option value='web/blood-red' data-color='#7e3517'>web/blood-red</option>
+                <option value='web/sienna' data-color='#8a4117'>web/sienna</option>
+                <option value='web/sangria' data-color='#7e3817'>web/sangria</option>
+                <option value='web/firebrick' data-color='#800517'>web/firebrick</option>
+                <option value='web/plum-pie' data-color='#7d0541'>web/plum-pie</option>
+                <option value='web/velvet-maroon' data-color='#7e354d'>web/velvet-maroon</option>
+                <option value='web/plum-velvet' data-color='#7d0552'>web/plum-velvet</option>
+                <option value='web/rosy-finch' data-color='#7f4e52'>web/rosy-finch</option>
+                <option value='web/puce' data-color='#7f5a58'>web/puce</option>
+                <option value='web/dull-purple' data-color='#7f525d'>web/dull-purple</option>
+                <option value='web/rosy-brown' data-color='#b38481'>web/rosy-brown</option>
+                <option value='web/khaki-rose' data-color='#c5908e'>web/khaki-rose</option>
+                <option value='web/pink-bow' data-color='#c48189'>web/pink-bow</option>
+                <option value='web/lipstick-pink' data-color='#c48793'>web/lipstick-pink</option>
+                <option value='web/rose-gold' data-color='#ecc5c0'>web/rose-gold</option>
+                <option value='web/desert-sand' data-color='#edc9af'>web/desert-sand</option>
+                <option value='web/pig-pink' data-color='#fdd7e4'>web/pig-pink</option>
+                <option value='web/cotton-candy' data-color='#fcdfff'>web/cotton-candy</option>
+                <option value='web/pink-bubblegum' data-color='#ffdfdd'>web/pink-bubblegum</option>
+                <option value='web/misty-rose' data-color='#fbbbb9'>web/misty-rose</option>
+                <option value='web/pink' data-color='#faafbe'>web/pink</option>
+                <option value='web/light-pink' data-color='#faafba'>web/light-pink</option>
+                <option value='web/flamingo-pink' data-color='#f9a7b0'>web/flamingo-pink</option>
+                <option value='web/pink-rose' data-color='#e7a1b0'>web/pink-rose</option>
+                <option value='web/pink-daisy' data-color='#e799a3'>web/pink-daisy</option>
+                <option value='web/cadillac-pink' data-color='#e38aae'>web/cadillac-pink</option>
+                <option value='web/blush-red' data-color='#e56e94'>web/blush-red</option>
+                <option value='web/hot-pink' data-color='#f660ab'>web/hot-pink</option>
+                <option value='web/watermelon-pink' data-color='#fc6c85'>web/watermelon-pink</option>
+                <option value='web/violet-red' data-color='#f6358a'>web/violet-red</option>
+                <option value='web/deep-pink' data-color='#f52887'>web/deep-pink</option>
+                <option value='web/pink-cupcake' data-color='#e45e9d'>web/pink-cupcake</option>
+                <option value='web/pink-lemonade' data-color='#e4287c'>web/pink-lemonade</option>
+                <option value='web/neon-pink' data-color='#f535aa'>web/neon-pink</option>
+                <option value='web/dimorphotheca-magenta' data-color='#e3319d'>web/dimorphotheca-magenta</option>
+                <option value='web/bright-neon-pink' data-color='#f433ff'>web/bright-neon-pink</option>
+                <option value='web/pale-violet-red' data-color='#d16587'>web/pale-violet-red</option>
+                <option value='web/tulip-pink' data-color='#c25a7c'>web/tulip-pink</option>
+                <option value='web/medium-violet-red' data-color='#ca226b'>web/medium-violet-red</option>
+                <option value='web/rogue-pink' data-color='#c12869'>web/rogue-pink</option>
+                <option value='web/burnt-pink' data-color='#c12267'>web/burnt-pink</option>
+                <option value='web/bashful-pink' data-color='#c25283'>web/bashful-pink</option>
+                <option value='web/dark-carnation-pink' data-color='#c12283'>web/dark-carnation-pink</option>
+                <option value='web/plum' data-color='#b93b8f'>web/plum</option>
+                <option value='web/viola-purple' data-color='#7e587e'>web/viola-purple</option>
+                <option value='web/purple-iris' data-color='#571b7e'>web/purple-iris</option>
+                <option value='web/plum-purple' data-color='#583759'>web/plum-purple</option>
+                <option value='web/indigo' data-color='#4b0082'>web/indigo</option>
+                <option value='web/purple-monster' data-color='#461b7e'>web/purple-monster</option>
+                <option value='web/purple-haze' data-color='#4e387e'>web/purple-haze</option>
+                <option value='web/eggplant' data-color='#614051'>web/eggplant</option>
+                <option value='web/grape' data-color='#5e5a80'>web/grape</option>
+                <option value='web/purple-jam' data-color='#6a287e'>web/purple-jam</option>
+                <option value='web/dark-orchid' data-color='#7d1b7e'>web/dark-orchid</option>
+                <option value='web/purple-flower' data-color='#a74ac7'>web/purple-flower</option>
+                <option value='web/medium-orchid' data-color='#b048b5'>web/medium-orchid</option>
+                <option value='web/purple-amethyst' data-color='#6c2dc7'>web/purple-amethyst</option>
+                <option value='web/dark-violet' data-color='#842dce'>web/dark-violet</option>
+                <option value='web/violet' data-color='#8d38c9'>web/violet</option>
+                <option value='web/purple-sage-bush' data-color='#7a5dc7'>web/purple-sage-bush</option>
+                <option value='web/lovely-purple' data-color='#7f38ec'>web/lovely-purple</option>
+                <option value='web/purple' data-color='#8e35ef'>web/purple</option>
+                <option value='web/aztech-purple' data-color='#893bff'>web/aztech-purple</option>
+                <option value='web/medium-purple' data-color='#8467d7'>web/medium-purple</option>
+                <option value='web/jasmine-purple' data-color='#a23bec'>web/jasmine-purple</option>
+                <option value='web/purple-daffodil' data-color='#b041ff'>web/purple-daffodil</option>
+                <option value='web/tyrian-purple' data-color='#c45aec'>web/tyrian-purple</option>
+                <option value='web/crocus-purple' data-color='#9172ec'>web/crocus-purple</option>
+                <option value='web/purple-mimosa' data-color='#9e7bff'>web/purple-mimosa</option>
+                <option value='web/heliotrope-purple' data-color='#d462ff'>web/heliotrope-purple</option>
+                <option value='web/crimson' data-color='#e238ec'>web/crimson</option>
+                <option value='web/purple-dragon' data-color='#c38ec7'>web/purple-dragon</option>
+                <option value='web/lilac' data-color='#c8a2c8'>web/lilac</option>
+                <option value='web/blush-pink' data-color='#e6a9ec'>web/blush-pink</option>
+                <option value='web/mauve' data-color='#e0b0ff'>web/mauve</option>
+                <option value='web/wisteria-purple' data-color='#c6aec7'>web/wisteria-purple</option>
+                <option value='web/blossom-pink' data-color='#f9b7ff'>web/blossom-pink</option>
+                <option value='web/thistle' data-color='#d2b9d3'>web/thistle</option>
+                <option value='web/periwinkle' data-color='#e9cfec'>web/periwinkle</option>
+                <option value='web/lavender-pinocchio' data-color='#ebdde2'>web/lavender-pinocchio</option>
+                <option value='web/lavender-blue' data-color='#e3e4fa'>web/lavender-blue</option>
+                <option value='web/pearl' data-color='#fdeef4'>web/pearl</option>
+                <option value='web/seashell' data-color='#fff5ee'>web/seashell</option>
+                <option value='web/milk-white' data-color='#fefcff'>web/milk-white</option>
+                <option value='web/white' data-color='#ffffff'>web/white</option>
+                <option value='web/rebecca-purple' data-color='#663399'>web/rebecca-purple</option>
+                <option value='wh/abaddon-black' data-color='#231f20'>wh/abaddon-black</option>
+                <option value='wh/administratum-grey' data-color='#949b95'>wh/administratum-grey</option>
+                <option value='wh/agrax-earthshade' data-color='#5a573f'>wh/agrax-earthshade</option>
+                <option value='wh/agrellan-earth' data-color='#9a816b'>wh/agrellan-earth</option>
+                <option value='wh/ahriman-blue' data-color='#1f8c9c'>wh/ahriman-blue</option>
+                <option value='wh/alaitoc-blue' data-color='#295788'>wh/alaitoc-blue</option>
+                <option value='wh/altdorf-guard-blue' data-color='#1f56a7'>wh/altdorf-guard-blue</option>
+                <option value='wh/ardcoat' data-color='#e2dedf'>wh/ardcoat</option>
+                <option value='wh/armageddon-dust' data-color='#d3a907'>wh/armageddon-dust</option>
+                <option value='wh/astorath-red' data-color='#dd482b'>wh/astorath-red</option>
+                <option value='wh/astrogranite' data-color='#757679'>wh/astrogranite</option>
+                <option value='wh/athonian-camoshade' data-color='#6d8e44'>wh/athonian-camoshade</option>
+                <option value='wh/auric-armour-gold' data-color='#e8bc6d'>wh/auric-armour-gold</option>
+                <option value='wh/averland-sunset' data-color='#fdb825'>wh/averland-sunset</option>
+                <option value='wh/baharroth-blue' data-color='#58c1cd'>wh/baharroth-blue</option>
+                <option value='wh/balor-brown' data-color='#8b5910'>wh/balor-brown</option>
+                <option value='wh/balthasar-gold' data-color='#a47552'>wh/balthasar-gold</option>
+                <option value='wh/baneblade-brown' data-color='#937f6d'>wh/baneblade-brown</option>
+                <option value='wh/bestigor-flesh' data-color='#d38a57'>wh/bestigor-flesh</option>
+                <option value='wh/biel-tan-green' data-color='#1ba169'>wh/biel-tan-green</option>
+                <option value='wh/blackfire-earth' data-color='#a75820'>wh/blackfire-earth</option>
+                <option value='wh/blood-for-the-blood-god' data-color='#67080b'>wh/blood-for-the-blood-god</option>
+                <option value='wh/bloodletter' data-color='#f37355'>wh/bloodletter</option>
+                <option value='wh/blue-horror' data-color='#a2bad2'>wh/blue-horror</option>
+                <option value='wh/brass-scorpion' data-color='#b7885f'>wh/brass-scorpion</option>
+                <option value='wh/bugmans-glow' data-color='#834f44'>wh/bugmans-glow</option>
+                <option value='wh/cadian-fleshtone' data-color='#c77958'>wh/cadian-fleshtone</option>
+                <option value='wh/caledor-sky' data-color='#396e9e'>wh/caledor-sky</option>
+                <option value='wh/calgar-blue' data-color='#4272b8'>wh/calgar-blue</option>
+                <option value='wh/caliban-green' data-color='#00401f'>wh/caliban-green</option>
+                <option value='wh/carroburg-crimson' data-color='#a82a70'>wh/carroburg-crimson</option>
+                <option value='wh/casandora-yellow' data-color='#fece5a'>wh/casandora-yellow</option>
+                <option value='wh/castellan-green' data-color='#314821'>wh/castellan-green</option>
+                <option value='wh/celestra-grey' data-color='#90a8a8'>wh/celestra-grey</option>
+                <option value='wh/ceramite-white' data-color='#ffffff'>wh/ceramite-white</option>
+                <option value='wh/changeling-pink' data-color='#f4afcd'>wh/changeling-pink</option>
+                <option value='wh/chronus-blue' data-color='#72a8d1'>wh/chronus-blue</option>
+                <option value='wh/coelia-greenshade' data-color='#0e7f78'>wh/coelia-greenshade</option>
+                <option value='wh/daemonette-hide' data-color='#696684'>wh/daemonette-hide</option>
+                <option value='wh/dark-reaper' data-color='#3b5150'>wh/dark-reaper</option>
+                <option value='wh/dawnstone' data-color='#70756e'>wh/dawnstone</option>
+                <option value='wh/dawnstone-dry' data-color='#919c9f'>wh/dawnstone-dry</option>
+                <option value='wh/deathclaw-brown' data-color='#b36853'>wh/deathclaw-brown</option>
+                <option value='wh/death-guard-green' data-color='#848a66'>wh/death-guard-green</option>
+                <option value='wh/deathworld-forest' data-color='#5c6730'>wh/deathworld-forest</option>
+                <option value='wh/dechala-lilac' data-color='#b69fcc'>wh/dechala-lilac</option>
+                <option value='wh/doombull-brown' data-color='#5d0009'>wh/doombull-brown</option>
+                <option value='wh/dorn-yellow' data-color='#fff200'>wh/dorn-yellow</option>
+                <option value='wh/drakenhof-nightshade' data-color='#125899'>wh/drakenhof-nightshade</option>
+                <option value='wh/druchii-violet' data-color='#7a468c'>wh/druchii-violet</option>
+                <option value='wh/dryad-bark' data-color='#33312d'>wh/dryad-bark</option>
+                <option value='wh/eldar-flesh' data-color='#ecc083'>wh/eldar-flesh</option>
+                <option value='wh/elysian-green' data-color='#748f39'>wh/elysian-green</option>
+                <option value='wh/emperors-children' data-color='#b94278'>wh/emperors-children</option>
+                <option value='wh/eshin-grey' data-color='#4a4f52'>wh/eshin-grey</option>
+                <option value='wh/etherium-blue' data-color='#a2bad2'>wh/etherium-blue</option>
+                <option value='wh/evil-sunz-scarlet' data-color='#c2191f'>wh/evil-sunz-scarlet</option>
+                <option value='wh/fenrisian-grey' data-color='#719bb7'>wh/fenrisian-grey</option>
+                <option value='wh/fire-dragon-bright' data-color='#f58652'>wh/fire-dragon-bright</option>
+                <option value='wh/flash-gitz-yellow' data-color='#fff200'>wh/flash-gitz-yellow</option>
+                <option value='wh/flayed-one-flesh' data-color='#f0d9b8'>wh/flayed-one-flesh</option>
+                <option value='wh/fuegan-orange' data-color='#c77e4d'>wh/fuegan-orange</option>
+                <option value='wh/fulgrim-pink' data-color='#f4afcd'>wh/fulgrim-pink</option>
+                <option value='wh/fulgurite-copper' data-color='#fcfcde'>wh/fulgurite-copper</option>
+                <option value='wh/gauss-blaster-green' data-color='#84c3aa'>wh/gauss-blaster-green</option>
+                <option value='wh/gehennas-gold' data-color='#dba674'>wh/gehennas-gold</option>
+                <option value='wh/genestealer-purple' data-color='#7761ab'>wh/genestealer-purple</option>
+                <option value='wh/golden-griffon' data-color='#a99058'>wh/golden-griffon</option>
+                <option value='wh/golgfag-brown' data-color='#c2804f'>wh/golgfag-brown</option>
+                <option value='wh/gorthor-brown' data-color='#654741'>wh/gorthor-brown</option>
+                <option value='wh/guilliman-blue' data-color='#2f9ad6'>wh/guilliman-blue</option>
+                <option value='wh/hashut-copper' data-color='#b77647'>wh/hashut-copper</option>
+                <option value='wh/hellion-green' data-color='#84c3aa'>wh/hellion-green</option>
+                <option value='wh/hexos-palesun' data-color='#fff200'>wh/hexos-palesun</option>
+                <option value='wh/hoeth-blue' data-color='#4c7fb4'>wh/hoeth-blue</option>
+                <option value='wh/hoeth-blue-dry' data-color='#57a9d4'>wh/hoeth-blue-dry</option>
+                <option value='wh/imperial-primer' data-color='#231f20'>wh/imperial-primer</option>
+                <option value='wh/imrik-blue' data-color='#67aed0'>wh/imrik-blue</option>
+                <option value='wh/incubi-darkness' data-color='#0b474a'>wh/incubi-darkness</option>
+                <option value='wh/ironbreaker' data-color='#a1a6a9'>wh/ironbreaker</option>
+                <option value='wh/jokaero-orange' data-color='#ee3823'>wh/jokaero-orange</option>
+                <option value='wh/kabalite-green' data-color='#038c67'>wh/kabalite-green</option>
+                <option value='wh/kantor-blue' data-color='#002151'>wh/kantor-blue</option>
+                <option value='wh/karak-stone' data-color='#bb9662'>wh/karak-stone</option>
+                <option value='wh/khorne-red' data-color='#6a0001'>wh/khorne-red</option>
+                <option value='wh/kindleflame' data-color='#f79e86'>wh/kindleflame</option>
+                <option value='wh/kislev-flesh' data-color='#d6a875'>wh/kislev-flesh</option>
+                <option value='wh/krieg-khaki' data-color='#c0bd81'>wh/krieg-khaki</option>
+                <option value='wh/lahmian-medium' data-color='#f5ede2'>wh/lahmian-medium</option>
+                <option value='wh/lamenters-yellow' data-color='#fff56b'>wh/lamenters-yellow</option>
+                <option value='wh/leadbelcher' data-color='#888d8f'>wh/leadbelcher</option>
+                <option value='wh/liberator-gold' data-color='#d3b587'>wh/liberator-gold</option>
+                <option value='wh/liquid-green-stuff' data-color='#3b7a5f'>wh/liquid-green-stuff</option>
+                <option value='wh/longbeard-grey' data-color='#ceceaf'>wh/longbeard-grey</option>
+                <option value='wh/loren-forest' data-color='#50702d'>wh/loren-forest</option>
+                <option value='wh/lothern-blue' data-color='#34a2cf'>wh/lothern-blue</option>
+                <option value='wh/lucius-lilac' data-color='#b69fcc'>wh/lucius-lilac</option>
+                <option value='wh/lugganath-orange' data-color='#f79e86'>wh/lugganath-orange</option>
+                <option value='wh/lustrian-undergrowth' data-color='#415a09'>wh/lustrian-undergrowth</option>
+                <option value='wh/macragge-blue' data-color='#0d407f'>wh/macragge-blue</option>
+                <option value='wh/martian-ironearth' data-color='#c15a4b'>wh/martian-ironearth</option>
+                <option value='wh/mechanicus-standard-grey' data-color='#3d4b4d'>wh/mechanicus-standard-grey</option>
+                <option value='wh/mephiston-red' data-color='#9a1115'>wh/mephiston-red</option>
+                <option value='wh/moot-green' data-color='#52b244'>wh/moot-green</option>
+                <option value='wh/mournfang-brown' data-color='#640909'>wh/mournfang-brown</option>
+                <option value='wh/mourn-mountain-snow' data-color='#e9eaeb'>wh/mourn-mountain-snow</option>
+                <option value='wh/naggaroth-night' data-color='#3d3354'>wh/naggaroth-night</option>
+                <option value='wh/necron-compound' data-color='#828b8e'>wh/necron-compound</option>
+                <option value='wh/niblet-green' data-color='#7dc734'>wh/niblet-green</option>
+                <option value='wh/nihilakh-oxide' data-color='#6cb79e'>wh/nihilakh-oxide</option>
+                <option value='wh/nuln-oil' data-color='#14100e'>wh/nuln-oil</option>
+                <option value='wh/nurgles-rot' data-color='#9b8f22'>wh/nurgles-rot</option>
+                <option value='wh/nurgling-green' data-color='#849c63'>wh/nurgling-green</option>
+                <option value='wh/nurgling-green-dry' data-color='#b8cc82'>wh/nurgling-green-dry</option>
+                <option value='wh/ogryn-camo' data-color='#9da94b'>wh/ogryn-camo</option>
+                <option value='wh/pallid-wych-flesh' data-color='#cdcebe'>wh/pallid-wych-flesh</option>
+                <option value='wh/pink-horror' data-color='#90305d'>wh/pink-horror</option>
+                <option value='wh/praxeti-white' data-color='#ffffff'>wh/praxeti-white</option>
+                <option value='wh/rakarth-flesh' data-color='#a29e91'>wh/rakarth-flesh</option>
+                <option value='wh/ratskin-flesh' data-color='#ad6b4c'>wh/ratskin-flesh</option>
+                <option value='wh/reikland-fleshshade' data-color='#ca6c4d'>wh/reikland-fleshshade</option>
+                <option value='wh/retributor-armour' data-color='#c39e81'>wh/retributor-armour</option>
+                <option value='wh/rhinox-hide' data-color='#493435'>wh/rhinox-hide</option>
+                <option value='wh/runefang-steel' data-color='#c3cace'>wh/runefang-steel</option>
+                <option value='wh/runelord-brass' data-color='#b6a89a'>wh/runelord-brass</option>
+                <option value='wh/russ-grey' data-color='#547588'>wh/russ-grey</option>
+                <option value='wh/ryza-rust' data-color='#ec631a'>wh/ryza-rust</option>
+                <option value='wh/screamer-pink' data-color='#7c1645'>wh/screamer-pink</option>
+                <option value='wh/screaming-bell' data-color='#c16f45'>wh/screaming-bell</option>
+                <option value='wh/screaming-skull' data-color='#d2d4a2'>wh/screaming-skull</option>
+                <option value='wh/seraphim-sepia' data-color='#d7824b'>wh/seraphim-sepia</option>
+                <option value='wh/sigmarite' data-color='#caad76'>wh/sigmarite</option>
+                <option value='wh/skarsnik-green' data-color='#5f9370'>wh/skarsnik-green</option>
+                <option value='wh/skavenblight-dinge' data-color='#47413b'>wh/skavenblight-dinge</option>
+                <option value='wh/skink-blue' data-color='#58c1cd'>wh/skink-blue</option>
+                <option value='wh/skrag-brown' data-color='#90490f'>wh/skrag-brown</option>
+                <option value='wh/skullcrusher-brass' data-color='#f1c78e'>wh/skullcrusher-brass</option>
+                <option value='wh/slaanesh-grey' data-color='#8e8c97'>wh/slaanesh-grey</option>
+                <option value='wh/slaanesh-grey-dry' data-color='#dbd5e6'>wh/slaanesh-grey-dry</option>
+                <option value='wh/sotek-green' data-color='#0b6974'>wh/sotek-green</option>
+                <option value='wh/soulstone-blue' data-color='#004efa'>wh/soulstone-blue</option>
+                <option value='wh/spiritstone-red' data-color='#ff4b24'>wh/spiritstone-red</option>
+                <option value='wh/squig-orange' data-color='#aa4f44'>wh/squig-orange</option>
+                <option value='wh/steel-legion-drab' data-color='#5e5134'>wh/steel-legion-drab</option>
+                <option value='wh/stegadon-scale-green' data-color='#074863'>wh/stegadon-scale-green</option>
+                <option value='wh/stirland-mud' data-color='#492b00'>wh/stirland-mud</option>
+                <option value='wh/stormfang' data-color='#80a7c1'>wh/stormfang</option>
+                <option value='wh/stormhost-silver' data-color='#bbc6c9'>wh/stormhost-silver</option>
+                <option value='wh/stormvermin-fur' data-color='#736b65'>wh/stormvermin-fur</option>
+                <option value='wh/straken-green' data-color='#628126'>wh/straken-green</option>
+                <option value='wh/sybarite-green' data-color='#30a56c'>wh/sybarite-green</option>
+                <option value='wh/sycorax-bronze' data-color='#cbb394'>wh/sycorax-bronze</option>
+                <option value='wh/sylvaneth-bark' data-color='#ac8262'>wh/sylvaneth-bark</option>
+                <option value='wh/tallarn-sand' data-color='#a67610'>wh/tallarn-sand</option>
+                <option value='wh/tau-light-ochre' data-color='#bf6e1d'>wh/tau-light-ochre</option>
+                <option value='wh/teclis-blue' data-color='#317ec1'>wh/teclis-blue</option>
+                <option value='wh/temple-guard-blue' data-color='#339a8d'>wh/temple-guard-blue</option>
+                <option value='wh/terminatus-stone' data-color='#bdb192'>wh/terminatus-stone</option>
+                <option value='wh/the-fang-grey' data-color='#436174'>wh/the-fang-grey</option>
+                <option value='wh/thousand-sons-blue' data-color='#18abcc'>wh/thousand-sons-blue</option>
+                <option value='wh/thunderhawk-blue' data-color='#417074'>wh/thunderhawk-blue</option>
+                <option value='wh/thunderhawk-blue-dry' data-color='#509ba9'>wh/thunderhawk-blue-dry</option>
+                <option value='wh/troll-slayer-orange' data-color='#f36d2d'>wh/troll-slayer-orange</option>
+                <option value='wh/tuskgor-fur' data-color='#883636'>wh/tuskgor-fur</option>
+                <option value='wh/typhus-corrosion' data-color='#463d2b'>wh/typhus-corrosion</option>
+                <option value='wh/tyrant-skull' data-color='#cdc586'>wh/tyrant-skull</option>
+                <option value='wh/ulthuan-grey' data-color='#c7e0d9'>wh/ulthuan-grey</option>
+                <option value='wh/underhive-ash' data-color='#c0bd81'>wh/underhive-ash</option>
+                <option value='wh/ungor-flesh' data-color='#d6a766'>wh/ungor-flesh</option>
+                <option value='wh/ushabti-bone' data-color='#bbbb7f'>wh/ushabti-bone</option>
+                <option value='wh/verminlord-hide' data-color='#a16954'>wh/verminlord-hide</option>
+                <option value='wh/waaagh-flesh' data-color='#1f5429'>wh/waaagh-flesh</option>
+                <option value='wh/warboss-green' data-color='#3e805d'>wh/warboss-green</option>
+                <option value='wh/warpfiend-grey' data-color='#6b6a74'>wh/warpfiend-grey</option>
+                <option value='wh/warplock-bronze' data-color='#927d7b'>wh/warplock-bronze</option>
+                <option value='wh/warpstone-glow' data-color='#1e7331'>wh/warpstone-glow</option>
+                <option value='wh/waystone-green' data-color='#00c000'>wh/waystone-green</option>
+                <option value='wh/waywatcher-green' data-color='#6dc066'>wh/waywatcher-green</option>
+                <option value='wh/wazdakka-red' data-color='#8c0a0c'>wh/wazdakka-red</option>
+                <option value='wh/white-scar' data-color='#ffffff'>wh/white-scar</option>
+                <option value='wh/wild-rider-red' data-color='#ea2f28'>wh/wild-rider-red</option>
+                <option value='wh/wrack-white' data-color='#fcfbfa'>wh/wrack-white</option>
+                <option value='wh/xereus-purple' data-color='#471f5f'>wh/xereus-purple</option>
+                <option value='wh/xv-88' data-color='#72491e'>wh/xv-88</option>
+                <option value='wh/yriel-yellow' data-color='#ffda00'>wh/yriel-yellow</option>
+                <option value='wh/zamesi-desert' data-color='#dda026'>wh/zamesi-desert</option>
+                <option value='wh/zandri-dust' data-color='#9e915c'>wh/zandri-dust</option>
+                <option value='tartan/light-red' data-color='#EC34C4'>tartan/light-red</option>
+                <option value='tartan/yellow' data-color='#e8c000'>tartan/yellow</option>
+                <option value='tartan/orange' data-color='#d87c00'>tartan/orange</option>
+                <option value='tartan/gold' data-color='#f09400'>tartan/gold</option>
+                <option value='tartan/light-orange' data-color='#ec8048'>tartan/light-orange</option>
+                <option value='tartan/ancient-red' data-color='#e86000'>tartan/ancient-red</option>
+                <option value='tartan/ancient-white' data-color='#e8ccb8'>tartan/ancient-white</option>
+                <option value='tartan/coral' data-color='#e87878'>tartan/coral</option>
+                <option value='tartan/rose' data-color='#e08070'>tartan/rose</option>
+                <option value='tartan/ancient-yellow' data-color='#dc943c'>tartan/ancient-yellow</option>
+                <option value='tartan/basic-red' data-color='#d40000'>tartan/basic-red</option>
+                <option value='tartan/medium-yellow' data-color='#d09800'>tartan/medium-yellow</option>
+                <option value='tartan/scarlet-old' data-color='#cc4438'>tartan/scarlet-old</option>
+                <option value='tartan/light-crimson' data-color='#c80050'>tartan/light-crimson</option>
+                <option value='tartan/red' data-color='#c80000'>tartan/red</option>
+                <option value='tartan/scarlet' data-color='#c8000e'>tartan/scarlet</option>
+                <option value='tartan/terra-cotta' data-color='#c85858'>tartan/terra-cotta</option>
+                <option value='tartan/wilsons-madder' data-color='#c80028'>tartan/wilsons-madder</option>
+                <option value='tartan/light-yellow' data-color='#c4bc68'>tartan/light-yellow</option>
+                <option value='tartan/cerise' data-color='#c04094'>tartan/cerise</option>
+                <option value='tartan/madder' data-color='#c04c08'>tartan/madder</option>
+                <option value='tartan/dark-gold' data-color='#bc8c00'>tartan/dark-gold</option>
+                <option value='tartan/dark-orange' data-color='#b84c00'>tartan/dark-orange</option>
+                <option value='tartan/mauve' data-color='#9c68a4'>tartan/mauve</option>
+                <option value='tartan/brick-red' data-color='#b04e00'>tartan/brick-red</option>
+                <option value='tartan/alazarin' data-color='#b03478'>tartan/alazarin</option>
+                <option value='tartan/crimson' data-color='#a00048'>tartan/crimson</option>
+                <option value='tartan/faded-green' data-color='#a07c58'>tartan/faded-green</option>
+                <option value='tartan/light-brown' data-color='#a08858'>tartan/light-brown</option>
+                <option value='tartan/rust' data-color='#a00000'>tartan/rust</option>
+                <option value='tartan/sienna' data-color='#a03400'>tartan/sienna</option>
+                <option value='tartan/yellow-tan' data-color='#9c7824'>tartan/yellow-tan</option>
+                <option value='tartan/carmine' data-color='#9c1c70'>tartan/carmine</option>
+                <option value='tartan/lindsay' data-color='#980044'>tartan/lindsay</option>
+                <option value='tartan/shale-brown' data-color='#98481c'>tartan/shale-brown</option>
+                <option value='tartan/marroon' data-color='#901c38'>tartan/marroon</option>
+                <option value='tartan/khaki' data-color='#8c7038'>tartan/khaki</option>
+                <option value='tartan/grey-red' data-color='#885c54'>tartan/grey-red</option>
+                <option value='tartan/dark-red' data-color='#880000'>tartan/dark-red</option>
+                <option value='tartan/dark-ruby' data-color='#800028'>tartan/dark-ruby</option>
+                <option value='tartan/wine-red' data-color='#780028'>tartan/wine-red</option>
+                <option value='tartan/heather' data-color='#701c60'>tartan/heather</option>
+                <option value='tartan/brown' data-color='#604000'>tartan/brown</option>
+                <option value='tartan/light-umber' data-color='#603030'>tartan/light-umber</option>
+                <option value='tartan/olive-brown' data-color='#603800'>tartan/olive-brown</option>
+                <option value='tartan/hunting-brown' data-color='#501400'>tartan/hunting-brown</option>
+                <option value='tartan/drab' data-color='#4c3428'>tartan/drab</option>
+                <option value='tartan/umber' data-color='#480800'>tartan/umber</option>
+                <option value='tartan/dark-umber' data-color='#442424'>tartan/dark-umber</option>
+                <option value='tartan/dark-brown' data-color='#441800'>tartan/dark-brown</option>
+                <option value='tartan/parchment' data-color='#fcfcec'>tartan/parchment</option>
+                <option value='tartan/light-green' data-color='#289c18'>tartan/light-green</option>
+                <option value='tartan/teal' data-color='#009894'>tartan/teal</option>
+                <option value='tartan/ancient-azure' data-color='#789484'>tartan/ancient-azure</option>
+                <option value='tartan/emerald' data-color='#009468'>tartan/emerald</option>
+                <option value='tartan/weathered-blue' data-color='#789484'>tartan/weathered-blue</option>
+                <option value='tartan/faded-blue' data-color='#74846c'>tartan/faded-blue</option>
+                <option value='tartan/weathered-green' data-color='#408060'>tartan/weathered-green</option>
+                <option value='tartan/verdant' data-color='#288028'>tartan/verdant</option>
+                <option value='tartan/ancient-green' data-color='#007460'>tartan/ancient-green</option>
+                <option value='tartan/green' data-color='#006818'>tartan/green</option>
+                <option value='tartan/olive-green' data-color='#5c6428'>tartan/olive-green</option>
+                <option value='tartan/dark-olive' data-color='#606000'>tartan/dark-olive</option>
+                <option value='tartan/green-grey' data-color='#406054'>tartan/green-grey</option>
+                <option value='tartan/hunting-green' data-color='#285800'>tartan/hunting-green</option>
+                <option value='tartan/dark-blue-green' data-color='#005448'>tartan/dark-blue-green</option>
+                <option value='tartan/dark-green' data-color='#003820'>tartan/dark-green</option>
+                <option value='tartan/carolina-blue' data-color='#6840fc'>tartan/carolina-blue</option>
+                <option value='tartan/fs-blue' data-color='#2474e8'>tartan/fs-blue</option>
+                <option value='tartan/light-sky' data-color='#98c8e8'>tartan/light-sky</option>
+                <option value='tartan/sky-blue' data-color='#a8ace8'>tartan/sky-blue</option>
+                <option value='tartan/purpleblue' data-color='#9050d8'>tartan/purpleblue</option>
+                <option value='tartan/light-violet' data-color='#c49cd8'>tartan/light-violet</option>
+                <option value='tartan/old-blue' data-color='#3850c8'>tartan/old-blue</option>
+                <option value='tartan/light-blue' data-color='#2888c4'>tartan/light-blue</option>
+                <option value='tartan/anderson-blue' data-color='#48a4c4'>tartan/anderson-blue</option>
+                <option value='tartan/balmoral-blue' data-color='#1474b4'>tartan/balmoral-blue</option>
+                <option value='tartan/azure' data-color='#5c8ca8'>tartan/azure</option>
+                <option value='tartan/ancient-blue' data-color='#1870a4'>tartan/ancient-blue</option>
+                <option value='tartan/oxford' data-color='#38409c'>tartan/oxford</option>
+                <option value='tartan/hsa-blue' data-color='#048888'>tartan/hsa-blue</option>
+                <option value='tartan/blue' data-color='#2c2c80'>tartan/blue</option>
+                <option value='tartan/purple' data-color='#780078'>tartan/purple</option>
+                <option value='tartan/royal-blue' data-color='#1c0070'>tartan/royal-blue</option>
+                <option value='tartan/navy-blue' data-color='#003c64'>tartan/navy-blue</option>
+                <option value='tartan/blue-grey' data-color='#344054'>tartan/blue-grey</option>
+                <option value='tartan/dark-blue' data-color='#1c1c50'>tartan/dark-blue</option>
+                <option value='tartan/dark-purple' data-color='#440044'>tartan/dark-purple</option>
+                <option value='tartan/midnight' data-color='#00002c'>tartan/midnight</option>
+                <option value='tartan/clear' data-color='#fcfcfc'>tartan/clear</option>
+                <option value='tartan/wilson-white' data-color='#f8f8f8'>tartan/wilson-white</option>
+                <option value='tartan/white' data-color='#e0e0e0'>tartan/white</option>
+                <option value='tartan/off-white' data-color='#b8b8b8'>tartan/off-white</option>
+                <option value='tartan/light-grey' data-color='#a0a0a0'>tartan/light-grey</option>
+                <option value='tartan/grey' data-color='#888888'>tartan/grey</option>
+                <option value='tartan/dark-grey' data-color='#5c5c5c'>tartan/dark-grey</option>
+                <option value='tartan/ancient-black' data-color='#1c1c1c'>tartan/ancient-black</option>
+                <option value='tartan/black' data-color='#101010'>tartan/black</option></datalist>
+                <textarea id='customPalette' onchange="setOption(event,'customPalette','text');"></textarea>
+                <div class="flex-container">
+                    <button class="button" style="btn-light max-width: 140px; display: inline-block;" onclick='save_cp()'>Save</button>
+                    <input id="paletteFile" type="file" />
+                    <button type="button" class="btn-light max-width: 140px; display: inline-block;" onclick="load_cp()">Load</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <small>
+                    Options set here are stored in Cookies for 365 days. Cookies are NOT used for any other purpose on this site. You can disallow cookies on this site without problems.
+                </small>
+            </div>
+        </div>
+</div>
+<!-- end middle wide container -->
+<!-- start lower wide container -->
+<div class="row">
+     <div class="col-6">
+        <div id="notes"></div>
+        <div id="credits"></div>
+        <div id="links"></div>
+    </div>    
+    <div class="col-6" id="messageDiv" style="display: none;">
+        <div class="col-lg-10 offset-lg-1 col-sm-12 card p-1">
+            <form class="contact-form" method="post" action="/contact/reply-form.php" role="form">
+                <div class="form-group">
+                    <label for="messageList" style="color: red;">Error Reported:</label>
+                    <textarea name="message" id="messageList" class="form-control"></textarea>
+                    <textarea name="error-blazon" id="error-blazon" readonly  class="form-control" style="display: none;"></textarea>
+                </div>
+                <p class="pt-3">
+                    <input type="submit" class="btn btn-danger btn-send" value="Report This Error">&nbsp; (But please check the hints below first!)
+                    <button type="button" class="btn-primary btn-sm float-right" onclick="document.getElementById('messageDiv').style.display = 'none';" >Clear</button>
+                    <input type="hidden" name="reference" value="Error Report">
+                </p>
+                <p>Edit the field above if you need to give more information. For real-time help and chat please use the DrawShield Discord Server.</p>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- end lower wide container -->
+
+<!-- start lower wide container -->
+<div class="row">
+     <div class="col-6">
+        <div id="notes"></div>
+        <div id="credits"></div>
+        <div id="links"></div>
+    </div>    
+
+</div>
+<!-- end lower wide container -->
+
+<!-- JavaScript bits for shield drawing -->
+<script src="/js/contact.js"></script>
+<script src="/js/shieldcommon.js"></script>
+<script src="/create/expert.js"></script>
+
+
+<!-- ./create.ejs ends -->

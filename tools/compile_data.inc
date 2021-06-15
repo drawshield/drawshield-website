@@ -293,7 +293,8 @@
     'acorned', 'laced', 'shafted', 'shelled', 'tied', 'headed',
     'slipped', 'spurs', 'stick', 'stirruped', 'stock', 'tailed',
     'threaded', 'tools', 'top', 'trousered', 'trunked',
-    'unguled', 'visor', 'wattled', 'winged', 'pole'
+    'unguled', 'visor', 'wattled', 'winged', 'pole', 'book',
+    'necked', 
     );
     
 $copyTo = [
@@ -639,6 +640,31 @@ $oriList = [
     "a-salmon-bendwise-sinister",
     "a-salmon-bendwise-reversed",
 ];
+
+$positionList = [
+    'chief',
+    'middle-chief',
+    'dexter-chief',
+    'sinister-chief',
+    'base',
+    'middle-base',
+    'dexter-base',
+    'sinister-base',
+    'honour-point',
+    'fess-point',
+    'nombril',
+    'dexter-flank',
+    'sinister-flank',
+    'abyss',
+    'dexter-side',
+    'sinister-side',
+    'first-quarter',
+    'second-quarter',
+    'fourth-quarter',
+    'third-quarter',
+    'each-quarter',
+];
+
 
 $hatchList = [
     'gules', 'azure', 'cendree', 'orange', 'celestial-azure', 'or',

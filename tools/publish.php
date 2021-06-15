@@ -129,7 +129,7 @@ $email_reader = new Email_reader($server, $user, $pass, $port);
 $num = $email_reader->number();
 $counter = 0;
 while (true) {
-    if ($counter++ > 24) break; // only do a screenful at a time
+    if ($counter++ >= 24) break; // only do a screenful at a time
     // get an email
     $email = $email_reader->get();
 
@@ -153,7 +153,7 @@ while (true) {
 		sleep(1);
         continue;
     }
-	echo "Processing $subject -";
+	echo "$counter: Processing $subject -";
 	// echo $body . "\n";
 	// exit(0);
 	$lines = explode("\n",$body);

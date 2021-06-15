@@ -546,6 +546,10 @@ var bStack;
 var qStack;
 var sStack;
 
+var storage;
+var fail;
+var uid;
+
 var fixedColour = false;
 
 function init_build() {
@@ -604,6 +608,9 @@ function do_reset() {
   document.getElementById('blazon').disabled='disabled';
   document.getElementById("savePanel").setAttribute("style", "display: none;");
   init_build();
+  if (storage) {
+      storage.removeItem('shadow');
+      storage.removeItem('stack');
   return false;
 }
 
@@ -765,5 +772,15 @@ function saveBuild() {
     form.elements["saveformat"].value = e.options[e.selectedIndex].value;
     form.submit();
 }
+
+// Setup local storage if available
+try {
+	uid = new Date;
+	(storage = window.localStorage).setItem(uid, uid);
+	fail = storage.getItem(uid) != uid;
+	storage.removeItem(uid);
+	fail && (storage = false);
+} catch (exception) {}
+
 
 window.onload=init_build();

@@ -19,6 +19,8 @@ var blazonEditor;
 var useWebColours = 'no';
 var useWarhammerColours = 'no';
 var useTartanColours = 'no';
+var customPalette = '';
+var useCustomPalette = 'no';
 // Local functions - memory handling
 var memState = 'NON';
 var useMemories = false;
@@ -123,6 +125,8 @@ function setCookies() {
     setCookie('useMemories',(useMemories ? 'yes' : 'no'));
     setCookie('useWebColours',useWebColours);
     setCookie('useWarhammerColours',useWarhammerColours);
+    setCookie('customPalette',customPalette);
+    setCookie('useCustomPalette',useCustomPalette);
 }
 
 function getCookies() { // override defaults if cookies are set
@@ -136,6 +140,8 @@ function getCookies() { // override defaults if cookies are set
     if ((temp = getCookie('useWebColours')) != '') useWebColours = temp;
     if ((temp = getCookie('useWarhammerColours')) != '') useWarhammerColours = temp;
     if ((temp = getCookie('useTartanColours')) != '') useTartanColours = temp;
+    if ((temp = getCookie('customPalette')) != '') customPalette = temp;
+    if ((temp = getCookie('useCustomPalette')) != '') useCustomPalette = temp;
 }
 
 function setCookie(cname, cvalue, exdays ) {
@@ -247,6 +253,12 @@ function setOptions() {
     $('#webcols').attr('checked',(useWebColours == 'yes'));
     $('#whcols').attr('checked',(useWarhammerColours == 'yes'));
     $('#tartancols').attr('checked',(useTartanColours == 'yes'));
+    var paletteTextarea = document.getElementById('customPalette');
+    if (paletteTextarea != null) paletteTextarea.value = customPalette;
+    if (useCustomPalette == 'yes' ) {
+        var customPaletteCheckbox = document.getElementById('enable-cp');
+        if (customPaletteCheckbox != null) customPaletteCheckbox.checked = checked;
+    }
 }
 
 function toggleDrawOptions() { // load or unload the options panel
@@ -294,6 +306,10 @@ function readOptions() {
     useWebColours = (document.getElementById('webcols').checked) ? 'yes' : 'no';
     useWarhammerColours = (document.getElementById('whcols').checked) ? 'yes' : 'no';
     useTartanColours = (document.getElementById('tartancols').checked) ? 'yes' : 'no';
+    var paletteTextarea = document.getElementById('customPalette');
+    if (paletteTextarea != null) customPalette = paletteTextarea.value;
+    var customPaletteCheckbox = document.getElementById('enable-cp');
+    if (customPaletteCheckbox != null && customPaletteCheckbox.checked) useCustomPalette = 'yes';
     setCookies();
 }
 
@@ -309,6 +325,18 @@ function getFormData() {
     if (useWebColours == 'yes') formData.append('webcols','yes');
     if (useWarhammerColours == 'yes') formData.append('whcols','yes');
     if (useTartanColours == 'yes') formData.append('tartancols','yes');
+    if (useCustomPalette == 'yes' && customPalette != '') {
+        let splits = /[\n,; ]+/
+        var paletteItems = customPalette.split(splits).map(x => x.split("=")).map(x => x.map(a => a.trim()));
+        for ( var [key, val] of paletteItems )
+        {
+            if ( key == "" || val == "" )
+                continue;
+            if ( key.search("/") == -1 )
+                key = "heraldic/" + key;
+            formData.append( `customPalette[${key}]`,val);
+        }
+    }
     return formData;
 }
 
@@ -353,18 +381,19 @@ function submitSuggestion(event) {
     return true;
 }
 
-function saveBlazon(data) {
+function saveBlazon(data, name = 'blazon') {
     var form = document.createElement("FORM");
     form.action = '/include/saveblazon.php';
     form.target = "_blank";
     form.method = "POST";
     var blazon = document.createElement("TEXTAREA");
     blazon.value = data;
-    blazon.name = "blazon";
+    blazon.name = name;
     form.appendChild(blazon);
     document.body.appendChild(form);
     form.submit();
 }
+
 
 function loadEditor(data) {
     if (useEditor == 'yes')

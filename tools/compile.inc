@@ -327,6 +327,24 @@ function arrangements() {
     }
 }
 
+function positions() {
+    global $positionList, $keep;
+    global $targetDir, $sourceDir, $tempDir, $host;
+
+    @mkdir("$targetDir/positions");
+    foreach ($positionList as $example) {
+        if (file_exists("$targetDir/positions/$example.png")) continue;
+        $blazon = 'argent in ' . str_replace(array('-','+'),' ',$example) . 
+            " a roundel grey";
+        $blazon =  rawurlencode($blazon);
+        $execString = 'wget -q -O ' . "$targetDir/positions/$example.png" .
+        ' "' . $host . 'include/quickimage.php?blazon=' . $blazon .
+        '&outputformat=png&size=400&effect=none&nomask=1"';
+        echo "Executing $execString\n";
+        exec($execString);
+    }
+}
+
 function orientations() {
     global $oriList, $keep;
     global $targetDir, $sourceDir, $tempDir, $host;
@@ -412,6 +430,7 @@ function compile($argc, $argv) {
     $ori = false;
     $bor = false;
     $hat = false;
+    $posit = false;
 
     if ($argc > 1) { // must be a subset
         if (substr($argv[1], 0, 3) == 'ord') {
@@ -422,6 +441,8 @@ function compile($argc, $argv) {
             $edges = true;
         } elseif (substr($argv[1], 0, 3) == 'div') {
             $divs = true;
+        } elseif (substr($argv[1], 0, 5) == 'posit') {
+            $posit = true;
         } elseif (substr($argv[1], 0, 5) == 'treat') {
             $treats = true;
         } elseif (substr($argv[1], 0, 3) == 'ach') {
@@ -457,6 +478,9 @@ function compile($argc, $argv) {
             $action($chargeDir);
             // features($chargeDir);
         }
+    }
+    if ($posit) {
+        positions();
     }
     if ($hat) {
         hatchings();

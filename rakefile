@@ -64,7 +64,7 @@ task :gallery do
   Dir.chdir('tools') do
     sh %{ php mkgallery.php }
     sh %{ php mkgallery-list.php }
-    sh %{ stork --build gallery.toml }
+    sh %{ stork build --input gallery.toml --output ../source/gallery/gallery.st }
     sh %{ php mkcatalog.php }
   end
 end

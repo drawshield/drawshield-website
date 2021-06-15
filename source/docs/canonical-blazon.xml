@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<book version="5.1" xmlns="http://docbook.org/ns/docbook"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:xila="http://www.w3.org/2001/XInclude/local-attributes"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:trans="http://docbook.org/ns/transclusion"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:m="http://www.w3.org/1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:db="http://docbook.org/ns/docbook">
+  <info>
+    <title>Towards a Canonical Form for British Blazons</title>
+
+    <author>
+      <personname><firstname>Karl</firstname><surname>Wilcox</surname></personname>
+
+      <affiliation>
+        <orgname>Drawshield.net</orgname>
+      </affiliation>
+    </author>
+
+    <releaseinfo>Version 0.1</releaseinfo>
+
+    <pubdate>June 2021</pubdate>
+  </info>
+
+  <chapter>
+    <title>Introduction</title>
+
+    <sect1>
+      <title>Purpose</title>
+
+      <para>This document proposes a standard for the textual presentation of
+      British blazons, the language used to describe items of heraldry. This
+      presentation</para>
+
+      <para>Three alternative, but wholly equivalent presentation methods are
+      described:</para>
+
+      <para><emphasis role="bold">Minimised</emphasis> the shortest possible
+      text description which still allows the entire heraldic device to be
+      re-created.</para>
+
+      <para><emphasis role="bold">Plain Text</emphasis> A full, appropriately
+      indented, description of the heraldic device.</para>
+
+      <para><emphasis role="bold">Rich Text</emphasis> A full, appropriately
+      indented, description of the heraldic device which uses additional font
+      effects to further identify types of component.</para>
+    </sect1>
+
+    <sect1>
+      <title>Definitions</title>
+
+      <para>Since the presentation recommendations are based on the category
+      of the heraldic term we must define these terms clearly. This section
+      contains the category definitions. </para>
+
+      <para>Sometimes these terms are used differently in the heraldic literature, however the
+        definitions shown here are considered definitive for the purpose of this document and the
+        presentation proposals. </para>
+
+      <sect2>
+        <title>Container Elements</title>
+
+        <para>Container Elements contain other heraldic terms, they don't have
+        a meaning on their own.</para>
+
+        <para><emphasis role="bold">Device</emphasis> we use this term to
+        refer to any complete item of heraldic imagery. So this may be an
+        entire achievement, a single shield image or any combination of other
+        container elements. It is the "thing" that the blazon is intended to
+        describe.</para>
+
+        <para><emphasis role="bold">Achievement</emphasis> - encompasses all
+        other components, including the shield, crest, compartment, supporters
+        and motto. This is the highest level of container. </para>
+
+        <para><emphasis role="bold">Shield</emphasis> - this the variable
+        shaped region containing the field, ordinaries and charges.</para>
+        <para><emphasis role="bold">Marshalling</emphasis> - a container for two or more shields or
+          further marshallings combined with the same device.</para>
+        <para><emphasis role="bold">Sub-shield</emphasis> - (not a strictly heraldic term but useful
+          when discussing marshalled shields).</para>
+
+        <para><emphasis role="bold">Crest</emphasis> - placed on top of the shield and consisting of
+          helmets, bourlets and other charges. A shield may have more than one crest</para>
+        <para><emphasis role="bold">Supporters</emphasis> - charges placed either side of the
+          shield.</para>
+
+        <para><emphasis role="bold">Compartment</emphasis> - charge which the
+        shield rests upon.</para>
+
+        <para><emphasis role="bold">Mantling</emphasis> - decorative charge around and behind the
+          shield</para>
+        <para><emphasis role="bold">Motto</emphasis> - ribbon like region containing a text-base
+          charge </para>
+      </sect2>
+
+      <sect2>
+        <title>Shield Elements</title>
+
+        <para>These are elements that primarily appear on the shield, although some may also appear
+          as part of the crest, or as supporters</para>
+
+        <para><emphasis role="bold">Field</emphasis> - the entire body of the shield itself</para>
+        <para><emphasis role="bold">Ordinary</emphasis> - a pre-defined shape in a fixed position on
+          the field</para>
+        <para><emphasis role="bold">Charge</emphasis> - an abstract or concrete represenatation that
+          can appear multiple times, in multiple locations and is subject to considerable
+          variation</para>
+        <para> </para>
+      </sect2>
+      <sect2>
+        <title>Appearance Elements</title>
+        <para/>
+      </sect2>
+    </sect1>
+  </chapter>
+</book>

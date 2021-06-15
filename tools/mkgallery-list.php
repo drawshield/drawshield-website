@@ -20,9 +20,6 @@ START;
 $end = <<< END
 ]
 
-[output]
-    filename = "../source/gallery/gallery.st"
-
 END;
 
 $content = $start;
