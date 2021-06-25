@@ -1,0 +1,1 @@
+<span style="color: red;">leaved</span>, <span style="color: blue;">slipped</span>

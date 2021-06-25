@@ -299,8 +299,17 @@ function doCatalog($arg) {
 	// we now have up to 10 hits in the hitlist
 	if ($hits == 0) {
 		$success .= "Sorry, nothing found in catalog";
-	} elseif ($hits == 1) { // return link to image
-		$success = 'https://drawshield.net/' . $hitList[0];
+    } elseif ($hits == 1) { // return link to image
+        $hit = $hitList[0];
+		$success = 'https://drawshield.net/' . $hit;
+        $hit = str_replace(".png",".txt",$hit);
+        if (file_exists("/var/www/html/" . $hit)) {
+            $features = file_get_contents("/var/www/html/" . $hit);
+            $features = str_replace("<span style=\"color:","(",$features);
+            $features = str_replace(";\">", ") ", $features);
+            $features = str_replace("</span>","",$features);
+            $success .= "\nFeatures: $features";
+        }
 	} else { // more than one, return list of words
 		$success .= "Multiple matches found:\n";
 		for ($i = 0; $i < $hits; $i++) {

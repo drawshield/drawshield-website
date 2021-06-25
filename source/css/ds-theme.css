@@ -294,7 +294,7 @@ a.list-group-item-action {
 
 /* The tinctures */
 .cm-s-default .cm-azure {color: #1E7FCB;}
-.cm-s-default .cm-sable {color: #050505;}
+.cm-s-default .cm-sable {color: #000000; font-weight: bold; background-color: lightgrey;}
 .cm-s-default .cm-or {color: #EFD807; background-color: darkgrey;}
 .cm-s-default .cm-vert {color: #149414 ;}
 .cm-s-default .cm-argent {color: white; background-color: lightgrey;}
@@ -315,6 +315,8 @@ a.list-group-item-action {
 .cm-s-default .cm-black-white {color: white;  background-color: black;}
 .cm-s-default .cm-black-yellow {color: #EFD807;  background-color: black;}
 .cm-s-default .cm-blue-white {color: white;  background-color: blue;}
+/* Quarter markers */
+.cm-s-default .cm-quarter {text-decoration: underline;}
 /* Numbers */
 .cm-s-default .cm-number {color: #085;}
 /* Non-standard extensions */

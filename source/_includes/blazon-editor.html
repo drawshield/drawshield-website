@@ -109,7 +109,7 @@
                     if (stream.eatSpace()) return; // no token
                     // so must have a non-space, gather up a whole word
                     var word = '';
-                    while((found = stream.eat(/[A-Za-z-]/)) != undefined)
+                    while((found = stream.eat(/[0-9A-Za-z-]/)) != undefined)
                         word += found;
                     // if word is empty, this must be punctuation
                     if (word == '') {
@@ -201,9 +201,30 @@
                             return 'black-yellow';
                         default:
                     }
+                    // is part of the quartering scheme?
+                    var quarterings = ['quarterly', 'first', 'second', 'third', 'fourth',
+                        'fifth', 'sixth', 'seventh', 'eighth', 'ninth', 'tenth', 'eleventh',
+                        'twelth', 'thirteenth', 'fourteenth', 'fifteenth', 'sixteenth'];
+                    var roman = /^[ivxc]+$/;
+                    if (quarterings.includes(word) || word.match(roman)) {
+                        if (stream.peek() == ')') stream.next();
+                        return 'quarter';
+                    }
+                    var digits = /^[0-9]+$/;
+                    if (word.match(digits)) {
+                        if (stream.peek() == ')') {
+                            stream.next()
+                            return 'quarter';
+                        }
+                    }
+                    var ordinal = /^[0-9]+(st|nd|rd|th)$/;
+                    if (word.match(ordinal)) {
+                        if (stream.peek() == ')') stream.next();
+                        return 'quarter';
+                    }
                     // is it part of a charge adjustment?
                     var chargeAdj1 = ['shown', 'shewn', 'moved', 'smaller', 'larger',
-                        'higher', 'lower', 'to' ];
+                        'higher', 'lower', 'to', 'narrower', 'wider' ];
                     var chargeAdj2 = ['to', 'of', 'than', 'the', 'is', 'normal',
                             'usual', 'position', 'location', 'and', 'somewhat',
                             'place', 'positions', 'locations', 'places', 

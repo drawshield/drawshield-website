@@ -67,6 +67,7 @@
 /catalog/charges/animal/natural-leopard.png
 /catalog/charges/animal/paw-print.png
 /catalog/charges/animal/porcupine.png
+/catalog/charges/animal/raccoon.png
 /catalog/charges/animal/reindeer-head.png
 /catalog/charges/animal/reindeer-lodged.png
 /catalog/charges/animal/reindeer-rampant.png
@@ -371,6 +372,7 @@
 /catalog/charges/emblem/caduceus.png
 /catalog/charges/emblem/chain-of-navarre-square.png
 /catalog/charges/emblem/chain-of-navarre.png
+/catalog/charges/emblem/chaplet.png
 /catalog/charges/emblem/chi-rho.png
 /catalog/charges/emblem/cornucopia.png
 /catalog/charges/emblem/ermine-spot.png
@@ -720,6 +722,7 @@
 /catalog/charges/lion/lion-rampant.png
 /catalog/charges/lion/lion-salient.png
 /catalog/charges/lion/lion-sejant-erect.png
+/catalog/charges/lion/lion-sejant-guardant.png
 /catalog/charges/lion/lion-sejant.png
 /catalog/charges/lion/lion-statant-guardant.png
 /catalog/charges/lion/lion-statant.png
