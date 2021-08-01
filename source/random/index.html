@@ -35,6 +35,7 @@ pageTitle: Create a Random Shield
             <div class="row">
                 <div class="col-12 mx-auto">
                     <p class="lead text-danger">Tincture Choices</p>
+                    <p class="text-muted">(Must choose at least one set of colours)</p>
                 </div>
             </div>
             <div class="row">
@@ -48,6 +49,7 @@ pageTitle: Create a Random Shield
                         </div>
                     </label>
                     <div class="mx-auto text-center">
+                        <input type="hidden" name="tinc-common" value="off">
                         <input type="checkbox" class="mx-auto" name="tinc-common" id="tinc-common" value="on" checked>
                     </div>
                 </div>
@@ -243,7 +245,7 @@ pageTitle: Create a Random Shield
             </div>
             <div class="row">
                 <div class="col-12">
-                    <input name="chg-chance" id="chg-chance" type="range" class="form-control-range" min="0" max="100" step="1" value="60" />
+                    <input name="ord-chance" id="ord-chance" type="range" class="form-control-range" min="0" max="100" step="1" value="60" />
                 </div>
             </div>
             <div class="row">
@@ -399,6 +401,15 @@ pageTitle: Create a Random Shield
                     <input type="checkbox" name="chg-animal" id="chg-animal"
                         value="on" checked>
                 </div>
+                </div>
+             <div class="row">
+                <div class="col-lg-5 offset-lg-1 col-sm-12 pl-1 pr-1">
+                    <label for="chg-weapon">
+                        <span>Weapons</span>
+                    </label>
+                    <input type="hidden" name="chg-weapon" value="off">
+                    <input type="checkbox" name="chg-weapon" id="chg-weapon" value="on"  checked>
+                </div>          
             </div>
             <div class="row">
                 <div class="col-12">

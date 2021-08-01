@@ -1,0 +1,1 @@
+<span style="color: red;">armed</span>, <span style="color: blue;">beaked</span>, <span style="color: green;">legged</span>

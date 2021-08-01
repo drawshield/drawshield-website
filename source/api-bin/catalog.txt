@@ -184,9 +184,11 @@
 /catalog/charges/bird/crow.png
 /catalog/charges/bird/dove-essorant.png
 /catalog/charges/bird/dove-fondant.png
+/catalog/charges/bird/dove-reguardant.png
 /catalog/charges/bird/dove-volant.png
 /catalog/charges/bird/dove.png
 /catalog/charges/bird/duck.png
+/catalog/charges/bird/emu.png
 /catalog/charges/bird/feather.png
 /catalog/charges/bird/goose.png
 /catalog/charges/bird/lark-displayed.png
@@ -324,6 +326,11 @@
 /catalog/charges/crown/antique-crown.png
 /catalog/charges/crown/astral-crown.png
 /catalog/charges/crown/barons-crown.png
+/catalog/charges/crown/city-mural-crown.png
+/catalog/charges/crown/crown-of-grass.png
+/catalog/charges/crown/crown-of-mullets.png
+/catalog/charges/crown/crown-of-myrtle.png
+/catalog/charges/crown/crown-of-oak-leaves.png
 /catalog/charges/crown/crown-palisado.png
 /catalog/charges/crown/crown-vallary.png
 /catalog/charges/crown/ducal-crown.png
@@ -335,8 +342,12 @@
 /catalog/charges/crown/mural-crown.png
 /catalog/charges/crown/naval-crown.png
 /catalog/charges/crown/open-crown.png
+/catalog/charges/crown/provincial-mural-crown.png
+/catalog/charges/crown/regional-mural-crown.png
 /catalog/charges/crown/royal-crown.png
 /catalog/charges/crown/saxon-crown.png
+/catalog/charges/crown/town-mural-crown.png
+/catalog/charges/crown/village-mural-crown.png
 /catalog/charges/crown/viscounts-crown.png
 /catalog/charges/dog/dog-head.png
 /catalog/charges/dog/dog.png
@@ -375,8 +386,10 @@
 /catalog/charges/emblem/chaplet.png
 /catalog/charges/emblem/chi-rho.png
 /catalog/charges/emblem/cornucopia.png
+/catalog/charges/emblem/double-fleur-de-lys.png
 /catalog/charges/emblem/ermine-spot.png
 /catalog/charges/emblem/fasces.png
+/catalog/charges/emblem/fleur-de-lys-double-fancy.png
 /catalog/charges/emblem/fleur-de-lys-fancy.png
 /catalog/charges/emblem/fleur-de-lys.png
 /catalog/charges/emblem/heralds-staff.png
@@ -736,6 +749,7 @@
 /catalog/charges/livestock/bull-winged.png
 /catalog/charges/livestock/bull.png
 /catalog/charges/livestock/calf.png
+/catalog/charges/livestock/cock-head.png
 /catalog/charges/livestock/cock.png
 /catalog/charges/livestock/cow-head.png
 /catalog/charges/livestock/cow.png
@@ -1051,6 +1065,9 @@
 /catalog/charges/quadrate/cross-of-9-fusils-fitchy.png
 /catalog/charges/quadrate/cross-of-9-fusils-pierced.png
 /catalog/charges/quadrate/cross-of-9-fusils.png
+/catalog/charges/quadrate/cross-of-Pisa.png
+/catalog/charges/quadrate/cross-of-Toulouse-filled.png
+/catalog/charges/quadrate/cross-of-Toulouse.png
 /catalog/charges/quadrate/cross-patonce-fitchy.png
 /catalog/charges/quadrate/cross-patonce-pierced.png
 /catalog/charges/quadrate/cross-patonce-voided.png
@@ -1063,7 +1080,6 @@
 /catalog/charges/quadrate/cross-paty-pointed-pierced.png
 /catalog/charges/quadrate/cross-paty-pointed-voided.png
 /catalog/charges/quadrate/cross-paty-pointed.png
-/catalog/charges/quadrate/cross-pisa.png
 /catalog/charges/quadrate/cross-pointed-fitchy.png
 /catalog/charges/quadrate/cross-pointed-pierced.png
 /catalog/charges/quadrate/cross-pointed-voided.png
@@ -1086,7 +1102,6 @@
 /catalog/charges/quadrate/cross-sarcelly-pierced.png
 /catalog/charges/quadrate/cross-sarcelly-voided.png
 /catalog/charges/quadrate/cross-sarcelly.png
-/catalog/charges/quadrate/cross-toulouse.png
 /catalog/charges/quadrate/crosslet-fitchy.png
 /catalog/charges/quadrate/crosslet-formy-fitchy.png
 /catalog/charges/quadrate/crosslet-formy-pierced.png
@@ -1814,6 +1829,7 @@
 /catalog/ordinaries/minor/gusset-+.png
 /catalog/ordinaries/minor/gyron-+.png
 /catalog/ordinaries/minor/lozenge-throughout.png
+/catalog/ordinaries/minor/mountain-of-3-peaks.png
 /catalog/ordinaries/minor/mountain.png
 /catalog/ordinaries/minor/point-dexter-+.png
 /catalog/ordinaries/minor/point-in-point-+.png
