@@ -12,7 +12,7 @@ $(document).ready(function(){
         
         $.post( post_url, form_data, function( response ) {
           $("#blazon").val( response ).attr("rows",response.split("\n").length);
-          requestSVG(targetURL + "?blazon=" + encodeURI(response),shieldtarget);
+          requestSVG(targetURL + "?blazon=" + encodeURI(response),shieldtarget,displayCredits);
         });
     });
 });
@@ -37,4 +37,3 @@ function defaults(){
 function transfer(event){
     window.location.href="/create/index.html?blazon=" + encodeURI($("#blazon").val());
 }
-

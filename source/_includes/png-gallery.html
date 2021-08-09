@@ -1,5 +1,8 @@
 {%- assign category = page.url | replace: 'index.html', '' | remove_first: '/catalog/' -%}
-
+{%- assign isCharge = category | slice: 0,6 -%}
+{%- if  isCharge == 'charge' -%}
+<p>Click on an image to be redirected to the Create Page to find artist credits.</p>
+{%- endif -%}
 
 
 <div class="container">

@@ -100,6 +100,44 @@ function requestSVG(url,id,messageFunc) {
   xmlhttp.send(null);
 }
 
+function addLink(text) {
+  var start = text.search(/https?:/);
+  var end = text.length;
+  if (start >= 0) {
+      for (var i = start + 4; i < end; i++) {
+          if (text.charAt(i) == ' ') {
+              end = i;
+              break;
+          }
+      }
+      var url = text.substring(start,end);
+      var modText = text.substring(0,start);
+      modText += '<a href="' + url + '">' + url + '</a>';
+      modText += text.substring(end,text.length);
+      return modText;
+  } // else
+  return text;
+}
+
+
+function displayCredits(svg) {
+    var creditHTML = '';
+    var errorList = svg.getElementsByTagNameNS('*','message');
+    for ( var i = 0; i < errorList.length; i++ ) {
+        var errorItem = errorList[i];
+        var message = errorItem.innerHTML;
+        var errorItem = errorList[i];
+        var category = errorItem.getAttribute('category');
+        if (category == 'licence') {
+            creditHTML += "<li>" + addLink(message) + "</li>"; 
+        }
+    }
+    if ( creditHTML.length > 0 ) {
+        document.getElementById('credits').innerHTML = "<h3>Image Credits</h3><ul>" +
+            creditHTML + "</ul>";  
+    }  
+}
+
 function cloneAndFix(node,doc){
     var corrections = new Array (
             'attributeName',

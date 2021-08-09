@@ -245,7 +245,6 @@
 /catalog/charges/celestial/sunburst.png
 /catalog/charges/celestial/suns-rays.png
 /catalog/charges/celestial/thunderbolt.png
-/catalog/charges/characters/question.png
 /catalog/charges/christian/altar.png
 /catalog/charges/christian/angel.png
 /catalog/charges/christian/cherub.png
@@ -648,6 +647,7 @@
 /catalog/charges/human/blacksmith.png
 /catalog/charges/human/bone.png
 /catalog/charges/human/eye.png
+/catalog/charges/human/fallen-knight-embowed.png
 /catalog/charges/human/foot-winged.png
 /catalog/charges/human/foot.png
 /catalog/charges/human/footprint.png
@@ -736,6 +736,7 @@
 /catalog/charges/lion/lion-salient.png
 /catalog/charges/lion/lion-sejant-erect.png
 /catalog/charges/lion/lion-sejant-guardant.png
+/catalog/charges/lion/lion-sejant-reguardant.png
 /catalog/charges/lion/lion-sejant.png
 /catalog/charges/lion/lion-statant-guardant.png
 /catalog/charges/lion/lion-statant.png
@@ -838,6 +839,7 @@
 /catalog/charges/mythical/egyptian-sphinx.png
 /catalog/charges/mythical/fishtail-griffin.png
 /catalog/charges/mythical/frauenadler.png
+/catalog/charges/mythical/gorgon-head.png
 /catalog/charges/mythical/greek-sphinx-sejant.png
 /catalog/charges/mythical/greek-sphinx-statant-guardant.png
 /catalog/charges/mythical/greek-sphinx.png
@@ -985,9 +987,11 @@
 /catalog/charges/playing-card/playing-card-two-of-spades.png
 /catalog/charges/playing-card/winning-hand-of-playing-cards.png
 /catalog/charges/projectile/arrow.png
+/catalog/charges/projectile/bird-bolt.png
 /catalog/charges/projectile/broad-arrow.png
 /catalog/charges/projectile/bundle-of-arrows.png
 /catalog/charges/projectile/chaine-shot.png
+/catalog/charges/projectile/crossbow-bolt.png
 /catalog/charges/projectile/pheon.png
 /catalog/charges/projectile/salmon-spear.png
 /catalog/charges/projectile/slingshot.png
@@ -1560,6 +1564,7 @@
 /catalog/charges/wildlife/mouse.png
 /catalog/charges/wildlife/otter.png
 /catalog/charges/wildlife/rat.png
+/catalog/charges/wildlife/siberian-cat.png
 /catalog/charges/wildlife/snake.png
 /catalog/charges/wildlife/squirrel-holding-nut.png
 /catalog/charges/wildlife/squirrel-rampant.png

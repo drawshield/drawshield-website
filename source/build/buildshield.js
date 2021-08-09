@@ -608,9 +608,6 @@ function do_reset() {
   document.getElementById('blazon').disabled='disabled';
   document.getElementById("savePanel").setAttribute("style", "display: none;");
   init_build();
-  if (storage) {
-      storage.removeItem('shadow');
-      storage.removeItem('stack');
   return false;
 }
 
@@ -671,7 +668,7 @@ function nextQuestion()  {
               document.getElementById('blazon').value = current;
               shadow = shadow.replace(/~update~/, '');
               requestSVG('/include/drawshield.php?' + urlArgs +
-                  '&blazon=' + encodeURIComponent(current), 'shieldimg');
+                  '&blazon=' + encodeURIComponent(current), 'shieldimg',displayCredits);
               target = shadow.match(/~.*?~/);
               if (target == null) {
                     finished();

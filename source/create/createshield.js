@@ -599,7 +599,7 @@ function displayMessages(svg) {
         if (lineno != null) message += ' near ' + lineno;
         switch (category) {
             case 'licence':
-                creditHTML += "<li>" + message + "</li>"; 
+                creditHTML += "<li>" + addLink(message) + "</li>"; 
                 break;
             case 'links':
                 linksHTML += "<li>" + message + "</li>";

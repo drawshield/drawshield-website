@@ -2,35 +2,40 @@
 pageTitle: Build up a Shield from Parts
 ---
 <!-- ./build.ejs starts -->
-<p>Choose the parts from the questions below and watch how your blazon is built up. If you are new to heraldry
-then you may wish to use the "Teach Me" option under the "Learn" menu - this has a small number of options and will carefully guide you through the process.
-This page gives you access to many more feature, but it does need you to answer many more questions!</p>
-<p class="lead">Pay careful attention to the blazon as it is built up in the textarea - this will help you learn
-    blazonry!</p>
-<table>
-<tbody>
-<tr>
-<td style="text-align:center;vertical-align:top;" rowspan="2">
-<div id="shieldimg">
+<div class="row">
+    <div class="col-12">
+        <p>Choose the parts from the questions below and watch how your blazon is built up. If you are new to heraldry
+        then you may wish to use the "Teach Me" option under the "Learn" menu - this has a small number of options and will carefully guide you through the process.
+        This page gives you access to many more feature, but it does need you to answer many more questions!</p>
+        <p class="lead">Pay careful attention to the blazon as it is built up in the textarea - this will help you learn
+        blazonry!</p>
+    </div>
+    <div class="col-lg-6 col-sm-6">
+        <div id="shieldimg">
+        </div>
+    </div>
+    <div class="col-lg-6 col-sm-6">
+        <div class="row">
+            <div class="col-12">
+                <form>
+                    <textarea id="blazon" cols="36" rows="10" disabled="disabled">~background~</textarea>
+                </form>
+            </div>
+            <div class="col-4">
+                <button type="button" class="btn-block btn-primary" onclick="goback();"   >Go Back a Step</button>
+            </div>
+            <div class="col-4">
+                <button type="button" class="btn-block btn-danger" onclick="finished();" >Finished!</button>
+            </div>
+            <div class="col-4">
+                <button type="button" class="btn-block btn-primary" onclick="do_reset();" >Start Over</button>
+            </div>
+        </div> 
+    </div>
 </div>
-</td>
-<td rowspan="2">&nbsp;</td>
-<td colspan="3">
-    <form>
-<textarea id="blazon" cols="28" rows="10" disabled="disabled">~background~</textarea>
-    </form>
-</td>
-</tr>
-<tr>
-<td>  <button type="button" class="btn-block btn-primary" onclick="goback();"   >Go Back a Step</button></td>
-<td>  <button type="button" class="btn-block btn-danger" onclick="finished();" >Finished!</button></td>
-<td>  <button type="button" class="btn-block btn-primary" onclick="do_reset();" >Start Over</button></td>
-<td>&nbsp;</td>
-</tr>
-</tbody>
-</table>
 <div id="questions">
 </div>
+<div id="credits"></div>
 <form id="saveForm">
     <input type="hidden" name="asfile" value="1"/>
     <input type="hidden" name="size" value="1000"/>
