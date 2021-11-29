@@ -52,6 +52,7 @@
 /catalog/charges/animal/frog-sejant.png
 /catalog/charges/animal/frog.png
 /catalog/charges/animal/gorilla.png
+/catalog/charges/animal/hippo.png
 /catalog/charges/animal/kangaroo-salient.png
 /catalog/charges/animal/leopard-head.png
 /catalog/charges/animal/leopards-head-jessant-de-lys.png
@@ -67,6 +68,7 @@
 /catalog/charges/animal/natural-leopard.png
 /catalog/charges/animal/paw-print.png
 /catalog/charges/animal/porcupine.png
+/catalog/charges/animal/raccoon-rampant.png
 /catalog/charges/animal/raccoon.png
 /catalog/charges/animal/reindeer-head.png
 /catalog/charges/animal/reindeer-lodged.png
@@ -293,6 +295,7 @@
 /catalog/charges/cross/St-Peters-cross.png
 /catalog/charges/cross/celtic-cross-equal-armed.png
 /catalog/charges/cross/celtic-cross.png
+/catalog/charges/cross/christogram.png
 /catalog/charges/cross/cross-calvary-on-1-step.png
 /catalog/charges/cross/cross-calvary-on-2-steps.png
 /catalog/charges/cross/cross-calvary-on-3-steps.png
@@ -322,6 +325,7 @@
 /catalog/charges/cross/patriarchal-cross.png
 /catalog/charges/cross/saltire-couped.png
 /catalog/charges/cross/tau-cross.png
+/catalog/charges/cross/torakrzy.png
 /catalog/charges/crown/antique-crown.png
 /catalog/charges/crown/astral-crown.png
 /catalog/charges/crown/barons-crown.png
@@ -336,6 +340,7 @@
 /catalog/charges/crown/dukes-crown.png
 /catalog/charges/crown/earls-crown.png
 /catalog/charges/crown/eastern-crown.png
+/catalog/charges/crown/edwardian-crown.png
 /catalog/charges/crown/king-of-arms-crown.png
 /catalog/charges/crown/marquis-crown.png
 /catalog/charges/crown/mural-crown.png
@@ -343,14 +348,17 @@
 /catalog/charges/crown/open-crown.png
 /catalog/charges/crown/provincial-mural-crown.png
 /catalog/charges/crown/regional-mural-crown.png
-/catalog/charges/crown/royal-crown.png
 /catalog/charges/crown/saxon-crown.png
 /catalog/charges/crown/town-mural-crown.png
 /catalog/charges/crown/village-mural-crown.png
 /catalog/charges/crown/viscounts-crown.png
+/catalog/charges/dog/dog-couchant.png
 /catalog/charges/dog/dog-head.png
 /catalog/charges/dog/dog.png
+/catalog/charges/dog/greyhound-collared.png
+/catalog/charges/dog/greyhound-courant-collared.png
 /catalog/charges/dog/greyhound-courant.png
+/catalog/charges/dog/greyhound-rampant-collared.png
 /catalog/charges/dog/greyhound-rampant.png
 /catalog/charges/dog/greyhound.png
 /catalog/charges/dog/hound.png
@@ -425,6 +433,7 @@
 /catalog/charges/farming/spoked-wheel.png
 /catalog/charges/farming/wagon.png
 /catalog/charges/farming/wicker-fence.png
+/catalog/charges/farming/windmill-sail.png
 /catalog/charges/farming/windmill.png
 /catalog/charges/fire/beacon.png
 /catalog/charges/fire/fireball.png
@@ -479,6 +488,8 @@
 /catalog/charges/flower/rose-leaf.png
 /catalog/charges/flower/rose-of-York-proper.png
 /catalog/charges/flower/rose-of-lancaster-proper.png
+/catalog/charges/flower/rose-sprig.png
+/catalog/charges/flower/rose-stem.png
 /catalog/charges/flower/rose.png
 /catalog/charges/flower/rue-flower.png
 /catalog/charges/flower/rue-sprig.png
@@ -508,7 +519,9 @@
 /catalog/charges/furnishings/tassel.png
 /catalog/charges/game/boar-courant.png
 /catalog/charges/game/boar-head.png
+/catalog/charges/game/boar-passant.png
 /catalog/charges/game/boar-rampant.png
+/catalog/charges/game/boar-sejant.png
 /catalog/charges/game/boar-statant.png
 /catalog/charges/game/boar-winged.png
 /catalog/charges/game/boar.png
@@ -667,6 +680,7 @@
 /catalog/charges/human/monk.png
 /catalog/charges/human/moor-head.png
 /catalog/charges/human/pair-of-hands.png
+/catalog/charges/human/rib-bone.png
 /catalog/charges/human/saracen-head.png
 /catalog/charges/human/savage-head.png
 /catalog/charges/human/savage.png
@@ -674,6 +688,7 @@
 /catalog/charges/human/skull.png
 /catalog/charges/human/triskelion-of-arms.png
 /catalog/charges/human/triskelion-of-legs-armored.png
+/catalog/charges/human/voided-eye.png
 /catalog/charges/insect/ant.png
 /catalog/charges/insect/bee.png
 /catalog/charges/insect/beetle.png
@@ -734,6 +749,7 @@
 /catalog/charges/lion/lion-rampant-tail-nowed.png
 /catalog/charges/lion/lion-rampant.png
 /catalog/charges/lion/lion-salient.png
+/catalog/charges/lion/lion-sejant-affronty.png
 /catalog/charges/lion/lion-sejant-erect.png
 /catalog/charges/lion/lion-sejant-guardant.png
 /catalog/charges/lion/lion-sejant-reguardant.png
@@ -889,6 +905,7 @@
 /catalog/charges/norse/awen.png
 /catalog/charges/norse/longship.png
 /catalog/charges/norse/raven.png
+/catalog/charges/norse/thors-hammer.png
 /catalog/charges/norse/vegvisir.png
 /catalog/charges/plant/acanthus-leaf.png
 /catalog/charges/plant/acorn-sprig.png
@@ -992,6 +1009,7 @@
 /catalog/charges/projectile/bundle-of-arrows.png
 /catalog/charges/projectile/chaine-shot.png
 /catalog/charges/projectile/crossbow-bolt.png
+/catalog/charges/projectile/musket.png
 /catalog/charges/projectile/pheon.png
 /catalog/charges/projectile/salmon-spear.png
 /catalog/charges/projectile/slingshot.png
@@ -1121,6 +1139,7 @@
 /catalog/charges/quadrate/jerusalem-cross.png
 /catalog/charges/quadrate/maltese-cross.png
 /catalog/charges/quadrate/saltorel.png
+/catalog/charges/quadrate/serbian-cross.png
 /catalog/charges/retro-scifi/atom.png
 /catalog/charges/retro-scifi/planet-earth.png
 /catalog/charges/retro-scifi/raygun.png
@@ -1136,11 +1155,11 @@
 /catalog/charges/seabird/seagull.png
 /catalog/charges/sealife/calamarie.png
 /catalog/charges/sealife/crab.png
+/catalog/charges/sealife/escallop.png
 /catalog/charges/sealife/lobster.png
 /catalog/charges/sealife/manatee.png
 /catalog/charges/sealife/narwhal.png
 /catalog/charges/sealife/polypus.png
-/catalog/charges/sealife/scallop.png
 /catalog/charges/sealife/sea-dog.png
 /catalog/charges/sealife/sea-dragon.png
 /catalog/charges/sealife/sea-goat.png
@@ -1529,19 +1548,20 @@
 /catalog/charges/weapon/club.png
 /catalog/charges/weapon/crossbow.png
 /catalog/charges/weapon/mace.png
+/catalog/charges/weapon/palmers-staff.png
 /catalog/charges/weapon/ragged-staff.png
 /catalog/charges/weapon/shackle.png
 /catalog/charges/weapon/staff-wreathed.png
 /catalog/charges/weapon/staff.png
-/catalog/charges/weapon/thors-hammer.png
 /catalog/charges/weapon/tilting-spear.png
-/catalog/charges/weapon/trident-head-ukrainian.png
 /catalog/charges/weapon/truncheon.png
+/catalog/charges/weapon/tryzub.png
 /catalog/charges/wildlife/badger-head-erased.png
 /catalog/charges/wildlife/badger-head.png
 /catalog/charges/wildlife/badger-rampant.png
 /catalog/charges/wildlife/badger.png
 /catalog/charges/wildlife/beaver-rampant.png
+/catalog/charges/wildlife/beaver-sejant.png
 /catalog/charges/wildlife/beaver.png
 /catalog/charges/wildlife/cat-couchant-guardant.png
 /catalog/charges/wildlife/cat-couchant.png
@@ -1550,10 +1570,13 @@
 /catalog/charges/wildlife/cat-passant.png
 /catalog/charges/wildlife/cat-rampant.png
 /catalog/charges/wildlife/cat-sejant.png
+/catalog/charges/wildlife/cat-winged-rampant.png
 /catalog/charges/wildlife/cat.png
 /catalog/charges/wildlife/fox-courant.png
 /catalog/charges/wildlife/fox-head-erased.png
 /catalog/charges/wildlife/fox-head.png
+/catalog/charges/wildlife/fox-passant.png
+/catalog/charges/wildlife/fox-rampant.png
 /catalog/charges/wildlife/fox-sejant.png
 /catalog/charges/wildlife/fox.png
 /catalog/charges/wildlife/hedgehog.png

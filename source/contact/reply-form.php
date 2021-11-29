@@ -3,6 +3,11 @@
  *  CONFIGURE EVERYTHING HERE
  */
 // error_log("reply-form called");
+$myserver = "https://drawshield.net/";
+if (substr($_SERVER['HTTP_REFERER'],0,strlen($myserver)) != $myserver)  {
+        header("Location: https://drawshield.net");
+        exit;
+}
 
 // an email address that will be in the From field of the email.
 $from = 'Contact form <contact@drawshield.net>';
@@ -31,8 +36,8 @@ entryNum: NNNN
 <h3>Notes</h3>
 %addData%
 <img src="img/gallery-{{ page.entryNum }}.png" alt="{{ pageTitle }}" class="img-fluid" />
-<p>If you would like to modify this blazon and see the effects <a href="%createURL%">click here</a> to copy it into the "create" page.</p>
-<!-- 
+<p>If you would like to modify this blazon and see the effects <a href="%createURL%"><button class="btn btn-primary">Show on Create Page</button></a>.</p>
+<!--
 %wgetURL%
 -->
 <!-- gallery/[....].html ends -->
@@ -47,10 +52,10 @@ EOD2;
 
 // form field names and their translations.
 // array variable name => Text to appear in the email
-$fields = array('reference' => 'Reference', 'email' => 'Email', 'message' => 'Message', 'error-blazon' => 'Blazon', 'suggestion' => 'Suggested Blazon', 'additional' => 'Additional Information', 'options' => 'Drawing Options', 'title' => 'Suggested Title', 'refnum' => 'Gallery Reference Number', 'tags' => 'Tags'); 
+$fields = array('reference' => 'Reference', 'email' => 'Email', 'message' => 'Message', 'error-blazon' => 'Blazon', 'suggestion' => 'Suggested Blazon', 'additional' => 'Additional Information', 'options' => 'Drawing Options', 'title' => 'Suggested Title', 'refnum' => 'Gallery Reference Number', 'tags' => 'Tags');
 
 // message that will be displayed when everything is OK :)
-$okMessage = 'Thanks for your message. Please check "contact -> View Responses" in a day or two or follow @drawshield on Twitter.';
+$okMessage = 'Thanks for your message. Suggestions are discussed on the DrawShield Discord server, please join us there if you can!';
 
 // If something goes wrong, we will display this message.
 $errorMessage = false;
@@ -70,34 +75,34 @@ function lineBreak($string, $breakAfter = 50) {
     for ($i = 0; $i < strlen($string); $i++) {
         switch ($string[$i]) {
             case "\n":
-		    $count = 0;
-		    $comment = 'no';
-		    break;
-	    case '/':
-		    if ($comment == 'no') {
-			    $comment = 'maybe';
-		    } elseif ($comment == 'maybe') {
-			    $comment = 'yes';
-		    }
-		    break;
-	    case '*': 
-		    if ($comment == 'maybe') {
-			    $comment = 'yes';
-		    }
-		    break;
+                    $count = 0;
+                    $comment = 'no';
+                    break;
+            case '/':
+                    if ($comment == 'no') {
+                            $comment = 'maybe';
+                    } elseif ($comment == 'maybe') {
+                            $comment = 'yes';
+                    }
+                    break;
+            case '*':
+                    if ($comment == 'maybe') {
+                            $comment = 'yes';
+                    }
+                    break;
             case ' ':
                 if ($count >= $breakAfter) {
                     $return .= PHP_EOL;
                     $count = 0;
-		    if ($comment == 'yes') {
-			    $return .= '// ';
-		    }
+                    if ($comment == 'yes') {
+                            $return .= '// ';
+                    }
                 }
                 break;
-	    default:
-		if ($comment == 'maybe') {
-			$comment = 'no';
-		}
+            default:
+                if ($comment == 'maybe') {
+                        $comment = 'no';
+                }
                 break;
         }
         $return .= $string[$i];
@@ -111,7 +116,7 @@ try
 {
 
     if(count($_POST) == 0) throw new \Exception('Form is empty');
-            
+
     $emailText = "Contact Form: ";
     $gallery = false;
     $comment = false;
@@ -120,19 +125,19 @@ try
     $content = '(No content)';
 
     foreach ($_POST as $key => $value) {
-        // If the field exists in the $fields array, include it in the email 
+        // If the field exists in the $fields array, include it in the email
         if (isset($fields[$key])) {
             $emailText .= "$fields[$key]: $value\n";
         }
         if ( $key == 'error-blazon') {
-		$bugReport = true;
+                $bugReport = true;
             $okMessage = "Error report submitted. Please check for a response on the DrawShield Discord Server in a day or two.";
         }
         if ( $key == 'message' ) {
             $content = $value;
         }
          if ( $key == 'suggestion') {
-            $okMessage = "Thanks for your suggestion, Please check 'Create -> View Gallery' in a day or two or follow @drawshield on Twitter.";
+            $okMessage = "Thanks for your suggestion, if accepted your submission will appear under Create->View Gallery in a day or two.";
             $gallery = true;
         }
         if ( $key == 'reference') {
@@ -170,29 +175,29 @@ try
            $parts = explode('=',$option);
             if (count($parts) > 1) $parts[1] = rtrim($parts[1],"' \n");
             switch($parts[0]) {
-            case 'shape': 
+            case 'shape':
                     $prefs .= "<dt>Shield Shape</dt><dd>${parts[1]}</dd>\n";
                     break;
-            case 'ar': 
+            case 'ar':
                     $prefs .= "<dt>Aspect Ratio</dt><dd>${parts[1]}</dd>\n";
                     break;
-            case 'palette': 
+            case 'palette':
                     $prefs .= "<dt>Palette For Heraldic Tinctures</dt><dd>${parts[1]}</dd>\n";
                     break;
-            case 'effect': 
+            case 'effect':
                     $prefs .= "<dt>Visual Appearance</dt><dd>${parts[1]}</dd>\n";
                     break;
-            case 'webcols': 
+            case 'webcols':
                     $prefs .= "<dt>Named Web Colours</dt><dd>Enabled</dd>\n";
                     break;
-            case 'whcols': 
+            case 'whcols':
                     $prefs .= "<dt>Warhammer Colours</dt><dd>Enabled</dd>\n";
                     break;
             default:
                     break;
             }
         }
-       $createURL = "https://drawshield.net/create/index.html?blazon=" . rawurlencode($plainBlazon);
+       $createURL = "/create/index.html?blazon=" . rawurlencode($plainBlazon);
        $wgetURL = 'num=NNNN; wget -O /home/karl/Nextcloud/drawshield/source/gallery/${num:0:2}/img/gallery-$num.png ' . "'http://drawshield.net/include/drawshield.php?asfile=1&size=750&saveformat=png&blazon=" . rawurlencode($plainBlazon) . '&' . str_replace(',','&',$options) . "'";
        $emailText = preg_replace(
             array('/%plainBlazon%/', '/%addData%/', '/%createURL%/', '/%wgetURL%/', '/%title%/', '/%tags%/', '/%prefs%/' ),
@@ -232,17 +237,17 @@ try
         // Send email
         @mail($sendTo, $subject, $emailText, implode("\n", $headers));
 
-	if ($bugReport) { // also send to discord
-		$ch = curl_init("https://discord.com/api/webhooks/775495216852893716/AG_6jkWQMS0_MWRYXUR6-9jkjlt_57CBKDb9UIVY1A5TSym1ewl35AnDic0RfjaprYlC");
-		$msg = "payload_json=" . urlencode(json_encode(array("username" => "ErrorBot", "content" => $emailText )));
-		if(isset($ch)) {
-			  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-			  curl_setopt($ch, CURLOPT_POSTFIELDS, $msg);
-			  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			  $result = curl_exec($ch);
-			  curl_close($ch);
-		}
-	}
+        if ($bugReport) { // also send to discord
+                $ch = curl_init("https://discord.com/api/webhooks/775495216852893716/AG_6jkWQMS0_MWRYXUR6-9jkjlt_57CBKDb9UIVY1A5TSym1ewl35AnDic0RfjaprYlC");
+                $msg = "payload_json=" . urlencode(json_encode(array("username" => "ErrorBot", "content" => $emailText )));
+                if(isset($ch)) {
+                          curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+                          curl_setopt($ch, CURLOPT_POSTFIELDS, $msg);
+                          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                          $result = curl_exec($ch);
+                          curl_close($ch);
+                }
+        }
     }
 
     if ($errorMessage)

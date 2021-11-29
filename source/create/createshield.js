@@ -635,7 +635,7 @@ function displayMessages(svg) {
             remarksHTML + "</ul>";  
     }
     if ( creditHTML.length > 0 ) {
-        document.getElementById('credits').innerHTML = "<h3>Image Credits</h3><ul>" +
+        document.getElementById('credits').innerHTML = "<h3>Artist Credits</h3><ul>" +
             creditHTML + "</ul>";  
     }  
 }

@@ -1,1 +1,1 @@
-<span style="color: red;">langued</span>
+<span style="color: red;">armed</span>, <span style="color: blue;">langued</span>, <span style="color: green;">unguled</span>

@@ -143,6 +143,10 @@ while (true) {
     $sender = $email['header']->from[0]->mailbox;
     $subject   = ( ! empty($email['header']->subject) ? $email['header']->subject : '');
 	$body = $email['body'];
+	// echo $addr . "\n";
+	// echo $sender . "\n";
+	// echo $subject . "\n";
+	// echo $body . "\n";
 	
 	if ((strcmp ($subject, "Fwd: Gallery Suggestion") == 0) ||
 	(strcmp ($subject, "Gallery Suggestion") == 0)) {
@@ -164,7 +168,7 @@ while (true) {
 	$titleTarget = 'pageTitle:';
 	$endTarget = '<!-- gallery/[....].html ends';
 	$numTarget = 'entryNum:';
-	$execTarget = '<!-- num=NNNN';
+	$execTarget = 'num=NNNN';
 	$fixTarget = 'pageTitle: layout:';
 	$execEnd = '-->';
 	$gatherExecute = false;
@@ -242,6 +246,7 @@ while (true) {
 			}
 		}
 	}
+	// echo $url . "\n";
 	$url = preg_replace('/http:/','https:', $url);
     $url = preg_replace('/=png&whcols=1&webcols=1/','=png', $url);
 	 // system($execute);

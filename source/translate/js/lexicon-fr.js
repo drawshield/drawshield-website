@@ -151,6 +151,7 @@ var lexiconFr = [
     ["aux armes","with the arms of"],
     ["aux?","of/a/an"],
     ["autruches?","ostrich"],
+    ["avalante?s?", "swallowing"],
     ["avant bras","fore-arms"],
     ["avant mur","fore-wall"],
     ["avec","with"],
@@ -292,7 +293,7 @@ var lexiconFr = [
     ["chargée?s? de","charged with"], // check first
     ["chargée?s?","charged"], // check after
     ["chargée?s? de la devise","with the motto"],
-    ["chateau","castle"],
+    ["ch[aâ]teaux?","castle"],
     ["chatelée?s?","semy de castles"],
     ["chatonée?s?","sparkling with"],
     ["chaudières?","cauldron"],
