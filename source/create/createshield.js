@@ -521,7 +521,7 @@ function newTab() {
     form.action = targetURL;
     form.elements["size"].value = "1000";
     form.target = '_blank';
-    form.elements["asfile"].value = '0';
+    form.elements["asfile"].value = "printable";
     form.elements["shape"].value = shape;
     form.elements["effect"].value = effect;
     form.elements["palette"].value = palette;
@@ -543,14 +543,13 @@ function saveshield() {
     form = document.getElementById("blazonForm");
     form.action = targetURL;
     form.target = '_blank';
-    form.elements["asfile"].value = '1';
     form.elements['filename'].value = document.getElementById('filenameInput').value;
     form.elements["size"].value = saveWidth;
     var e = document.getElementById("formatSelect");
     form.elements["saveformat"].value = e.options[e.selectedIndex].value;
     e = document.getElementById("unitSelect");
     form.elements["units"].value = e.options[e.selectedIndex].value;
-    form.elements["asfile"].value = '1';
+    form.elements["asfile"].value = "1";
     form.elements["shape"].value = shape;
     form.elements["effect"].value = effect;
     form.elements["palette"].value = palette;
