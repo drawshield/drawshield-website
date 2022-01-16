@@ -198,7 +198,7 @@ try
             }
         }
        $createURL = "/create/index.html?blazon=" . rawurlencode($plainBlazon);
-       $wgetURL = 'num=NNNN; wget -O /home/karl/Nextcloud/drawshield/source/gallery/${num:0:2}/img/gallery-$num.png ' . "'http://drawshield.net/include/drawshield.php?asfile=1&size=750&saveformat=png&blazon=" . rawurlencode($plainBlazon) . '&' . str_replace(',','&',$options) . "'";
+       $wgetURL = 'num=NNNN; wget -O /home/karl/site/ds-web/source/gallery/${num:0:2}/img/gallery-$num.png ' . "'http://drawshield.net/include/drawshield.php?asfile=1&size=750&saveformat=png-batik&blazon=" . rawurlencode($plainBlazon) . '&' . str_replace(',','&',$options) . "'";
        $emailText = preg_replace(
             array('/%plainBlazon%/', '/%addData%/', '/%createURL%/', '/%wgetURL%/', '/%title%/', '/%tags%/', '/%prefs%/' ),
             array($plainBlazon, $addData, $createURL, $wgetURL, $title, $tagData, $prefs),

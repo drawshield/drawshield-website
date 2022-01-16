@@ -420,7 +420,8 @@ panzoom: true
             </div>
             <div class="row">
                 <div class="col-sm-6 col-lg-2  pl-1 pr-1">
-                    <div class="input-group"><span>Format: </span>
+                    <div class="input-group"><p>Format: </p>
+                        <p>>
                         <select class="custom-select" data-style="btn-primary" id="formatSelect">
                             <option selected value="png">PNG</option>
                             <option value="png-batik">PNG (Batik)</option>
@@ -429,29 +430,38 @@ panzoom: true
                             <option value="pdfA4">PDF (A4)</option>
                             <option value="pdfLtr">PDF (Ltr)</option>
                         </select>
+                        </p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-2 pl-1 pr-1">
-                    <div class="input-group"><span>Width</span>
+                    <div class="input-group"><p>Width:</p>
+                        <p>>
                         <input type="text" class="form-control" id="sizeInput" placeholder="1000">
+                        </p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-2  pl-1 pr-1">
-                    <div class="input-group"><span>Units: </span>
+                    <div class="input-group"><p>Units: </p>
+                        <p>>
                         <select class="custom-select" data-style="btn-primary" id="unitSelect">
                             <option selected value="px">pixels</option>
                             <option value="in">inches</option>
                             <option value="cm">centimetres</option>
                         </select>
+                        </p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-4 pl-1 pr-1">
-                    <div class="input-group"><span>Filename: </span>
+                    <div class="input-group"><p>Filename: </p>
+                        <p>>
                         <input type="text" class="form-control" id="filenameInput" placeholder="shield">
+                        </p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-2 pl-1 pr-1">
-                    <input type="button" class="btn btn-danger" value="Save File" id="saveFile" onclick="saveshield()">
+                    <p>>
+                        <input type="button" class="btn btn-danger" value="Save File" id="saveFile" onclick="saveshield()">
+                    </p>
                 </div>
             </div>
         </div>
