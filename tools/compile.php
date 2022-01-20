@@ -2,7 +2,7 @@
 
 $targetDir = "../source/_catalog/";
 $sourceDir = "/var/www/test/include/svg/";
-$host = "http://test.drawshield.home/";
+$host = "http://localhost/";
 
 $tempDir = "/tmp";
 

@@ -1976,6 +1976,7 @@
 /catalog/treatments/furs/pean.png
 /catalog/treatments/furs/potent-counter-potent.png
 /catalog/treatments/furs/potent.png
+/catalog/treatments/furs/tapisse.png
 /catalog/treatments/furs/vair-en-point.png
 /catalog/treatments/furs/vair-in-pale.png
 /catalog/treatments/furs/vair.png
@@ -2008,5 +2009,6 @@
 /catalog/treatments/pattern/papelonny.png
 /catalog/treatments/pattern/pied.png
 /catalog/treatments/pattern/plumetty.png
+/catalog/treatments/pattern/rosace.png
 /catalog/treatments/pattern/scaly.png
 /catalog/treatments/pattern/tapisse.png

@@ -554,6 +554,7 @@ $treatList = [
     "objects/billetty",
     "objects/semy-of-bees",
     "pattern/checky",
+    "pattern/rosace",
     "pattern/checky-of-9",
     "objects/billetty-counter-billetty",
     "objects/crusilly",

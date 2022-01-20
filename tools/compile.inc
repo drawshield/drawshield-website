@@ -379,15 +379,20 @@ function treatments() {
         else
             $blazon = "argent " . str_replace(array('-','+'),' ',$treat) . " grey";
         $blazon =  rawurlencode($blazon);
-        $execString = 'wget -q -O ' . "$tempDir/treatment.svg" .
+        $execString = 'wget -q -O ' . "$targetDir/treatments/$folder/$treat.png" .
+            ' "' . $host . 'include/quickimage.php?blazon=' . $blazon .
+            '&outputformat=png-batik&size=400&effect=none&nomask=1"';
+        echo "Executing $execString\n";
+        exec($execString);
+ /*       $execString = 'wget -q -O ' . "$tempDir/treatment.svg" .
         ' "' . $host . 'include/quickimage.php?blazon=' . $blazon .
-        '&outputformat=svg&size=400&effect=none&nomask=1"';
+        '&outputformat=png&size=400&effect=none&nomask=1"';
         echo "Executing $execString\n";
         exec($execString);
         $execString2 = "convert $tempDir/treatment.svg -size 400x480 '$targetDir/treatments/$folder/$treat.png'";
         echo "Executing $execString2\n";
         exec($execString2);
-        if (!$keep) unlink("$tempDir/treatment.svg");
+        if (!$keep) unlink("$tempDir/treatment.svg"); */
     }
 }
 
