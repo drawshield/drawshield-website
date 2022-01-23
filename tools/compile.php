@@ -1,7 +1,7 @@
 <?php
 
 $targetDir = "../source/_catalog/";
-$sourceDir = "/var/www/test/include/svg/";
+$sourceDir = "/var/www/html/include/svg/";
 $host = "http://localhost/";
 
 $tempDir = "/tmp";

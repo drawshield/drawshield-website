@@ -959,6 +959,8 @@
 /catalog/charges/plant/bush.png
 /catalog/charges/plant/cactus.png
 /catalog/charges/plant/carrot.png
+/catalog/charges/plant/clover-leaf.png
+/catalog/charges/plant/clover.png
 /catalog/charges/plant/garlic.png
 /catalog/charges/plant/grape-leaf.png
 /catalog/charges/plant/ivy-leaf.png
@@ -970,6 +972,7 @@
 /catalog/charges/plant/pineapple.png
 /catalog/charges/plant/radish.png
 /catalog/charges/plant/reed.png
+/catalog/charges/plant/seeblatt.png
 /catalog/charges/plant/thistle.png
 /catalog/charges/plant/turnip.png
 /catalog/charges/plant/vine-leaf.png

@@ -238,7 +238,7 @@ try
         @mail($sendTo, $subject, $emailText, implode("\n", $headers));
 
         if ($bugReport) { // also send to discord
-                $ch = curl_init("https://discord.com/api/webhooks/775495216852893716/AG_6jkWQMS0_MWRYXUR6-9jkjlt_57CBKDb9UIVY1A5TSym1ewl35AnDic0RfjaprYlC");
+                $ch = curl_init("https://discord.com/api/webhooks/934893947367604254/bTUDWVT2RBwsew1kTaxSDEqIiiCLV_dpT_TD4R0ynnnyw1yM5yxukyP2JP4R36-VYUQS");
                 $msg = "payload_json=" . urlencode(json_encode(array("username" => "ErrorBot", "content" => $emailText )));
                 if(isset($ch)) {
                           curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
