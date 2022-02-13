@@ -305,7 +305,7 @@
     'slipped', 'spurs', 'stick', 'stirruped', 'stock', 'tailed',
     'threaded', 'tools', 'top', 'trousered', 'trunked',
     'unguled', 'visor', 'wattled', 'winged', 'pole', 'book',
-    'necked', 
+    'necked', 'crined',
     );
     
 $copyTo = [

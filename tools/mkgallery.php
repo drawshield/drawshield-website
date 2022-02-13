@@ -20,8 +20,8 @@ layout: gallery-index
 ---
 ENDTEMPLATE;
 
-$tweet = "Build-bot has uploaded new gallery submissions. There are now " . number_format(10000 - $entryNum) . " entries! https://drawshield.net/gallery/index.html";
-file_put_contents("tweet.txt",$tweet);
+// $tweet = "Build-bot has uploaded new gallery submissions. There are now " . number_format(10000 - $entryNum) . " entries! https://drawshield.net/gallery/index.html";
+// file_put_contents("tweet.txt",$tweet);
 
 $existing = scandir($targetDir);
 foreach($existing as $name) {

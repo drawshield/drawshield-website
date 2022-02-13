@@ -29,6 +29,7 @@
                         Learn
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropDownLinks2">
+                        <a class="dropdown-item" href="/doc">Docs (in prog)</a>
                         <a class="dropdown-item" href="/user-guide/index.html">User Guide</a>
                         <a class="dropdown-item" href="/tutorial/index.html">Blazonry Tutorial</a>
                         <a class="dropdown-item" href="/resources/identify.html">Identifying Shields</a>
@@ -75,8 +76,11 @@
                     </div>
                 </li>     
             </ul>
+            <form class="d-inline d-sm-none form-inline my-2 my-lg-0" id="search-form" action="/api/define/">
+                <input  id="search-term" class="form-control mr-sm-2" type="text" placeholder="term"> <button id="define-term" class="btn btn-danger my-2 my-sm-0" type="submit">Define</button>
+            </form>
         </div>
-        <form class="form-inline my-2 my-lg-0" id="search-form" action="/api/define/">
+        <form class="d-none d-sm-inline form-inline my-2 my-lg-0" id="search-form" action="/api/define/">
             <input  id="search-term" class="form-control mr-sm-2" type="text" placeholder="term"> <button id="define-term" class="btn btn-danger my-2 my-sm-0" type="submit">Define</button>
         </form>
     </nav>
