@@ -5,7 +5,7 @@ var useId;
 var useHTMLId;
 var messageCallback;
 var lastsvg = null;
-
+var usePanZoom = true;
 
 
 function updateHTML() {
@@ -54,7 +54,7 @@ function updateSVG() {
          svg = cloneToDoc(svg);
        }
        shieldImg.appendChild(svg);
-       if (typeof(svgPanZoom) != 'undefined') {
+       if (usePanZoom && typeof(svgPanZoom) != 'undefined') {
         var lastsvg = svgPanZoom(svg, {
           minZoom: 1.0,
           maxZoom: 10,
@@ -68,10 +68,11 @@ function updateSVG() {
   }
 }
 
-function requestFileSVG(url,id,formData,messageFunc) {
+function requestFileSVG(url,id,formData,messageFunc, setPanZoom = true) {
   if ( messageFunc === undefined ) { messageFunc = null; }
   if (!xmlhttp) xmlhttp = new XMLHttpRequest();
   if (!xmlhttp) return;
+  usePanZoom = setPanZoom;
   useId = id;
   messageCallback = messageFunc;
   xmlhttp.open('POST', url, true);
@@ -138,93 +139,6 @@ function displayCredits(svg) {
     }  
 }
 
-function cloneAndFix(node,doc){
-    var corrections = new Array (
-            'attributeName',
-            'attributeType',
-            'baseFrequency',
-            'baseProfile',
-            'calcMode',
-            'clipPathUnits',
-            'contentScriptType',
-            'contentStyleType',
-            'diffuseConstant',
-            'edgeMode',
-            'externalResourcesRequired',
-            'filterRes',
-            'filterUnits',
-            'glyphRef',
-            'gradientTransform',
-            'gradientUnits',
-            'kernelMatrix',
-            'kernelUnitLength',
-            'keyPoints',
-            'keySplines',
-            'keyTimes',
-            'lengthAdjust',
-            'limitingConeAngle',
-            'markerHeight',
-            'markerUnits',
-            'markerWidth',
-            'maskContentUnits',
-            'maskUnits',
-            'numOctaves',
-            'pathLength',
-            'patternContentUnits',
-            'patternTransform',
-            'patternUnits',
-            'pointsAtX',
-            'pointsAtY',
-            'pointsAtZ',
-            'preserveAlpha',
-            'preserveAspectRatio',
-            'primitiveUnits',
-            'refX',
-            'refY',
-            'repeatCount',
-            'repeatDur',
-            'requiredExtensions',
-            'requiredFeatures',
-            'specularConstant',
-            'specularExponent',
-            'spreadMethod',
-            'startOffset',
-            'stdDeviation',
-            'stitchTiles',
-            'surfaceScale',
-            'systemLanguage',
-            'tableValues',
-            'targetX',
-            'targetY',
-            'textLength',
-            'viewBox',
-            'viewTarget',
-            'xChannelSelector',
-            'yChannelSelector',
-            'zoomAndPan'
-            );
-  if (!doc) doc=document;
-  var clone = doc.createElementNS(node.namespaceURI,node.nodeName);
-  for (var i=0,len=node.attributes.length;i<len;++i){
-    var a = node.attributes[i];
-    if (/^xmlns\b/.test(a.nodeName)) continue; // IE can't create these
-    var validName = a.localName.toLowerCase();
-    for (var j=0,len2=corrections.length;j<len2;j++) {
-        if (validName === corrections[j].toLowerCase()) {
-            validName = corrections[j];
-            break;
-        }
-    }
-    clone.setAttributeNS(a.namespaceURI,validName,a.nodeValue);
-  }
-  for (var i=0,len=node.childNodes.length;i<len;++i){
-    var c = node.childNodes[i];
-    clone.insertBefore(
-      c.nodeType===1 ? cloneAndFix(c,doc) : doc.createTextNode(c.nodeValue),
-      null
-    ); }
-  return clone;
-}
 
 // Function provided by http://stackoverflow.com/users/405017/phrogz
 function cloneToDoc(node,doc){

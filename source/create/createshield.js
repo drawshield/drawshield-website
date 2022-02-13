@@ -21,6 +21,7 @@ var useWarhammerColours = 'no';
 var useTartanColours = 'no';
 var customPalette = '';
 var useCustomPalette = 'no';
+var svgZoom = 'yes';
 // Local functions - memory handling
 var memState = 'NON';
 var useMemories = false;
@@ -127,6 +128,7 @@ function setCookies() {
     setCookie('useWarhammerColours',useWarhammerColours);
     setCookie('customPalette',customPalette);
     setCookie('useCustomPalette',useCustomPalette);
+    setCookie('svgZoom',svgZoom);
 }
 
 function getCookies() { // override defaults if cookies are set
@@ -142,6 +144,7 @@ function getCookies() { // override defaults if cookies are set
     if ((temp = getCookie('useTartanColours')) != '') useTartanColours = temp;
     if ((temp = getCookie('customPalette')) != '') customPalette = temp;
     if ((temp = getCookie('useCustomPalette')) != '') useCustomPalette = temp;
+    if ((temp = getCookie('svgZoom')) != '') svgZoom = temp;
 }
 
 function setCookie(cname, cvalue, exdays ) {
@@ -174,6 +177,10 @@ function toggleTartanColours() {
         useTartanColours = 'yes;'
 }
 
+function switchZoom() {
+    svgZoom = (document.getElementById('use-zoom').checked == true) ? 'yes' : 'no';
+    setCookie('svgZoom',svgZoom);
+}
 
 function switchEditor() {
     useEditor = (document.getElementById('use-editor').checked == true) ? 'yes' : 'no';
@@ -249,6 +256,7 @@ function setOptions() {
         }
     }   
     $('#use-editor').attr('checked',(useEditor == 'yes'));
+    $('#use-zoom').attr('checked',(svgZoom == 'yes'));
     $('#use-memories').attr('checked',(useMemories == true));
     $('#webcols').attr('checked',(useWebColours == 'yes'));
     $('#whcols').attr('checked',(useWarhammerColours == 'yes'));
@@ -504,6 +512,9 @@ function drawshield(blazon) {
     var blazonURL = "http://" + window.location.hostname + "/create/index.html?blazon="
          + encodeURIComponent(captionText) + "&palette=" + palette
          + "&shape=" + shape + "&effect=" + effect + "&ar=" + aspectRatio;
+    if (window.innerWidth < 500) {
+        formData.set("size",window.innerWidth - 30);
+    }
     if (captionText.length > 70) {
         captionText = captionText.substring(0,67) + '...';
     }
@@ -511,7 +522,7 @@ function drawshield(blazon) {
     shieldCaption.setAttribute("href",blazonURL);
     document.getElementById('suggestion').innerHTML = blazonText;
     if (blazonText != '') formData.append('blazon',blazonText);
-    requestFileSVG(targetURL,shieldtarget,formData,displayMessages);
+    requestFileSVG(targetURL,shieldtarget,formData,displayMessages,svgZoom == 'yes');
 }
 
 function newTab() {
@@ -648,6 +659,9 @@ function setupshield(initial) {
         editorLoad = initial;
     } else {
         var formData = getFormData();
+        if (window.innerWidth < 500) {
+            formData.set("size",window.innerWidth - 30);
+        }
         requestFileSVG(targetURL,shieldtarget,formData,displayMessages);
 //        shieldCaption.firstChild.nodeValue = "Your shield here";
     }
