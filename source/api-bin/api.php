@@ -95,7 +95,8 @@ exit;
 function lookup($source, $term, $format, $exact = false) {
     $term = strtolower($term);
     $term = str_replace(' ', '-', $term);
-    $targetDir = "../reference/$source/" . $term[0] . '/';
+    $initial = substr($term,0,1);
+    $targetDir = "../reference/$source/" . $initial . '/';
     $targetEntry = false;
 
     if ( !is_dir($targetDir)) {
@@ -129,7 +130,7 @@ function lookup($source, $term, $format, $exact = false) {
         $paras = $dom->getElementsByTagName('p');
         $result = $paras->item(0);
         if ($format == 'json') {
-            return array ( 'content' => $result->nodeValue, 'URL' => "https://drawshield.net/reference/$source/$term[0]/$targetEntry");
+            return array ( 'content' => $result->nodeValue, 'URL' => "https://drawshield.net/reference/$source/$initial/$targetEntry");
         } else {
             return $dom->saveHTML($result);
         }

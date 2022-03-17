@@ -85,7 +85,7 @@ function getFeatures($sourceSVG,$targetTXT) {
     }
     if ($result) {
         file_put_contents($targetTXT,$result);
-        echo "features: " . implode($retval,' ') . "\n";
+        echo "features: " . implode(' ', $retval, ) . "\n";
     } else {
         if (file_exists($targetTXT))
             unlink($targetTXT);

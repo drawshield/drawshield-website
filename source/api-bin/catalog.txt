@@ -80,6 +80,7 @@
 /catalog/charges/animal/camelopard-statant.png
 /catalog/charges/animal/camelopard-winged.png
 /catalog/charges/animal/camelopard.png
+/catalog/charges/animal/capybara.png
 /catalog/charges/animal/crocodile.png
 /catalog/charges/animal/dinosaur.png
 /catalog/charges/animal/elephant-head.png
@@ -260,6 +261,7 @@
 /catalog/charges/bird/stork.png
 /catalog/charges/bird/swallow.png
 /catalog/charges/bird/swan-displayed.png
+/catalog/charges/bird/swan-double-headed.png
 /catalog/charges/bird/swan-essorant.png
 /catalog/charges/bird/swan-nageant.png
 /catalog/charges/bird/swan-passant.png
