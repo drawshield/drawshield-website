@@ -93,6 +93,7 @@
 /catalog/charges/animal/frog.png
 /catalog/charges/animal/gorilla.png
 /catalog/charges/animal/hippo.png
+/catalog/charges/animal/jerboa.png
 /catalog/charges/animal/kangaroo-salient.png
 /catalog/charges/animal/leopard-head.png
 /catalog/charges/animal/leopards-head-jessant-de-lys.png
@@ -203,6 +204,8 @@
 /catalog/charges/axe/throwing-axe.png
 /catalog/charges/axe/turner-axe.png
 /catalog/charges/badges/badge-of-clan-ross.png
+/catalog/charges/badges/prince-of-wales.png
+/catalog/charges/badges/wales.png
 /catalog/charges/bear/bear-couchant.png
 /catalog/charges/bear/bear-dormant.png
 /catalog/charges/bear/bear-head-caboshed.png
@@ -217,6 +220,7 @@
 /catalog/charges/bird/bat.png
 /catalog/charges/bird/blackbird-displayed.png
 /catalog/charges/bird/blackbird.png
+/catalog/charges/bird/bundle-of-3-ostrich-feathers.png
 /catalog/charges/bird/chough.png
 /catalog/charges/bird/condor-displayed.png
 /catalog/charges/bird/crane-holding-a-stone.png
@@ -255,6 +259,7 @@
 /catalog/charges/bird/quail.png
 /catalog/charges/bird/raven-displayed.png
 /catalog/charges/bird/raven-migrant.png
+/catalog/charges/bird/raven-rising.png
 /catalog/charges/bird/raven-volant.png
 /catalog/charges/bird/raven.png
 /catalog/charges/bird/starling.png
@@ -277,6 +282,7 @@
 /catalog/charges/celestial/moon-crescent.png
 /catalog/charges/celestial/moon-decrescent.png
 /catalog/charges/celestial/moon-increscent.png
+/catalog/charges/celestial/moon-natural.png
 /catalog/charges/celestial/moon-pendant.png
 /catalog/charges/celestial/moon.png
 /catalog/charges/celestial/rainbow.png
@@ -1190,7 +1196,10 @@
 /catalog/charges/quadrate/saltorel.png
 /catalog/charges/quadrate/serbian-cross.png
 /catalog/charges/retro-scifi/atom.png
+/catalog/charges/retro-scifi/planet-earth-natural.png
 /catalog/charges/retro-scifi/planet-earth.png
+/catalog/charges/retro-scifi/planet-mars-natural.png
+/catalog/charges/retro-scifi/planet-mars.png
 /catalog/charges/retro-scifi/raygun.png
 /catalog/charges/retro-scifi/ringed-planet.png
 /catalog/charges/retro-scifi/rocket-man.png
@@ -1266,6 +1275,7 @@
 /catalog/charges/sword/sabre.png
 /catalog/charges/sword/seax.png
 /catalog/charges/sword/sword-of-saint-paul.png
+/catalog/charges/symbol/bowl-of-hygeia.png
 /catalog/charges/tack/horseshoe.png
 /catalog/charges/tack/saddle.png
 /catalog/charges/tack/spur.png
