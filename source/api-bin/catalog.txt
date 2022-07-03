@@ -1234,6 +1234,7 @@
 /catalog/charges/sealife/triton-trumpet.png
 /catalog/charges/sealife/turtle.png
 /catalog/charges/sealife/whelk.png
+/catalog/charges/serpent/cobra.png
 /catalog/charges/serpent/pithon-erect-affronty.png
 /catalog/charges/serpent/pithon-volant.png
 /catalog/charges/serpent/serpent-entwined-pillar.png
