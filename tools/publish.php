@@ -97,62 +97,18 @@ class Email_reader {
 
 $folder = "../source/gallery/";
 
-function getNextLowest($folder) {
-	$lowestDir =999;
-	$topdir = opendir($folder);
-	while($topEntry = readdir($topdir)) {
-		if (strlen($topEntry) == 2 
-			&& is_dir($folder . $topEntry) 
-			&& ctype_digit($topEntry[0]) 
-			&& ctype_digit($topEntry[1]) 
-			&& ((int)$topEntry < $lowestDir)) 
-				$lowestDir = $topEntry;
-	}
-	closedir($topdir);
-	$subDir = opendir($folder . $lowestDir);
-	$lowestFile = 9999;
-	while($subEntry = readdir($subDir)) {
-		if (preg_match('/gallery-([0-9]{4}).html/', $subEntry, $match)) {
-			if ((int)$match[1] < $lowestFile)
-				$lowestFile = $match[1];
-		}
-	}
-	return $lowestFile - 1;
-}
-function getNextHighest($folder) {
-	$highestDir =0;
-	$topdir = opendir($folder);
-	while($topEntry = readdir($topdir)) {
-		if (strlen($topEntry) == 4 
-			&& is_dir($folder . $topEntry) 
-			&& ctype_digit($topEntry[0]) 
-			&& ctype_digit($topEntry[1]) 
-			&& ctype_digit($topEntry[2]) 
-			&& ctype_digit($topEntry[3]) 
-			&& ((int)$topEntry > $highestDir)) 
-				$highestDir = $topEntry;
-	}
-	closedir($topdir);
-	$subDir = opendir($folder . $highestDir);
-	$highestFile = 0;
-	while($subEntry = readdir($subDir)) {
-		if (preg_match('/gallery-([0-9]{6}).html/', $subEntry, $match)) {
-			if ((int)$match[1] > $highestFile)
-				$highestFile = $match[1];
-		}
-	}
-	return $highestFile;
-}
 function startsWith($start, $target) {
 	return (strncmp($target, $start, strlen($start)) == 0);
 }
+
+$latest = intval(file_get_contents($folder . 'latest.txt'));
 
 include "../var/www/etc/email_credentials.inc";
 $email_reader = new Email_reader($server, $user, $pass, $port);
 $num = $email_reader->number();
 $counter = 0;
 while (true) {
-    if ($counter++ >= 2) break; // only do a screenful at a time
+    if ($counter++ >= 24) break; // only do a screenful at a time
     // get an email
     $email = $email_reader->get();
 
@@ -173,7 +129,7 @@ while (true) {
 	
 	if ((strcmp ($subject, "Fwd: Gallery Suggestion") == 0) ||
 	(strcmp ($subject, "Gallery Suggestion") == 0)) {
-		$subject = getNextHighest($folder);
+		$subject = ++$latest;
 	} elseif (!preg_match('/[0-9]{6}/',$subject)) {
 		echo "ignoring message subject: $subject\n";
 		$email_reader->move($email['index'], 'INBOX/Ignored');
@@ -287,6 +243,7 @@ while (true) {
     // don't slam the server
 	sleep(1);
 }
+file_put_contents($folder . 'latest.txt', str_pad($subject, 6, "0", STR_PAD_LEFT));
 
 // close the connection to the IMAP server
 $email_reader->close();

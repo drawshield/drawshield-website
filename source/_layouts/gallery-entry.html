@@ -1,19 +1,9 @@
 {% include upper.html %}
-{% capture prevEntry %}/gallery/{{ page.entryNum | minus: 1 }}{% endcapture %}
-{% capture nextEntry %}/gallery/{{ page.entryNum | plus: 1 }}{% endcapture %}
-{% if page.entryNum == '9999' %}
-	{% assign nextEntry = "" %}
-{% endif %}
-{% if page.entryNum == site.latestGallery %}
-  {% assign prevEntry = "" %}
-{% endif %}
-
-{% assign lastEntry = "/gallery/9999" %}
-{% assign firstEntry = "/gallery/first-entry.php" %}
+{% capture nextEntry %}/gallery/redirect.php?prev={{ page.entryNum }}{% endcapture %}
+{% capture prevEntry %}/gallery/redirect.php?next={{ page.entryNum }}{% endcapture %}
+{% capture lastEntry %}/gallery/redirect.php?last=1{% endcapture %}
+{% capture firstEntry %}/gallery/redirect.php?first=1{% endcapture %}
 {% capture upEntry %}/gallery/parent.php?of={{ page.entryNum }}{% endcapture %}
-{% if upEntry == "index0.html" %}
- {% assign upEntry = "index.html" %}
-{% endif %}
 <script src="/js/voting.js"></script>
 {% include navigation.html prev = prevEntry next = nextEntry up = upEntry first = firstEntry last = lastEntry galleryRandom = true showLimits = true %}
 <div class="row justify-content-center">
