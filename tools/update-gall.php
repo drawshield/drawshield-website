@@ -15,7 +15,7 @@ function startsWith($start, $target) {
 
 
 foreach($galleryDirs as $galleryDir) {
-    if (!ctype_digit($galleryDir[0]) || !ctype_digit($galleryDir[1])) continue;
+    if (!ctype_digit($galleryDir[0]) || !ctype_digit($galleryDir[1]) || !ctype_digit($galleryDir[2]) || !ctype_digit($galleryDir[3])) continue;
     $htmlFiles = scandir($source . $galleryDir);
     foreach($htmlFiles as $htmlFile) {
         if ($htmlFile[0] == 'i' || $htmlFile[0] == '.') continue;

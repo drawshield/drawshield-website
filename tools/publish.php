@@ -119,7 +119,30 @@ function getNextLowest($folder) {
 	}
 	return $lowestFile - 1;
 }
-
+function getNextHighest($folder) {
+	$highestDir =0;
+	$topdir = opendir($folder);
+	while($topEntry = readdir($topdir)) {
+		if (strlen($topEntry) == 4 
+			&& is_dir($folder . $topEntry) 
+			&& ctype_digit($topEntry[0]) 
+			&& ctype_digit($topEntry[1]) 
+			&& ctype_digit($topEntry[2]) 
+			&& ctype_digit($topEntry[3]) 
+			&& ((int)$topEntry > $highestDir)) 
+				$highestDir = $topEntry;
+	}
+	closedir($topdir);
+	$subDir = opendir($folder . $highestDir);
+	$highestFile = 0;
+	while($subEntry = readdir($subDir)) {
+		if (preg_match('/gallery-([0-9]{6}).html/', $subEntry, $match)) {
+			if ((int)$match[1] > $highestFile)
+				$highestFile = $match[1];
+		}
+	}
+	return $highestFile;
+}
 function startsWith($start, $target) {
 	return (strncmp($target, $start, strlen($start)) == 0);
 }
@@ -129,7 +152,7 @@ $email_reader = new Email_reader($server, $user, $pass, $port);
 $num = $email_reader->number();
 $counter = 0;
 while (true) {
-    if ($counter++ >= 24) break; // only do a screenful at a time
+    if ($counter++ >= 2) break; // only do a screenful at a time
     // get an email
     $email = $email_reader->get();
 
@@ -150,13 +173,14 @@ while (true) {
 	
 	if ((strcmp ($subject, "Fwd: Gallery Suggestion") == 0) ||
 	(strcmp ($subject, "Gallery Suggestion") == 0)) {
-		$subject = getNextLowest($folder);
-	} elseif (!preg_match('/[0-9]{4}/',$subject)) {
+		$subject = getNextHighest($folder);
+	} elseif (!preg_match('/[0-9]{6}/',$subject)) {
 		echo "ignoring message subject: $subject\n";
 		$email_reader->move($email['index'], 'INBOX/Ignored');
 		sleep(1);
         continue;
     }
+	$subject = str_pad($subject, 6, "0", STR_PAD_LEFT);
 	echo "$counter: Processing $subject -";
 	// echo $body . "\n";
 	// exit(0);
@@ -224,7 +248,7 @@ while (true) {
 			break;
 		}	
 	}
-	$subfolder = substr($subject,0,2);
+	$subfolder = substr($subject,0,4);
 	if (!file_exists($folder . $subfolder)) {
 		mkdir ($folder . $subfolder);
 		mkdir ($folder . $subfolder . "/img");

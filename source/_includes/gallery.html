@@ -1,19 +1,21 @@
 <!-- /_includes/gallery starts -->
 <div class="container">
     <div class="row">
-    {%- for counter in ({{include.startImg}}..{{include.endImg}}) -%}
-      {%- assign initial = {{counter}} | truncate: 2, "" -%}
-      {%- assign image = initial | append: '/img/gallery-' | append: counter | append: '.png' -%}
-      {%- assign pageURL = 'gallery-' | append: counter | append: '.html' -%}
+    {%- for counter in ({{include.endImg}}..{{include.startImg}}) reversed -%}
+      {%- assign longNumber = '000000' | append: counter -%}
+      {%- assign fmtNumber = {{longNumber}} | slice: -6, 6 -%}
+      {%- assign initial = {{fmtNumber}} | truncate: 4, "" -%}
+      {%- assign image = initial | append: '/img/gallery-' | append: fmtNumber | append: '.png' -%}
+      {%- assign pageURL = 'gallery-' | append: fmtNumber | append: '.html' -%}
       {%- assign thisPage = site.pages | where:"name", pageURL -%}
-      {%- assign caption = {{thisPage.first.pageTitle}} | append: ' (' | append: counter | append: ')' -%} 
+      {%- assign caption = {{thisPage.first.pageTitle}} | append: ' (' | append: fmtNumber | append: ')' -%} 
       {%- assign pageURL = initial | append: '/' | append: pageURL -%}
       <div class="gallery gallery_product col-lg-3 col-md-4 col-sm-4 col-xs-6">
             <figure>
           <a href="{{ pageURL }}"><img src="{{ image }}" alt="Shield image" class="img-fluid" /></a>
           <figcaption class="text-center"><a href="{{ pageURL }}">{{ caption }}</a> <br>
-            <button id="button-{{ counter }}" type="button" class="btn btn-danger btn-sm" onclick="voteFor('{{ counter }}');">
-              Like <span data-num="{{ counter }}" class="badge badge-light votecounter">0</span>
+            <button id="button-{{ fmtNumber }}" type="button" class="btn btn-danger btn-sm" onclick="voteFor('{{ fmtNumber }}');">
+              Like <span data-num="{{ fmtNumber }}" class="badge badge-light votecounter">0</span>
             </button>
           </figcaption>
         </figure>

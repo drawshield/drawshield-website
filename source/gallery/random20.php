@@ -3,33 +3,26 @@
 $limit = 20;
 $tries = 1000;
 
-// read entries from file
-$allEntries = [];
-$list = simplexml_load_file('./list-of-entries.xml');
-foreach($list as $entry) {
-    $allEntries[] = array($entry->refnum, $entry->title);
-}
+$highest = intval(file_get_contents("./latest.txt"));
 
 // generate a list of 20 chosen randomly, no duplicates
 $randomList = [];
 $found = 0;
-$numEntries = count($allEntries);
-if ($numEntries < $limit) {
-    echo "Not enough entries ($numEmtries)\n";
-    exit;
-}
 
 while($found < $limit && $tries--) {
-    $number = mt_rand(0,$numEntries - 1);
+    $number = mt_rand(1,$highest);
     if (in_array($number, $randomList, true)) continue;
     $randomList[] = $number;
     $found++;
 }
 
 foreach($randomList as $randomEntry) {
-    $refnum = $allEntries[$randomEntry][0];
-    $folder = substr($refnum,0,2);
-    $title = $allEntries[$randomEntry][1];
+    $refnum = str_pad($randomEntry, 6, "0", STR_PAD_LEFT);
+    $folder = substr($refnum,0,4);
+    $fileContent = file_get_contents("$folder/gallery-$refnum.html");
+    preg_match("/<h1 class=\"text-center\">(.*?)</", $fileContent, $match);
+    $title = $match[1];
+
     if (strlen($title) > 20) {
         $title = substr($title,0,17) . "...";
     }

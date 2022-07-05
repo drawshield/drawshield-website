@@ -6,29 +6,39 @@
         {% assign nextState="disabled" %}
         {% assign upState="disabled" %}
         {% assign lastState="disabled" %}
+        {% assign firstLabel="First" %}
+        {% assign lastLabel="Last" %}
+        {% assign prevLabel="Previous" %}
+        {% assign nextLabel="Next" %}
         {% if include.prev %} {% assign prevState="" %} {% endif %}
         {% if include.first %} {% assign firstState="" %} {% endif %}
         {% if include.next %} {% assign nextState="" %} {% endif %}
         {% if include.last %} {% assign lastState="" %} {% endif %}
         {% if include.up %} {% assign upState="" %} {% endif %}
+        {% if include.galleryRandom %}
+        {% assign firstLabel="Newest" %}
+        {% assign lastLabel="Oldest" %}
+        {% assign prevLabel="Newer" %}
+        {% assign nextLabel="Older" %}
+        {% endif %}
         <ul class="pagination">
             {% if include.showLimits %}
             <li class="page-item {{ firstState }}"> 
-                <a class="page-link first-link" href="{{ include.first}}">First</a>
+                <a class="page-link first-link" href="{{ include.first}}">{{ firstLabel }}</a>
             </li>
             {% endif %}
             <li class="page-item {{ prevState }}"> 
-                <a class="page-link prev-link" href="{{ include.prev }}">Previous</a>
+                <a class="page-link prev-link" href="{{ include.prev }}">{{ prevLabel }}</a>
             </li>
             <li class="page-item  {{ upState }}">
                 <a class="page-link up-link" href="{{ include.up }}">Up</a>
             </li>
             <li class="page-item {{ nextState }}">
-                <a class="page-link next-link" href="{{ include.next }}">Next</a>
+                <a class="page-link next-link" href="{{ include.next }}">{{ nextLabel }}</a>
             </li>
             {% if include.showLimits %}
             <li class="page-item {{ lastState }}"> 
-                <a class="page-link last-link" href="{{ include.last}}">Last</a>
+                <a class="page-link last-link" href="{{ include.last}}">{{ lastLabel }}</a>
             </li>
             {% endif %}
             {% if include.galleryRandom %}

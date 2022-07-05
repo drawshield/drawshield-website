@@ -1,4 +1,1 @@
----
-layout: none
----
-{{ site.latestGallery }}
+008984

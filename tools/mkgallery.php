@@ -29,11 +29,12 @@ foreach($existing as $name) {
         unlink($targetDir . $name);
 }
 $firstVal = "firstIndex: index.html";
-$lastVal = "lastIndex: index" . ( ceil((10000 - $entryNum) / $increment ) -1) . ".html";
+$lastVal = "lastIndex: index" . ceil( $entryNum / $increment ) -1 . ".html";
+$counter = 0;
 
-while ($entryNum < 10000) {
+while ($entryNum > 0 ) {
     $start = $entryNum;
-    $end = $start + $increment - 1;
+    $end = $start - $increment - 1;
     $first = $firstVal;
     $last = $lastVal;
     if ($index == 0) {
@@ -50,19 +51,19 @@ while ($entryNum < 10000) {
         $prev = "prevIndex: index" . ($index - 1) . ".html";
         $next = "nextIndex: index" . ($index + 1) . ".html";
     }
-    if ($end > 10000) {
-        $end = 9999;
+    if ($end < 0) {
+        $end = 1;
         $next = '';
         $last = '';
     }
- //   echo "$targetDir$targetFile\n";
+    // echo "$targetDir$targetFile\n";
     file_put_contents($targetDir . $targetFile, 
         str_replace( array ("%start%", "%end%", "%prev%", "%next%", "%first%", "%last%"),
                       array ($start, $end, $prev, $next, $first, $last), $template));
  //   echo "\n============================\n";  
 
     $index++;
-    $entryNum += $increment;
+    $entryNum -= $increment;
 }
 
 

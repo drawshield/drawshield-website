@@ -66,7 +66,7 @@ function extractContent($filename) {
 // $count = 0;
 foreach ($output as $line) {
     $parts = explode(':',$line);
-    preg_match("/\d\d\d\d/", $parts[0], $matches);
+    preg_match("/\d\d\d\d\d\d/", $parts[0], $matches);
     $refNum = $matches[0];
     $title = substr($parts[2],1);
     $title = str_replace('"',"'",$title);
