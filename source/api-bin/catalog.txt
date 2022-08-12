@@ -246,6 +246,7 @@
 /catalog/charges/bird/martlett.png
 /catalog/charges/bird/natural-pelican.png
 /catalog/charges/bird/nightingale.png
+/catalog/charges/bird/ostrich-feather-bundle-3.png
 /catalog/charges/bird/ostrich-feather.png
 /catalog/charges/bird/owl-affronty.png
 /catalog/charges/bird/owl-displayed.png
@@ -263,6 +264,7 @@
 /catalog/charges/bird/raven-volant.png
 /catalog/charges/bird/raven.png
 /catalog/charges/bird/starling.png
+/catalog/charges/bird/stork-volant.png
 /catalog/charges/bird/stork.png
 /catalog/charges/bird/swallow.png
 /catalog/charges/bird/swan-displayed.png
@@ -1249,9 +1251,11 @@
 /catalog/charges/serpent/snake.png
 /catalog/charges/ship/anchor-fouled.png
 /catalog/charges/ship/anchor.png
+/catalog/charges/ship/barge.png
 /catalog/charges/ship/caravel.png
 /catalog/charges/ship/coracle.png
 /catalog/charges/ship/fishing-boat.png
+/catalog/charges/ship/galley-furled.png
 /catalog/charges/ship/galley.png
 /catalog/charges/ship/rudder.png
 /catalog/charges/ship/ship.png
@@ -1305,6 +1309,7 @@
 /catalog/charges/tools/key.png
 /catalog/charges/tools/ladder.png
 /catalog/charges/tools/mallet.png
+/catalog/charges/tools/mariners-compass.png
 /catalog/charges/tools/mattock.png
 /catalog/charges/tools/millrind.png
 /catalog/charges/tools/padlock.png
@@ -1357,11 +1362,14 @@
 /catalog/charges/tree-fruit/linden-tree-eradicated.png
 /catalog/charges/tree-fruit/linden-tree.png
 /catalog/charges/tree-fruit/log.png
+/catalog/charges/tree-fruit/maple-leaf-conjoined-3.png
 /catalog/charges/tree-fruit/maple-leaf.png
 /catalog/charges/tree-fruit/maple-seed.png
 /catalog/charges/tree-fruit/marijuana-leaf.png
 /catalog/charges/tree-fruit/oak-leaf.png
 /catalog/charges/tree-fruit/oak-sprig-fructed.png
+/catalog/charges/tree-fruit/oak-tree-eradicated.png
+/catalog/charges/tree-fruit/oak-tree.png
 /catalog/charges/tree-fruit/oak.png
 /catalog/charges/tree-fruit/olive-sprig-fructed.png
 /catalog/charges/tree-fruit/pair-of-cherries.png

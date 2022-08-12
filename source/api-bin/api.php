@@ -167,7 +167,7 @@ function doGallery($arg) {
     global $success, $format, $error;
     
     if (preg_match('/\d+/', $arg)) { // get a numbered entry, if it exists
-       $folder = substr($arg,0,2); 
+       $folder = substr($arg,0,4);
        if (!file_exists("../gallery/$folder/gallery-$arg.html")) {
            $error = "No gallery entry found";
            return;

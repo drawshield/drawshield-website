@@ -141,11 +141,11 @@ try
             $gallery = true;
         }
         if ( $key == 'reference') {
-            if (preg_match('/^(gallery|blog)-[a-zA-Z0-9][0-9]{3}$/', $value)) {
+            if (preg_match('/^(gallery|blog)-[a-zA-Z0-9][0-9]{5}$/', $value)) {
                 $okMessage = "Thanks for your comment, it will be moderated and added to this page soon.";
                 $comment = true;
                 $subject = "comment on $key";
-                $refnum = substr($value,-4);
+                $refnum = substr($value,-6);
             } else {
                 $subject = $value;
             }

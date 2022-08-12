@@ -63,6 +63,7 @@ desc 'Gallery & catalog Build'
 task :gallery do
   Dir.chdir('tools') do
     sh %{ php mkgallery.php }
+    sh %{ php mkgallery-xml.php }
     sh %{ php mkgallery-list.php }
     sh %{ stork build --input gallery.toml --output ../source/gallery/gallery.st }
     sh %{ php mkcatalog.php }
