@@ -31,7 +31,7 @@ foreach($galleryDirs as $galleryDir) {
         for ($i = 0; $i < count($lines); $i++) {
             $line = $lines[$i];
             if (startsWith("pageTitle:",$line)) {
-                $title = html_entity_decode(trim(substr($line, 10)));
+                $title = htmlspecialchars(trim(substr($line, 10)));
                 continue;
             }
             if (startsWith("entryNum:",$line)) {
