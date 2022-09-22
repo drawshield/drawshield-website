@@ -1,0 +1,4 @@
+<br />
+<b>Warning</b>:  file_get_contents(/private/var/tmp/shield2SiyW0.png): Failed to open stream: No such file or directory in <b>/Users/karlw/Sites/include/quickimage.php</b> on line <b>94</b><br />
+<br />
+<b>Warning</b>:  unlink(/private/var/tmp/shield2SiyW0.png): No such file or directory in <b>/Users/karlw/Sites/include/quickimage.php</b> on line <b>95</b><br />

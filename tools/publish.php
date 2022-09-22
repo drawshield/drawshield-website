@@ -153,6 +153,7 @@ while (true) {
 	$execEnd = '-->';
 	$gatherExecute = false;
     foreach ($lines as $line) {
+        $line = rtrim($line);
 		if ($gatherExecute) {
 			if (startsWith($execEnd, $line)) {
 				$output .= $execute . "\n" . $execEnd . "\n";

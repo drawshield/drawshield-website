@@ -237,6 +237,7 @@
 /catalog/charges/bird/emu.png
 /catalog/charges/bird/feather.png
 /catalog/charges/bird/goose.png
+/catalog/charges/bird/lapwing.png
 /catalog/charges/bird/lark-displayed.png
 /catalog/charges/bird/lark-essorant.png
 /catalog/charges/bird/lark.png
@@ -448,12 +449,14 @@
 /catalog/charges/emblem/fasces.png
 /catalog/charges/emblem/fleur-de-lys-double-fancy.png
 /catalog/charges/emblem/fleur-de-lys-fancy.png
+/catalog/charges/emblem/fleur-de-lys-florence.png
 /catalog/charges/emblem/fleur-de-lys.png
 /catalog/charges/emblem/heralds-staff.png
 /catalog/charges/emblem/labyrinth.png
 /catalog/charges/emblem/laurel-wreath-fructed.png
 /catalog/charges/emblem/laurel-wreath.png
 /catalog/charges/emblem/lion-of-st-marks-with-sword.png
+/catalog/charges/emblem/lion-of-st-marks.png
 /catalog/charges/emblem/marshalls-baton.png
 /catalog/charges/emblem/menorah-of-7.png
 /catalog/charges/emblem/menorah-of-9.png
@@ -464,9 +467,11 @@
 /catalog/charges/emblem/rod-of-esclapius.png
 /catalog/charges/emblem/star-of-david.png
 /catalog/charges/emblem/thyrsus.png
+/catalog/charges/emblem/triple-moon.png
 /catalog/charges/emblem/triskelion-armoured.png
 /catalog/charges/emblem/triskelion-of-spirals.png
 /catalog/charges/emblem/triskelion.png
+/catalog/charges/emblem/vair-spot.png
 /catalog/charges/farming/beehive.png
 /catalog/charges/farming/butter-churn.png
 /catalog/charges/farming/corn-sheaf.png
@@ -1060,6 +1065,15 @@
 /catalog/charges/playing-card/playing-card-two-of-hearts.png
 /catalog/charges/playing-card/playing-card-two-of-spades.png
 /catalog/charges/playing-card/winning-hand-of-playing-cards.png
+/catalog/charges/prehistoric/ammonite.png
+/catalog/charges/prehistoric/dinosaur.png
+/catalog/charges/prehistoric/dodo.png
+/catalog/charges/prehistoric/dolmen.png
+/catalog/charges/prehistoric/mammoth.png
+/catalog/charges/prehistoric/menhir.png
+/catalog/charges/prehistoric/sauropod.png
+/catalog/charges/prehistoric/trilobyte.png
+/catalog/charges/prehistoric/velociraptor.png
 /catalog/charges/projectile/arrow.png
 /catalog/charges/projectile/bird-bolt.png
 /catalog/charges/projectile/broad-arrow.png
@@ -1079,6 +1093,9 @@
 /catalog/charges/quadrate/cross-avellane-fitchy.png
 /catalog/charges/quadrate/cross-avellane-pierced.png
 /catalog/charges/quadrate/cross-avellane.png
+/catalog/charges/quadrate/cross-barby-fitchy.png
+/catalog/charges/quadrate/cross-barby-pierced.png
+/catalog/charges/quadrate/cross-barby-voided.png
 /catalog/charges/quadrate/cross-barby.png
 /catalog/charges/quadrate/cross-botonny-fitchy.png
 /catalog/charges/quadrate/cross-botonny-latin.png
@@ -1104,6 +1121,7 @@
 /catalog/charges/quadrate/cross-crosslet-pierced.png
 /catalog/charges/quadrate/cross-crosslet-voided.png
 /catalog/charges/quadrate/cross-crosslet.png
+/catalog/charges/quadrate/cross-ermine.png
 /catalog/charges/quadrate/cross-fitchy-double-pierced.png
 /catalog/charges/quadrate/cross-fitchy-double-voided.png
 /catalog/charges/quadrate/cross-fitchy-double.png
@@ -1137,6 +1155,7 @@
 /catalog/charges/quadrate/cross-gammadion.png
 /catalog/charges/quadrate/cross-moline-fitchy.png
 /catalog/charges/quadrate/cross-moline-pierced.png
+/catalog/charges/quadrate/cross-moline-voided.png
 /catalog/charges/quadrate/cross-moline.png
 /catalog/charges/quadrate/cross-of-4-fusils-fitchy.png
 /catalog/charges/quadrate/cross-of-4-fusils-pierced.png
@@ -1195,6 +1214,7 @@
 /catalog/charges/quadrate/fylfot.png
 /catalog/charges/quadrate/jerusalem-cross.png
 /catalog/charges/quadrate/maltese-cross.png
+/catalog/charges/quadrate/portuguese-cross.png
 /catalog/charges/quadrate/saltorel.png
 /catalog/charges/quadrate/serbian-cross.png
 /catalog/charges/retro-scifi/atom.png
@@ -1871,6 +1891,7 @@
 /catalog/ordinaries/diminutive/chevronel.png
 /catalog/ordinaries/diminutive/closet.png
 /catalog/ordinaries/diminutive/endorse.png
+/catalog/ordinaries/diminutive/fillet+.png
 /catalog/ordinaries/diminutive/fillet-cross-+.png
 /catalog/ordinaries/diminutive/fillet-saltire-+.png
 /catalog/ordinaries/diminutive/palet-+.png

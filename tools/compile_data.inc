@@ -374,6 +374,7 @@ $ordList = [
     "diminutive/closet",
     "diminutive/barrulet",
     "diminutive/riband",
+    "diminutive/fillet+",
     "diminutive/fillet-cross-+",
     "diminutive/fillet-saltire-+",
     "diminutive/palet-+",

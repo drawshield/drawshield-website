@@ -3,7 +3,9 @@
 if (!array_key_exists('category',$_GET)) exit;
 
 $dir = $_GET['category'];
-$files = scandir($dir); 
+
+$files = @scandir($dir);
+if (is_null($files)) exit;
 $addLink = strncasecmp($dir,'charges',7) == 0;
 
 foreach ($files as $file) {

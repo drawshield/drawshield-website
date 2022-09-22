@@ -50,6 +50,7 @@ Reject This Comment: http://drawshield.net/gallery/comments.php?id=%tableid%&act
 Refer This Comment: http://drawshield.net/gallery/comments.php?id=%tableid%&action=refer&secret=jsk5k*VV&refnum=%refnum%
 EOD2;
 
+$addData = '';
 // form field names and their translations.
 // array variable name => Text to appear in the email
 $fields = array('reference' => 'Reference', 'email' => 'Email', 'message' => 'Message', 'error-blazon' => 'Blazon', 'suggestion' => 'Suggested Blazon', 'additional' => 'Additional Information', 'options' => 'Drawing Options', 'title' => 'Suggested Title', 'refnum' => 'Gallery Reference Number', 'tags' => 'Tags');

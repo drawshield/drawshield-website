@@ -10,21 +10,21 @@ end
 
 desc 'Copy All Files to Live System'
 task :deploy do
-  sh %{ rsync -rcv --exclude-from=.deployignore /var/www/test/ /var/www/html }
+  sh %{ rsync -rcv --exclude-from=.deployignore /Users/karlw/Sites/test/ /Users/karlw/Sites/html }
 end
 
 desc 'Copy new gallery entries to Live System'
 task :deploygallery do
-  sh %{ rsync -rcv /var/www/test/gallery/ /var/www/html/gallery }
+  sh %{ rsync -rcv /Users/karlw/Sites/gallery/ /Users/karlw/Sites/gallery }
 
 #  sh %{ /home/ubuntu/gems/bin/t update "$(cat tools/tweet.txt)" } 
 end
 
 desc 'Copy new catalog entries to Live System'
 task :deploycatalog do
-  sh %{ rsync -rcv /var/www/test/catalog/ /var/www/html/catalog }
-  FileUtils.cp( "/var/www/test/api-bin/catalog.txt", "/var/www/html/api-bin/catalog.txt")
-  filename = '/var/www/html/api-bin/catalog.txt'
+  sh %{ rsync -rcv /var/www/test/catalog/ /Users/karlw/Sites/catalog }
+  FileUtils.cp( "/var/www/test/api-bin/catalog.txt", "/Users/karlw/Sites/api-bin/catalog.txt")
+  filename = '/Users/karlw/Sites/api-bin/catalog.txt'
   line_count = `wc -l "#{filename}"`.strip.split(' ')[0].to_i
   require 'net/http'
   require 'uri'
@@ -49,7 +49,7 @@ end
 
 desc 'Jekyll Build'
 task :jekyll do
-  sh %{ bundle exec jekyll build --disable_disk_cache  -d /var/www/html }
+  sh %{ bundle exec jekyll build --disable_disk_cache  -d /Users/karlw/Sites }
 end
 
 desc 'Commit and Push to git'
