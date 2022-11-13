@@ -82,6 +82,8 @@
         "cross-formy", "crosslet-formy",
         "cross-toulouse", "cross-of-Toulouse",
         "cross-pisa", "cross-of-Pisa",
+        "gemstone-french", "french-cut-gemstone",
+        "gemstone-in-profile-french", "french-cut-gemstone-in-profile",
         "cross-toulouse-filled", "cross-of-Toulouse-filled",
         "cross-formy-fitchy", "crosslet-formy-fitchy",
         "cross-formy-pierced", "crosslet-formy-pierced",

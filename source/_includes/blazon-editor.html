@@ -222,6 +222,11 @@
                         if (stream.peek() == ')') stream.next();
                         return 'quarter';
                     }
+                    var rollWords = ['armorial', 'roll', 'next', 'then', 'skip', 'consisting',
+                                        'comprising', 'background'];
+                    if (word.includes(rollWords)) {
+                        return 'roll';
+                    }
                     // is it part of a charge adjustment?
                     var chargeAdj1 = ['shown', 'shewn', 'moved', 'smaller', 'larger',
                         'higher', 'lower', 'to', 'narrower', 'wider' ];

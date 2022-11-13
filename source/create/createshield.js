@@ -1,11 +1,11 @@
 var shieldSize = 500;
 var shieldtarget = 'shieldimg';
 var captiontarget = 'shieldcaption';
-var targetURL = '/include/drawshield.php';
+var releaseURL = '/include/drawshield.php';
+var developmentURL = '/test/drawshield.php';
 var messageContainer = 'messageDiv';
 var messageTarget = 'messageList'
 var optionsLoaded = false;
-var partsLoaded = false;
 var uploadedFile = null;
 //////////// OPTION HANDLING ///////////////////
 // The options, default values for first time visit
@@ -22,99 +22,10 @@ var useTartanColours = 'no';
 var customPalette = '';
 var useCustomPalette = 'no';
 var svgZoom = 'yes';
-// Local functions - memory handling
-var memState = 'NON';
-var useMemories = false;
-
-function setMemories() {
-    jQuery(".memNumber").each(function(index,value) {
-        var key = $(this).attr("id");
-        var content = localStorage.getItem(key);
-        if (content) {
-           jQuery("#" + key).removeClass('btn-light').addClass('btn-secondary');
-           jQuery('#' + key).attr("data-content", popoverText(content));
-        }
-    });
-}
-
-function memButton(but) {
-    // What is the current button state?
-    if (jQuery('#button' + but).hasClass('btn-secondary')) { // already pressed
-        memState = 'NON';
-        jQuery('#button' + but).removeClass('btn-secondary').addClass('btn-light');
-    } else { //  Button not pressed, reset others
-        jQuery('.memButton').each(function(index,value) {
-            $(this).removeClass('btn-secondary').addClass('btn-light');
-        });
-        // Set this one
-        jQuery('#button' + but).removeClass('btn-light').addClass('btn-secondary');
-        memState = but;
-    }
-}
-
-function popoverText(data) {
-    var popover = decodeURI(data).trim().substring(0,90);
-    popover = popover.replace(/(\r\n|\n|\r)/gm, " ");
-    if (data.trim().length > 90) {
-        popover = popover + "...";
-    }   
-    return popover;
-}
-
-function memNumber(key) {
-    var data = "";
-    switch(memState) {
-        case 'NON':
-            break; // No action set
-        case 'STO':
-            data = saveEditor();
-            if (key != "memory00" && data.trim().length > 0) {
-                localStorage.setItem(key, encodeURI(data));
-                jQuery('#' + key).removeClass('btn-light').addClass('btn-secondary');
-                jQuery('#' + key).attr("data-content", popoverText(data));
-            }
-            break;
-        case 'RCL':
-            data = localStorage.getItem(key);
-            if (data) {
-                if (key != "memory00") {
-                    localStorage.setItem("memory00", encodeURI(saveEditor()));
-                    jQuery("#memory00").removeClass('btn-light').addClass('btn-secondary');
-                }
-                loadEditor(decodeURI(data));
-            }
-            break;
-        case 'CLR':
-            localStorage.removeItem(key);
-            jQuery('#' + key).removeClass('btn-secondary').addClass('btn-light');
-            jQuery('#' + key).attr("data-content", "");
-            break;
-    }
-    // now reset all the button states
-    jQuery('.memButton').each(function(index,value) {
-        $(this).removeClass('btn-secondary').addClass('btn-light');
-    });    
-}
+var version = 'release';
 
 function saveToFile() {
-    if (!useMemories) {
-        saveBlazon(saveEditor());
-        return;
-    }
-    var data = new Array();
-	localStorage.setItem("memory00", encodeURI(saveEditor()));
-    jQuery(".memNumber").each(function(index,value) {
-        key = $(this).attr("id");
-        content = localStorage.getItem(key);
-        if (content) {
-           data.push({key: key, value: String(decodeURI(content))});
-        }
-    });
-    if (!data.length) { // nothing in the memories,just save editor content as text
-        saveBlazon(saveEditor());
-    } else {
-        saveBlazon(JSON.stringify(data));
-    }
+    saveBlazon(saveEditor());
 }
 
 function setCookies() {
@@ -123,12 +34,12 @@ function setCookies() {
     setCookie('shape',shape);
     setCookie('aspectRatio',aspectRatio);
     setCookie('useEditor',useEditor);
-    setCookie('useMemories',(useMemories ? 'yes' : 'no'));
     setCookie('useWebColours',useWebColours);
     setCookie('useWarhammerColours',useWarhammerColours);
     setCookie('customPalette',customPalette);
     setCookie('useCustomPalette',useCustomPalette);
     setCookie('svgZoom',svgZoom);
+    setCookie('version',version);
 }
 
 function getCookies() { // override defaults if cookies are set
@@ -137,7 +48,6 @@ function getCookies() { // override defaults if cookies are set
     if ((temp = getCookie('effect')) != '') effect = temp;
     if ((temp = getCookie('shape')) != '') shape = temp;
     if ((temp = getCookie('aspectRatio')) != '') aspectRatio = temp;
-    if ((temp = getCookie('useEditor')) != '') useEditor = temp;
     if ((temp = getCookie('useMemories')) != '') useMemories = ((typeof(window.localStorage) != 'undefined') && (temp == 'yes'));
     if ((temp = getCookie('useWebColours')) != '') useWebColours = temp;
     if ((temp = getCookie('useWarhammerColours')) != '') useWarhammerColours = temp;
@@ -145,6 +55,7 @@ function getCookies() { // override defaults if cookies are set
     if ((temp = getCookie('customPalette')) != '') customPalette = temp;
     if ((temp = getCookie('useCustomPalette')) != '') useCustomPalette = temp;
     if ((temp = getCookie('svgZoom')) != '') svgZoom = temp;
+    if ((temp = getCookie('version')) != '') version = temp;
 }
 
 function setCookie(cname, cvalue, exdays ) {
@@ -177,6 +88,14 @@ function toggleTartanColours() {
         useTartanColours = 'yes;'
 }
 
+function toggleVersion() {
+    if (version == 'release') {
+        version = 'development';
+    } else {
+        version = 'release';
+    }
+}
+
 function switchZoom() {
     svgZoom = (document.getElementById('use-zoom').checked == true) ? 'yes' : 'no';
     setCookie('svgZoom',svgZoom);
@@ -199,18 +118,6 @@ function switchEditor() {
         blazonEditor = document.getElementById('blazon');
         blazonEditor.setAttribute('style','');
         blazonEditor.value = content;
-    }
-}
-
-function switchMemories() {
-    if (document.getElementById('use-memories').checked == true) {
-        useMemories = true;
-        jQuery('#memoryButtons').show();
-        setMemories();
-        $('.memNumber').popover();
-    } else {
-        useMemories = false;
-        jQuery('#memoryButtons').hide();
     }
 }
 
@@ -254,10 +161,10 @@ function setOptions() {
             option.checked = true;
             break;
         }
-    }   
+    }
     $('#use-editor').attr('checked',(useEditor == 'yes'));
     $('#use-zoom').attr('checked',(svgZoom == 'yes'));
-    $('#use-memories').attr('checked',(useMemories == true));
+    $('#use-dev').attr('checked',(version == 'development'));
     $('#webcols').attr('checked',(useWebColours == 'yes'));
     $('#whcols').attr('checked',(useWarhammerColours == 'yes'));
     $('#tartancols').attr('checked',(useTartanColours == 'yes'));
@@ -314,6 +221,7 @@ function readOptions() {
     useWebColours = (document.getElementById('webcols').checked) ? 'yes' : 'no';
     useWarhammerColours = (document.getElementById('whcols').checked) ? 'yes' : 'no';
     useTartanColours = (document.getElementById('tartancols').checked) ? 'yes' : 'no';
+    version = (document.getElementById('use-dev').checked) ? 'development' : 'release';
     var paletteTextarea = document.getElementById('customPalette');
     if (paletteTextarea != null) customPalette = paletteTextarea.value;
     var customPaletteCheckbox = document.getElementById('enable-cp');
@@ -438,7 +346,7 @@ function processFile(fileContent) {
 				}
 			}
 		}
-		setMemories();	
+		setMemories();
 	} else { // Treat as a simple string
 		loadEditor(fileContent);
 	}
@@ -502,7 +410,7 @@ function drawshield(blazon) {
     var formData = getFormData();
     if (blazon != null){
         blazonText = blazon;
-    } else { 
+    } else {
         if (useEditor == 'yes')
             blazonText = blazonEditor.getValue();
         else
@@ -518,18 +426,27 @@ function drawshield(blazon) {
     if (captionText.length > 70) {
         captionText = captionText.substring(0,67) + '...';
     }
+    URL = releaseURL;
+    if (version == 'development') {
+        URL = developmentURL;
+        captionText = 'DEVELOPMENT VERSION ' + captionText;
+    }
     shieldCaption.firstChild.nodeValue = captionText ;
     shieldCaption.setAttribute("href",blazonURL);
     document.getElementById('suggestion').innerHTML = blazonText;
     if (blazonText != '') formData.append('blazon',blazonText);
-    requestFileSVG(targetURL,shieldtarget,formData,displayMessages,svgZoom == 'yes');
+    requestFileSVG(URL,shieldtarget,formData,displayMessages,svgZoom == 'yes');
 }
 
 function newTab() {
     readOptions(); // in case any have changed
     form = document.getElementById('blazonForm');
     form.method = 'POST';
-    form.action = targetURL;
+    URL = releaseURL;
+    if (version == 'development') {
+        URL = developmentURL;
+    }
+    form.action = URL;
     form.elements["size"].value = "1000";
     form.target = '_blank';
     form.elements["asfile"].value = "printable";
@@ -552,7 +469,11 @@ function saveshield() {
     if (isNaN(saveWidth)) saveWidth = 1000;
 
     form = document.getElementById("blazonForm");
-    form.action = targetURL;
+    URL = releaseURL;
+    if (version == 'development') {
+        URL = developmentURL;
+    }
+    form.action = URL;
     form.target = '_blank';
     form.elements['filename'].value = document.getElementById('filenameInput').value;
     form.elements["size"].value = saveWidth;
@@ -609,20 +530,20 @@ function displayMessages(svg) {
         if (lineno != null) message += ' near ' + lineno;
         switch (category) {
             case 'licence':
-                creditHTML += "<li>" + addLink(message) + "</li>"; 
+                creditHTML += "<li>" + addLink(message) + "</li>";
                 break;
             case 'links':
                 linksHTML += "<li>" + message + "</li>";
                 break;
             case'warning':
                 remarksHTML += "<li><span style='color:orange;'>WARNING</span> " + message + "</li>";
-            break;                
+            break;
             case'legal':
                 remarksHTML += "<li>" + message + "</li>";
-                break;                
+                break;
             case'alert':
                 remarksHTML += "<li><span style='color:red'>" + message + "</span></li>";
-                break;                
+                break;
             default:
                 messageText += message + ' ';
         }
@@ -638,16 +559,16 @@ function displayMessages(svg) {
     }
     if ( linksHTML.length > 0 ) {
         document.getElementById('links').innerHTML = "<h3>Dictionary Links</h3><ul>" +
-            linksHTML + "</ul>";  
+            linksHTML + "</ul>";
     }
     if ( remarksHTML.length > 0 ) {
         document.getElementById('notes').innerHTML = "<h3>Notes</h3><ul>" +
-            remarksHTML + "</ul>";  
+            remarksHTML + "</ul>";
     }
     if ( creditHTML.length > 0 ) {
         document.getElementById('credits').innerHTML = "<h3>Artist Credits</h3><ul>" +
-            creditHTML + "</ul>";  
-    }  
+            creditHTML + "</ul>";
+    }
 }
 
 function setupshield(initial) {
@@ -662,7 +583,7 @@ function setupshield(initial) {
         if (window.innerWidth < 500) {
             formData.set("size",window.innerWidth - 30);
         }
-        requestFileSVG(targetURL,shieldtarget,formData,displayMessages);
+        requestFileSVG(releaseURL,shieldtarget,formData,displayMessages);
 //        shieldCaption.firstChild.nodeValue = "Your shield here";
     }
     if (useEditor == 'yes'){
@@ -671,7 +592,7 @@ function setupshield(initial) {
         blazonEditor = document.getElementById('blazon');
         jQuery('#editorButtons').hide();
     }
-    if (editorLoad != null) { 
+    if (editorLoad != null) {
         loadEditor(editorLoad);
     }
     document.getElementById("suggestButton").addEventListener("click",submitSuggestion);

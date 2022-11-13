@@ -450,6 +450,7 @@
 /catalog/charges/emblem/fleur-de-lys-double-fancy.png
 /catalog/charges/emblem/fleur-de-lys-fancy.png
 /catalog/charges/emblem/fleur-de-lys-florence.png
+/catalog/charges/emblem/fleur-de-lys-quebec.png
 /catalog/charges/emblem/fleur-de-lys.png
 /catalog/charges/emblem/heralds-staff.png
 /catalog/charges/emblem/labyrinth.png
@@ -762,7 +763,13 @@
 /catalog/charges/insect/stag-beetle.png
 /catalog/charges/insect/wasp.png
 /catalog/charges/jewel/crystal.png
+/catalog/charges/jewel/french-cut-gemstone-in-profile.png
+/catalog/charges/jewel/french-cut-gemstone.png
+/catalog/charges/jewel/gemstone.png
+/catalog/charges/jewel/indented-gemstone.png
 /catalog/charges/jewel/orb.png
+/catalog/charges/jewel/ruby.png
+/catalog/charges/jewel/step-cut-gemstone.png
 /catalog/charges/jewel/torque.png
 /catalog/charges/knot/bowen-knot.png
 /catalog/charges/knot/carolingian-knot.png
@@ -815,6 +822,7 @@
 /catalog/charges/lion/lion-statant-guardant.png
 /catalog/charges/lion/lion-statant.png
 /catalog/charges/lion/lion.png
+/catalog/charges/lion/snow-lion.png
 /catalog/charges/livestock/ass-head.png
 /catalog/charges/livestock/ass.png
 /catalog/charges/livestock/bull-head.png
@@ -824,6 +832,8 @@
 /catalog/charges/livestock/bull-winged.png
 /catalog/charges/livestock/bull.png
 /catalog/charges/livestock/calf.png
+/catalog/charges/livestock/cock 2.png
+/catalog/charges/livestock/cock-double-headed.png
 /catalog/charges/livestock/cock-head.png
 /catalog/charges/livestock/cock.png
 /catalog/charges/livestock/cow-head.png
@@ -1291,7 +1301,6 @@
 /catalog/charges/sports/football-helmet.png
 /catalog/charges/sports/soccer-ball.png
 /catalog/charges/sports/tennis-ball.png
-/catalog/charges/sword/arming-sword.png
 /catalog/charges/sword/claymore.png
 /catalog/charges/sword/dagger.png
 /catalog/charges/sword/falchion.png
